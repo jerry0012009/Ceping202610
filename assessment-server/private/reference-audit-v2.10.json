@@ -1,0 +1,2722 @@
+{
+  "version": "2.10",
+  "referenceId": "2.10-synthetic-40-reviewed-centers-widths-v1",
+  "status": "Approved provisional synthetic references; not empirical norms or observed new-form answers.",
+  "references": {
+    "ST1": {
+      "mean": 78,
+      "lower": 54.7,
+      "upper": 99.9
+    },
+    "ST2": {
+      "mean": 72,
+      "lower": 50.3,
+      "upper": 98.7
+    },
+    "ST3": {
+      "mean": 43,
+      "lower": 35.5,
+      "upper": 50.5
+    },
+    "PF1": {
+      "mean": 62,
+      "lower": 42.6,
+      "upper": 81.4
+    },
+    "PF2": {
+      "mean": 51,
+      "lower": 29.4,
+      "upper": 72.6
+    },
+    "PF3": {
+      "mean": 74,
+      "lower": 54.1,
+      "upper": 93.9
+    },
+    "PF4": {
+      "mean": 53,
+      "lower": 33.1,
+      "upper": 72.9
+    },
+    "PF5": {
+      "mean": 47,
+      "lower": 30.3,
+      "upper": 63.7
+    },
+    "PF6": {
+      "mean": 72,
+      "lower": 55,
+      "upper": 89
+    },
+    "PF7": {
+      "mean": 74,
+      "lower": 60.4,
+      "upper": 87.6
+    },
+    "SJ1": {
+      "mean": 90,
+      "lower": 82.5,
+      "upper": 99.3
+    },
+    "SJ2": {
+      "mean": 87,
+      "lower": 77.3,
+      "upper": 99.6
+    },
+    "SJ3": {
+      "mean": 79,
+      "lower": 68,
+      "upper": 92.7
+    },
+    "MH1": {
+      "mean": 25,
+      "lower": 12.3,
+      "upper": 37.7
+    },
+    "MH2": {
+      "mean": 21,
+      "lower": 10.5,
+      "upper": 31.5
+    },
+    "MH3": {
+      "mean": 31,
+      "lower": 18.5,
+      "upper": 43.5
+    },
+    "MH4": {
+      "mean": 30,
+      "lower": 19,
+      "upper": 41
+    },
+    "MH5": {
+      "mean": 35,
+      "lower": 26.9,
+      "upper": 43.1
+    },
+    "RV1": {
+      "mean": 49,
+      "lower": 16.7,
+      "upper": 81.3
+    },
+    "RV2": {
+      "mean": 36.75,
+      "lower": 29.25,
+      "upper": 44.25
+    },
+    "RV3": {
+      "mean": 100,
+      "lower": 92.5,
+      "upper": 100
+    },
+    "MH6": {
+      "mean": 27,
+      "lower": 15.2,
+      "upper": 38.8
+    },
+    "ST": {
+      "mean": 70,
+      "lower": 55.8,
+      "upper": 84.2
+    },
+    "PF": {
+      "mean": 62,
+      "lower": 54.5,
+      "upper": 69.5
+    },
+    "MH": {
+      "mean": 27,
+      "lower": 16.7,
+      "upper": 37.3
+    },
+    "RV": {
+      "mean": 85,
+      "lower": 75.3,
+      "upper": 94.7
+    },
+    "WV_STABILITY": {
+      "mean": 37,
+      "lower": 19.2,
+      "upper": 54.8
+    },
+    "WV_GROWTH": {
+      "mean": 68,
+      "lower": 48.7,
+      "upper": 87.3
+    },
+    "WV_REWARD": {
+      "mean": 27,
+      "lower": 13.6,
+      "upper": 40.4
+    }
+  },
+  "referenceChanges": {
+    "ST1": {
+      "old": {
+        "mean": 78,
+        "lower": 54.7,
+        "upper": 99.9
+      },
+      "proposed": {
+        "mean": 78,
+        "lower": 54.7,
+        "upper": 99.9
+      },
+      "centerShift": 0,
+      "centerDirectionUncertain": true,
+      "rawSDRatio": 1.0442420136112491,
+      "appliedWidthRatio": 1,
+      "widthRatioUncertainty": [
+        0.88779701292859,
+        1.101967170612488
+      ],
+      "widthDirectionUncertain": true,
+      "lowerHalfwidthBefore": 23.299999999999997,
+      "upperHalfwidthBefore": 21.900000000000006,
+      "upperCap": 99.9,
+      "method": "Center retains current manual adjustment plus rounded synthetic mean shift, except uncertainty crossing zero holds center; each old asymmetric halfwidth multiplied by primary SD ratio, limited to +/-10%, floored at 7.5, bounds rounded to 0.1; ceiling 99.9 preserved.",
+      "warning": "No width change adopted. Primary-case SD is retained only as sensitivity evidence.",
+      "primaryArithmeticCandidate": {
+        "mean": 78,
+        "lower": 53.7,
+        "upper": 99.9
+      },
+      "rootDecision": "Preserve old center and bounds: alternative deleted-answer SD interval crosses 1, so width direction is not robust."
+    },
+    "PF2": {
+      "old": {
+        "mean": 51,
+        "lower": 29,
+        "upper": 73
+      },
+      "proposed": {
+        "mean": 51,
+        "lower": 29.4,
+        "upper": 72.6
+      },
+      "centerShift": 0,
+      "centerDirectionUncertain": false,
+      "rawSDRatio": 0.9813895719105075,
+      "appliedWidthRatio": 0.9813895719105075,
+      "widthRatioUncertainty": [
+        0.9813895719105067,
+        0.9813895719105067
+      ],
+      "widthDirectionUncertain": false,
+      "lowerHalfwidthBefore": 22,
+      "upperHalfwidthBefore": 22,
+      "upperCap": 100,
+      "method": "Center retains current manual adjustment plus rounded synthetic mean shift, except uncertainty crossing zero holds center; each old asymmetric halfwidth multiplied by primary SD ratio, limited to +/-10%, floored at 7.5, bounds rounded to 0.1; ceiling 99.9 preserved.",
+      "warning": "",
+      "rootDecision": "Root approved exact proposed reference; provisional synthetic-model setting, not empirical population norm."
+    },
+    "PF5": {
+      "old": {
+        "mean": 46,
+        "lower": 28.8,
+        "upper": 63.2
+      },
+      "proposed": {
+        "mean": 47,
+        "lower": 30.3,
+        "upper": 63.7
+      },
+      "centerShift": 1,
+      "centerDirectionUncertain": false,
+      "rawSDRatio": 0.9734391621123469,
+      "appliedWidthRatio": 0.9734391621123469,
+      "widthRatioUncertainty": [
+        0.906884690749089,
+        0.9839979242621398
+      ],
+      "widthDirectionUncertain": false,
+      "lowerHalfwidthBefore": 17.2,
+      "upperHalfwidthBefore": 17.200000000000003,
+      "upperCap": 100,
+      "method": "Center retains current manual adjustment plus rounded synthetic mean shift, except uncertainty crossing zero holds center; each old asymmetric halfwidth multiplied by primary SD ratio, limited to +/-10%, floored at 7.5, bounds rounded to 0.1; ceiling 99.9 preserved.",
+      "warning": "",
+      "rootDecision": "Root approved exact proposed reference; provisional synthetic-model setting, not empirical population norm."
+    },
+    "PF7": {
+      "old": {
+        "mean": 74,
+        "lower": 59.9,
+        "upper": 88.1
+      },
+      "proposed": {
+        "mean": 74,
+        "lower": 60.4,
+        "upper": 87.6
+      },
+      "centerShift": 0,
+      "centerDirectionUncertain": false,
+      "rawSDRatio": 0.9657528553591946,
+      "appliedWidthRatio": 0.9657528553591946,
+      "widthRatioUncertainty": [
+        0.9657528553592022,
+        0.9657528553592022
+      ],
+      "widthDirectionUncertain": false,
+      "lowerHalfwidthBefore": 14.100000000000001,
+      "upperHalfwidthBefore": 14.099999999999994,
+      "upperCap": 100,
+      "method": "Center retains current manual adjustment plus rounded synthetic mean shift, except uncertainty crossing zero holds center; each old asymmetric halfwidth multiplied by primary SD ratio, limited to +/-10%, floored at 7.5, bounds rounded to 0.1; ceiling 99.9 preserved.",
+      "warning": "",
+      "rootDecision": "Root approved exact proposed reference; provisional synthetic-model setting, not empirical population norm."
+    },
+    "SJ1": {
+      "old": {
+        "mean": 90,
+        "lower": 82.5,
+        "upper": 99.9
+      },
+      "proposed": {
+        "mean": 90,
+        "lower": 82.5,
+        "upper": 99.3
+      },
+      "centerShift": 0,
+      "centerDirectionUncertain": true,
+      "rawSDRatio": 1.0378401804843438,
+      "appliedWidthRatio": 1,
+      "widthRatioUncertainty": [
+        0.854818488789159,
+        1.069970628478538
+      ],
+      "widthDirectionUncertain": true,
+      "lowerHalfwidthBefore": 7.5,
+      "upperHalfwidthBefore": 9.900000000000006,
+      "upperCap": 99.3,
+      "method": "Center retains current manual adjustment plus rounded synthetic mean shift, except uncertainty crossing zero holds center; each old asymmetric halfwidth multiplied by primary SD ratio, limited to +/-10%, floored at 7.5, bounds rounded to 0.1; ceiling 99.9 preserved.",
+      "warning": "Boundary exception is based on an attainable score ceiling, not a claim about empirical distribution.",
+      "primaryArithmeticCandidate": {
+        "mean": 90,
+        "lower": 82.2,
+        "upper": 99.9
+      },
+      "rootDecision": "Preserve old center/lower bound due to unstable answer-choice sensitivity; root explicitly approves upper=99.3 so it stays below the new theoretical maximum 99.393939. Original v2.9 remains upper=99.9."
+    },
+    "SJ2": {
+      "old": {
+        "mean": 87,
+        "lower": 77,
+        "upper": 99.9
+      },
+      "proposed": {
+        "mean": 87,
+        "lower": 77.3,
+        "upper": 99.6
+      },
+      "centerShift": 0,
+      "centerDirectionUncertain": false,
+      "rawSDRatio": 0.9733259036791965,
+      "appliedWidthRatio": 0.9733259036791965,
+      "widthRatioUncertainty": [
+        0.9733259036791553,
+        0.9733259036791553
+      ],
+      "widthDirectionUncertain": false,
+      "lowerHalfwidthBefore": 10,
+      "upperHalfwidthBefore": 12.900000000000006,
+      "upperCap": 99.9,
+      "method": "Center retains current manual adjustment plus rounded synthetic mean shift, except uncertainty crossing zero holds center; each old asymmetric halfwidth multiplied by primary SD ratio, limited to +/-10%, floored at 7.5, bounds rounded to 0.1; ceiling 99.9 preserved.",
+      "warning": "",
+      "rootDecision": "Root approved exact proposed reference; provisional synthetic-model setting, not empirical population norm."
+    },
+    "SJ3": {
+      "old": {
+        "mean": 77,
+        "lower": 65.1,
+        "upper": 91.9
+      },
+      "proposed": {
+        "mean": 79,
+        "lower": 68,
+        "upper": 92.7
+      },
+      "centerShift": 2,
+      "centerDirectionUncertain": false,
+      "rawSDRatio": 0.9210428837105505,
+      "appliedWidthRatio": 0.9210428837105505,
+      "widthRatioUncertainty": [
+        0.904880747545049,
+        0.9710832197834119
+      ],
+      "widthDirectionUncertain": false,
+      "lowerHalfwidthBefore": 11.900000000000006,
+      "upperHalfwidthBefore": 14.900000000000006,
+      "upperCap": 100,
+      "method": "Center retains current manual adjustment plus rounded synthetic mean shift, except uncertainty crossing zero holds center; each old asymmetric halfwidth multiplied by primary SD ratio, limited to +/-10%, floored at 7.5, bounds rounded to 0.1; ceiling 99.9 preserved.",
+      "warning": "",
+      "rootDecision": "Root approved exact proposed reference; provisional synthetic-model setting, not empirical population norm."
+    },
+    "MH3": {
+      "old": {
+        "mean": 33,
+        "lower": 21.3,
+        "upper": 44.7
+      },
+      "proposed": {
+        "mean": 31,
+        "lower": 18.5,
+        "upper": 43.5
+      },
+      "centerShift": -2,
+      "centerDirectionUncertain": false,
+      "rawSDRatio": 1.0723223428387088,
+      "appliedWidthRatio": 1.0723223428387088,
+      "widthRatioUncertainty": [
+        1.0723223428387065,
+        1.0723223428387065
+      ],
+      "widthDirectionUncertain": false,
+      "lowerHalfwidthBefore": 11.7,
+      "upperHalfwidthBefore": 11.700000000000003,
+      "upperCap": 100,
+      "method": "Center retains current manual adjustment plus rounded synthetic mean shift, except uncertainty crossing zero holds center; each old asymmetric halfwidth multiplied by primary SD ratio, limited to +/-10%, floored at 7.5, bounds rounded to 0.1; ceiling 99.9 preserved.",
+      "warning": "",
+      "rootDecision": "Root approved exact proposed reference; provisional synthetic-model setting, not empirical population norm."
+    },
+    "ST": {
+      "old": {
+        "mean": 70,
+        "lower": 55.8,
+        "upper": 84.2
+      },
+      "proposed": {
+        "mean": 70,
+        "lower": 55.8,
+        "upper": 84.2
+      },
+      "centerShift": 0,
+      "centerDirectionUncertain": true,
+      "rawSDRatio": 1.0284750946715941,
+      "appliedWidthRatio": 1,
+      "widthRatioUncertainty": [
+        0.935876081703126,
+        1.0340188379845887
+      ],
+      "widthDirectionUncertain": true,
+      "lowerHalfwidthBefore": 14.200000000000003,
+      "upperHalfwidthBefore": 14.200000000000003,
+      "upperCap": 100,
+      "method": "Center retains current manual adjustment plus rounded synthetic mean shift, except uncertainty crossing zero holds center; each old asymmetric halfwidth multiplied by primary SD ratio, limited to +/-10%, floored at 7.5, bounds rounded to 0.1; ceiling 99.9 preserved.",
+      "warning": "No width change adopted. Primary-case SD is retained only as sensitivity evidence.",
+      "primaryArithmeticCandidate": {
+        "mean": 70,
+        "lower": 55.4,
+        "upper": 84.6
+      },
+      "rootDecision": "Preserve old center and bounds: alternative deleted-answer SD interval crosses 1, so width direction is not robust."
+    },
+    "PF": {
+      "old": {
+        "mean": 62,
+        "lower": 54.5,
+        "upper": 69.5
+      },
+      "proposed": {
+        "mean": 62,
+        "lower": 54.5,
+        "upper": 69.5
+      },
+      "centerShift": 0,
+      "centerDirectionUncertain": false,
+      "rawSDRatio": 0.9797186864680232,
+      "appliedWidthRatio": 0.9797186864680232,
+      "widthRatioUncertainty": [
+        0.9797186864680115,
+        0.9995936194189995
+      ],
+      "widthDirectionUncertain": false,
+      "lowerHalfwidthBefore": 7.5,
+      "upperHalfwidthBefore": 7.5,
+      "upperCap": 100,
+      "method": "Center retains current manual adjustment plus rounded synthetic mean shift, except uncertainty crossing zero holds center; each old asymmetric halfwidth multiplied by primary SD ratio, limited to +/-10%, floored at 7.5, bounds rounded to 0.1; ceiling 99.9 preserved.",
+      "warning": "",
+      "rootDecision": "Root approved exact proposed reference; provisional synthetic-model setting, not empirical population norm."
+    },
+    "MH": {
+      "old": {
+        "mean": 27,
+        "lower": 16.8,
+        "upper": 37.2
+      },
+      "proposed": {
+        "mean": 27,
+        "lower": 16.7,
+        "upper": 37.3
+      },
+      "centerShift": 0,
+      "centerDirectionUncertain": false,
+      "rawSDRatio": 1.0086131284984008,
+      "appliedWidthRatio": 1.0086131284984008,
+      "widthRatioUncertainty": [
+        1.008613128498401,
+        1.008613128498401
+      ],
+      "widthDirectionUncertain": false,
+      "lowerHalfwidthBefore": 10.2,
+      "upperHalfwidthBefore": 10.200000000000003,
+      "upperCap": 100,
+      "method": "Center retains current manual adjustment plus rounded synthetic mean shift, except uncertainty crossing zero holds center; each old asymmetric halfwidth multiplied by primary SD ratio, limited to +/-10%, floored at 7.5, bounds rounded to 0.1; ceiling 99.9 preserved.",
+      "warning": "",
+      "rootDecision": "Root approved exact proposed reference; provisional synthetic-model setting, not empirical population norm."
+    }
+  },
+  "mappingAdditions": [
+    {
+      "id": "PH04",
+      "number": 85,
+      "code": "MH3",
+      "weight": 40,
+      "scores": [
+        0,
+        25,
+        50,
+        75,
+        100
+      ],
+      "oldDimensionWeight": 60,
+      "newDimensionWeight": 100,
+      "newDimensionShare": 0.4,
+      "judgment": false,
+      "pool": "L",
+      "originalMappingsRetained": {
+        "MH2": [
+          0,
+          25,
+          50,
+          75,
+          100
+        ]
+      },
+      "originalWeightsRetained": {
+        "MH2": 40
+      }
+    },
+    {
+      "id": "QB099",
+      "number": 52,
+      "code": "PF5",
+      "weight": 30,
+      "scores": [
+        100,
+        75,
+        50,
+        25,
+        0
+      ],
+      "oldDimensionWeight": 460,
+      "newDimensionWeight": 490,
+      "newDimensionShare": 0.061224489795918366,
+      "judgment": false,
+      "pool": "L",
+      "originalMappingsRetained": {
+        "PF6": [
+          100,
+          75,
+          50,
+          25,
+          0
+        ]
+      },
+      "originalWeightsRetained": {
+        "PF6": 60
+      }
+    },
+    {
+      "id": "QB237",
+      "number": 34,
+      "code": "SJ3",
+      "weight": 30,
+      "scores": [
+        100,
+        60
+      ],
+      "oldDimensionWeight": 360,
+      "newDimensionWeight": 390,
+      "newDimensionShare": 0.07692307692307693,
+      "judgment": false,
+      "pool": "F",
+      "originalMappingsRetained": {
+        "PF1": [
+          100,
+          0
+        ],
+        "PF2": [
+          0,
+          100
+        ]
+      },
+      "originalWeightsRetained": {
+        "PF1": 60,
+        "PF2": 60
+      }
+    },
+    {
+      "id": "QB133",
+      "number": 25,
+      "code": "SJ2",
+      "weight": 30,
+      "scores": [
+        85,
+        100,
+        60
+      ],
+      "oldDimensionWeight": 255,
+      "newDimensionWeight": 285,
+      "newDimensionShare": 0.10526315789473684,
+      "judgment": false,
+      "pool": "L",
+      "originalMappingsRetained": {
+        "PF5": [
+          50,
+          100,
+          0
+        ],
+        "SJ1": [
+          100,
+          100,
+          66.66666666666667
+        ]
+      },
+      "originalWeightsRetained": {
+        "PF5": 40,
+        "SJ1": 30
+      }
+    },
+    {
+      "id": "QB170",
+      "number": 28,
+      "code": "PF7",
+      "weight": 20,
+      "scores": [
+        85,
+        70,
+        70
+      ],
+      "oldDimensionWeight": 430,
+      "newDimensionWeight": 450,
+      "newDimensionShare": 0.044444444444444446,
+      "judgment": false,
+      "pool": "L",
+      "originalMappingsRetained": {
+        "PF6": [
+          100,
+          80,
+          40
+        ],
+        "PF2": [
+          40,
+          100,
+          40
+        ]
+      },
+      "originalWeightsRetained": {
+        "PF6": 20,
+        "PF2": 15
+      }
+    },
+    {
+      "id": "QB195",
+      "number": 29,
+      "code": "SJ1",
+      "weight": 20,
+      "scores": [
+        75,
+        90
+      ],
+      "oldDimensionWeight": 310,
+      "newDimensionWeight": 330,
+      "newDimensionShare": 0.06060606060606061,
+      "judgment": false,
+      "pool": "L",
+      "originalMappingsRetained": {
+        "PF5": [
+          50,
+          100
+        ]
+      },
+      "originalWeightsRetained": {
+        "PF5": 40
+      }
+    },
+    {
+      "id": "QB206",
+      "number": 72,
+      "code": "PF2",
+      "weight": 15,
+      "scores": [
+        75,
+        65
+      ],
+      "oldDimensionWeight": 700,
+      "newDimensionWeight": 715,
+      "newDimensionShare": 0.02097902097902098,
+      "judgment": false,
+      "pool": "F",
+      "originalMappingsRetained": {
+        "PF6": [
+          0,
+          100
+        ]
+      },
+      "originalWeightsRetained": {
+        "PF6": 20
+      }
+    }
+  ],
+  "cohort": "40 synthetic fixtures = 10 personas x four response strategies; not real responses or empirical human norms.",
+  "mixture": {
+    "H": 0.2,
+    "D": 0.3,
+    "S": 0.3,
+    "Z": 0.2
+  },
+  "semanticRecode": {
+    "QB246": {
+      "B": "D",
+      "C": "A"
+    },
+    "QB185": {
+      "C": "A",
+      "D": "B"
+    }
+  },
+  "statistics": {
+    "ST1": {
+      "raw": {
+        "before": {
+          "mean": 85.83999999999999,
+          "sd": 24.496007838013114,
+          "min": 16,
+          "max": 100,
+          "byMode": {
+            "H": 71.8,
+            "D": 90.4,
+            "S": 100,
+            "Z": 71.8
+          }
+        },
+        "after": {
+          "mean": 86.44,
+          "sd": 25.41114716025233,
+          "min": 16,
+          "max": 100,
+          "byMode": {
+            "H": 72.4,
+            "D": 91.6,
+            "S": 100,
+            "Z": 72.4
+          }
+        },
+        "meanDelta": 0.6000000000000085,
+        "sdRatio": 1.0373587128274468,
+        "maxIndividualChange": 6
+      },
+      "reference": {
+        "before": {
+          "mean": 83.14737704918032,
+          "sd": 23.253311467296623,
+          "min": 16,
+          "max": 100,
+          "byMode": {
+            "H": 71.8,
+            "D": 90.4,
+            "S": 91.0245901639344,
+            "Z": 71.8
+          }
+        },
+        "after": {
+          "mean": 83.74737704918032,
+          "sd": 24.282084789739375,
+          "min": 16,
+          "max": 100,
+          "byMode": {
+            "H": 72.4,
+            "D": 91.6,
+            "S": 91.0245901639344,
+            "Z": 72.4
+          }
+        },
+        "meanDelta": 0.5999999999999943,
+        "sdRatio": 1.0442420136112491,
+        "maxIndividualChange": 6
+      }
+    },
+    "ST2": {
+      "raw": {
+        "before": {
+          "mean": 79.53125,
+          "sd": 21.956878015498926,
+          "min": 9.375,
+          "max": 100,
+          "byMode": {
+            "H": 67.8125,
+            "D": 89.6875,
+            "S": 85,
+            "Z": 67.8125
+          }
+        },
+        "after": {
+          "mean": 79.53125,
+          "sd": 21.956878015498926,
+          "min": 9.375,
+          "max": 100,
+          "byMode": {
+            "H": 67.8125,
+            "D": 89.6875,
+            "S": 85,
+            "Z": 67.8125
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      },
+      "reference": {
+        "before": {
+          "mean": 76.83862704918032,
+          "sd": 21.669589401399186,
+          "min": 9.375,
+          "max": 91.02459016393442,
+          "byMode": {
+            "H": 67.8125,
+            "D": 89.6875,
+            "S": 76.0245901639344,
+            "Z": 67.8125
+          }
+        },
+        "after": {
+          "mean": 76.83862704918032,
+          "sd": 21.669589401399186,
+          "min": 9.375,
+          "max": 91.02459016393442,
+          "byMode": {
+            "H": 67.8125,
+            "D": 89.6875,
+            "S": 76.0245901639344,
+            "Z": 67.8125
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      }
+    },
+    "ST3": {
+      "raw": {
+        "before": {
+          "mean": 45.20980083857442,
+          "sd": 5.936610014292706,
+          "min": 35.660377358490564,
+          "max": 59.5545073375262,
+          "byMode": {
+            "H": 45.94392033542977,
+            "D": 44.010482180293494,
+            "S": 45.43029350104822,
+            "Z": 45.94392033542977
+          }
+        },
+        "after": {
+          "mean": 45.20980083857442,
+          "sd": 5.936610014292706,
+          "min": 35.660377358490564,
+          "max": 59.5545073375262,
+          "byMode": {
+            "H": 45.94392033542977,
+            "D": 44.010482180293494,
+            "S": 45.43029350104822,
+            "Z": 45.94392033542977
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      },
+      "reference": {
+        "before": {
+          "mean": 42.51717788775475,
+          "sd": 7.139545322861525,
+          "min": 28.78664467127195,
+          "max": 59.5545073375262,
+          "byMode": {
+            "H": 45.94392033542977,
+            "D": 44.010482180293494,
+            "S": 36.45488366498265,
+            "Z": 45.94392033542977
+          }
+        },
+        "after": {
+          "mean": 42.51717788775475,
+          "sd": 7.139545322861525,
+          "min": 28.78664467127195,
+          "max": 59.5545073375262,
+          "byMode": {
+            "H": 45.94392033542977,
+            "D": 44.010482180293494,
+            "S": 36.45488366498265,
+            "Z": 45.94392033542977
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      }
+    },
+    "PF1": {
+      "raw": {
+        "before": {
+          "mean": 65.06122448979592,
+          "sd": 18.831504790590973,
+          "min": 16.3265306122449,
+          "max": 93.87755102040816,
+          "byMode": {
+            "H": 64.89795918367346,
+            "D": 64.69387755102042,
+            "S": 63.877551020408156,
+            "Z": 67.55102040816328
+          }
+        },
+        "after": {
+          "mean": 65.06122448979592,
+          "sd": 18.831504790590973,
+          "min": 16.3265306122449,
+          "max": 93.87755102040816,
+          "byMode": {
+            "H": 64.89795918367346,
+            "D": 64.69387755102042,
+            "S": 63.877551020408156,
+            "Z": 67.55102040816328
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      },
+      "reference": {
+        "before": {
+          "mean": 62.368601538976236,
+          "sd": 19.440090574384485,
+          "min": 16.3265306122449,
+          "max": 93.87755102040816,
+          "byMode": {
+            "H": 64.89795918367346,
+            "D": 64.69387755102042,
+            "S": 54.90214118434259,
+            "Z": 67.55102040816328
+          }
+        },
+        "after": {
+          "mean": 62.368601538976236,
+          "sd": 19.440090574384485,
+          "min": 16.3265306122449,
+          "max": 93.87755102040816,
+          "byMode": {
+            "H": 64.89795918367346,
+            "D": 64.69387755102042,
+            "S": 54.90214118434259,
+            "Z": 67.55102040816328
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      }
+    },
+    "PF2": {
+      "raw": {
+        "before": {
+          "mean": 53.406428571428584,
+          "sd": 22.017740284709006,
+          "min": 12.857142857142858,
+          "max": 88.57142857142857,
+          "byMode": {
+            "H": 50.635714285714286,
+            "D": 54.55,
+            "S": 55.957142857142856,
+            "Z": 50.635714285714286
+          }
+        },
+        "after": {
+          "mean": 53.79020979020979,
+          "sd": 21.601319366793987,
+          "min": 13.951048951048952,
+          "max": 88.2867132867133,
+          "byMode": {
+            "H": 51.08391608391609,
+            "D": 54.91608391608391,
+            "S": 56.272727272727266,
+            "Z": 51.08391608391609
+          }
+        },
+        "meanDelta": 0.3837812187812091,
+        "sdRatio": 0.9810870274364978,
+        "maxIndividualChange": 1.1238761238761263
+      },
+      "reference": {
+        "before": {
+          "mean": 51.25233021077283,
+          "sd": 22.014061439590545,
+          "min": 12.857142857142858,
+          "max": 88.57142857142857,
+          "byMode": {
+            "H": 50.635714285714286,
+            "D": 54.55,
+            "S": 48.7768149882904,
+            "Z": 50.635714285714286
+          }
+        },
+        "after": {
+          "mean": 51.63611142955406,
+          "sd": 21.604370332211374,
+          "min": 13.951048951048952,
+          "max": 88.2867132867133,
+          "byMode": {
+            "H": 51.08391608391609,
+            "D": 54.91608391608391,
+            "S": 49.092399403874815,
+            "Z": 51.08391608391609
+          }
+        },
+        "meanDelta": 0.3837812187812304,
+        "sdRatio": 0.9813895719105075,
+        "maxIndividualChange": 1.1238761238761263
+      }
+    },
+    "PF3": {
+      "raw": {
+        "before": {
+          "mean": 76.20714114285713,
+          "sd": 21.248939144132972,
+          "min": 17.142857142857142,
+          "max": 91.42857142857143,
+          "byMode": {
+            "H": 48.21428428571429,
+            "D": 71.21428,
+            "S": 91.42857142857143,
+            "Z": 88.85714428571428
+          }
+        },
+        "after": {
+          "mean": 76.20714114285713,
+          "sd": 21.248939144132972,
+          "min": 17.142857142857142,
+          "max": 91.42857142857143,
+          "byMode": {
+            "H": 48.21428428571429,
+            "D": 71.21428,
+            "S": 91.42857142857143,
+            "Z": 88.85714428571428
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      },
+      "reference": {
+        "before": {
+          "mean": 74.0530427822014,
+          "sd": 19.91902335568607,
+          "min": 17.142857142857142,
+          "max": 91.42857142857143,
+          "byMode": {
+            "H": 48.21428428571429,
+            "D": 71.21428,
+            "S": 84.24824355971897,
+            "Z": 88.85714428571428
+          }
+        },
+        "after": {
+          "mean": 74.0530427822014,
+          "sd": 19.91902335568607,
+          "min": 17.142857142857142,
+          "max": 91.42857142857143,
+          "byMode": {
+            "H": 48.21428428571429,
+            "D": 71.21428,
+            "S": 84.24824355971897,
+            "Z": 88.85714428571428
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      }
+    },
+    "PF4": {
+      "raw": {
+        "before": {
+          "mean": 53.663828765957454,
+          "sd": 20.294653449565267,
+          "min": 19.308514893617023,
+          "max": 91.48936170212765,
+          "byMode": {
+            "H": 46.228724680851066,
+            "D": 53.80850978723404,
+            "S": 63.04254893617021,
+            "Z": 46.81383106382979
+          }
+        },
+        "after": {
+          "mean": 53.663828765957454,
+          "sd": 20.294653449565267,
+          "min": 19.308514893617023,
+          "max": 91.48936170212765,
+          "byMode": {
+            "H": 46.228724680851066,
+            "D": 53.80850978723404,
+            "S": 63.04254893617021,
+            "Z": 46.81383106382979
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      },
+      "reference": {
+        "before": {
+          "mean": 52.58677958562959,
+          "sd": 19.858927994235206,
+          "min": 19.308514893617023,
+          "max": 91.48936170212765,
+          "byMode": {
+            "H": 46.228724680851066,
+            "D": 53.80850978723404,
+            "S": 59.452385001743984,
+            "Z": 46.81383106382979
+          }
+        },
+        "after": {
+          "mean": 52.58677958562959,
+          "sd": 19.858927994235206,
+          "min": 19.308514893617023,
+          "max": 91.48936170212765,
+          "byMode": {
+            "H": 46.228724680851066,
+            "D": 53.80850978723404,
+            "S": 59.452385001743984,
+            "Z": 46.81383106382979
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      }
+    },
+    "PF5": {
+      "raw": {
+        "before": {
+          "mean": 47.50217391304348,
+          "sd": 16.60592097810871,
+          "min": 28.91304347826087,
+          "max": 96.73913043478261,
+          "byMode": {
+            "H": 52.67391304347825,
+            "D": 44.76086956521739,
+            "S": 43.34782608695652,
+            "Z": 52.67391304347825
+          }
+        },
+        "after": {
+          "mean": 48.63979591836735,
+          "sd": 16.334685813978773,
+          "min": 30.20408163265306,
+          "max": 97.95918367346938,
+          "byMode": {
+            "H": 52.40816326530612,
+            "D": 45.744897959183675,
+            "S": 46.51020408163266,
+            "Z": 52.40816326530612
+          }
+        },
+        "meanDelta": 1.1376220053238697,
+        "sdRatio": 0.9836663582533302,
+        "maxIndividualChange": 3.8198757763975166
+      },
+      "reference": {
+        "before": {
+          "mean": 45.88660014255167,
+          "sd": 17.18342531954204,
+          "min": 28.91304347826087,
+          "max": 96.73913043478261,
+          "byMode": {
+            "H": 52.67391304347825,
+            "D": 44.76086956521739,
+            "S": 37.96258018531718,
+            "Z": 52.67391304347825
+          }
+        },
+        "after": {
+          "mean": 47.02422214787554,
+          "sd": 16.72701914527509,
+          "min": 30.20408163265306,
+          "max": 97.95918367346938,
+          "byMode": {
+            "H": 52.40816326530612,
+            "D": 45.744897959183675,
+            "S": 41.124958179993314,
+            "Z": 52.40816326530612
+          }
+        },
+        "meanDelta": 1.1376220053238697,
+        "sdRatio": 0.9734391621123469,
+        "maxIndividualChange": 3.8198757763975166
+      }
+    },
+    "PF6": {
+      "raw": {
+        "before": {
+          "mean": 74.3898134074074,
+          "sd": 18.782134405775846,
+          "min": 22.962962962962962,
+          "max": 98.61111111111111,
+          "byMode": {
+            "H": 59.083331111111114,
+            "D": 74.48148,
+            "S": 91.87962962962963,
+            "Z": 63.32407148148148
+          }
+        },
+        "after": {
+          "mean": 74.3898134074074,
+          "sd": 18.782134405775846,
+          "min": 22.962962962962962,
+          "max": 98.61111111111111,
+          "byMode": {
+            "H": 59.083331111111114,
+            "D": 74.48148,
+            "S": 91.87962962962963,
+            "Z": 63.32407148148148
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      },
+      "reference": {
+        "before": {
+          "mean": 72.23571504675168,
+          "sd": 16.977808948023796,
+          "min": 22.962962962962962,
+          "max": 94.16666666666667,
+          "byMode": {
+            "H": 59.083331111111114,
+            "D": 74.48148,
+            "S": 84.69930176077716,
+            "Z": 63.32407148148148
+          }
+        },
+        "after": {
+          "mean": 72.23571504675168,
+          "sd": 16.977808948023796,
+          "min": 22.962962962962962,
+          "max": 94.16666666666667,
+          "byMode": {
+            "H": 59.083331111111114,
+            "D": 74.48148,
+            "S": 84.69930176077716,
+            "Z": 63.32407148148148
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      }
+    },
+    "PF7": {
+      "raw": {
+        "before": {
+          "mean": 75.6767441860465,
+          "sd": 14.542076173928896,
+          "min": 35.23255813953488,
+          "max": 91.62790697674419,
+          "byMode": {
+            "H": 68.52325581395348,
+            "D": 79.6046511627907,
+            "S": 80.93023255813952,
+            "Z": 69.05813953488372
+          }
+        },
+        "after": {
+          "mean": 75.80444444444444,
+          "sd": 14.08045769458113,
+          "min": 36.77777777777778,
+          "max": 91.33333333333333,
+          "byMode": {
+            "H": 68.78888888888889,
+            "D": 79.51111111111109,
+            "S": 81.11111111111111,
+            "Z": 69.30000000000001
+          }
+        },
+        "meanDelta": 0.12770025839793675,
+        "sdRatio": 0.9682563566696647,
+        "maxIndividualChange": 1.545219638242898
+      },
+      "reference": {
+        "before": {
+          "mean": 73.52264582539078,
+          "sd": 14.130318850335167,
+          "min": 35.23255813953488,
+          "max": 91.62790697674419,
+          "byMode": {
+            "H": 68.52325581395348,
+            "D": 79.6046511627907,
+            "S": 73.74990468928708,
+            "Z": 69.05813953488372
+          }
+        },
+        "after": {
+          "mean": 73.65034608378869,
+          "sd": 13.64639577684704,
+          "min": 36.77777777777778,
+          "max": 91.33333333333333,
+          "byMode": {
+            "H": 68.78888888888889,
+            "D": 79.51111111111109,
+            "S": 73.93078324225867,
+            "Z": 69.30000000000001
+          }
+        },
+        "meanDelta": 0.12770025839790833,
+        "sdRatio": 0.9657528553591946,
+        "maxIndividualChange": 1.545219638242898
+      }
+    },
+    "SJ1": {
+      "raw": {
+        "before": {
+          "mean": 94.9032258064516,
+          "sd": 6.157489116225963,
+          "min": 80.64516129032258,
+          "max": 100,
+          "byMode": {
+            "H": 91.61290322580645,
+            "D": 98.70967741935485,
+            "S": 95.48387096774192,
+            "Z": 91.61290322580645
+          }
+        },
+        "after": {
+          "mean": 93.83030303030301,
+          "sd": 6.419598092514939,
+          "min": 81.21212121212122,
+          "max": 99.39393939393939,
+          "byMode": {
+            "H": 90.03030303030303,
+            "D": 97.57575757575758,
+            "S": 95.15151515151516,
+            "Z": 90.03030303030303
+          }
+        },
+        "meanDelta": -1.0729227761485873,
+        "sdRatio": 1.0425675094736713,
+        "maxIndividualChange": 4.349951124144681
+      },
+      "reference": {
+        "before": {
+          "mean": 94.74687995769433,
+          "sd": 6.147368978050058,
+          "min": 80.64516129032258,
+          "max": 100,
+          "byMode": {
+            "H": 91.61290322580645,
+            "D": 98.70967741935485,
+            "S": 94.96271813855103,
+            "Z": 91.61290322580645
+          }
+        },
+        "after": {
+          "mean": 93.58551912568305,
+          "sd": 6.379986529683328,
+          "min": 81.21212121212122,
+          "max": 99.39393939393939,
+          "byMode": {
+            "H": 90.03030303030303,
+            "D": 97.57575757575758,
+            "S": 94.33556880278192,
+            "Z": 90.03030303030303
+          }
+        },
+        "meanDelta": -1.1613608320112832,
+        "sdRatio": 1.0378401804843438,
+        "maxIndividualChange": 4.349951124144681
+      }
+    },
+    "SJ2": {
+      "raw": {
+        "before": {
+          "mean": 92.70784313725491,
+          "sd": 10.228904361126158,
+          "min": 56.76470588235294,
+          "max": 100,
+          "byMode": {
+            "H": 87.25490196078434,
+            "D": 95.82352941176472,
+            "S": 96.86274509803923,
+            "Z": 87.25490196078434
+          }
+        },
+        "after": {
+          "mean": 93.00701754385965,
+          "sd": 9.989799968789956,
+          "min": 57.10526315789474,
+          "max": 100,
+          "byMode": {
+            "H": 87.54385964912282,
+            "D": 96.10526315789473,
+            "S": 97.19298245614036,
+            "Z": 87.54385964912282
+          }
+        },
+        "meanDelta": 0.2991744066047346,
+        "sdRatio": 0.9766246331088115,
+        "maxIndividualChange": 2.1465428276573704
+      },
+      "reference": {
+        "before": {
+          "mean": 91.85253937640631,
+          "sd": 9.961426358916565,
+          "min": 56.76470588235294,
+          "max": 100,
+          "byMode": {
+            "H": 87.25490196078434,
+            "D": 95.82352941176472,
+            "S": 94.01173256187721,
+            "Z": 87.25490196078434
+          }
+        },
+        "after": {
+          "mean": 92.07168536094338,
+          "sd": 9.695714312726233,
+          "min": 57.10526315789474,
+          "max": 100,
+          "byMode": {
+            "H": 87.54385964912282,
+            "D": 96.10526315789473,
+            "S": 94.075208513086,
+            "Z": 87.54385964912282
+          }
+        },
+        "meanDelta": 0.21914598453706446,
+        "sdRatio": 0.9733259036791965,
+        "maxIndividualChange": 2.1465428276573704
+      }
+    },
+    "SJ3": {
+      "raw": {
+        "before": {
+          "mean": 80.94444444444444,
+          "sd": 11.954259533223055,
+          "min": 44.44444444444444,
+          "max": 94.44444444444444,
+          "byMode": {
+            "H": 77.77777777777777,
+            "D": 83.33333333333333,
+            "S": 82.77777777777776,
+            "Z": 77.77777777777777
+          }
+        },
+        "after": {
+          "mean": 82.89230769230772,
+          "sd": 10.952895377924659,
+          "min": 50.76923076923077,
+          "max": 94.87179487179488,
+          "byMode": {
+            "H": 80.61538461538461,
+            "D": 85.33333333333334,
+            "S": 83.48717948717949,
+            "Z": 80.61538461538461
+          }
+        },
+        "meanDelta": 1.9478632478632818,
+        "sdRatio": 0.9162336945659056,
+        "maxIndividualChange": 6.837606837606842
+      },
+      "reference": {
+        "before": {
+          "mean": 80.40591985428051,
+          "sd": 11.899849489393251,
+          "min": 44.44444444444444,
+          "max": 94.44444444444444,
+          "byMode": {
+            "H": 77.77777777777777,
+            "D": 83.33333333333333,
+            "S": 80.98269581056466,
+            "Z": 77.77777777777777
+          }
+        },
+        "after": {
+          "mean": 82.27093316519549,
+          "sd": 10.960271689432282,
+          "min": 50.76923076923077,
+          "max": 94.87179487179488,
+          "byMode": {
+            "H": 80.61538461538461,
+            "D": 85.33333333333334,
+            "S": 81.41593106347204,
+            "Z": 80.61538461538461
+          }
+        },
+        "meanDelta": 1.865013310914975,
+        "sdRatio": 0.9210428837105505,
+        "maxIndividualChange": 6.837606837606842
+      }
+    },
+    "MH1": {
+      "raw": {
+        "before": {
+          "mean": 18.20750014999999,
+          "sd": 15.613858364754861,
+          "min": 6.25,
+          "max": 73.875,
+          "byMode": {
+            "H": 37.656250125,
+            "D": 20.556250499999997,
+            "S": 9.41875,
+            "Z": 8.418749875
+          }
+        },
+        "after": {
+          "mean": 18.20750014999999,
+          "sd": 15.613858364754861,
+          "min": 6.25,
+          "max": 73.875,
+          "byMode": {
+            "H": 37.656250125,
+            "D": 20.556250499999997,
+            "S": 9.41875,
+            "Z": 8.418749875
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      },
+      "reference": {
+        "before": {
+          "mean": 25.479819807786882,
+          "sd": 12.731558933162392,
+          "min": 11.29364754098361,
+          "max": 72.15286885245902,
+          "byMode": {
+            "H": 38.58647552581968,
+            "D": 25.03524634918033,
+            "S": 24.985983606557376,
+            "Z": 13.780778579508198
+          }
+        },
+        "after": {
+          "mean": 25.479819807786882,
+          "sd": 12.731558933162392,
+          "min": 11.29364754098361,
+          "max": 72.15286885245902,
+          "byMode": {
+            "H": 38.58647552581968,
+            "D": 25.03524634918033,
+            "S": 24.985983606557376,
+            "Z": 13.780778579508198
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      }
+    },
+    "MH2": {
+      "raw": {
+        "before": {
+          "mean": 12.591803278688523,
+          "sd": 13.3665921640114,
+          "min": 2.459016393442623,
+          "max": 74.26229508196721,
+          "byMode": {
+            "H": 30.86885245901639,
+            "D": 15.655737704918034,
+            "S": 4.0983606557377055,
+            "Z": 2.4590163934426235
+          }
+        },
+        "after": {
+          "mean": 12.591803278688523,
+          "sd": 13.3665921640114,
+          "min": 2.459016393442623,
+          "max": 74.26229508196721,
+          "byMode": {
+            "H": 30.86885245901639,
+            "D": 15.655737704918034,
+            "S": 4.0983606557377055,
+            "Z": 2.4590163934426235
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      },
+      "reference": {
+        "before": {
+          "mean": 20.89568933082505,
+          "sd": 10.480256678001366,
+          "min": 7.602794947594732,
+          "max": 73.30771298038161,
+          "byMode": {
+            "H": 32.22381080354743,
+            "D": 20.729642569201825,
+            "S": 21.706530502553075,
+            "Z": 8.600376242945444
+          }
+        },
+        "after": {
+          "mean": 20.89568933082505,
+          "sd": 10.480256678001366,
+          "min": 7.602794947594732,
+          "max": 73.30771298038161,
+          "byMode": {
+            "H": 32.22381080354743,
+            "D": 20.729642569201825,
+            "S": 21.706530502553075,
+            "Z": 8.600376242945444
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      }
+    },
+    "MH3": {
+      "raw": {
+        "before": {
+          "mean": 27.1,
+          "sd": 14.59569951884611,
+          "min": 16.666666666666668,
+          "max": 80,
+          "byMode": {
+            "H": 46.33333333333333,
+            "D": 31.666666666666668,
+            "S": 16.666666666666664,
+            "Z": 16.666666666666664
+          }
+        },
+        "after": {
+          "mean": 24.159999999999993,
+          "sd": 15.426418897462883,
+          "min": 10,
+          "max": 78,
+          "byMode": {
+            "H": 44.8,
+            "D": 29,
+            "S": 15,
+            "Z": 10
+          }
+        },
+        "meanDelta": -2.9400000000000084,
+        "sdRatio": 1.0569153521928936,
+        "maxIndividualChange": 6.666666666666671
+      },
+      "reference": {
+        "before": {
+          "mean": 32.64142076502733,
+          "sd": 11.747230689620132,
+          "min": 18.633879781420763,
+          "max": 78.81967213114754,
+          "byMode": {
+            "H": 46.6360655737705,
+            "D": 34.27868852459016,
+            "S": 29.453551912568308,
+            "Z": 20.97267759562842
+          }
+        },
+        "after": {
+          "mean": 30.19501639344263,
+          "sd": 12.596817934960239,
+          "min": 14.327868852459016,
+          "max": 76.8983606557377,
+          "byMode": {
+            "H": 45.207868852459015,
+            "D": 31.973770491803275,
+            "S": 28.426229508196723,
+            "Z": 15.167213114754096
+          }
+        },
+        "meanDelta": -2.4464043715846984,
+        "sdRatio": 1.0723223428387088,
+        "maxIndividualChange": 6.185792349726789
+      }
+    },
+    "MH4": {
+      "raw": {
+        "before": {
+          "mean": 23.815520068965515,
+          "sd": 13.733483737957402,
+          "min": 11.724141379310346,
+          "max": 78.62068965517241,
+          "byMode": {
+            "H": 42.60344931034483,
+            "D": 25.603451724137937,
+            "S": 14.620693103448275,
+            "Z": 16.13793379310345
+          }
+        },
+        "after": {
+          "mean": 23.815520068965515,
+          "sd": 13.733483737957402,
+          "min": 11.724141379310346,
+          "max": 78.62068965517241,
+          "byMode": {
+            "H": 42.60344931034483,
+            "D": 25.603451724137937,
+            "S": 14.620693103448275,
+            "Z": 16.13793379310345
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      },
+      "reference": {
+        "before": {
+          "mean": 29.97679134731487,
+          "sd": 10.978091355295941,
+          "min": 15.865463787450537,
+          "max": 77.58846806105144,
+          "byMode": {
+            "H": 43.246072196721315,
+            "D": 29.21063043640475,
+            "S": 28.192427224420577,
+            "Z": 20.533298048615034
+          }
+        },
+        "after": {
+          "mean": 29.97679134731487,
+          "sd": 10.978091355295941,
+          "min": 15.865463787450537,
+          "max": 77.58846806105144,
+          "byMode": {
+            "H": 43.246072196721315,
+            "D": 29.21063043640475,
+            "S": 28.192427224420577,
+            "Z": 20.533298048615034
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      }
+    },
+    "MH5": {
+      "raw": {
+        "before": {
+          "mean": 30.372500000000002,
+          "sd": 10.201990920893824,
+          "min": 24,
+          "max": 62.75,
+          "byMode": {
+            "H": 43.675,
+            "D": 32.125,
+            "S": 24,
+            "Z": 24
+          }
+        },
+        "after": {
+          "mean": 30.372500000000002,
+          "sd": 10.201990920893824,
+          "min": 24,
+          "max": 62.75,
+          "byMode": {
+            "H": 43.675,
+            "D": 32.125,
+            "S": 24,
+            "Z": 24
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      },
+      "reference": {
+        "before": {
+          "mean": 34.96309836065574,
+          "sd": 8.110556440366654,
+          "min": 26.81311475409836,
+          "max": 61.83032786885246,
+          "byMode": {
+            "H": 44.17245901639345,
+            "D": 34.88245901639344,
+            "S": 33.973770491803286,
+            "Z": 27.35868852459016
+          }
+        },
+        "after": {
+          "mean": 34.96309836065574,
+          "sd": 8.110556440366654,
+          "min": 26.81311475409836,
+          "max": 61.83032786885246,
+          "byMode": {
+            "H": 44.17245901639345,
+            "D": 34.88245901639344,
+            "S": 33.973770491803286,
+            "Z": 27.35868852459016
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      }
+    },
+    "RV1": {
+      "raw": {
+        "before": {
+          "mean": 48.926229508196705,
+          "sd": 32.298763000667485,
+          "min": 9.01639344262295,
+          "max": 95.90163934426229,
+          "byMode": {
+            "H": 15.737704918032787,
+            "D": 35.1639344262295,
+            "S": 95.9016393442623,
+            "Z": 32.29508196721311
+          }
+        },
+        "after": {
+          "mean": 48.926229508196705,
+          "sd": 32.298763000667485,
+          "min": 9.01639344262295,
+          "max": 95.90163934426229,
+          "byMode": {
+            "H": 15.737704918032787,
+            "D": 35.1639344262295,
+            "S": 95.9016393442623,
+            "Z": 32.29508196721311
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      },
+      "reference": {
+        "before": {
+          "mean": 48.926229508196705,
+          "sd": 32.298763000667485,
+          "min": 9.01639344262295,
+          "max": 95.90163934426229,
+          "byMode": {
+            "H": 15.737704918032787,
+            "D": 35.1639344262295,
+            "S": 95.9016393442623,
+            "Z": 32.29508196721311
+          }
+        },
+        "after": {
+          "mean": 48.926229508196705,
+          "sd": 32.298763000667485,
+          "min": 9.01639344262295,
+          "max": 95.90163934426229,
+          "byMode": {
+            "H": 15.737704918032787,
+            "D": 35.1639344262295,
+            "S": 95.9016393442623,
+            "Z": 32.29508196721311
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      }
+    },
+    "RV2": {
+      "raw": {
+        "before": {
+          "mean": 100,
+          "sd": 0,
+          "min": 100,
+          "max": 100,
+          "byMode": {
+            "H": 100,
+            "D": 100,
+            "S": 100,
+            "Z": 100
+          }
+        },
+        "after": {
+          "mean": 100,
+          "sd": 0,
+          "min": 100,
+          "max": 100,
+          "byMode": {
+            "H": 100,
+            "D": 100,
+            "S": 100,
+            "Z": 100
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": null,
+        "maxIndividualChange": 0
+      },
+      "reference": {
+        "before": {
+          "mean": 100,
+          "sd": 0,
+          "min": 100,
+          "max": 100,
+          "byMode": {
+            "H": 100,
+            "D": 100,
+            "S": 100,
+            "Z": 100
+          }
+        },
+        "after": {
+          "mean": 100,
+          "sd": 0,
+          "min": 100,
+          "max": 100,
+          "byMode": {
+            "H": 100,
+            "D": 100,
+            "S": 100,
+            "Z": 100
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": null,
+        "maxIndividualChange": 0
+      }
+    },
+    "RV3": {
+      "raw": {
+        "before": {
+          "mean": 100,
+          "sd": 0,
+          "min": 100,
+          "max": 100,
+          "byMode": {
+            "H": 100,
+            "D": 100,
+            "S": 100,
+            "Z": 100
+          }
+        },
+        "after": {
+          "mean": 100,
+          "sd": 0,
+          "min": 100,
+          "max": 100,
+          "byMode": {
+            "H": 100,
+            "D": 100,
+            "S": 100,
+            "Z": 100
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": null,
+        "maxIndividualChange": 0
+      },
+      "reference": {
+        "before": {
+          "mean": 100,
+          "sd": 0,
+          "min": 100,
+          "max": 100,
+          "byMode": {
+            "H": 100,
+            "D": 100,
+            "S": 100,
+            "Z": 100
+          }
+        },
+        "after": {
+          "mean": 100,
+          "sd": 0,
+          "min": 100,
+          "max": 100,
+          "byMode": {
+            "H": 100,
+            "D": 100,
+            "S": 100,
+            "Z": 100
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": null,
+        "maxIndividualChange": 0
+      }
+    },
+    "MH6": {
+      "raw": {
+        "before": {
+          "mean": 19.39827586206897,
+          "sd": 15.067811346156978,
+          "min": 8.96551724137931,
+          "max": 71.03448275862068,
+          "byMode": {
+            "H": 39.310344827586206,
+            "D": 23.32758620689655,
+            "S": 9.103448275862068,
+            "Z": 9.034482758620689
+          }
+        },
+        "after": {
+          "mean": 19.39827586206897,
+          "sd": 15.067811346156978,
+          "min": 8.96551724137931,
+          "max": 71.03448275862068,
+          "byMode": {
+            "H": 39.310344827586206,
+            "D": 23.32758620689655,
+            "S": 9.103448275862068,
+            "Z": 9.034482758620689
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      },
+      "reference": {
+        "before": {
+          "mean": 26.545534200113064,
+          "sd": 11.82843086626872,
+          "min": 13.405313736574335,
+          "max": 70.27586206896551,
+          "byMode": {
+            "H": 40.15381571509327,
+            "D": 27.37326172979084,
+            "S": 24.791633691351038,
+            "Z": 14.326512153759186
+          }
+        },
+        "after": {
+          "mean": 26.545534200113064,
+          "sd": 11.82843086626872,
+          "min": 13.405313736574335,
+          "max": 70.27586206896551,
+          "byMode": {
+            "H": 40.15381571509327,
+            "D": 27.37326172979084,
+            "S": 24.791633691351038,
+            "Z": 14.326512153759186
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      }
+    },
+    "ST": {
+      "raw": {
+        "before": {
+          "mean": 72.52807520964362,
+          "sd": 14.8366190974493,
+          "min": 23.895571278825994,
+          "max": 86.0914570230608,
+          "byMode": {
+            "H": 63.34223008385743,
+            "D": 78.44637054507336,
+            "S": 78.85757337526204,
+            "Z": 63.34223008385743
+          }
+        },
+        "after": {
+          "mean": 72.67807520964362,
+          "sd": 15.200015003324433,
+          "min": 22.395571278825994,
+          "max": 86.0914570230608,
+          "byMode": {
+            "H": 63.49223008385743,
+            "D": 78.74637054507336,
+            "S": 78.85757337526204,
+            "Z": 63.49223008385743
+          }
+        },
+        "meanDelta": 0.15000000000000568,
+        "sdRatio": 1.0244931748593322,
+        "maxIndividualChange": 1.5
+      },
+      "reference": {
+        "before": {
+          "mean": 69.83545225882392,
+          "sd": 14.246281562193298,
+          "min": 23.895571278825994,
+          "max": 81.90841194968553,
+          "byMode": {
+            "H": 63.34223008385743,
+            "D": 78.44637054507336,
+            "S": 69.88216353919647,
+            "Z": 63.34223008385743
+          }
+        },
+        "after": {
+          "mean": 69.98545225882393,
+          "sd": 14.651945778394937,
+          "min": 22.395571278825994,
+          "max": 81.90841194968553,
+          "byMode": {
+            "H": 63.49223008385743,
+            "D": 78.74637054507336,
+            "S": 69.88216353919647,
+            "Z": 63.49223008385743
+          }
+        },
+        "meanDelta": 0.15000000000000568,
+        "sdRatio": 1.0284750946715941,
+        "maxIndividualChange": 1.5
+      }
+    },
+    "PF": {
+      "raw": {
+        "before": {
+          "mean": 64.52736476392545,
+          "sd": 5.4733533233506835,
+          "min": 50.23907880365121,
+          "max": 74.13431326578579,
+          "byMode": {
+            "H": 57.89004212586176,
+            "D": 64.64936716850936,
+            "S": 69.26109548551129,
+            "Z": 63.88108771273447
+          }
+        },
+        "after": {
+          "mean": 64.72067081978719,
+          "sd": 5.461260661335309,
+          "min": 50.653414175375005,
+          "max": 74.50472739272166,
+          "byMode": {
+            "H": 58.01154911823543,
+            "D": 64.78259821290753,
+            "S": 69.61337831879659,
+            "Z": 63.99784018314433
+          }
+        },
+        "meanDelta": 0.19330605586173988,
+        "sdRatio": 0.9977906301126617,
+        "maxIndividualChange": 0.4143353717237943
+      },
+      "reference": {
+        "before": {
+          "mean": 62.36788115736807,
+          "sd": 4.515967692123222,
+          "min": 50.23907880365121,
+          "max": 71.0235108481696,
+          "byMode": {
+            "H": 57.89004212586176,
+            "D": 64.64936716850936,
+            "S": 62.062816796986716,
+            "Z": 63.88108771273447
+          }
+        },
+        "after": {
+          "mean": 62.561187213229815,
+          "sd": 4.424377935458993,
+          "min": 50.653414175375005,
+          "max": 70.8195281327612,
+          "byMode": {
+            "H": 58.01154911823543,
+            "D": 64.78259821290753,
+            "S": 62.415099630271996,
+            "Z": 63.99784018314433
+          }
+        },
+        "meanDelta": 0.19330605586174698,
+        "sdRatio": 0.9797186864680232,
+        "maxIndividualChange": 0.4143353717237943
+      }
+    },
+    "MH": {
+      "raw": {
+        "before": {
+          "mean": 19.988684032430754,
+          "sd": 13.167531175775594,
+          "min": 10.233145420199737,
+          "max": 56.92667231957792,
+          "byMode": {
+            "H": 38.5018828351564,
+            "D": 22.910386192896176,
+            "S": 10.988800451290748,
+            "Z": 10.592757360716977
+          }
+        },
+        "after": {
+          "mean": 19.694684032430757,
+          "sd": 13.233627997308258,
+          "min": 9.566478753533069,
+          "max": 56.26000565291125,
+          "byMode": {
+            "H": 38.348549501823065,
+            "D": 22.64371952622951,
+            "S": 10.822133784624082,
+            "Z": 9.926090694050309
+          }
+        },
+        "meanDelta": -0.29399999999999693,
+        "sdRatio": 1.0050196821750659,
+        "maxIndividualChange": 0.6666666666666679
+      },
+      "reference": {
+        "before": {
+          "mean": 26.88596374895179,
+          "sd": 10.212920858196075,
+          "min": 14.535788702604355,
+          "max": 56.42704349652639,
+          "byMode": {
+            "H": 39.37177423759404,
+            "D": 26.96182157765376,
+            "S": 25.953752409320195,
+            "Z": 15.684683526703953
+          }
+        },
+        "after": {
+          "mean": 26.641323311793318,
+          "sd": 10.300886057891715,
+          "min": 13.941253183478672,
+          "max": 55.808464261553716,
+          "byMode": {
+            "H": 39.22895456546289,
+            "D": 26.73132977437507,
+            "S": 25.851020168883043,
+            "Z": 15.104137078616521
+          }
+        },
+        "meanDelta": -0.2446404371584734,
+        "sdRatio": 1.0086131284984008,
+        "maxIndividualChange": 0.6185792349726711
+      }
+    },
+    "RV": {
+      "raw": {
+        "before": {
+          "mean": 85.32213114754094,
+          "sd": 9.689628900200246,
+          "min": 71.22950819672131,
+          "max": 97.29508196721312,
+          "byMode": {
+            "H": 95.27868852459017,
+            "D": 89.45081967213116,
+            "S": 71.22950819672131,
+            "Z": 90.31147540983608
+          }
+        },
+        "after": {
+          "mean": 85.32213114754094,
+          "sd": 9.689628900200246,
+          "min": 71.22950819672131,
+          "max": 97.29508196721312,
+          "byMode": {
+            "H": 95.27868852459017,
+            "D": 89.45081967213116,
+            "S": 71.22950819672131,
+            "Z": 90.31147540983608
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      },
+      "reference": {
+        "before": {
+          "mean": 85.32213114754094,
+          "sd": 9.689628900200246,
+          "min": 71.22950819672131,
+          "max": 97.29508196721312,
+          "byMode": {
+            "H": 95.27868852459017,
+            "D": 89.45081967213116,
+            "S": 71.22950819672131,
+            "Z": 90.31147540983608
+          }
+        },
+        "after": {
+          "mean": 85.32213114754094,
+          "sd": 9.689628900200246,
+          "min": 71.22950819672131,
+          "max": 97.29508196721312,
+          "byMode": {
+            "H": 95.27868852459017,
+            "D": 89.45081967213116,
+            "S": 71.22950819672131,
+            "Z": 90.31147540983608
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      }
+    },
+    "WV_STABILITY": {
+      "raw": {
+        "before": {
+          "mean": 36.61111111111111,
+          "sd": 17.84872994063799,
+          "min": 16.666666666666668,
+          "max": 83.33333333333333,
+          "byMode": {
+            "H": 52.777777777777786,
+            "D": 30,
+            "S": 21.666666666666668,
+            "Z": 52.777777777777786
+          }
+        },
+        "after": {
+          "mean": 36.61111111111111,
+          "sd": 17.84872994063799,
+          "min": 16.666666666666668,
+          "max": 83.33333333333333,
+          "byMode": {
+            "H": 52.777777777777786,
+            "D": 30,
+            "S": 21.666666666666668,
+            "Z": 52.777777777777786
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      },
+      "reference": {
+        "before": {
+          "mean": 36.61111111111111,
+          "sd": 17.84872994063799,
+          "min": 16.666666666666668,
+          "max": 83.33333333333333,
+          "byMode": {
+            "H": 52.777777777777786,
+            "D": 30,
+            "S": 21.666666666666668,
+            "Z": 52.777777777777786
+          }
+        },
+        "after": {
+          "mean": 36.61111111111111,
+          "sd": 17.84872994063799,
+          "min": 16.666666666666668,
+          "max": 83.33333333333333,
+          "byMode": {
+            "H": 52.777777777777786,
+            "D": 30,
+            "S": 21.666666666666668,
+            "Z": 52.777777777777786
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      }
+    },
+    "WV_GROWTH": {
+      "raw": {
+        "before": {
+          "mean": 67.72641509433963,
+          "sd": 19.271760827618692,
+          "min": 29.245283018867923,
+          "max": 92.45283018867924,
+          "byMode": {
+            "H": 53.490566037735846,
+            "D": 75.18867924528301,
+            "S": 79.24528301886792,
+            "Z": 53.490566037735846
+          }
+        },
+        "after": {
+          "mean": 67.72641509433963,
+          "sd": 19.271760827618692,
+          "min": 29.245283018867923,
+          "max": 92.45283018867924,
+          "byMode": {
+            "H": 53.490566037735846,
+            "D": 75.18867924528301,
+            "S": 79.24528301886792,
+            "Z": 53.490566037735846
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      },
+      "reference": {
+        "before": {
+          "mean": 67.72641509433963,
+          "sd": 19.271760827618692,
+          "min": 29.245283018867923,
+          "max": 92.45283018867924,
+          "byMode": {
+            "H": 53.490566037735846,
+            "D": 75.18867924528301,
+            "S": 79.24528301886792,
+            "Z": 53.490566037735846
+          }
+        },
+        "after": {
+          "mean": 67.72641509433963,
+          "sd": 19.271760827618692,
+          "min": 29.245283018867923,
+          "max": 92.45283018867924,
+          "byMode": {
+            "H": 53.490566037735846,
+            "D": 75.18867924528301,
+            "S": 79.24528301886792,
+            "Z": 53.490566037735846
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      }
+    },
+    "WV_REWARD": {
+      "raw": {
+        "before": {
+          "mean": 27.444444444444446,
+          "sd": 13.444444444444445,
+          "min": 0,
+          "max": 55.55555555555556,
+          "byMode": {
+            "H": 24.444444444444443,
+            "D": 22.77777777777778,
+            "S": 36.11111111111112,
+            "Z": 24.444444444444443
+          }
+        },
+        "after": {
+          "mean": 27.444444444444446,
+          "sd": 13.444444444444445,
+          "min": 0,
+          "max": 55.55555555555556,
+          "byMode": {
+            "H": 24.444444444444443,
+            "D": 22.77777777777778,
+            "S": 36.11111111111112,
+            "Z": 24.444444444444443
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      },
+      "reference": {
+        "before": {
+          "mean": 27.444444444444446,
+          "sd": 13.444444444444445,
+          "min": 0,
+          "max": 55.55555555555556,
+          "byMode": {
+            "H": 24.444444444444443,
+            "D": 22.77777777777778,
+            "S": 36.11111111111112,
+            "Z": 24.444444444444443
+          }
+        },
+        "after": {
+          "mean": 27.444444444444446,
+          "sd": 13.444444444444445,
+          "min": 0,
+          "max": 55.55555555555556,
+          "byMode": {
+            "H": 24.444444444444443,
+            "D": 22.77777777777778,
+            "S": 36.11111111111112,
+            "Z": 24.444444444444443
+          }
+        },
+        "meanDelta": 0,
+        "sdRatio": 1,
+        "maxIndividualChange": 0
+      }
+    }
+  },
+  "uncertainty": {
+    "ST1": {
+      "raw": {
+        "meanMin": 82.84,
+        "meanMax": 88.04,
+        "meanDeltaMin": -2.999999999999986,
+        "meanDeltaMax": 2.200000000000017,
+        "sdMin": 21.80271542721223,
+        "sdMax": 26.95830855228126,
+        "sdRatioMin": 0.8900517819633692,
+        "sdRatioMax": 1.1005184489877216,
+        "varyingCases": 12,
+        "combinations": 4096
+      },
+      "reference": {
+        "meanMin": 80.14737704918032,
+        "meanMax": 85.34737704918032,
+        "meanDeltaMin": -3,
+        "meanDeltaMax": 2.200000000000003,
+        "sdMin": 20.64422046136407,
+        "sdMax": 25.624385844987785,
+        "sdRatioMin": 0.88779701292859,
+        "sdRatioMax": 1.101967170612488,
+        "varyingCases": 12,
+        "combinations": 4096
+      }
+    },
+    "PF2": {
+      "raw": {
+        "meanMin": 53.79020979020979,
+        "meanMax": 53.79020979020979,
+        "meanDeltaMin": 0.3837812187812091,
+        "meanDeltaMax": 0.3837812187812091,
+        "sdMin": 21.60131936679398,
+        "sdMax": 21.60131936679398,
+        "sdRatioMin": 0.9810870274364974,
+        "sdRatioMax": 0.9810870274364974,
+        "varyingCases": 0,
+        "combinations": 1
+      },
+      "reference": {
+        "meanMin": 51.63611142955406,
+        "meanMax": 51.63611142955406,
+        "meanDeltaMin": 0.3837812187812304,
+        "meanDeltaMax": 0.3837812187812304,
+        "sdMin": 21.604370332211356,
+        "sdMax": 21.604370332211356,
+        "sdRatioMin": 0.9813895719105067,
+        "sdRatioMax": 0.9813895719105067,
+        "varyingCases": 0,
+        "combinations": 1
+      }
+    },
+    "PF5": {
+      "raw": {
+        "meanMin": 48.313265306122446,
+        "meanMax": 49.37448979591836,
+        "meanDeltaMin": 0.8110913930789678,
+        "meanDeltaMax": 1.8723158828748794,
+        "sdMin": 15.161487075394682,
+        "sdMax": 16.480467247867647,
+        "sdRatioMin": 0.9130169350668235,
+        "sdRatioMax": 0.992445241043454,
+        "varyingCases": 12,
+        "combinations": 4096
+      },
+      "reference": {
+        "meanMin": 46.697691535630646,
+        "meanMax": 47.75891602542656,
+        "meanDeltaMin": 0.8110913930789749,
+        "meanDeltaMax": 1.8723158828748865,
+        "sdMin": 15.583385356922946,
+        "sdMax": 16.908454846142863,
+        "sdRatioMin": 0.906884690749089,
+        "sdRatioMax": 0.9839979242621398,
+        "varyingCases": 12,
+        "combinations": 4096
+      }
+    },
+    "PF7": {
+      "raw": {
+        "meanMin": 75.80444444444444,
+        "meanMax": 75.80444444444444,
+        "meanDeltaMin": 0.12770025839793675,
+        "meanDeltaMax": 0.12770025839793675,
+        "sdMin": 14.080457694581082,
+        "sdMax": 14.080457694581082,
+        "sdRatioMin": 0.9682563566696614,
+        "sdRatioMax": 0.9682563566696614,
+        "varyingCases": 0,
+        "combinations": 1
+      },
+      "reference": {
+        "meanMin": 73.65034608378869,
+        "meanMax": 73.65034608378869,
+        "meanDeltaMin": 0.12770025839790833,
+        "meanDeltaMax": 0.12770025839790833,
+        "sdMin": 13.646395776847147,
+        "sdMax": 13.646395776847147,
+        "sdRatioMin": 0.9657528553592022,
+        "sdRatioMax": 0.9657528553592022,
+        "varyingCases": 0,
+        "combinations": 1
+      }
+    },
+    "SJ1": {
+      "raw": {
+        "meanMin": 93.83030303030301,
+        "meanMax": 95.16363636363637,
+        "meanDeltaMin": -1.0729227761485873,
+        "meanDeltaMax": 0.2604105571847697,
+        "sdMin": 5.269229072925083,
+        "sdMax": 6.59347146289771,
+        "sdRatioMin": 0.8557431403394326,
+        "sdRatioMax": 1.0708052159642254,
+        "varyingCases": 10,
+        "combinations": 1024
+      },
+      "reference": {
+        "meanMin": 93.58551912568305,
+        "meanMax": 94.91885245901642,
+        "meanDeltaMin": -1.1613608320112832,
+        "meanDeltaMax": 0.17197250132208808,
+        "sdMin": 5.254884659846107,
+        "sdMax": 6.577504248933688,
+        "sdRatioMin": 0.854818488789159,
+        "sdRatioMax": 1.069970628478538,
+        "varyingCases": 10,
+        "combinations": 1024
+      }
+    },
+    "SJ2": {
+      "raw": {
+        "meanMin": 93.00701754385965,
+        "meanMax": 93.00701754385965,
+        "meanDeltaMin": 0.2991744066047346,
+        "meanDeltaMax": 0.2991744066047346,
+        "sdMin": 9.989799968789985,
+        "sdMax": 9.989799968789985,
+        "sdRatioMin": 0.9766246331088143,
+        "sdRatioMax": 0.9766246331088143,
+        "varyingCases": 0,
+        "combinations": 1
+      },
+      "reference": {
+        "meanMin": 92.07168536094338,
+        "meanMax": 92.07168536094338,
+        "meanDeltaMin": 0.21914598453706446,
+        "meanDeltaMax": 0.21914598453706446,
+        "sdMin": 9.695714312725823,
+        "sdMax": 9.695714312725823,
+        "sdRatioMin": 0.9733259036791553,
+        "sdRatioMax": 0.9733259036791553,
+        "varyingCases": 0,
+        "combinations": 1
+      }
+    },
+    "SJ3": {
+      "raw": {
+        "meanMin": 82.32820512820514,
+        "meanMax": 82.89230769230772,
+        "meanDeltaMin": 1.3837606837606984,
+        "meanDeltaMax": 1.9478632478632818,
+        "sdMin": 10.781146033524644,
+        "sdMax": 11.55977973669101,
+        "sdRatioMin": 0.901866485628983,
+        "sdRatioMax": 0.9670009007721712,
+        "varyingCases": 10,
+        "combinations": 1024
+      },
+      "reference": {
+        "meanMin": 81.7068306010929,
+        "meanMax": 82.27093316519549,
+        "meanDeltaMin": 1.3009107468123915,
+        "meanDeltaMax": 1.865013310914975,
+        "sdMin": 10.767944701635734,
+        "sdMax": 11.555744157097989,
+        "sdRatioMin": 0.904880747545049,
+        "sdRatioMax": 0.9710832197834119,
+        "varyingCases": 10,
+        "combinations": 1024
+      }
+    },
+    "MH3": {
+      "raw": {
+        "meanMin": 24.159999999999993,
+        "meanMax": 24.159999999999993,
+        "meanDeltaMin": -2.9400000000000084,
+        "meanDeltaMax": -2.9400000000000084,
+        "sdMin": 15.426418897462897,
+        "sdMax": 15.426418897462897,
+        "sdRatioMin": 1.0569153521928945,
+        "sdRatioMax": 1.0569153521928945,
+        "varyingCases": 0,
+        "combinations": 1
+      },
+      "reference": {
+        "meanMin": 30.19501639344263,
+        "meanMax": 30.19501639344263,
+        "meanDeltaMin": -2.4464043715846984,
+        "meanDeltaMax": -2.4464043715846984,
+        "sdMin": 12.596817934960214,
+        "sdMax": 12.596817934960214,
+        "sdRatioMin": 1.0723223428387065,
+        "sdRatioMax": 1.0723223428387065,
+        "varyingCases": 0,
+        "combinations": 1
+      }
+    },
+    "ST": {
+      "raw": {
+        "meanMin": 71.77807520964359,
+        "meanMax": 73.07807520964361,
+        "meanDeltaMin": -0.7500000000000284,
+        "meanDeltaMax": 0.5499999999999972,
+        "sdMin": 13.948567521322168,
+        "sdMax": 15.344523782467933,
+        "sdRatioMin": 0.9401446131160834,
+        "sdRatioMax": 1.0342331822150743,
+        "varyingCases": 12,
+        "combinations": 4096
+      },
+      "reference": {
+        "meanMin": 69.0854522588239,
+        "meanMax": 70.38545225882392,
+        "meanDeltaMin": -0.7500000000000142,
+        "meanDeltaMax": 0.5499999999999972,
+        "sdMin": 13.332754167264952,
+        "sdMax": 14.730923506540385,
+        "sdRatioMin": 0.935876081703126,
+        "sdRatioMax": 1.0340188379845887,
+        "varyingCases": 12,
+        "combinations": 4096
+      }
+    },
+    "PF": {
+      "raw": {
+        "meanMin": 64.69454837080758,
+        "meanMax": 64.77944632999127,
+        "meanDeltaMin": 0.16718360688213352,
+        "meanDeltaMax": 0.25208156606582577,
+        "sdMin": 5.45725081942841,
+        "sdMax": 5.525477882348286,
+        "sdRatioMin": 0.9970580185544433,
+        "sdRatioMax": 1.0095233316612737,
+        "varyingCases": 12,
+        "combinations": 4096
+      },
+      "reference": {
+        "meanMin": 62.535064764250215,
+        "meanMax": 62.6199627234339,
+        "meanDeltaMin": 0.16718360688214773,
+        "meanDeltaMax": 0.2520815660658329,
+        "sdMin": 4.42437793545894,
+        "sdMax": 4.514132490548717,
+        "sdRatioMin": 0.9797186864680115,
+        "sdRatioMax": 0.9995936194189995,
+        "varyingCases": 12,
+        "combinations": 4096
+      }
+    },
+    "MH": {
+      "raw": {
+        "meanMin": 19.694684032430757,
+        "meanMax": 19.694684032430757,
+        "meanDeltaMin": -0.29399999999999693,
+        "meanDeltaMax": -0.29399999999999693,
+        "sdMin": 13.233627997308252,
+        "sdMax": 13.233627997308252,
+        "sdRatioMin": 1.0050196821750654,
+        "sdRatioMax": 1.0050196821750654,
+        "varyingCases": 0,
+        "combinations": 1
+      },
+      "reference": {
+        "meanMin": 26.641323311793318,
+        "meanMax": 26.641323311793318,
+        "meanDeltaMin": -0.2446404371584734,
+        "meanDeltaMax": -0.2446404371584734,
+        "sdMin": 10.300886057891717,
+        "sdMax": 10.300886057891717,
+        "sdRatioMin": 1.008613128498401,
+        "sdRatioMax": 1.008613128498401,
+        "varyingCases": 0,
+        "combinations": 1
+      }
+    }
+  },
+  "warnings": [
+    "These are provisional simulated-model reference settings, not empirical human norms.",
+    "The 15 changed synthetic answer sets are sensitivity assumptions, not observed choices under the new binary form.",
+    "ST1 and ST references remain unchanged due to unstable SD directions. SJ1 retains center/lower and only lowers upper to99.3 for attainability.",
+    "Three work-value cards, RV scores, Q49 mappings, cost/time baselines and original other mappings stay unchanged."
+  ]
+}

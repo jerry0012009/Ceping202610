@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {answerDetails} from '../answer-details.js';
-import {questionnaire} from '../scoring.js';
+import {questionnaire} from './legacy-helpers.js';
 const fixture=JSON.parse(fs.readFileSync(new URL('./fixtures/regression-40.json',import.meta.url)))[0];
 test('completed answer details preserve frozen version order, original labels, and all answer types without score internals',()=>{
  const answers=structuredClone(fixture.answers);answers.INFO014={status:'不适用',other:'<img src=x onerror=alert(1)>'};delete answers.INFO016;const frozen=JSON.stringify(answers),details=answerDetails('2.9',answers);assert.equal(JSON.stringify(answers),frozen);assert.equal(details.questionnaireVersion,'2.9');assert.equal(details.questions.length,questionnaire.questions.length);assert.deepEqual(details.questions.map(q=>q.number),questionnaire.questions.map(q=>q.number));for(let i=0;i<details.questions.length;i++){const q=details.questions[i],source=questionnaire.questions[i];assert.equal(q.stem,source.stem);assert.deepEqual(q.options.map(({key,text})=>({key,text})),source.options);for(const option of q.options)assert.ok(['selected','most','least','unselected'].includes(option.selection));assert.deepEqual(q.instructions,source.instructions);assert.deepEqual(Object.keys(q).sort(),['answerText','answered',...(q.type==='family'?['fields']:[]),'instructions','number','options','stem','type']);}assert.doesNotMatch(JSON.stringify(details),/"(?:score|scores|weights|raw|reference|coeff|contribution|seconds)":/);

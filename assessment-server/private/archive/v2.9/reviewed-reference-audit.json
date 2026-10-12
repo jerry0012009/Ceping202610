@@ -1,0 +1,267 @@
+{
+  "referenceId": "2.9-report-reference-reviewed-centers-v1",
+  "supersedes": "2.9-report-reference-ceiling-v1",
+  "approvedDate": "2026-10-12",
+  "basis": "Manually reviewed provisional reference centers and bounds, informed by synthetic results and item meaning. Adjusted centers are NOT observed synthetic means, and adjusted intervals are NOT mean +/- SD. Actual scores, weights, calibration, questions, and the five-band classifier remain unchanged.",
+  "sample": {
+    "personas": 10,
+    "strategiesPerPersona": 4,
+    "independentHumanSample": false,
+    "mixture": {
+      "H": 0.2,
+      "D": 0.3,
+      "S": 0.3,
+      "Z": 0.2
+    },
+    "equalPersonaWeights": true
+  },
+  "sourceSyntheticStatistics": {
+    "ST1": {
+      "syntheticWeightedMean": 83.14737704918032,
+      "syntheticWeightedPopulationSD": 23.253311467296623,
+      "originalRoundedReference": {
+        "mean": 83,
+        "lower": 59.7,
+        "upper": 100
+      }
+    },
+    "ST2": {
+      "syntheticWeightedMean": 76.83862704918032,
+      "syntheticWeightedPopulationSD": 21.669589401399186,
+      "originalRoundedReference": {
+        "mean": 77,
+        "lower": 55.3,
+        "upper": 98.7
+      }
+    },
+    "SJ1": {
+      "syntheticWeightedMean": 94.74687995769435,
+      "syntheticWeightedPopulationSD": 6.147368978050058,
+      "originalRoundedReference": {
+        "mean": 95,
+        "lower": 87.5,
+        "upper": 100
+      }
+    },
+    "SJ2": {
+      "syntheticWeightedMean": 91.85253937640631,
+      "syntheticWeightedPopulationSD": 9.961426358916565,
+      "originalRoundedReference": {
+        "mean": 92,
+        "lower": 82,
+        "upper": 100
+      }
+    },
+    "SJ3": {
+      "syntheticWeightedMean": 80.4059198542805,
+      "syntheticWeightedPopulationSD": 11.899849489393247,
+      "originalRoundedReference": {
+        "mean": 80,
+        "lower": 68.1,
+        "upper": 91.9
+      }
+    }
+  },
+  "previousDisplayReferences": {
+    "ST1": {
+      "mean": 83,
+      "lower": 59.7,
+      "upper": 99.9
+    },
+    "ST2": {
+      "mean": 77,
+      "lower": 55.3,
+      "upper": 98.7
+    },
+    "SJ1": {
+      "mean": 95,
+      "lower": 87.5,
+      "upper": 99.9
+    },
+    "SJ2": {
+      "mean": 92,
+      "lower": 82,
+      "upper": 99.9
+    },
+    "SJ3": {
+      "mean": 80,
+      "lower": 68.1,
+      "upper": 91.9
+    }
+  },
+  "approvedReferences": {
+    "ST1": {
+      "mean": 78,
+      "lower": 54.7,
+      "upper": 99.9
+    },
+    "ST2": {
+      "mean": 72,
+      "lower": 50.3,
+      "upper": 98.7
+    },
+    "SJ1": {
+      "mean": 90,
+      "lower": 82.5,
+      "upper": 99.9
+    },
+    "SJ2": {
+      "mean": 87,
+      "lower": 77,
+      "upper": 99.9
+    },
+    "SJ3": {
+      "mean": 77,
+      "lower": 65.1,
+      "upper": 91.9
+    }
+  },
+  "adjustments": {
+    "ST1": {
+      "centerDelta": -5,
+      "lowerDelta": -5,
+      "upperDelta": 0
+    },
+    "ST2": {
+      "centerDelta": -5,
+      "lowerDelta": -5,
+      "upperDelta": 0
+    },
+    "SJ1": {
+      "centerDelta": -5,
+      "lowerDelta": -5,
+      "upperDelta": 0
+    },
+    "SJ2": {
+      "centerDelta": -5,
+      "lowerDelta": -5,
+      "upperDelta": 0
+    },
+    "SJ3": {
+      "centerDelta": -3,
+      "lowerDelta": -3,
+      "upperDelta": 0
+    }
+  },
+  "validation": {
+    "labelOrder": [
+      "较低",
+      "稍低",
+      "平均",
+      "稍高",
+      "较高"
+    ],
+    "previousAll200": [
+      32,
+      10,
+      70,
+      59,
+      29
+    ],
+    "approvedAll200": [
+      20,
+      10,
+      66,
+      75,
+      29
+    ],
+    "previousHonest50": [
+      16,
+      1,
+      10,
+      16,
+      7
+    ],
+    "approvedHonest50": [
+      10,
+      5,
+      10,
+      18,
+      7
+    ],
+    "perDimension": {
+      "ST1": {
+        "all40": {
+          "较低": 6,
+          "稍低": 0,
+          "平均": 7,
+          "稍高": 17,
+          "较高": 10
+        },
+        "honest10": {
+          "较低": 3,
+          "稍低": 0,
+          "平均": 2,
+          "稍高": 2,
+          "较高": 3
+        }
+      },
+      "ST2": {
+        "all40": {
+          "较低": 4,
+          "稍低": 2,
+          "平均": 13,
+          "稍高": 21,
+          "较高": 0
+        },
+        "honest10": {
+          "较低": 2,
+          "稍低": 1,
+          "平均": 3,
+          "稍高": 4,
+          "较高": 0
+        }
+      },
+      "SJ1": {
+        "all40": {
+          "较低": 2,
+          "稍低": 6,
+          "平均": 10,
+          "稍高": 7,
+          "较高": 15
+        },
+        "honest10": {
+          "较低": 1,
+          "稍低": 3,
+          "平均": 1,
+          "稍高": 1,
+          "较高": 4
+        }
+      },
+      "SJ2": {
+        "all40": {
+          "较低": 4,
+          "稍低": 2,
+          "平均": 14,
+          "稍高": 17,
+          "较高": 3
+        },
+        "honest10": {
+          "较低": 2,
+          "稍低": 1,
+          "平均": 1,
+          "稍高": 6,
+          "较高": 0
+        }
+      },
+      "SJ3": {
+        "all40": {
+          "较低": 4,
+          "稍低": 0,
+          "平均": 22,
+          "稍高": 13,
+          "较高": 1
+        },
+        "honest10": {
+          "较低": 2,
+          "稍低": 0,
+          "平均": 3,
+          "稍高": 5,
+          "较高": 0
+        }
+      }
+    }
+  },
+  "scoringVersion": "2.9",
+  "scoringFingerprint": "40df986e630a93426ad5e1535316ffe34d0eba0fe9fe564817e4e5629c92a9e5"
+}

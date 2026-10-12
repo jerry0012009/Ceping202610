@@ -1,9 +1,9 @@
 {
-  "id": "work-value-preferences-v2.9-v1",
-  "referenceId": "work-value-synthetic-40-h20-d30-s30-z20-v1",
-  "scoringVersion": "2.9",
-  "scoringFingerprint": "40df986e630a93426ad5e1535316ffe34d0eba0fe9fe564817e4e5629c92a9e5",
-  "scoreBasis": "existing raw V2.9 valueParts; no impression-management correction",
+  "id": "work-value-preferences-v2.10-v1",
+  "referenceId": "work-value-synthetic-40-h20-d30-s30-z20-v2.10-v1",
+  "scoringVersion": "2.10",
+  "scoringFingerprint": "e47c9fef555c8811af66a7070d06fc511f80e80f8f52b0cdaf69b6302e384c8b",
+  "scoreBasis": "raw V2.10 valueParts; no impression-management correction",
   "parts": [
     {
       "code": "WV_STABILITY",

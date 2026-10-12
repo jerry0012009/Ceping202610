@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {randomBytes,randomUUID} from 'node:crypto';
 import {createApplication} from '../server.js';
-import {pages,data} from '../scoring.js';
+import {pages,data} from './legacy-helpers.js';
 const fixture=JSON.parse(fs.readFileSync(new URL('./fixtures/regression-40.json',import.meta.url)))[0];
 test('draft ownership, ordered immutable pages, explicit persistence, resume, completion, and deletion',async()=>{
  const dir=fs.mkdtempSync(path.join(os.tmpdir(),'assessment-draft-'));let port,origin,instance,server;

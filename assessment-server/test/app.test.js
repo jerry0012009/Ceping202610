@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import {randomBytes,randomUUID} from 'node:crypto';
 import {createApplication} from '../server.js';
-import {engine,data,calculateReport,validateSubmission} from '../scoring.js';
+import {engine,data,calculateReport,validateSubmission} from './legacy-helpers.js';
 const fixtures=JSON.parse(fs.readFileSync(new URL('./fixtures/regression-40.json',import.meta.url)));
 test('all 40 synthetic answer sets exactly equal frozen V2.8 engine numerical baseline; V2.9 references match approved candidate',()=>{
  assert.equal(fixtures.length,40);

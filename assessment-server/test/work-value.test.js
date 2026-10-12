@@ -2,12 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {createHash} from 'node:crypto';
-import {engine,data,calculateReport,calculateReportSnapshot,fingerprint} from '../scoring.js';
-import {createStoredReport} from '../stored-report.js';
+import {engine,data,calculateReport,calculateReportSnapshot,fingerprint} from './legacy-helpers.js';
+import {createStoredReport} from './legacy-helpers.js';
 import {presentReport} from '../report-presentation.js';
-import {workValueParts,workValueArchive,createWorkValuePreferences} from '../work-value-model.js';
+import {workValueParts,workValueArchive,createWorkValuePreferences} from './legacy-helpers.js';
 const fixtures=JSON.parse(fs.readFileSync(new URL('./fixtures/regression-40.json',import.meta.url)));
-const audit=JSON.parse(fs.readFileSync(new URL('../private/work-value-reference-audit.json',import.meta.url)));
+const audit=JSON.parse(fs.readFileSync(new URL('../private/archive/v2.9/work-value-reference-audit.json',import.meta.url)));
 const classify=(s,r)=>s<r.lower?'较低':s<(r.lower+r.mean)/2?'稍低':s<=(r.mean+r.upper)/2?'平均':s<=r.upper?'稍高':'较高';
 const context=f=>({version:'2.9',fingerprint,answers:f.answers});
 const partRows=report=>report.dimensions.filter(row=>row.code.startsWith('WV_'));
@@ -61,16 +61,17 @@ test('historical values derive only from complete stored answers with archived v
  }
  const f=fixtures[0],snapshot=calculateReportSnapshot(f.answers,f.seconds);delete snapshot.workValuePreferences;
  for(const invalid of [{},{version:'2.9',answers:f.answers},{fingerprint,answers:f.answers},{...context(f),version:'future'},{...context(f),fingerprint:'unknown'},{...context(f),answers:null},{version:'2.9',fingerprint,answersJson:'{invalid'},{...context(f),answers:{...f.answers,QB031:{most:'A',least:'A'}}},{...context(f),answers:{...f.answers,QB031:{most:'A'}}},{...context(f),answers:{...f.answers,QB054:undefined}}]){
+  if(invalid.version==='future'||invalid.fingerprint==='unknown'){assert.throws(()=>presentReport(snapshot,invalid),/版本或校验标识/);continue;}
   const shown=presentReport(snapshot,invalid);assert.equal(partRows(shown).length,0);assert.equal(shown.workValuePreferences,null);assert.match(shown.workValueUnavailable,/暂无法展示/);assert.ok(!shown.dimensions.some(row=>row.code==='ST3'));
  }
  const poison=structuredClone(snapshot);poison.dimensions.find(row=>row.code==='ST3').score=999;const shown=presentReport(poison,context(f));assert.deepEqual(partRows(shown),partRows(calculateReport(f.answers,f.seconds)),'never split the legacy composite');
  const invalidSaved=calculateReportSnapshot(f.answers,f.seconds);invalidSaved.workValuePreferences.referenceId='wrong';assert.equal(partRows(presentReport(invalidSaved)).length,0);
- const mismatchedSnapshot={...snapshot,version:'future'};assert.equal(partRows(presentReport(mismatchedSnapshot,context(f))).length,0);
+ const mismatchedSnapshot={...snapshot,version:'future'};assert.throws(()=>presentReport(mismatchedSnapshot,context(f)),/版本或校验标识/);
 });
 
 test('only five approved reference configurations change while all scores and other references remain exact',()=>{
  const approved={ST1:{mean:78,lower:54.7,upper:99.9},ST2:{mean:72,lower:50.3,upper:98.7},SJ1:{mean:90,lower:82.5,upper:99.9},SJ2:{mean:87,lower:77,upper:99.9},SJ3:{mean:77,lower:65.1,upper:91.9}};
- const referenceAudit=JSON.parse(fs.readFileSync(new URL('../private/reviewed-reference-audit.json',import.meta.url))),labels=['较低','稍低','平均','稍高','较高'];
+ const referenceAudit=JSON.parse(fs.readFileSync(new URL('../private/archive/v2.9/reviewed-reference-audit.json',import.meta.url))),labels=['较低','稍低','平均','稍高','较高'];
  const counts=()=>Object.fromEntries(labels.map(label=>[label,0]));const beforeAll=counts(),afterAll=counts(),beforeHonest=counts(),afterHonest=counts();
  assert.deepEqual(referenceAudit.approvedReferences,approved);
  for(const f of fixtures){

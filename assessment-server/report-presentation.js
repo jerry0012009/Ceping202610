@@ -1,19 +1,22 @@
 import {resolveEmploymentAnswers} from './employment-answers.js';
-import {resolveWorkValuePreferences,workValueParts} from './work-value-model.js';
-import {pfModelId,pfReferenceId,pfRoleTitle,pfReference,rolePFTotal} from './pf-role-model.js';
-import presentation from './private/report-presentation.json' with {type:'json'};
+import {resolveWorkValuePreferences} from './work-value-model.js';
+import {rolePFTotal} from './pf-role-model.js';
+import {getVersion} from './version-registry.js';
 const classify=(score,r)=>!Number.isFinite(score)?'无参照':score<r.lower?'较低':score<(r.lower+r.mean)/2?'稍低':score<=(r.mean+r.upper)/2?'平均':score<=r.upper?'稍高':'较高';
 // Response projection only. Existing totals/dimensions stay frozen; the work-value and employment-answer views may derive from version-matched archived answers. The stored snapshot is never modified.
 const stripPrivate=value=>Array.isArray(value)?value.map(stripPrivate):value&&typeof value==='object'?Object.fromEntries(Object.entries(value).filter(([key])=>!['internalEvidence','example','examples','representativeAnswers'].includes(key)).map(([key,item])=>[key,stripPrivate(item)])):value;
 export function presentReport(snapshot,context={}){
  snapshot=stripPrivate(snapshot);
+ const entry=getVersion(snapshot.version,context.fingerprint);
+ if(!entry||(context.version!==undefined&&context.version!==snapshot.version))throw Object.assign(new Error('报告版本或校验标识不匹配，未使用其他版本重新解读。'),{status:422});
+ const {presentation,pfModel}=entry,{id:pfModelId,referenceId:pfReferenceId,roleTitle:pfRoleTitle,reference:pfReference}=pfModel,workValueParts=entry.workValueModel.parts;
  let report=snapshot;
  const values=resolveWorkValuePreferences(snapshot,context);
  if(snapshot.pfModelId!==pfModelId){
   const dimensions=Object.fromEntries((snapshot.dimensions||[]).filter(v=>/^PF[1-7]$/.test(v.code)).map(v=>[v.code,v]));
   if(Array.from({length:7},(_,i)=>'PF'+(i+1)).every(code=>Number.isFinite(dimensions[code]?.score)&&Number.isFinite(dimensions[code]?.raw))){
-   const totals=rolePFTotal({raw:Object.fromEntries(Object.entries(dimensions).map(([code,v])=>[code,v.raw])),reference:Object.fromEntries(Object.entries(dimensions).map(([code,v])=>[code,v.score]))});
-   report={...snapshot,pfModelId,pfReferenceId,pfRoleTitle,storedPFModelId:snapshot.storedPFModelId||snapshot.pfModelId||'legacy-general-v2.9',viewPFModelId:pfModelId,pfReinterpretationNotice:'职业性格匹配度按当前岗位权重重新汇总；原始记录保留。',totals:(snapshot.totals||[]).map(v=>v.code==='PF'?{...v,raw:totals.raw,score:totals.reference,...pfReference,label:classify(totals.reference,pfReference)}:v)};
+   const totals=rolePFTotal({raw:Object.fromEntries(Object.entries(dimensions).map(([code,v])=>[code,v.raw])),reference:Object.fromEntries(Object.entries(dimensions).map(([code,v])=>[code,v.score]))},entry.version);
+   report={...snapshot,pfModelId,pfReferenceId,pfRoleTitle,storedPFModelId:snapshot.storedPFModelId||snapshot.pfModelId||'legacy-general-v'+entry.version,viewPFModelId:pfModelId,pfReinterpretationNotice:'职业性格匹配度按当前岗位权重重新汇总；原始记录保留。',totals:(snapshot.totals||[]).map(v=>v.code==='PF'?{...v,raw:totals.raw,score:totals.reference,...pfReference,label:classify(totals.reference,pfReference)}:v)};
   }
  }
  const valueRows=values?workValueParts.map(({code,name,reference})=>{const source=values.scores.find(row=>row.code===code);return {...source,name,...reference,label:classify(source.score,reference)};}):[];
@@ -29,5 +32,5 @@ export function presentReport(snapshot,context={}){
   if(value.code==='RV'&&presentation.rvReference&&[value.mean,value.lower,value.upper].some(v=>!Number.isFinite(v))){Object.assign(copy,presentation.rvReference,{label:classify(value.score,presentation.rvReference),referenceNote:'作答质量总分参考区间为本次新增的模拟参照，未重算本次得分。'});}
   return copy;
  };
- return {...report,employmentAnswers:resolveEmploymentAnswers(snapshot,context),workValuePreferences:values,workValueNotice:values?'三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。':'',workValueDerivationNotice:values?.source==='archived-answers'?'工作价值观三项根据本次原始作答补充展示，原始记录保留。':'',workValueUnavailable:values?'':'本记录缺少可兼容的完整作答，暂无法展示工作价值观分项。',reportRevision:presentation.revision,referenceRevision:presentation.referenceRevision,referenceDescription:presentation.referenceDescription,disclaimer:presentation.referenceDescription||report.disclaimer,storedPFModelId:report.storedPFModelId||snapshot.pfModelId||'legacy-general-v2.9',viewPFModelId:report.pfModelId||'legacy-general-v2.9',interpretationNotes:(presentation.notes||[]).filter(note=>report.pfModelId===pfModelId||!note.startsWith('职业性格匹配度为建筑工地')),referenceLabel:presentation.referenceLabel||'模拟参照',totals:(report.totals||[]).map(row),dimensions:viewDimensions.map(row)};
+ return {...report,employmentAnswers:resolveEmploymentAnswers(snapshot,context),workValuePreferences:values,workValueNotice:values?'三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。':'',workValueDerivationNotice:values?.source==='archived-answers'?'工作价值观三项根据本次原始作答补充展示，原始记录保留。':'',workValueUnavailable:values?'':'本记录缺少可兼容的完整作答，暂无法展示工作价值观分项。',reportRevision:presentation.revision,referenceRevision:presentation.referenceRevision,referenceDescription:presentation.referenceDescription,disclaimer:presentation.referenceDescription||report.disclaimer,storedPFModelId:report.storedPFModelId||snapshot.pfModelId||'legacy-general-v'+entry.version,viewPFModelId:report.pfModelId||'legacy-general-v'+entry.version,interpretationNotes:(presentation.notes||[]).filter(note=>report.pfModelId===pfModelId||!note.startsWith('职业性格匹配度为建筑工地')),referenceLabel:presentation.referenceLabel||'模拟参照',totals:(report.totals||[]).map(row),dimensions:viewDimensions.map(row)};
 }

@@ -1,5 +1,5 @@
 {
-  "revision": "2.9-report-7",
+  "revision": "2.10-report-1",
   "metrics": {
     "ST1": {
       "name": "职业承诺",
@@ -199,7 +199,7 @@
   "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
   "showRepresentativeAnswers": false,
   "showCodes": false,
-  "referenceRevision": "2.9-report-reference-reviewed-centers-v1",
+  "referenceRevision": "2.10-synthetic-40-reviewed-centers-widths-v1",
   "referenceOverrides": {
     "ST1": {
       "mean": 78,
@@ -214,17 +214,42 @@
     "SJ1": {
       "mean": 90,
       "lower": 82.5,
-      "upper": 99.9
+      "upper": 99.3
     },
     "SJ2": {
       "mean": 87,
-      "lower": 77,
-      "upper": 99.9
+      "lower": 77.3,
+      "upper": 99.6
     },
     "SJ3": {
-      "mean": 77,
-      "lower": 65.1,
-      "upper": 91.9
+      "mean": 79,
+      "lower": 68.0,
+      "upper": 92.7
+    },
+    "PF2": {
+      "mean": 51,
+      "lower": 29.4,
+      "upper": 72.6
+    },
+    "PF5": {
+      "mean": 47,
+      "lower": 30.3,
+      "upper": 63.7
+    },
+    "PF7": {
+      "mean": 74,
+      "lower": 60.4,
+      "upper": 87.6
+    },
+    "MH3": {
+      "mean": 31,
+      "lower": 18.5,
+      "upper": 43.5
+    },
+    "MH": {
+      "mean": 27,
+      "lower": 16.7,
+      "upper": 37.3
     }
   }
 }

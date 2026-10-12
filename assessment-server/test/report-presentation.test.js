@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {presentReport} from '../report-presentation.js';
-import {engine,calculateReport} from '../scoring.js';
+import {engine,calculateReport} from './legacy-helpers.js';
 const fixtures=JSON.parse(fs.readFileSync(new URL('./fixtures/regression-40.json',import.meta.url)));
 test('new reports change only role PF total; all forty subdimension and other totals stay unchanged',()=>{
  for(const f of fixtures){const r=calculateReport(f.answers,f.seconds);for(const d of r.dimensions.filter(row=>!row.code.startsWith('WV_'))){assert.equal(d.raw,f.expected.raw[d.code]);assert.equal(d.score,f.expected.reference[d.code]);}for(const t of r.totals.filter(x=>x.code!=='PF')){assert.equal(t.raw,f.expected.totals[t.code].raw);assert.equal(t.score,f.expected.totals[t.code].reference);}assert.equal(r.totals.find(t=>t.code==='PF').name,'职业性格匹配度');assert.equal(r.totals.find(t=>t.code==='MH').name,'心理问题倾向');assert(!JSON.stringify(r).includes('"example":'));}
@@ -18,7 +18,7 @@ test('all scored dimensions and totals carry Chinese explanations and weighted R
 });
 
 test('role-specific PF matches all forty approved totals and independently recalculated reference',()=>{
- const audit=JSON.parse(fs.readFileSync(new URL('../private/pf-role-reference-audit.json',import.meta.url)));assert.equal(audit.rows.length,40);const values=[];for(const f of fixtures){const report=calculateReport(f.answers,f.seconds),pf=report.totals.find(x=>x.code==='PF'),expected=audit.rows.find(x=>x.id===f.id);assert.equal(report.version,'2.9');assert.equal(report.pfModelId,'construction-site-management-v1');assert.equal(report.pfReferenceId,'construction-site-management-synthetic-40-v1');assert.equal(report.pfRoleTitle,'建筑工地外派管理岗');assert.ok(Math.abs(pf.raw-expected.raw)<1e-10);assert.ok(Math.abs(pf.score-expected.reference)<1e-10);assert.deepEqual({mean:pf.mean,lower:pf.lower,upper:pf.upper},{mean:62,lower:54.5,upper:69.5});values.push({value:pf.score,weight:expected.weight});assert.match(pf.limitation,/不是匹配概率/);}
+ const audit=JSON.parse(fs.readFileSync(new URL('../private/archive/v2.9/pf-role-reference-audit.json',import.meta.url)));assert.equal(audit.rows.length,40);const values=[];for(const f of fixtures){const report=calculateReport(f.answers,f.seconds),pf=report.totals.find(x=>x.code==='PF'),expected=audit.rows.find(x=>x.id===f.id);assert.equal(report.version,'2.9');assert.equal(report.pfModelId,'construction-site-management-v1');assert.equal(report.pfReferenceId,'construction-site-management-synthetic-40-v1');assert.equal(report.pfRoleTitle,'建筑工地外派管理岗');assert.ok(Math.abs(pf.raw-expected.raw)<1e-10);assert.ok(Math.abs(pf.score-expected.reference)<1e-10);assert.deepEqual({mean:pf.mean,lower:pf.lower,upper:pf.upper},{mean:62,lower:54.5,upper:69.5});values.push({value:pf.score,weight:expected.weight});assert.match(pf.limitation,/不是匹配概率/);}
  const mean=values.reduce((s,x)=>s+x.value*x.weight,0),sd=Math.sqrt(values.reduce((s,x)=>s+x.weight*(x.value-mean)**2,0));assert.ok(Math.abs(mean-62.36788115736807)<1e-10);assert.ok(Math.abs(sd-4.515967692123222)<1e-10);
 });
 

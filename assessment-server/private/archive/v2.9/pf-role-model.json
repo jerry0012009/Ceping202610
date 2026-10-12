@@ -1,0 +1,26 @@
+{
+  "id": "construction-site-management-v1",
+  "referenceId": "construction-site-management-synthetic-40-v1",
+  "roleTitle": "建筑工地外派管理岗",
+  "weights": {
+    "PF1": 0.25,
+    "PF2": 0.2,
+    "PF3": 0.12,
+    "PF4": 0.08,
+    "PF5": 0.08,
+    "PF6": 0.07,
+    "PF7": 0.2
+  },
+  "reference": {
+    "mean": 62,
+    "lower": 54.5,
+    "upper": 69.5
+  },
+  "copy": {
+    "name": "职业性格匹配度",
+    "definition": "按外派建筑工地现场管理岗位的工作要求，对七项职业性格指标作岗位导向加权，侧重责任落实、协作与计划组织，并兼顾主动沟通与现场适应。",
+    "highMeaning": "本次回答呈现的性格组合更接近本报告设定的现场管理岗位侧重点。",
+    "lowMeaning": "本次回答与这些岗位侧重点的贴合较弱或工作方式不同，需结合实际经历与工作表现了解。",
+    "limitation": "本分数是岗位导向组合分，不是匹配概率或胜任保证；未验证对实际绩效的预测能力，也不能证明廉洁或技术合规能力。"
+  }
+}

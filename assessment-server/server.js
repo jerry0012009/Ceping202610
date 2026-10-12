@@ -12,7 +12,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {randomUUID,createHash} from 'node:crypto';
-import {questionnaire,validateSubmission,calculateReport,fingerprint,pages} from './scoring.js';
+import {questionnaire,validateSubmission,calculateReport,fingerprint,pages,requireVersion} from './scoring.js';
 const root=path.dirname(fileURLToPath(import.meta.url));
 export async function createApplication(env=process.env){
  const production=env.NODE_ENV==='production';
@@ -56,16 +56,19 @@ export async function createApplication(env=process.env){
   next();
  });
  app.get('/api/me',(req,res)=>res.json({user:{id:req.user.id,name:req.user.name,email:req.user.email,isAdmin:!!adminUserId&&req.user.id===adminUserId}}));
- app.get('/api/questionnaire',(req,res)=>res.json(questionnaire));
+ app.get('/api/questionnaire',(req,res)=>{try{res.json(requireVersion(req.query.version||undefined).questionnaire);}catch(error){res.status(422).json({error:error.message});}});
  const canonical=v=>v&&typeof v==='object'?(Array.isArray(v)?v.map(canonical):Object.fromEntries(Object.keys(v).sort().map(k=>[k,canonical(v[k])]))):v;
  const equal=(a,b)=>JSON.stringify(canonical(a))===JSON.stringify(canonical(b));
  app.get('/api/draft',(req,res)=>{const row=db.prepare('SELECT * FROM drafts WHERE user_id=?').get(req.user.id);res.json({draft:row?{version:row.version,position:row.position,answers:JSON.parse(row.answers_json),seconds:JSON.parse(row.seconds_json),updatedAt:row.updated_at}:null});});
  app.delete('/api/draft',(req,res)=>{db.prepare('DELETE FROM drafts WHERE user_id=?').run(req.user.id);res.json({ok:true});});
  app.put('/api/draft',(req,res)=>{
   const b=req.body;
+  let bank;try{bank=requireVersion(b?.version);}catch(e){return res.status(400).json({error:e.message});}
+  const {pages,questionnaire}=bank;
   if(!b||typeof b!=='object'||Object.keys(b).some(k=>!['version','position','answers','seconds'].includes(k))||!Number.isInteger(b.position)||b.position<1||b.position>pages.length)return res.status(400).json({error:'草稿结构不正确'});
   try{validateSubmission({version:b.version,answers:b.answers,seconds:b.seconds,submissionId:randomUUID()},true);}catch(e){return res.status(400).json({error:e.message});}
   const old=db.prepare('SELECT * FROM drafts WHERE user_id=?').get(req.user.id),prior=old?{version:old.version,position:old.position,answers:JSON.parse(old.answers_json),seconds:JSON.parse(old.seconds_json)}:null;
+  if(prior&&prior.version!==b.version)return res.status(409).json({error:'草稿版本已固定，请继续原版本或明确开始新测评'});
   if(prior&&equal(prior,b))return res.json({ok:true,position:b.position});
   if((prior?.position||0)+1!==b.position)return res.status(409).json({error:'请按顺序保存；已提交页面已锁定'});
   const ids=pages.slice(0,b.position).flat();
@@ -103,8 +106,10 @@ export async function createApplication(env=process.env){
   const hash=createHash('sha256').update(JSON.stringify(canonical(b))).digest('hex');
   const existing=db.prepare('SELECT * FROM assessments WHERE user_id=? AND submission_id=?').get(req.user.id,b.submissionId);
   if(existing){if(existing.request_hash!==hash)return res.status(409).json({error:'相同提交标识对应不同答案，请重新提交'});return res.json(serialize(existing));}
-  const id=randomUUID(),createdAt=new Date().toISOString(),report=createStoredReport(b.answers,b.seconds);
+  const {pages,fingerprint}=requireVersion(b.version);
+  const id=randomUUID(),createdAt=new Date().toISOString(),report=createStoredReport(b.answers,b.seconds,b.version);
   const draft=db.prepare('SELECT * FROM drafts WHERE user_id=?').get(req.user.id);
+  if(draft&&draft.version!==b.version)return res.status(409).json({error:'提交版本与草稿版本不一致'});
   if(draft&&(!equal(JSON.parse(draft.answers_json),b.answers)||!equal(JSON.parse(draft.seconds_json),b.seconds)||draft.position!==pages.length))return res.status(409).json({error:'请先按顺序完成并保存所有页面'});
   db.exec('BEGIN IMMEDIATE');
   try{db.prepare('INSERT INTO assessments VALUES (?,?,?,?,?,?,?,?,?,?)').run(id,req.user.id,b.submissionId,b.version,fingerprint,createdAt,hash,JSON.stringify(b.answers),JSON.stringify(b.seconds),JSON.stringify(report));db.prepare('DELETE FROM drafts WHERE user_id=?').run(req.user.id);db.exec('COMMIT');}catch(error){db.exec('ROLLBACK');throw error;}
@@ -114,7 +119,7 @@ export async function createApplication(env=process.env){
  // Never serve the project root, private/, data/, tests, or node_modules.
  app.use(express.static(path.join(root,'public'),{dotfiles:'deny',index:'index.html',fallthrough:true}));
  app.use((req,res)=>res.status(404).send('Not found'));
- app.use((err,req,res,next)=>{res.status(err.type==='entity.too.large'?413:err instanceof SyntaxError?400:500).json({error:'请求无法处理'});});
+ app.use((err,req,res,next)=>{res.status(err.type==='entity.too.large'?413:err instanceof SyntaxError?400:err.status||500).json({error:err.status?err.message:'请求无法处理'});});
  return {app,db,auth};
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){

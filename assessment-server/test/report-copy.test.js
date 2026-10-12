@@ -2,12 +2,12 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {createHash} from 'node:crypto';
-import {calculateReport,calculateReportSnapshot} from '../scoring.js';
+import {calculateReport,calculateReportSnapshot} from './legacy-helpers.js';
 import {presentReport} from '../report-presentation.js';
 
 const fixtures=JSON.parse(fs.readFileSync(new URL('./fixtures/regression-40.json',import.meta.url)));
 const baseline=JSON.parse(fs.readFileSync(new URL('./fixtures/report-numeric-baseline.json',import.meta.url)));
-const presentation=JSON.parse(fs.readFileSync(new URL('../private/report-presentation.json',import.meta.url)));
+const presentation=JSON.parse(fs.readFileSync(new URL('../private/archive/v2.9/report-presentation.json',import.meta.url)));
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const numericRow=({code,raw,score,mean,lower,upper,label,coverage})=>({code,raw,score,mean,lower,upper,label,...(coverage?{coverage}:{})});
 const numericReport=({schemaVersion,version,pfModelId,pfReferenceId,pfRoleTitle,answered,total,totals,dimensions,facts})=>({schemaVersion,version,pfModelId,pfReferenceId,pfRoleTitle,answered,total,totals:totals.map(numericRow),dimensions:dimensions.map(numericRow),facts});
@@ -31,7 +31,7 @@ test('frozen reports remain exact after reversing only approved value-card repla
   assert.equal(hash(JSON.stringify(numericReport(report))),baseline.rows.find(row=>row.id===fixture.id).sha256,fixture.id);
  }
  for(const [path,expected] of Object.entries(baseline.protectedFiles)){
-  assert.equal(hash(fs.readFileSync(new URL('../'+path,import.meta.url))),expected,path+' must remain byte-for-byte unchanged');
+  assert.equal(hash(fs.readFileSync(new URL('../'+(path==='private/pf-role-model.json'?'private/archive/v2.9/pf-role-model.json':path),import.meta.url))),expected,path+' must remain byte-for-byte unchanged');
  }
 });
 

@@ -2,8 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {createHash} from 'node:crypto';
-import {engine,data,calculateReportSnapshot,calculateReport,fingerprint} from '../scoring.js';
-import {createStoredReport} from '../stored-report.js';
+import {engine,data,calculateReportSnapshot,calculateReport,fingerprint} from './legacy-helpers.js';
+import {createStoredReport} from './legacy-helpers.js';
 import {presentReport} from '../report-presentation.js';
 import {createEmploymentAnswers} from '../employment-answers.js';
 const fixtures=JSON.parse(fs.readFileSync(new URL('./fixtures/regression-40.json',import.meta.url)));
@@ -35,6 +35,7 @@ test('three original tenure slots, fractional months and missing status survive 
 test('legacy facts keep known months non-positional and unknown version keys are never decoded',()=>{
  const answers={QB001:'B',QB002:{months:[12,0,36],status:'已离职'}},snapshot=legacy(answers),before=JSON.stringify(snapshot);
  for(const input of [{},{version:'2.9'},{fingerprint},{...context(answers),version:'future'},{...context(answers),fingerprint:'unknown'}]){
+  if(input.version==='future'||input.fingerprint==='unknown'){assert.throws(()=>presentReport(snapshot,input),/版本或校验标识/);continue;}
   const shown=presentReport(snapshot,input).employmentAnswers;assert.equal(shown.employersText,null);assert.equal(shown.tenure.months,null);assert.equal(shown.tenure.status,null);assert.deepEqual(shown.tenure.recordedMonths,[12,36]);assert.equal(shown.tenure.noExperience,false);
  }
  for(const input of [{version:'2.9',fingerprint,answersJson:'{broken'},context(null),context({})]){
@@ -42,7 +43,7 @@ test('legacy facts keep known months non-positional and unknown version keys are
  }
  const missing=presentReport({version:'2.9',facts:{}},context({})).employmentAnswers;assert.equal(missing.tenure.noExperience,false);assert.deepEqual(missing.tenure.recordedMonths,[]);
  assert.equal(JSON.stringify(snapshot),before);
- const wrong={...snapshot,version:'future'};assert.equal(presentReport(wrong,context(answers)).employmentAnswers.employersText,null);
+ const wrong={...snapshot,version:'future'};assert.throws(()=>presentReport(wrong,context(answers)),/版本或校验标识/);
 });
 
 test('saved employment metadata is validated and reconstructed without unknown scoring fields',()=>{

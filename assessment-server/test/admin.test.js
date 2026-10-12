@@ -1,8 +1,8 @@
 import {createEmploymentAnswers} from '../employment-answers.js';
-import {fingerprint} from '../scoring.js';
+import {fingerprint} from './legacy-helpers.js';
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import os from 'node:os';import path from 'node:path';import {randomBytes,randomUUID} from 'node:crypto';import {createApplication} from '../server.js';
 const fixture=JSON.parse(fs.readFileSync(new URL('./fixtures/regression-40.json',import.meta.url)))[0];
-const presentation=JSON.parse(fs.readFileSync(new URL('../private/report-presentation.json',import.meta.url)));
+const presentation=JSON.parse(fs.readFileSync(new URL('../private/archive/v2.9/report-presentation.json',import.meta.url)));
 const staleDescriptions=report=>{report.reportRevision='2.9-report-3';for(const row of [...report.totals,...report.dimensions])for(const key of ['definition','highMeaning','lowMeaning'])row[key]='stale-report-description';return report;};
 const assertCurrentDescriptions=report=>{assert.equal(report.reportRevision,presentation.revision);for(const row of [...report.totals,...report.dimensions])for(const key of ['definition','highMeaning','lowMeaning'])assert.equal(row[key],presentation.metrics[row.code][key],row.code+'.'+key);};
 test('only explicitly bound immutable user ID can read admin history/reports; audit has no answers; revocation works',async()=>{
@@ -53,7 +53,7 @@ test('only explicitly bound immutable user ID can read admin history/reports; au
  }
  for(const [column,value]of [['fingerprint','unknown'],['version','future'],['answers_json','{}']]){
   instance.db.prepare(`UPDATE assessments SET ${column}=? WHERE id=?`).run(value,saved.json.id);
-  for(const [route,cookie]of [['/api/assessments/',b.cookie],['/api/admin/assessments/',a.cookie]]){const response=await call(route+saved.json.id,cookie);assert.equal(response.status,200,response.text);assert.equal(response.json.report.workValuePreferences,null);assert.equal(response.json.report.dimensions.filter(row=>row.code.startsWith('WV_')).length,0);assert.match(response.json.report.workValueUnavailable,/暂无法展示/);}
+  for(const [route,cookie]of [['/api/assessments/',b.cookie],['/api/admin/assessments/',a.cookie]]){const response=await call(route+saved.json.id,cookie);if(column!=='answers_json'){assert.equal(response.status,422,response.text);continue;}assert.equal(response.status,200,response.text);assert.equal(response.json.report.workValuePreferences,null);assert.equal(response.json.report.dimensions.filter(row=>row.code.startsWith('WV_')).length,0);assert.match(response.json.report.workValueUnavailable,/暂无法展示/);}
   instance.db.prepare(`UPDATE assessments SET ${column}=? WHERE id=?`).run(valueRecord[column],saved.json.id);
  }
  instance.db.prepare('UPDATE assessments SET report_json=? WHERE id=?').run(valueRecord.report_json,saved.json.id);
@@ -69,7 +69,7 @@ test('only explicitly bound immutable user ID can read admin history/reports; au
  instance.db.prepare('UPDATE assessments SET answers_json=? WHERE id=?').run(employmentRecord.answers_json,saved.json.id);
  for(const [column,value]of [['version','future'],['fingerprint','unknown'],['answers_json','{bad-json']]){
   instance.db.prepare(`UPDATE assessments SET ${column}=? WHERE id=?`).run(value,saved.json.id);
-  for(const [route,cookie]of [['/api/assessments/',b.cookie],['/api/admin/assessments/',a.cookie]]){const response=await call(route+saved.json.id,cookie);assert.equal(response.status,200,response.text);const display=response.json.report.employmentAnswers;assert.equal(display.tenure.months,null);assert.equal(display.tenure.status,null);assert.deepEqual(display.tenure.recordedMonths,legacyEmployment.facts.tenure.months);if(column!=='answers_json')assert.equal(display.employersText,null);assert.deepEqual({...instance.db.prepare('SELECT * FROM assessments WHERE id=?').get(saved.json.id)},{...employmentRecord,report_json:legacyEmploymentText,[column]:value});}
+  for(const [route,cookie]of [['/api/assessments/',b.cookie],['/api/admin/assessments/',a.cookie]]){const response=await call(route+saved.json.id,cookie);if(column!=='answers_json'){assert.equal(response.status,422,response.text);continue;}assert.equal(response.status,200,response.text);const display=response.json.report.employmentAnswers;assert.equal(display.tenure.months,null);assert.equal(display.tenure.status,null);assert.deepEqual(display.tenure.recordedMonths,legacyEmployment.facts.tenure.months);if(column!=='answers_json')assert.equal(display.employersText,null);assert.deepEqual({...instance.db.prepare('SELECT * FROM assessments WHERE id=?').get(saved.json.id)},{...employmentRecord,report_json:legacyEmploymentText,[column]:value});}
   instance.db.prepare(`UPDATE assessments SET ${column}=? WHERE id=?`).run(employmentRecord[column],saved.json.id);
  }
  instance.db.prepare('UPDATE assessments SET report_json=? WHERE id=?').run(employmentRecord.report_json,saved.json.id);

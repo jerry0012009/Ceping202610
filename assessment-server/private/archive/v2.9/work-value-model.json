@@ -1,0 +1,39 @@
+{
+  "id": "work-value-preferences-v2.9-v1",
+  "referenceId": "work-value-synthetic-40-h20-d30-s30-z20-v1",
+  "scoringVersion": "2.9",
+  "scoringFingerprint": "40df986e630a93426ad5e1535316ffe34d0eba0fe9fe564817e4e5629c92a9e5",
+  "scoreBasis": "existing raw V2.9 valueParts; no impression-management correction",
+  "parts": [
+    {
+      "code": "WV_STABILITY",
+      "part": "稳定保障",
+      "name": "稳定保障偏好",
+      "reference": {
+        "mean": 37,
+        "lower": 19.2,
+        "upper": 54.8
+      }
+    },
+    {
+      "code": "WV_GROWTH",
+      "part": "学习成长",
+      "name": "学习成长偏好",
+      "reference": {
+        "mean": 68,
+        "lower": 48.7,
+        "upper": 87.3
+      }
+    },
+    {
+      "code": "WV_REWARD",
+      "part": "报酬回报",
+      "name": "报酬回报偏好",
+      "reference": {
+        "mean": 27,
+        "lower": 13.6,
+        "upper": 40.4
+      }
+    }
+  ]
+}
