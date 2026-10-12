@@ -20,3 +20,13 @@
 .report-note{font-size:11px;color:var(--muted);line-height:1.8;margin:30px 0 0;padding-top:16px;border-top:1px solid var(--line)}
 /* Four report summaries stay balanced while longer Chinese explanations wrap. */
 .domain-totals{grid-template-columns:repeat(2,minmax(0,1fr))}.metric-description{font-size:13px;line-height:1.8;overflow-wrap:anywhere}.total-card h3,.metric-card h3{overflow-wrap:anywhere;line-height:1.5}@media(max-width:560px){.domain-totals{grid-template-columns:1fr}}@media print{.domain-totals{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Five score positions use blue–gray–orange, with labels preserved in every view. */
+.score-band-low{--band-text:#174a7e;--band-tint:#e2edf9;--band-border:#b9cfea;--band-accent:#2f659a}
+.score-band-slightly-low{--band-text:#356789;--band-tint:#f0f7fb;--band-border:#d2e5ef;--band-accent:#719aba}
+.score-band-average{--band-text:#52606d;--band-tint:#f1f3f5;--band-border:#dce1e5;--band-accent:#86929e}
+.score-band-slightly-high{--band-text:#97511e;--band-tint:#fff3e5;--band-border:#f6d9b5;--band-accent:#dc9c58}
+.score-band-high{--band-text:#9a4116;--band-tint:#fbe7d9;--band-border:#edbea0;--band-accent:#c8642c}
+.delta{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;white-space:nowrap;font-size:12px;font-weight:600;line-height:1.5;padding:3px 9px;border:1px solid var(--band-border,#dce1e5);border-radius:999px;color:var(--band-text,#52606d);background:var(--band-tint,#f1f3f5)}
+.metric-bar i{background:var(--band-accent,#86929e)}
+@media print{.delta,.metric-bar i{print-color-adjust:exact;-webkit-print-color-adjust:exact}}

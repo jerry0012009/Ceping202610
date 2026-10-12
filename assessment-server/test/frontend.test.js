@@ -166,3 +166,56 @@ test('report cards and radar show Chinese names and explanations without codes o
 test('admin answer details show every original question with escaped owner and free text',async()=>{
  const {T,node}=await harness();const answers={...T.state.answers,INFO014:{other:'<script>private-test</script>'}};const details=answerDetails('2.9',answers);T.showAnswerDetails({id:'record',owner:{name:'<img onerror=bad>',email:'admin@example.test'},createdAt:new Date().toISOString(),...details});const html=node('main').innerHTML;assert.equal((html.match(/class="question"/g)||[]).length,questionnaire.questions.length);assert.match(html,/逐题作答/);assert.match(html,/返回管理历史/);assert.match(html,/&lt;script&gt;private-test/);assert.doesNotMatch(html,/<script>|<img onerror|data-action="dimension"/);
 });
+
+const scoreBands=[['较低','low'],['稍低','slightly-low'],['平均','average'],['稍高','slightly-high'],['较高','high']];
+
+test('all five score bands color total and dimension badges and bars without changing scores or references',async()=>{
+ const {T,node}=await harness();
+ const rows=scoreBands.map(([label],i)=>Object.freeze({code:`PF${i+1}`,name:`档位测试${i+1}`,label,score:67.25,mean:54.5,lower:45.5,upper:63.5,coverage:Object.freeze({answered:4,total:5})}));
+ for(const total of [false,true])for(const [i,[label,band]] of scoreBands.entries()){
+  const row=rows[i],before=JSON.stringify(row),html=T.metric(row,total);
+  assert.match(html,new RegExp(`<article class="${total?'total-card':'metric-card'}">`));
+  assert.ok(html.includes(`<span class="delta score-band-${band}">${label}</span>`));
+  assert.ok(html.includes(`<i class="score-band-${band}" style="width:67.25%"></i>`));
+  assert.match(html,/>67\.3(?:<small>\/ 100<\/small>)?<\/b>/);
+  assert.match(html,/class="reference-band" style="left:45\.5%;width:18%"/);
+  assert.match(html,/<em style="left:54\.5%"><\/em>/);
+  assert.match(html,/模拟参照均值 54\.5<br>模拟参照区间 45\.5—63\.5/);
+  assert.equal(JSON.stringify(row),before);
+ }
+ const report={totals:rows,dimensions:rows,family:[],facts:{},answered:80,total:80},before=JSON.stringify(report);
+ T.showReport({version:'2.9',createdAt:'2026-10-12T00:00:00Z',report});
+ for(const [label,band] of scoreBands)assert.equal(node('main').innerHTML.split(`<span class="delta score-band-${band}">${label}</span>`).length-1,2);
+ assert.match(node('main').innerHTML,/颜色仅区分得分档位，高低分的具体含义请结合各项说明。/);
+ assert.equal(JSON.stringify(report),before);
+});
+
+test('unknown and missing score labels use the neutral band and cannot inject CSS classes or markup',async()=>{
+ const {T}=await harness();
+ for(const total of [false,true])for(const label of [undefined,null,'','未知档位','constructor','__proto__','较高" onclick="bad','<img src=x onerror=bad>']){
+  const row=Object.freeze({name:'兼容报告',label,score:12.3,mean:50,lower:40,upper:60}),before=JSON.stringify(row),html=T.metric(row,total);
+  assert.match(html,/<span class="delta score-band-average">/);
+  assert.match(html,/<i class="score-band-average" style="width:12\.3%"><\/i>/);
+  assert.doesNotMatch(html,/<img|onclick="bad|class="[^"]*(?:constructor|__proto__|未知档位)/);
+  assert.equal(JSON.stringify(row),before);
+ }
+ assert.match(T.metric({name:'兼容报告',label:'未知档位'}),/>未知档位<\/span>/);
+ assert.match(T.metric({name:'兼容报告',label:'<img src=x onerror=bad>'}),/&lt;img src=x onerror=bad&gt;/);
+});
+
+test('five score palettes are distinct with WCAG AA text contrast and retained print labels',()=>{
+ const css=fs.readFileSync(new URL('../public/style.css',import.meta.url),'utf8'),palettes=[];
+ const luminance=hex=>{
+  const channels=hex.match(/[a-f\d]{2}/gi).map(x=>parseInt(x,16)/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4);
+  return channels.reduce((sum,x,i)=>sum+x*[.2126,.7152,.0722][i],0);
+ };
+ for(const [,band] of scoreBands){
+  const body=css.match(new RegExp(`\\.score-band-${band}\\{([^}]+)\\}`))?.[1];assert.ok(body,band);
+  const colors=Object.fromEntries([...body.matchAll(/--band-(text|tint|border|accent):(#[a-f\d]{6})/gi)].map(x=>[x[1],x[2]]));
+  const l=[luminance(colors.text),luminance(colors.tint)].sort((a,b)=>b-a),contrast=(l[0]+.05)/(l[1]+.05);
+  assert.ok(contrast>=4.5,`${band} badge text contrast ${contrast.toFixed(2)} must meet 4.5:1`);palettes.push(colors);
+ }
+ for(const property of ['text','tint','border','accent'])assert.equal(new Set(palettes.map(p=>p[property])).size,5,`${property} distinguishes all five bands`);
+ assert.match(css,/\.metric-bar i\{background:var\(--band-accent,/);
+ assert.match(css,/@media print\{\.delta,\.metric-bar i\{print-color-adjust:exact;-webkit-print-color-adjust:exact\}\}/);
+});
