@@ -54,7 +54,7 @@ async function harness({failDraftOnce=false,failSubmissionOnce=false,holdSaves=f
     },
   };
   let source=fs.readFileSync(new URL('../public/app.js',import.meta.url),'utf8');
-  source=source.replace(/\}\)\(\);\s*$/,`globalThis.T={showAnswerDetails,metric,radar,field,familyText,start,done,drain,awaitSaved,fail,get heldState(){return heldState},setUser(value){user=value},questionPage,next,showReport,clearPrivateUI,get report(){return report},get savedDraft(){return savedDraft},get state(){return state},get pages(){return pages}};})();`);
+  source=source.replace(/\}\)\(\);\s*$/,`globalThis.T={showAnswerDetails,metric,radar,field,familyText,mutate,start,done,drain,awaitSaved,fail,get heldState(){return heldState},setUser(value){user=value},questionPage,next,showReport,clearPrivateUI,get report(){return report},get savedDraft(){return savedDraft},get state(){return state},get pages(){return pages}};})();`);
   vm.runInNewContext(source,context);
   await new Promise(resolve=>setTimeout(resolve,0));
   context.T.setUser({id:'owner-a'});
@@ -218,4 +218,60 @@ test('five score palettes are distinct with WCAG AA text contrast and retained p
  for(const property of ['text','tint','border','accent'])assert.equal(new Set(palettes.map(p=>p[property])).size,5,`${property} distinguishes all five bands`);
  assert.match(css,/\.metric-bar i\{background:var\(--band-accent,/);
  assert.match(css,/@media print\{\.delta,\.metric-bar i\{print-color-adjust:exact;-webkit-print-color-adjust:exact\}\}/);
+});
+
+
+test('only children and cohabitation use their scoped applicability labels in forms and report display',async()=>{
+ const {T}=await harness();
+ for(const [id,key,label,options,empty] of [
+  ['INFO018','children','目前是否已有子女（选填）',['没有','有','不愿填写'],'不适用'],
+  ['INFO023','living','是否与您同住',['是','否','部分时间'],'不适用/其他'],
+ ]){
+  for(const value of ['',...options,'无','不适用',empty]){
+   const html=T.field(label,key,value,id,options),expected=['无','不适用'].includes(value)?empty:value;
+   assert.match(html,new RegExp(`<option value="">请选择 / ${empty}</option>`));
+   assert.deepEqual([...html.matchAll(/<option(?: selected| )?>([^<]*)<\/option>/g)].map(m=>m[1]),[...options,empty]);
+   assert.deepEqual([...html.matchAll(/<option selected>([^<]*)<\/option>/g)].map(m=>m[1]),expected?[expected]:[]);
+   assert.doesNotMatch(html,/>无<\/option>/);
+   const saved=Object.freeze({id,answer:Object.freeze({[key]:value})}),before=JSON.stringify(saved);
+   assert.equal(T.familyText(saved),value?`${label}：${expected}`:'未填 / 无');
+   assert.equal(JSON.stringify(saved),before);
+  }
+ }
+ for(const [id,key,options] of [['INFO014','status',['未婚','已婚','离异','其他']],['INFO017','status',['是','否','部分时间']],['INFO020','stage',['未入学','幼儿园','小学','初中','高中及以上']],['INFO022','carer',['我自己','配偶','男方父母','女方父母','保姆/其他']]]){
+  const html=T.field('原字段',key,'不适用',id,options);assert.match(html,/<option value="">请选择 \/ 无<\/option>/);assert.match(html,/<option selected>无<\/option>/);assert.doesNotMatch(html,/不适用/);
+ }
+ const support=T.field('需要说明的照料或支持安排（选填）','arrangement','无','INFO018','textarea');
+ assert.match(support,/<textarea[^>]*placeholder="按需填写；无相关情况可填“无”">无<\/textarea>/);
+ assert.match(T.field('老人目前居住地（选填）','place','不适用','INFO023'),/value="无"/);
+ assert.match(T.familyText({id:'INFO018',answer:{children:'没有',arrangement:'不适用其他安排'}}),/目前是否已有子女（选填）：没有<br>需要说明的照料或支持安排（选填）：不适用其他安排/);
+});
+
+for(const legacy of [false,true])test(`family applicability ${legacy?'legacy values stay unchanged':'new selections round-trip'} through locked-page draft and final save`,async()=>{
+ const {T,node,draftRequests,submissionRequests}=await harness();
+ T.state.answers.INFO018={children:legacy?'无':'没有',arrangement:'保留支持说明'};
+ T.state.answers.INFO023={living:legacy?'不适用':'否',place:'原居住地',age:'68'};
+ const expected={INFO018:legacy?'无':'不适用',INFO023:legacy?'不适用':'不适用/其他'};
+ if(!legacy){
+  for(const [id,key,value]of [['INFO018','children','不适用'],['INFO023','living','不适用/其他']]){
+   T.state.position=T.pages.findIndex(p=>p.ids.includes(id));T.questionPage();T.mutate({dataset:{id,field:key},value});
+   assert.equal(T.state.answers[id][key],value);
+  }
+  T.state.position=0;
+ }
+ const original=JSON.stringify(T.state.answers);
+ for(let i=0;i<T.pages.length;i++){
+  T.questionPage();
+  if(T.pages[i].ids.includes('INFO018'))assert.match(node('main').innerHTML,/<option selected>不适用<\/option>/);
+  if(T.pages[i].ids.includes('INFO023'))assert.match(node('main').innerHTML,/<option selected>不适用\/其他<\/option>/);
+  await T.next();
+ }
+ const submitted=submissionRequests[0].answers;
+ assert.equal(submitted.INFO018.children,expected.INFO018);assert.equal(submitted.INFO023.living,expected.INFO023);
+ assert.equal(submitted.INFO018.arrangement,'保留支持说明');assert.equal(submitted.INFO023.place,'原居住地');assert.equal(submitted.INFO023.age,'68');
+ const originalAnswers=JSON.parse(original);for(const id of ['INFO018','INFO023']){
+  assert.deepEqual(submitted[id],originalAnswers[id]);
+  for(const request of draftRequests.filter(p=>p.answers[id]))assert.deepEqual(request.answers[id],originalAnswers[id]);
+ }
+ assert.match(node('main').innerHTML,/目前是否已有子女（选填）：不适用/);assert.match(node('main').innerHTML,/是否与您同住：不适用\/其他/);
 });
