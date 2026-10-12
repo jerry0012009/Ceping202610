@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+import {createStoredReport} from '../stored-report.js';import {calculateReport} from '../scoring.js';import {presentReport} from '../report-presentation.js';
+const fixtures=JSON.parse(fs.readFileSync(new URL('./fixtures/regression-40.json',import.meta.url)));
+test('private positive-answer evidence is stored only, never alters scores or crosses report projection',()=>{
+ for(const f of fixtures){const snapshot=createStoredReport(f.answers,f.seconds);assert.ok(snapshot.internalEvidence);assert.equal(snapshot.internalEvidence.rankingMode,'above-equal-option');assert.equal(Object.keys(snapshot.internalEvidence.dimensions).length,22);for(const dimension of Object.values(snapshot.internalEvidence.dimensions)){const ids=dimension.evidence.flatMap(e=>e.questions.map(q=>q.id));assert.equal(new Set(ids).size,ids.length);assert.ok(ids.length<=3);assert.ok(dimension.evidence.every(e=>e.rankingValue>0));}const before=JSON.stringify(snapshot);assert.deepEqual(presentReport(snapshot),calculateReport(f.answers,f.seconds));assert.equal(JSON.stringify(snapshot),before);assert.ok(Buffer.byteLength(before)<1000000);}
+});

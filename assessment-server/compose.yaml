@@ -1,0 +1,17 @@
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    network_mode: host
+    env_file: .env
+    environment:
+      HOST: 127.0.0.1
+      PORT: 3000
+      DATA_DIR: /app/data
+      TRUST_PROXY: loopback
+    volumes:
+      - assessment-data:/app/data
+    security_opt:
+      - no-new-privileges:true
+volumes:
+  assessment-data:

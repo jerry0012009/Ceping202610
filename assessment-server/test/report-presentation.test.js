@@ -1,0 +1,27 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {presentReport} from '../report-presentation.js';
+import {engine,calculateReport} from '../scoring.js';
+const fixtures=JSON.parse(fs.readFileSync(new URL('./fixtures/regression-40.json',import.meta.url)));
+test('new reports change only role PF total; all forty subdimension and other totals stay unchanged',()=>{
+ for(const f of fixtures){const r=calculateReport(f.answers,f.seconds);for(const d of r.dimensions){assert.equal(d.raw,f.expected.raw[d.code]);assert.equal(d.score,f.expected.reference[d.code]);}for(const t of r.totals.filter(x=>x.code!=='PF')){assert.equal(t.raw,f.expected.totals[t.code].raw);assert.equal(t.score,f.expected.totals[t.code].reference);}assert.equal(r.totals.find(t=>t.code==='PF').name,'职业性格匹配度');assert.equal(r.totals.find(t=>t.code==='MH').name,'心理问题倾向');assert(!JSON.stringify(r).includes('"example":'));}
+ const approved=JSON.parse(fs.readFileSync(new URL('../private/approved-reference.json',import.meta.url)));assert.deepEqual(engine.defaults(),approved.allParameters);
+});
+test('historical report view reinterprets only PF from stored dimensions without mutating snapshot',()=>{
+ const report=calculateReport(fixtures[0].answers,fixtures[0].seconds);report.reportRevision='old';delete report.pfModelId;delete report.pfReferenceId;delete report.pfRoleTitle;delete report.storedPFModelId;delete report.viewPFModelId;report.dimensions[0].example={answer:'private-example-marker'};report.totals.find(t=>t.code==='RV').mean=12;report.totals.find(t=>t.code==='RV').lower=3;report.totals.find(t=>t.code==='RV').upper=34;const frozen=JSON.stringify(report),shown=presentReport(report);assert.equal(JSON.stringify(report),frozen);assert.equal(shown.totals.find(x=>x.code==='PF').name,'职业性格匹配度');assert.equal(shown.storedPFModelId,'legacy-general-v2.9');assert.equal(shown.viewPFModelId,'construction-site-management-v1');assert.match(shown.pfReinterpretationNotice,/原始记录保留/);assert(!JSON.stringify(shown).includes('private-example-marker'));for(let i=0;i<report.totals.length;i++)if(report.totals[i].code!=='PF')for(const field of ['raw','score','mean','lower','upper'])assert.equal(shown.totals[i][field],report.totals[i][field]);
+});
+
+test('all scored dimensions and totals carry Chinese explanations and weighted RV simulated reference',()=>{
+ const report=calculateReport(fixtures[0].answers,fixtures[0].seconds);for(const row of [...report.dimensions,...report.totals]){assert.match(row.name,/[\u4e00-\u9fff]/);for(const key of ['definition','highMeaning','lowMeaning'])assert.ok(row[key]?.length>8,`${row.code}.${key}`);}const rv=report.totals.find(r=>r.code==='RV');assert.deepEqual({mean:rv.mean,lower:rv.lower,upper:rv.upper},{mean:85,lower:75.3,upper:94.7});assert.match(rv.referenceNote,/模拟参照/);
+ const weights={H:.02,D:.03,S:.03,Z:.02};const rows=fixtures.map(f=>({value:f.expected.totals.RV.reference,weight:weights[f.id.split('-').pop()]}));const mean=rows.reduce((s,r)=>s+r.value*r.weight,0),sd=Math.sqrt(rows.reduce((s,r)=>s+r.weight*(r.value-mean)**2,0));assert.ok(Math.abs(mean-85.32213114754094)<1e-10);assert.ok(Math.abs(sd-9.689628900200246)<1e-10);assert.equal(rv.mean,Math.round(mean));assert.equal(rv.lower,Math.round((Math.round(mean)-Math.max(7.5,sd))*10)/10);assert.equal(rv.upper,Math.round((Math.round(mean)+Math.max(7.5,sd))*10)/10);
+});
+
+test('role-specific PF matches all forty approved totals and independently recalculated reference',()=>{
+ const audit=JSON.parse(fs.readFileSync(new URL('../private/pf-role-reference-audit.json',import.meta.url)));assert.equal(audit.rows.length,40);const values=[];for(const f of fixtures){const report=calculateReport(f.answers,f.seconds),pf=report.totals.find(x=>x.code==='PF'),expected=audit.rows.find(x=>x.id===f.id);assert.equal(report.version,'2.9');assert.equal(report.pfModelId,'construction-site-management-v1');assert.equal(report.pfReferenceId,'construction-site-management-synthetic-40-v1');assert.equal(report.pfRoleTitle,'建筑工地外派管理岗');assert.ok(Math.abs(pf.raw-expected.raw)<1e-10);assert.ok(Math.abs(pf.score-expected.reference)<1e-10);assert.deepEqual({mean:pf.mean,lower:pf.lower,upper:pf.upper},{mean:62,lower:54.5,upper:69.5});values.push({value:pf.score,weight:expected.weight});assert.match(pf.limitation,/不是匹配概率/);}
+ const mean=values.reduce((s,x)=>s+x.value*x.weight,0),sd=Math.sqrt(values.reduce((s,x)=>s+x.weight*(x.value-mean)**2,0));assert.ok(Math.abs(mean-62.36788115736807)<1e-10);assert.ok(Math.abs(sd-4.515967692123222)<1e-10);
+});
+
+test('incomplete historical PF stays generic; complete projections are idempotent',()=>{
+ const original=calculateReport(fixtures[0].answers,fixtures[0].seconds),old=structuredClone(original);delete old.pfModelId;delete old.storedPFModelId;delete old.viewPFModelId;old.totals.find(x=>x.code==='PF').score=53;const frozen=JSON.stringify(old),shown=presentReport(old);assert.equal(shown.totals.find(x=>x.code==='PF').score,original.totals.find(x=>x.code==='PF').score);assert.equal(JSON.stringify(old),frozen);assert.deepEqual(presentReport(shown),shown);old.dimensions=old.dimensions.filter(x=>x.code!=='PF7');const incomplete=presentReport(old);assert.equal(incomplete.totals.find(x=>x.code==='PF').score,53);assert.equal(incomplete.totals.find(x=>x.code==='PF').name,'职业性格综合分');assert.match(incomplete.totals.find(x=>x.code==='PF').modelNote,/无法按当前岗位/);
+});

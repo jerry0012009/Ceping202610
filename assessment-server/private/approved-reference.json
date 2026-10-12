@@ -1,0 +1,1319 @@
+{
+  "createdAt": "2026-10-12T09:12:20.199Z",
+  "status": "candidate_not_published",
+  "sourceVersion": "V2.8 frozen 40 synthetic responses",
+  "mixture": {
+    "H": 0.2,
+    "D": 0.3,
+    "S": 0.3,
+    "Z": 0.2
+  },
+  "personaWeight": 0.1,
+  "definition": "mean=round(weighted mean); halfwidth=max(7.5, weighted population SD); lower/upper=mean±halfwidth, clipped to [0,100], rounded to 1 decimal; RV2/RV3 unchanged",
+  "fiveLevelRule": "score<lower:较低; score<(lower+mean)/2:稍低; score<=(mean+upper)/2:平均; score<=upper:稍高; else:较高",
+  "updatedParameters": {
+    "ST1": {
+      "mean": 83,
+      "lower": 59.7,
+      "upper": 100
+    },
+    "ST2": {
+      "mean": 77,
+      "lower": 55.3,
+      "upper": 98.7
+    },
+    "ST3": {
+      "mean": 43,
+      "lower": 35.5,
+      "upper": 50.5
+    },
+    "PF1": {
+      "mean": 62,
+      "lower": 42.6,
+      "upper": 81.4
+    },
+    "PF2": {
+      "mean": 51,
+      "lower": 29,
+      "upper": 73
+    },
+    "PF3": {
+      "mean": 74,
+      "lower": 54.1,
+      "upper": 93.9
+    },
+    "PF4": {
+      "mean": 53,
+      "lower": 33.1,
+      "upper": 72.9
+    },
+    "PF5": {
+      "mean": 46,
+      "lower": 28.8,
+      "upper": 63.2
+    },
+    "PF6": {
+      "mean": 72,
+      "lower": 55,
+      "upper": 89
+    },
+    "PF7": {
+      "mean": 74,
+      "lower": 59.9,
+      "upper": 88.1
+    },
+    "SJ1": {
+      "mean": 95,
+      "lower": 87.5,
+      "upper": 100
+    },
+    "SJ2": {
+      "mean": 92,
+      "lower": 82,
+      "upper": 100
+    },
+    "SJ3": {
+      "mean": 80,
+      "lower": 68.1,
+      "upper": 91.9
+    },
+    "MH1": {
+      "mean": 25,
+      "lower": 12.3,
+      "upper": 37.7
+    },
+    "MH2": {
+      "mean": 21,
+      "lower": 10.5,
+      "upper": 31.5
+    },
+    "MH3": {
+      "mean": 33,
+      "lower": 21.3,
+      "upper": 44.7
+    },
+    "MH4": {
+      "mean": 30,
+      "lower": 19,
+      "upper": 41
+    },
+    "MH5": {
+      "mean": 35,
+      "lower": 26.9,
+      "upper": 43.1
+    },
+    "RV1": {
+      "mean": 49,
+      "lower": 16.7,
+      "upper": 81.3
+    },
+    "MH6": {
+      "mean": 27,
+      "lower": 15.2,
+      "upper": 38.8
+    },
+    "ST": {
+      "mean": 70,
+      "lower": 55.8,
+      "upper": 84.2
+    },
+    "PF": {
+      "mean": 62,
+      "lower": 54.5,
+      "upper": 69.5
+    },
+    "MH": {
+      "mean": 27,
+      "lower": 16.8,
+      "upper": 37.2
+    }
+  },
+  "unchangedParameters": {
+    "RV2": {
+      "mean": 36.75,
+      "lower": 29.25,
+      "upper": 44.25
+    },
+    "RV3": {
+      "mean": 100,
+      "lower": 92.5,
+      "upper": 100
+    }
+  },
+  "allParameters": {
+    "ST1": {
+      "mean": 83,
+      "lower": 59.7,
+      "upper": 100
+    },
+    "ST2": {
+      "mean": 77,
+      "lower": 55.3,
+      "upper": 98.7
+    },
+    "ST3": {
+      "mean": 43,
+      "lower": 35.5,
+      "upper": 50.5
+    },
+    "PF1": {
+      "mean": 62,
+      "lower": 42.6,
+      "upper": 81.4
+    },
+    "PF2": {
+      "mean": 51,
+      "lower": 29,
+      "upper": 73
+    },
+    "PF3": {
+      "mean": 74,
+      "lower": 54.1,
+      "upper": 93.9
+    },
+    "PF4": {
+      "mean": 53,
+      "lower": 33.1,
+      "upper": 72.9
+    },
+    "PF5": {
+      "mean": 46,
+      "lower": 28.8,
+      "upper": 63.2
+    },
+    "PF6": {
+      "mean": 72,
+      "lower": 55,
+      "upper": 89
+    },
+    "PF7": {
+      "mean": 74,
+      "lower": 59.9,
+      "upper": 88.1
+    },
+    "SJ1": {
+      "mean": 95,
+      "lower": 87.5,
+      "upper": 100
+    },
+    "SJ2": {
+      "mean": 92,
+      "lower": 82,
+      "upper": 100
+    },
+    "SJ3": {
+      "mean": 80,
+      "lower": 68.1,
+      "upper": 91.9
+    },
+    "MH1": {
+      "mean": 25,
+      "lower": 12.3,
+      "upper": 37.7
+    },
+    "MH2": {
+      "mean": 21,
+      "lower": 10.5,
+      "upper": 31.5
+    },
+    "MH3": {
+      "mean": 33,
+      "lower": 21.3,
+      "upper": 44.7
+    },
+    "MH4": {
+      "mean": 30,
+      "lower": 19,
+      "upper": 41
+    },
+    "MH5": {
+      "mean": 35,
+      "lower": 26.9,
+      "upper": 43.1
+    },
+    "RV1": {
+      "mean": 49,
+      "lower": 16.7,
+      "upper": 81.3
+    },
+    "MH6": {
+      "mean": 27,
+      "lower": 15.2,
+      "upper": 38.8
+    },
+    "ST": {
+      "mean": 70,
+      "lower": 55.8,
+      "upper": 84.2
+    },
+    "PF": {
+      "mean": 62,
+      "lower": 54.5,
+      "upper": 69.5
+    },
+    "MH": {
+      "mean": 27,
+      "lower": 16.8,
+      "upper": 37.2
+    },
+    "RV2": {
+      "mean": 36.75,
+      "lower": 29.25,
+      "upper": 44.25
+    },
+    "RV3": {
+      "mean": 100,
+      "lower": 92.5,
+      "upper": 100
+    }
+  },
+  "pureSDParameters": {
+    "ST1": {
+      "mean": 83,
+      "lower": 59.7,
+      "upper": 100
+    },
+    "ST2": {
+      "mean": 77,
+      "lower": 55.3,
+      "upper": 98.7
+    },
+    "ST3": {
+      "mean": 43,
+      "lower": 35.9,
+      "upper": 50.1
+    },
+    "PF1": {
+      "mean": 62,
+      "lower": 42.6,
+      "upper": 81.4
+    },
+    "PF2": {
+      "mean": 51,
+      "lower": 29,
+      "upper": 73
+    },
+    "PF3": {
+      "mean": 74,
+      "lower": 54.1,
+      "upper": 93.9
+    },
+    "PF4": {
+      "mean": 53,
+      "lower": 33.1,
+      "upper": 72.9
+    },
+    "PF5": {
+      "mean": 46,
+      "lower": 28.8,
+      "upper": 63.2
+    },
+    "PF6": {
+      "mean": 72,
+      "lower": 55,
+      "upper": 89
+    },
+    "PF7": {
+      "mean": 74,
+      "lower": 59.9,
+      "upper": 88.1
+    },
+    "SJ1": {
+      "mean": 95,
+      "lower": 88.9,
+      "upper": 100
+    },
+    "SJ2": {
+      "mean": 92,
+      "lower": 82,
+      "upper": 100
+    },
+    "SJ3": {
+      "mean": 80,
+      "lower": 68.1,
+      "upper": 91.9
+    },
+    "MH1": {
+      "mean": 25,
+      "lower": 12.3,
+      "upper": 37.7
+    },
+    "MH2": {
+      "mean": 21,
+      "lower": 10.5,
+      "upper": 31.5
+    },
+    "MH3": {
+      "mean": 33,
+      "lower": 21.3,
+      "upper": 44.7
+    },
+    "MH4": {
+      "mean": 30,
+      "lower": 19,
+      "upper": 41
+    },
+    "MH5": {
+      "mean": 35,
+      "lower": 26.9,
+      "upper": 43.1
+    },
+    "RV1": {
+      "mean": 49,
+      "lower": 16.7,
+      "upper": 81.3
+    },
+    "MH6": {
+      "mean": 27,
+      "lower": 15.2,
+      "upper": 38.8
+    },
+    "ST": {
+      "mean": 70,
+      "lower": 55.8,
+      "upper": 84.2
+    },
+    "PF": {
+      "mean": 62,
+      "lower": 56.9,
+      "upper": 67.1
+    },
+    "MH": {
+      "mean": 27,
+      "lower": 16.8,
+      "upper": 37.2
+    }
+  },
+  "source": [
+    {
+      "code": "ST1",
+      "name": "职业承诺",
+      "weightedMean": 83.14737704918032,
+      "weightedPopulationSD": 23.253311467296623,
+      "floorActive": false
+    },
+    {
+      "code": "ST2",
+      "name": "留任与任务持续倾向",
+      "weightedMean": 76.83862704918032,
+      "weightedPopulationSD": 21.669589401399186,
+      "floorActive": false
+    },
+    {
+      "code": "ST3",
+      "name": "工作价值观",
+      "weightedMean": 42.51717788775475,
+      "weightedPopulationSD": 7.139545322861525,
+      "floorActive": true
+    },
+    {
+      "code": "PF1",
+      "name": "尽责性",
+      "weightedMean": 62.368601538976236,
+      "weightedPopulationSD": 19.440090574384485,
+      "floorActive": false
+    },
+    {
+      "code": "PF2",
+      "name": "合作性",
+      "weightedMean": 51.25233021077283,
+      "weightedPopulationSD": 22.014061439590545,
+      "floorActive": false
+    },
+    {
+      "code": "PF3",
+      "name": "情绪稳定性",
+      "weightedMean": 74.0530427822014,
+      "weightedPopulationSD": 19.91902335568607,
+      "floorActive": false
+    },
+    {
+      "code": "PF4",
+      "name": "社会主动性",
+      "weightedMean": 52.58677958562959,
+      "weightedPopulationSD": 19.858927994235206,
+      "floorActive": false
+    },
+    {
+      "code": "PF5",
+      "name": "认知灵活性",
+      "weightedMean": 45.88660014255167,
+      "weightedPopulationSD": 17.18342531954204,
+      "floorActive": false
+    },
+    {
+      "code": "PF6",
+      "name": "自驱与成就追求",
+      "weightedMean": 72.23571504675168,
+      "weightedPopulationSD": 16.977808948023796,
+      "floorActive": false
+    },
+    {
+      "code": "PF7",
+      "name": "计划与组织",
+      "weightedMean": 73.52264582539078,
+      "weightedPopulationSD": 14.130318850335167,
+      "floorActive": false
+    },
+    {
+      "code": "SJ1",
+      "name": "问题解决判断",
+      "weightedMean": 94.74687995769433,
+      "weightedPopulationSD": 6.147368978050058,
+      "floorActive": true
+    },
+    {
+      "code": "SJ2",
+      "name": "人际判断",
+      "weightedMean": 91.85253937640631,
+      "weightedPopulationSD": 9.961426358916565,
+      "floorActive": false
+    },
+    {
+      "code": "SJ3",
+      "name": "规范判断",
+      "weightedMean": 80.40591985428051,
+      "weightedPopulationSD": 11.899849489393251,
+      "floorActive": false
+    },
+    {
+      "code": "MH1",
+      "name": "焦虑倾向",
+      "weightedMean": 25.479819807786882,
+      "weightedPopulationSD": 12.731558933162392,
+      "floorActive": false
+    },
+    {
+      "code": "MH2",
+      "name": "抑郁相关倾向",
+      "weightedMean": 20.89568933082505,
+      "weightedPopulationSD": 10.480256678001366,
+      "floorActive": false
+    },
+    {
+      "code": "MH3",
+      "name": "疲劳感倾向",
+      "weightedMean": 32.64142076502733,
+      "weightedPopulationSD": 11.747230689620132,
+      "floorActive": false
+    },
+    {
+      "code": "MH4",
+      "name": "情绪调节困难倾向",
+      "weightedMean": 29.97679134731487,
+      "weightedPopulationSD": 10.978091355295941,
+      "floorActive": false
+    },
+    {
+      "code": "MH5",
+      "name": "注意集中困难倾向",
+      "weightedMean": 34.96309836065574,
+      "weightedPopulationSD": 8.110556440366654,
+      "floorActive": false
+    },
+    {
+      "code": "RV1",
+      "name": "印象管理",
+      "weightedMean": 48.926229508196705,
+      "weightedPopulationSD": 32.298763000667485,
+      "floorActive": false
+    },
+    {
+      "code": "MH6",
+      "name": "紧张与压力反应",
+      "weightedMean": 26.545534200113064,
+      "weightedPopulationSD": 11.82843086626872,
+      "floorActive": false
+    },
+    {
+      "code": "ST",
+      "name": "ST",
+      "weightedMean": 69.83545225882392,
+      "weightedPopulationSD": 14.246281562193298,
+      "floorActive": false
+    },
+    {
+      "code": "PF",
+      "name": "PF",
+      "weightedMean": 61.867102579649966,
+      "weightedPopulationSD": 5.05439731676149,
+      "floorActive": true
+    },
+    {
+      "code": "MH",
+      "name": "MH",
+      "weightedMean": 26.88596374895179,
+      "weightedPopulationSD": 10.212920858196075,
+      "floorActive": false
+    }
+  ],
+  "comparisons": {
+    "fixed_7_5": {
+      "summary": {
+        "extremeExpectedCount": 119,
+        "trueAverage": 24,
+        "strictSameDirection": 58,
+        "lenientSameDirection": 79,
+        "strictOppositeDirection": 11,
+        "honestSTPFStrictLow": 48,
+        "honestSTPFAllLow": 60,
+        "honestSTPFCount": 120,
+        "fourMH2ControlsHigh": [
+          "P04",
+          "P06",
+          "P07",
+          "P09"
+        ],
+        "allExpectedLowMHStrictHigh": [
+          "P04:MH2",
+          "P06:MH2",
+          "P07:MH2",
+          "P09:MH2"
+        ]
+      },
+      "parameters": {
+        "ST1": {
+          "mean": 83,
+          "lower": 75.5,
+          "upper": 90.5
+        },
+        "ST2": {
+          "mean": 77,
+          "lower": 69.5,
+          "upper": 84.5
+        },
+        "ST3": {
+          "mean": 43,
+          "lower": 35.5,
+          "upper": 50.5
+        },
+        "PF1": {
+          "mean": 62,
+          "lower": 54.5,
+          "upper": 69.5
+        },
+        "PF2": {
+          "mean": 51,
+          "lower": 43.5,
+          "upper": 58.5
+        },
+        "PF3": {
+          "mean": 74,
+          "lower": 66.5,
+          "upper": 81.5
+        },
+        "PF4": {
+          "mean": 53,
+          "lower": 45.5,
+          "upper": 60.5
+        },
+        "PF5": {
+          "mean": 46,
+          "lower": 38.5,
+          "upper": 53.5
+        },
+        "PF6": {
+          "mean": 72,
+          "lower": 64.5,
+          "upper": 79.5
+        },
+        "PF7": {
+          "mean": 74,
+          "lower": 66.5,
+          "upper": 81.5
+        },
+        "SJ1": {
+          "mean": 95,
+          "lower": 87.5,
+          "upper": 100
+        },
+        "SJ2": {
+          "mean": 92,
+          "lower": 84.5,
+          "upper": 99.5
+        },
+        "SJ3": {
+          "mean": 80,
+          "lower": 72.5,
+          "upper": 87.5
+        },
+        "MH1": {
+          "mean": 25,
+          "lower": 17.5,
+          "upper": 32.5
+        },
+        "MH2": {
+          "mean": 21,
+          "lower": 13.5,
+          "upper": 28.5
+        },
+        "MH3": {
+          "mean": 33,
+          "lower": 25.5,
+          "upper": 40.5
+        },
+        "MH4": {
+          "mean": 30,
+          "lower": 22.5,
+          "upper": 37.5
+        },
+        "MH5": {
+          "mean": 35,
+          "lower": 27.5,
+          "upper": 42.5
+        },
+        "RV1": {
+          "mean": 49,
+          "lower": 41.5,
+          "upper": 56.5
+        },
+        "MH6": {
+          "mean": 27,
+          "lower": 19.5,
+          "upper": 34.5
+        },
+        "ST": {
+          "mean": 70,
+          "lower": 62.5,
+          "upper": 77.5
+        },
+        "PF": {
+          "mean": 62,
+          "lower": 54.5,
+          "upper": 69.5
+        },
+        "MH": {
+          "mean": 27,
+          "lower": 19.5,
+          "upper": 34.5
+        }
+      },
+      "examples": [
+        {
+          "id": "P01",
+          "code": "PF3",
+          "expected": "high",
+          "score": 44.999985714285714,
+          "label": "较低",
+          "mean": 74,
+          "lower": 66.5,
+          "upper": 81.5
+        },
+        {
+          "id": "P03",
+          "code": "PF4",
+          "expected": "low",
+          "score": 19.308514893617023,
+          "label": "较低",
+          "mean": 53,
+          "lower": 45.5,
+          "upper": 60.5
+        },
+        {
+          "id": "P06",
+          "code": "MH2",
+          "expected": "low",
+          "score": 41.78177909164203,
+          "label": "较高",
+          "mean": 21,
+          "lower": 13.5,
+          "upper": 28.5
+        },
+        {
+          "id": "P08",
+          "code": "MH2",
+          "expected": "high",
+          "score": 73.30771298038161,
+          "label": "较高",
+          "mean": 21,
+          "lower": 13.5,
+          "upper": 28.5
+        },
+        {
+          "id": "P10",
+          "code": "MH5",
+          "expected": "high",
+          "score": 39.61311475409836,
+          "label": "稍高",
+          "mean": 35,
+          "lower": 27.5,
+          "upper": 42.5
+        }
+      ]
+    },
+    "pure_1sd": {
+      "summary": {
+        "extremeExpectedCount": 119,
+        "trueAverage": 35,
+        "strictSameDirection": 38,
+        "lenientSameDirection": 73,
+        "strictOppositeDirection": 8,
+        "honestSTPFStrictLow": 38,
+        "honestSTPFAllLow": 52,
+        "honestSTPFCount": 120,
+        "fourMH2ControlsHigh": [
+          "P04",
+          "P06",
+          "P07",
+          "P09"
+        ],
+        "allExpectedLowMHStrictHigh": [
+          "P04:MH2",
+          "P06:MH2",
+          "P07:MH2",
+          "P09:MH2"
+        ]
+      },
+      "parameters": {
+        "ST1": {
+          "mean": 83,
+          "lower": 59.7,
+          "upper": 100
+        },
+        "ST2": {
+          "mean": 77,
+          "lower": 55.3,
+          "upper": 98.7
+        },
+        "ST3": {
+          "mean": 43,
+          "lower": 35.9,
+          "upper": 50.1
+        },
+        "PF1": {
+          "mean": 62,
+          "lower": 42.6,
+          "upper": 81.4
+        },
+        "PF2": {
+          "mean": 51,
+          "lower": 29,
+          "upper": 73
+        },
+        "PF3": {
+          "mean": 74,
+          "lower": 54.1,
+          "upper": 93.9
+        },
+        "PF4": {
+          "mean": 53,
+          "lower": 33.1,
+          "upper": 72.9
+        },
+        "PF5": {
+          "mean": 46,
+          "lower": 28.8,
+          "upper": 63.2
+        },
+        "PF6": {
+          "mean": 72,
+          "lower": 55,
+          "upper": 89
+        },
+        "PF7": {
+          "mean": 74,
+          "lower": 59.9,
+          "upper": 88.1
+        },
+        "SJ1": {
+          "mean": 95,
+          "lower": 88.9,
+          "upper": 100
+        },
+        "SJ2": {
+          "mean": 92,
+          "lower": 82,
+          "upper": 100
+        },
+        "SJ3": {
+          "mean": 80,
+          "lower": 68.1,
+          "upper": 91.9
+        },
+        "MH1": {
+          "mean": 25,
+          "lower": 12.3,
+          "upper": 37.7
+        },
+        "MH2": {
+          "mean": 21,
+          "lower": 10.5,
+          "upper": 31.5
+        },
+        "MH3": {
+          "mean": 33,
+          "lower": 21.3,
+          "upper": 44.7
+        },
+        "MH4": {
+          "mean": 30,
+          "lower": 19,
+          "upper": 41
+        },
+        "MH5": {
+          "mean": 35,
+          "lower": 26.9,
+          "upper": 43.1
+        },
+        "RV1": {
+          "mean": 49,
+          "lower": 16.7,
+          "upper": 81.3
+        },
+        "MH6": {
+          "mean": 27,
+          "lower": 15.2,
+          "upper": 38.8
+        },
+        "ST": {
+          "mean": 70,
+          "lower": 55.8,
+          "upper": 84.2
+        },
+        "PF": {
+          "mean": 62,
+          "lower": 56.9,
+          "upper": 67.1
+        },
+        "MH": {
+          "mean": 27,
+          "lower": 16.8,
+          "upper": 37.2
+        }
+      },
+      "examples": [
+        {
+          "id": "P01",
+          "code": "PF3",
+          "expected": "high",
+          "score": 44.999985714285714,
+          "label": "较低",
+          "mean": 74,
+          "lower": 54.1,
+          "upper": 93.9
+        },
+        {
+          "id": "P03",
+          "code": "PF4",
+          "expected": "low",
+          "score": 19.308514893617023,
+          "label": "较低",
+          "mean": 53,
+          "lower": 33.1,
+          "upper": 72.9
+        },
+        {
+          "id": "P06",
+          "code": "MH2",
+          "expected": "low",
+          "score": 41.78177909164203,
+          "label": "较高",
+          "mean": 21,
+          "lower": 10.5,
+          "upper": 31.5
+        },
+        {
+          "id": "P08",
+          "code": "MH2",
+          "expected": "high",
+          "score": 73.30771298038161,
+          "label": "较高",
+          "mean": 21,
+          "lower": 10.5,
+          "upper": 31.5
+        },
+        {
+          "id": "P10",
+          "code": "MH5",
+          "expected": "high",
+          "score": 39.61311475409836,
+          "label": "稍高",
+          "mean": 35,
+          "lower": 26.9,
+          "upper": 43.1
+        }
+      ]
+    },
+    "floor_1sd": {
+      "summary": {
+        "extremeExpectedCount": 119,
+        "trueAverage": 35,
+        "strictSameDirection": 38,
+        "lenientSameDirection": 73,
+        "strictOppositeDirection": 8,
+        "honestSTPFStrictLow": 37,
+        "honestSTPFAllLow": 51,
+        "honestSTPFCount": 120,
+        "fourMH2ControlsHigh": [
+          "P04",
+          "P06",
+          "P07",
+          "P09"
+        ],
+        "allExpectedLowMHStrictHigh": [
+          "P04:MH2",
+          "P06:MH2",
+          "P07:MH2",
+          "P09:MH2"
+        ]
+      },
+      "parameters": {
+        "ST1": {
+          "mean": 83,
+          "lower": 59.7,
+          "upper": 100
+        },
+        "ST2": {
+          "mean": 77,
+          "lower": 55.3,
+          "upper": 98.7
+        },
+        "ST3": {
+          "mean": 43,
+          "lower": 35.5,
+          "upper": 50.5
+        },
+        "PF1": {
+          "mean": 62,
+          "lower": 42.6,
+          "upper": 81.4
+        },
+        "PF2": {
+          "mean": 51,
+          "lower": 29,
+          "upper": 73
+        },
+        "PF3": {
+          "mean": 74,
+          "lower": 54.1,
+          "upper": 93.9
+        },
+        "PF4": {
+          "mean": 53,
+          "lower": 33.1,
+          "upper": 72.9
+        },
+        "PF5": {
+          "mean": 46,
+          "lower": 28.8,
+          "upper": 63.2
+        },
+        "PF6": {
+          "mean": 72,
+          "lower": 55,
+          "upper": 89
+        },
+        "PF7": {
+          "mean": 74,
+          "lower": 59.9,
+          "upper": 88.1
+        },
+        "SJ1": {
+          "mean": 95,
+          "lower": 87.5,
+          "upper": 100
+        },
+        "SJ2": {
+          "mean": 92,
+          "lower": 82,
+          "upper": 100
+        },
+        "SJ3": {
+          "mean": 80,
+          "lower": 68.1,
+          "upper": 91.9
+        },
+        "MH1": {
+          "mean": 25,
+          "lower": 12.3,
+          "upper": 37.7
+        },
+        "MH2": {
+          "mean": 21,
+          "lower": 10.5,
+          "upper": 31.5
+        },
+        "MH3": {
+          "mean": 33,
+          "lower": 21.3,
+          "upper": 44.7
+        },
+        "MH4": {
+          "mean": 30,
+          "lower": 19,
+          "upper": 41
+        },
+        "MH5": {
+          "mean": 35,
+          "lower": 26.9,
+          "upper": 43.1
+        },
+        "RV1": {
+          "mean": 49,
+          "lower": 16.7,
+          "upper": 81.3
+        },
+        "MH6": {
+          "mean": 27,
+          "lower": 15.2,
+          "upper": 38.8
+        },
+        "ST": {
+          "mean": 70,
+          "lower": 55.8,
+          "upper": 84.2
+        },
+        "PF": {
+          "mean": 62,
+          "lower": 54.5,
+          "upper": 69.5
+        },
+        "MH": {
+          "mean": 27,
+          "lower": 16.8,
+          "upper": 37.2
+        }
+      },
+      "examples": [
+        {
+          "id": "P01",
+          "code": "PF3",
+          "expected": "high",
+          "score": 44.999985714285714,
+          "label": "较低",
+          "mean": 74,
+          "lower": 54.1,
+          "upper": 93.9
+        },
+        {
+          "id": "P03",
+          "code": "PF4",
+          "expected": "low",
+          "score": 19.308514893617023,
+          "label": "较低",
+          "mean": 53,
+          "lower": 33.1,
+          "upper": 72.9
+        },
+        {
+          "id": "P06",
+          "code": "MH2",
+          "expected": "low",
+          "score": 41.78177909164203,
+          "label": "较高",
+          "mean": 21,
+          "lower": 10.5,
+          "upper": 31.5
+        },
+        {
+          "id": "P08",
+          "code": "MH2",
+          "expected": "high",
+          "score": 73.30771298038161,
+          "label": "较高",
+          "mean": 21,
+          "lower": 10.5,
+          "upper": 31.5
+        },
+        {
+          "id": "P10",
+          "code": "MH5",
+          "expected": "high",
+          "score": 39.61311475409836,
+          "label": "稍高",
+          "mean": 35,
+          "lower": 26.9,
+          "upper": 43.1
+        }
+      ]
+    },
+    "floor_1_5sd": {
+      "summary": {
+        "extremeExpectedCount": 119,
+        "trueAverage": 48,
+        "strictSameDirection": 30,
+        "lenientSameDirection": 62,
+        "strictOppositeDirection": 3,
+        "honestSTPFStrictLow": 27,
+        "honestSTPFAllLow": 40,
+        "honestSTPFCount": 120,
+        "fourMH2ControlsHigh": [
+          "P06"
+        ],
+        "allExpectedLowMHStrictHigh": [
+          "P06:MH2"
+        ]
+      },
+      "parameters": {
+        "ST1": {
+          "mean": 83,
+          "lower": 48.1,
+          "upper": 100
+        },
+        "ST2": {
+          "mean": 77,
+          "lower": 44.5,
+          "upper": 100
+        },
+        "ST3": {
+          "mean": 43,
+          "lower": 32.3,
+          "upper": 53.7
+        },
+        "PF1": {
+          "mean": 62,
+          "lower": 32.8,
+          "upper": 91.2
+        },
+        "PF2": {
+          "mean": 51,
+          "lower": 18,
+          "upper": 84
+        },
+        "PF3": {
+          "mean": 74,
+          "lower": 44.1,
+          "upper": 100
+        },
+        "PF4": {
+          "mean": 53,
+          "lower": 23.2,
+          "upper": 82.8
+        },
+        "PF5": {
+          "mean": 46,
+          "lower": 20.2,
+          "upper": 71.8
+        },
+        "PF6": {
+          "mean": 72,
+          "lower": 46.5,
+          "upper": 97.5
+        },
+        "PF7": {
+          "mean": 74,
+          "lower": 52.8,
+          "upper": 95.2
+        },
+        "SJ1": {
+          "mean": 95,
+          "lower": 85.8,
+          "upper": 100
+        },
+        "SJ2": {
+          "mean": 92,
+          "lower": 77.1,
+          "upper": 100
+        },
+        "SJ3": {
+          "mean": 80,
+          "lower": 62.2,
+          "upper": 97.8
+        },
+        "MH1": {
+          "mean": 25,
+          "lower": 5.9,
+          "upper": 44.1
+        },
+        "MH2": {
+          "mean": 21,
+          "lower": 5.3,
+          "upper": 36.7
+        },
+        "MH3": {
+          "mean": 33,
+          "lower": 15.4,
+          "upper": 50.6
+        },
+        "MH4": {
+          "mean": 30,
+          "lower": 13.5,
+          "upper": 46.5
+        },
+        "MH5": {
+          "mean": 35,
+          "lower": 22.8,
+          "upper": 47.2
+        },
+        "RV1": {
+          "mean": 49,
+          "lower": 0.6,
+          "upper": 97.4
+        },
+        "MH6": {
+          "mean": 27,
+          "lower": 9.3,
+          "upper": 44.7
+        },
+        "ST": {
+          "mean": 70,
+          "lower": 48.6,
+          "upper": 91.4
+        },
+        "PF": {
+          "mean": 62,
+          "lower": 54.4,
+          "upper": 69.6
+        },
+        "MH": {
+          "mean": 27,
+          "lower": 11.7,
+          "upper": 42.3
+        }
+      },
+      "examples": [
+        {
+          "id": "P01",
+          "code": "PF3",
+          "expected": "high",
+          "score": 44.999985714285714,
+          "label": "稍低",
+          "mean": 74,
+          "lower": 44.1,
+          "upper": 100
+        },
+        {
+          "id": "P03",
+          "code": "PF4",
+          "expected": "low",
+          "score": 19.308514893617023,
+          "label": "较低",
+          "mean": 53,
+          "lower": 23.2,
+          "upper": 82.8
+        },
+        {
+          "id": "P06",
+          "code": "MH2",
+          "expected": "low",
+          "score": 41.78177909164203,
+          "label": "较高",
+          "mean": 21,
+          "lower": 5.3,
+          "upper": 36.7
+        },
+        {
+          "id": "P08",
+          "code": "MH2",
+          "expected": "high",
+          "score": 73.30771298038161,
+          "label": "较高",
+          "mean": 21,
+          "lower": 5.3,
+          "upper": 36.7
+        },
+        {
+          "id": "P10",
+          "code": "MH5",
+          "expected": "high",
+          "score": 39.61311475409836,
+          "label": "平均",
+          "mean": 35,
+          "lower": 22.8,
+          "upper": 47.2
+        }
+      ]
+    }
+  },
+  "interpretation": "All data synthetic. Weighted SD describes the specified masking mixture, not a Gaussian population coverage probability, confidence interval, clinical cutoff, or validity claim. All comparisons use rounded means and one-decimal endpoints for an apples-to-apples UI evaluation."
+}
