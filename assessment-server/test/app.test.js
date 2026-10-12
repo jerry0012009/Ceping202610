@@ -9,7 +9,7 @@ import {engine,data,calculateReport,validateSubmission} from '../scoring.js';
 const fixtures=JSON.parse(fs.readFileSync(new URL('./fixtures/regression-40.json',import.meta.url)));
 test('all 40 synthetic answer sets exactly equal frozen V2.8 engine numerical baseline; V2.9 references match approved candidate',()=>{
  assert.equal(fixtures.length,40);
- for(const c of fixtures){validateSubmission({version:'2.9',answers:c.answers,seconds:c.seconds,submissionId:randomUUID()});const r=engine.calculate(c.answers,c.seconds);assert.deepEqual({raw:r.raw,reference:r.reference,totals:r.totals},c.expected,c.id);const safe=calculateReport(c.answers,c.seconds);for(const row of safe.dimensions)assert.equal(row.score,r.reference[row.code]);assert.ok(!JSON.stringify(safe).includes('trace'));}
+ for(const c of fixtures){validateSubmission({version:'2.9',answers:c.answers,seconds:c.seconds,submissionId:randomUUID()});const r=engine.calculate(c.answers,c.seconds);assert.deepEqual({raw:r.raw,reference:r.reference,totals:r.totals},c.expected,c.id);const safe=calculateReport(c.answers,c.seconds);for(const row of safe.dimensions.filter(row=>!row.code.startsWith('WV_')))assert.equal(row.score,r.reference[row.code]);assert.ok(!JSON.stringify(safe).includes('trace'));}
  const ref=JSON.parse(fs.readFileSync(new URL('../private/approved-reference.json',import.meta.url)));assert.deepEqual(engine.defaults(),ref.allParameters);
 });
 test('HTTP auth, isolation, validation, idempotence, restart and static secrecy',async()=>{

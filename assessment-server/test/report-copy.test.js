@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {createHash} from 'node:crypto';
-import {calculateReport} from '../scoring.js';
+import {calculateReport,calculateReportSnapshot} from '../scoring.js';
 import {presentReport} from '../report-presentation.js';
 
 const fixtures=JSON.parse(fs.readFileSync(new URL('./fixtures/regression-40.json',import.meta.url)));
@@ -12,11 +12,22 @@ const hash=value=>createHash('sha256').update(value).digest('hex');
 const numericRow=({code,raw,score,mean,lower,upper,label,coverage})=>({code,raw,score,mean,lower,upper,label,...(coverage?{coverage}:{})});
 const numericReport=({schemaVersion,version,pfModelId,pfReferenceId,pfRoleTitle,answered,total,totals,dimensions,facts})=>({schemaVersion,version,pfModelId,pfReferenceId,pfRoleTitle,answered,total,totals:totals.map(numericRow),dimensions:dimensions.map(numericRow),facts});
 
-test('workplace copy update preserves every score, reference, label and coverage in forty pre-update reports',()=>{
+test('frozen reports remain exact after reversing only approved value-card replacement and reviewed-reference display exceptions',()=>{
  assert.equal(fixtures.length,40);
  assert.equal(baseline.rows.length,fixtures.length);
  for(const fixture of fixtures){
   const report=calculateReport(fixture.answers,fixture.seconds);
+  const original=calculateReportSnapshot(fixture.answers,fixture.seconds),oldRows=new Map(original.dimensions.map(row=>[row.code,row]));
+  assert.equal(report.dimensions.filter(row=>row.code.startsWith('WV_')).length,3);
+  assert.ok(!report.dimensions.some(row=>row.code==='ST3'));
+  // Keep frozen hashes untouched: reconstruct only the two explicitly approved presentation changes.
+  report.dimensions=report.dimensions.filter(row=>!row.code.startsWith('WV_')).map(row=>{
+   const approved={ST1:{mean:78,lower:54.7,upper:99.9},ST2:{mean:72,lower:50.3,upper:98.7},SJ1:{mean:90,lower:82.5,upper:99.9},SJ2:{mean:87,lower:77,upper:99.9},SJ3:{mean:77,lower:65.1,upper:91.9}};
+   if(!approved[row.code])return row;
+   assert.deepEqual({mean:row.mean,lower:row.lower,upper:row.upper},approved[row.code]);
+   const old=oldRows.get(row.code);return {...row,mean:old.mean,lower:old.lower,upper:old.upper,label:old.label};
+  });
+  report.dimensions.splice(original.dimensions.findIndex(row=>row.code==='ST3'),0,oldRows.get('ST3'));
   assert.equal(hash(JSON.stringify(numericReport(report))),baseline.rows.find(row=>row.id===fixture.id).sha256,fixture.id);
  }
  for(const [path,expected] of Object.entries(baseline.protectedFiles)){

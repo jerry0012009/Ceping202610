@@ -1,3 +1,4 @@
+import {createWorkValuePreferences} from './work-value-model.js';
 import {rolePFTotal,pfModelId,pfReferenceId,pfRoleTitle,pfReference} from './pf-role-model.js';
 import {presentReport} from './report-presentation.js';
 import fs from 'node:fs';
@@ -36,7 +37,7 @@ export function validateSubmission(body,partial=false){
  for(const q of data.questions.filter(q=>q.cost>0&&(!partial||Object.hasOwn(body.answers,q.id))))if(!Object.hasOwn(body.seconds,q.id))throw new Error('计时数据不完整');
  return body;
 }
-export function calculateReport(answers,seconds){
+export function calculateReportSnapshot(answers,seconds){
  const result=engine.calculate(answers,seconds),refs={...engine.defaults(),PF:pfReference};
  const reportTotals={...result.totals,PF:rolePFTotal(result)};
  function row(code,name,raw,score,coverage){
@@ -44,11 +45,13 @@ export function calculateReport(answers,seconds){
   if(Number.isFinite(score)&&Number.isFinite(ref.lower)&&Number.isFinite(ref.upper))label=score<ref.lower?'较低':score<(ref.lower+ref.mean)/2?'稍低':score<=(ref.mean+ref.upper)/2?'平均':score<=ref.upper?'稍高':'较高';
   return {code,name,raw,score,mean:ref.mean??null,lower:ref.lower??null,upper:ref.upper??null,label,...(coverage?{coverage:{answered:coverage.answered,total:coverage.total}}:{})};
  }
- return presentReport({schemaVersion:1,pfModelId,pfReferenceId,pfRoleTitle,version:scoringVersion,answered:result.answered,total:result.total,
+ return {schemaVersion:1,workValuePreferences:createWorkValuePreferences(result,answers),pfModelId,pfReferenceId,pfRoleTitle,version:scoringVersion,answered:result.answered,total:result.total,
  totals:Object.entries(reportTotals).map(([c,v])=>row(c,({ST:'职业稳定性',PF:'职业性格',MH:'心理倾向线索',RV:'作答质量'})[c],v.raw,v.reference)),
  dimensions:Object.entries(result.reference).map(([c,v])=>row(c,data.names[c],result.raw[c],v,result.coverage[c])),facts:result.facts,
  family:data.questions.filter(q=>q.type==='family').map(q=>({id:q.id,number:q.number,stem:q.stem,answer:answers[q.id]??null})),
  salary:result.salary.map(v=>({id:v.id,number:v.number,stem:engine.byId[v.id].stem,answer:v.answer})),
  disclaimer:'参考区间基于模拟作答设定，非实测人群常模。',
- timingNotice:'作答时长由浏览器记录并经格式校验，无法证明真实作答时长；结果不具备防作弊保证。'});
+ timingNotice:'作答时长由浏览器记录并经格式校验，无法证明真实作答时长；结果不具备防作弊保证。'};
 }
+
+export function calculateReport(answers,seconds){return presentReport(calculateReportSnapshot(answers,seconds));}

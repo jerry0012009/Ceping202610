@@ -40,6 +40,21 @@ test('only explicitly bound immutable user ID can read admin history/reports; au
  for(const [route,cookie]of [['/api/assessments/',b.cookie],['/api/admin/assessments/',a.cookie]]){const shown=await call(route+saved.json.id,cookie);assert.equal(shown.status,200);assertCurrentDescriptions(shown.json.report);assert.ok(!shown.text.includes('stale-report-description'));assert.equal(shown.json.report.totals.find(x=>x.code==='PF').score,saved.json.report.totals.find(x=>x.code==='PF').score);assert.equal(shown.json.report.storedPFModelId,'legacy-general-v2.9');assert.ok(!shown.text.includes('private-old-example'));assert.equal(instance.db.prepare('SELECT report_json FROM assessments WHERE id=?').get(saved.json.id).report_json,originalBytes,'owner/admin reads never rewrite saved historical snapshot');}
  for(let i=0;i<51;i++)instance.db.prepare('INSERT INTO assessments SELECT ?,user_id,?,version,fingerprint,created_at,request_hash,answers_json,seconds_json,report_json FROM assessments WHERE id=?').run(randomUUID(),randomUUID(),saved.json.id);
  const page1=await call('/api/admin/assessments',a.cookie),page2=await call('/api/admin/assessments?offset=50',a.cookie);assert.equal(page1.json.assessments.length,50);assert.equal(page1.json.nextOffset,50);assert.equal(page2.json.assessments.length,2);assert.equal(page2.json.nextOffset,null);assert.equal(new Set([...page1.json.assessments,...page2.json.assessments].map(x=>x.id)).size,52);assert.equal((await call('/api/admin/assessments?offset=1e30',a.cookie)).status,400);
+
+ // Owner, admin and idempotent responses derive historical values without rewriting any snapshot.
+ const valueRecord=instance.db.prepare('SELECT answers_json,report_json,version,fingerprint,submission_id FROM assessments WHERE id=?').get(saved.json.id),valueLegacy=JSON.parse(valueRecord.report_json);delete valueLegacy.workValuePreferences;
+ const valueLegacyText=JSON.stringify(valueLegacy);instance.db.prepare('UPDATE assessments SET report_json=? WHERE id=?').run(valueLegacyText,saved.json.id);
+ const retryBody={version:'2.9',answers:fixture.answers,seconds:fixture.seconds,submissionId:valueRecord.submission_id};
+ for(const request of [()=>call('/api/assessments/'+saved.json.id,b.cookie),()=>call('/api/admin/assessments/'+saved.json.id,a.cookie),()=>call('/api/assessments',b.cookie,'POST',retryBody)]){
+  const response=await request();assert.equal(response.status,200,response.text);assert.equal(response.json.report.workValuePreferences.source,'archived-answers');assert.equal(response.json.report.dimensions.filter(row=>row.code.startsWith('WV_')).length,3);assert.ok(!response.json.report.dimensions.some(row=>row.code==='ST3'));assert.ok(!response.text.includes('internalEvidence'));
+  assert.equal(instance.db.prepare('SELECT report_json FROM assessments WHERE id=?').get(saved.json.id).report_json,valueLegacyText);
+ }
+ for(const [column,value]of [['fingerprint','unknown'],['version','future'],['answers_json','{}']]){
+  instance.db.prepare(`UPDATE assessments SET ${column}=? WHERE id=?`).run(value,saved.json.id);
+  for(const [route,cookie]of [['/api/assessments/',b.cookie],['/api/admin/assessments/',a.cookie]]){const response=await call(route+saved.json.id,cookie);assert.equal(response.status,200,response.text);assert.equal(response.json.report.workValuePreferences,null);assert.equal(response.json.report.dimensions.filter(row=>row.code.startsWith('WV_')).length,0);assert.match(response.json.report.workValueUnavailable,/暂无法展示/);}
+  instance.db.prepare(`UPDATE assessments SET ${column}=? WHERE id=?`).run(valueRecord[column],saved.json.id);
+ }
+ instance.db.prepare('UPDATE assessments SET report_json=? WHERE id=?').run(valueRecord.report_json,saved.json.id);
  env.ADMIN_USER_ID='';await stop();await start();assert.equal((await call('/api/admin/assessments',a.cookie)).status,403);assert.equal((await call('/api/assessments/'+saved.json.id,b.cookie)).status,200);
  }finally{if(server?.listening)await stop();fs.rmSync(dir,{recursive:true,force:true});}
 });

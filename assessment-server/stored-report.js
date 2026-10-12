@@ -1,4 +1,9 @@
-import {calculateReport,data,engine} from './scoring.js';
+import {calculateReportSnapshot,data,engine} from './scoring.js';
+import {presentReport} from './report-presentation.js';
 import evidence from './private/private-answer-evidence.cjs';
-// Only persist this snapshot. Every owner/admin response must pass through presentReport.
-export function createStoredReport(answers,seconds){return {...calculateReport(answers,seconds),internalEvidence:evidence.buildInternalEvidence({data,engine,answers,seconds})};}
+// Persist current report metadata/copy and independent preferences, while keeping the
+// original ST3 numeric row privately for compatibility. Every response uses presentReport.
+export function createStoredReport(answers,seconds){
+ const snapshot=calculateReportSnapshot(answers,seconds),view=presentReport(snapshot);
+ return {...view,dimensions:snapshot.dimensions.map(row=>row.code==='ST3'?row:view.dimensions.find(shown=>shown.code===row.code)),internalEvidence:evidence.buildInternalEvidence({data,engine,answers,seconds})};
+}

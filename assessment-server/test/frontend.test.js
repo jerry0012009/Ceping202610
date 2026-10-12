@@ -79,7 +79,7 @@ test('frontend renders all questions, saves locked pages and renders sanitized r
   assert.equal(draftRequests.length,17);
   assert.equal(submissionRequests[0].answers.QB002.months[0],12);
   assert.match(node('main').innerHTML,/测评结果/);
-  assert.match(node('main').innerHTML,/参考区间基于模拟作答设定，非实测人群常模。/);
+  assert.match(node('main').innerHTML,/参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。/);
   assert.doesNotMatch(node('main').innerHTML,/data-action="dimension"|查看典型|典型回答|data-code=/);
   assert(!node('main').innerHTML.includes('<script>alert'));
   assert.equal(Object.keys(T.state.answers).length,0);
@@ -180,7 +180,7 @@ test('all five score bands color total and dimension badges and bars without cha
   assert.match(html,/>67\.3(?:<small>\/ 100<\/small>)?<\/b>/);
   assert.match(html,/class="reference-band" style="left:45\.5%;width:18%"/);
   assert.match(html,/<em style="left:54\.5%"><\/em>/);
-  assert.match(html,/模拟参照均值 54\.5<br>模拟参照区间 45\.5—63\.5/);
+  assert.match(html,/参照中心 54\.5<br>参照区间 45\.5—63\.5/);
   assert.equal(JSON.stringify(row),before);
  }
  const report={totals:rows,dimensions:rows,family:[],facts:{},answered:80,total:80},before=JSON.stringify(report);
@@ -274,4 +274,24 @@ for(const legacy of [false,true])test(`family applicability ${legacy?'legacy val
   for(const request of draftRequests.filter(p=>p.answers[id]))assert.deepEqual(request.answers[id],originalAnswers[id]);
  }
  assert.match(node('main').innerHTML,/目前是否已有子女（选填）：不适用/);assert.match(node('main').innerHTML,/是否与您同住：不适用\/其他/);
+});
+
+
+test('work value cards and radar replace the combined point, with Chinese labels and neutral preference note',async()=>{
+ const {T,node}=await harness(),report=calculateReport(T.state.answers,T.state.seconds);
+ T.showReport({version:'2.9',createdAt:'2026-10-12T00:00:00Z',report});const html=node('main').innerHTML;
+ const names=['稳定保障偏好','学习成长偏好','报酬回报偏好'];for(const name of names)assert.ok(html.includes(name));
+ assert.equal((html.match(/<h3>工作价值观<\/h3>/g)||[]).length,0);assert.match(html,/三项为独立得分，不是百分比，不相加为100/);
+ assert.doesNotMatch(html,/>[^<]*(?:WV_STABILITY|WV_GROWTH|WV_REWARD|ST3)[^<]*</);
+ const radar=T.radar('工作投入与情境判断',report.dimensions.filter(row=>/^(ST|SJ|WV_)/.test(row.code)));
+ assert.equal((radar.match(/<circle /g)||[]).length,8);for(const name of names)assert.ok(radar.includes('<title>'+name+'</title>'));assert.doesNotMatch(radar,/<title>工作价值观<\/title>/);
+ const missing={...report,dimensions:report.dimensions.filter(row=>!row.code.startsWith('WV_')),workValuePreferences:null,workValueNotice:'',workValueUnavailable:'本记录缺少可兼容的完整作答，暂无法展示工作价值观分项。'};
+ T.showReport({version:'2.9',createdAt:'2026-10-12T00:00:00Z',report:missing});assert.match(node('main').innerHTML,/暂无法展示工作价值观分项/);for(const name of names)assert.ok(!node('main').innerHTML.includes(name));
+});
+
+
+test('cards, radar legends and source footnote identify reviewed reference centers honestly',async()=>{
+ const {T,node}=await harness(),report=calculateReport(T.state.answers,T.state.seconds);T.showReport({version:'2.9',createdAt:'2026-10-12T00:00:00Z',report});
+ const html=node('main').innerHTML;assert.match(html,/参照中心/);assert.doesNotMatch(html,/模拟参照均值/);assert.match(html,/参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。/);
+ assert.match(T.radar('工作投入与情境判断',report.dimensions.filter(row=>/^(ST|SJ|WV_)/.test(row.code))),/legend-line gray[^]*参照中心/);
 });

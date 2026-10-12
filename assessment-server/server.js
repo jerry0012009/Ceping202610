@@ -77,7 +77,7 @@ export async function createApplication(env=process.env){
  app.get('/api/assessments',(req,res)=>{
   const rows=db.prepare('SELECT id,version,created_at AS createdAt FROM assessments WHERE user_id=? ORDER BY created_at DESC,id DESC').all(req.user.id);res.json({assessments:rows});
  });
- const serialize=row=>({id:row.id,version:row.version,createdAt:row.created_at,report:presentReport(JSON.parse(row.report_json))});
+ const serialize=row=>({id:row.id,version:row.version,createdAt:row.created_at,report:presentReport(JSON.parse(row.report_json),{version:row.version,fingerprint:row.fingerprint,answersJson:row.answers_json})});
  app.get('/api/assessments/:id',(req,res)=>{const row=db.prepare('SELECT * FROM assessments WHERE id=? AND user_id=?').get(req.params.id,req.user.id);if(!row)return res.status(404).json({error:'记录不存在'});res.json(serialize(row));});
  const audit=(adminId,action,assessmentId=null)=>db.prepare('INSERT INTO admin_audit VALUES (?,?,?,?,?)').run(randomUUID(),adminId,action,assessmentId,new Date().toISOString());
  app.use('/api/admin',(req,res,next)=>{if(!adminUserId||req.user.id!==adminUserId)return res.status(403).json({error:'无权查看此页面'});next();});

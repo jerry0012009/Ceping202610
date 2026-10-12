@@ -5,7 +5,7 @@ import {presentReport} from '../report-presentation.js';
 import {engine,calculateReport} from '../scoring.js';
 const fixtures=JSON.parse(fs.readFileSync(new URL('./fixtures/regression-40.json',import.meta.url)));
 test('new reports change only role PF total; all forty subdimension and other totals stay unchanged',()=>{
- for(const f of fixtures){const r=calculateReport(f.answers,f.seconds);for(const d of r.dimensions){assert.equal(d.raw,f.expected.raw[d.code]);assert.equal(d.score,f.expected.reference[d.code]);}for(const t of r.totals.filter(x=>x.code!=='PF')){assert.equal(t.raw,f.expected.totals[t.code].raw);assert.equal(t.score,f.expected.totals[t.code].reference);}assert.equal(r.totals.find(t=>t.code==='PF').name,'职业性格匹配度');assert.equal(r.totals.find(t=>t.code==='MH').name,'心理问题倾向');assert(!JSON.stringify(r).includes('"example":'));}
+ for(const f of fixtures){const r=calculateReport(f.answers,f.seconds);for(const d of r.dimensions.filter(row=>!row.code.startsWith('WV_'))){assert.equal(d.raw,f.expected.raw[d.code]);assert.equal(d.score,f.expected.reference[d.code]);}for(const t of r.totals.filter(x=>x.code!=='PF')){assert.equal(t.raw,f.expected.totals[t.code].raw);assert.equal(t.score,f.expected.totals[t.code].reference);}assert.equal(r.totals.find(t=>t.code==='PF').name,'职业性格匹配度');assert.equal(r.totals.find(t=>t.code==='MH').name,'心理问题倾向');assert(!JSON.stringify(r).includes('"example":'));}
  const approved=JSON.parse(fs.readFileSync(new URL('../private/approved-reference.json',import.meta.url)));assert.deepEqual(engine.defaults(),approved.allParameters);
 });
 test('historical report view reinterprets only PF from stored dimensions without mutating snapshot',()=>{
