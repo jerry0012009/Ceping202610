@@ -295,3 +295,22 @@ test('cards, radar legends and source footnote identify reviewed reference cente
  const html=node('main').innerHTML;assert.match(html,/参照中心/);assert.doesNotMatch(html,/模拟参照均值/);assert.match(html,/参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。/);
  assert.match(T.radar('工作投入与情境判断',report.dimensions.filter(row=>/^(ST|SJ|WV_)/.test(row.code))),/legend-line gray[^]*参照中心/);
 });
+
+test('employment report and print content show exact answers, labeled slots and no fact scores',async()=>{
+ const {T,node}=await harness();
+ const render=answers=>{const report=calculateReport({...T.state.answers,...answers},T.state.seconds);T.showReport({version:'2.9',createdAt:'2026-10-12T00:00:00Z',report});return node('main').innerHTML.split('<h2>工作经历</h2>')[1].split('<h2>家庭与支持信息</h2>')[0];};
+ for(const [key,text]of [['A','0家'],['B','1家'],['C','2家'],['D','3家'],['E','4家'],['F','5家及以上']]){
+  const html=render({QB001:key,QB002:{months:[60,0,0],status:'仍在职'}});assert.match(html,new RegExp('<p>'+text+'</p>'));assert.match(html,/最近一段：60个月/);assert.match(html,/上一段：0个月（无该段经历）/);assert.match(html,/再上一段：0个月（无该段经历）/);assert.match(html,/最近一段状态：仍在职/);assert.doesNotMatch(html,/事实稳定性分|事实持续性分|在职持续性参照|>100<|>B</);
+ }
+ const slots=render({QB002:{months:[12,0,36],status:'已离职'}});assert.match(slots,/最近一段：12个月/);assert.match(slots,/再上一段：36个月/);assert.match(slots,/最近一段状态：已离职/);
+ assert.match(render({QB002:{months:[.5,12.25,0],status:'仍在职'}}),/最近一段：0.5个月/);
+ const none=render({QB002:{none:true,months:[60,0,0],status:'仍在职'}});assert.match(none,/没有正式工作经历/);assert.doesNotMatch(none,/仍在职|60个月/);
+ const zero=render({QB002:{months:[0,0,0]}});assert.match(zero,/没有正式工作经历/);assert.match(zero,/最近一段状态：未填写/);assert.doesNotMatch(zero,/仍在职|已离职/);
+ const missing=render({QB002:undefined});assert.match(missing,/未填写/);assert.doesNotMatch(missing,/没有正式工作经历/);
+ const base=calculateReport({...T.state.answers,QB001:'B',QB002:{months:[60,0,0],status:'仍在职'}},{});
+ base.employmentAnswers={source:'legacy-facts',employersText:null,tenure:{noExperience:false,months:null,status:null,recordedMonths:[60]}};
+ T.showReport({version:'2.9',createdAt:'2026-10-12T00:00:00Z',report:base});const legacy=node('main').innerHTML.split('<h2>工作经历</h2>')[1].split('<h2>家庭与支持信息</h2>')[0];assert.match(legacy,/已记录的在职月数：60个月/);assert.match(legacy,/原记录未保留各段对应关系/);assert.match(legacy,/最近一段状态：原记录未保留/);assert.doesNotMatch(legacy,/最近一段：60个月|上一段：/);
+ base.employmentAnswers={source:'completion',employersText:'<img src=x onerror=alert(1)>',tenure:{noExperience:false,months:['<svg onload=alert(1)>',0,36],status:'<script>alert(1)</script>',recordedMonths:[]}};
+ T.showReport({version:'2.9',createdAt:'2026-10-12T00:00:00Z',report:base});assert.doesNotMatch(node('main').innerHTML,/<img src=x|<svg onload|<script>alert/);assert.match(node('main').innerHTML,/&lt;script&gt;/);
+ const client=fs.readFileSync(new URL('../public/app.js',import.meta.url),'utf8');assert.doesNotMatch(client,/事实稳定性分|事实持续性分|工作经历事实参照/);assert.match(client,/window\.print\(\)/);
+});

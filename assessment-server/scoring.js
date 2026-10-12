@@ -1,3 +1,4 @@
+import {createEmploymentAnswers} from './employment-answers.js';
 import {createWorkValuePreferences} from './work-value-model.js';
 import {rolePFTotal,pfModelId,pfReferenceId,pfRoleTitle,pfReference} from './pf-role-model.js';
 import {presentReport} from './report-presentation.js';
@@ -45,7 +46,7 @@ export function calculateReportSnapshot(answers,seconds){
   if(Number.isFinite(score)&&Number.isFinite(ref.lower)&&Number.isFinite(ref.upper))label=score<ref.lower?'较低':score<(ref.lower+ref.mean)/2?'稍低':score<=(ref.mean+ref.upper)/2?'平均':score<=ref.upper?'稍高':'较高';
   return {code,name,raw,score,mean:ref.mean??null,lower:ref.lower??null,upper:ref.upper??null,label,...(coverage?{coverage:{answered:coverage.answered,total:coverage.total}}:{})};
  }
- return {schemaVersion:1,workValuePreferences:createWorkValuePreferences(result,answers),pfModelId,pfReferenceId,pfRoleTitle,version:scoringVersion,answered:result.answered,total:result.total,
+ return {schemaVersion:1,employmentAnswers:createEmploymentAnswers(answers,{version:scoringVersion,fingerprint}),workValuePreferences:createWorkValuePreferences(result,answers),pfModelId,pfReferenceId,pfRoleTitle,version:scoringVersion,answered:result.answered,total:result.total,
  totals:Object.entries(reportTotals).map(([c,v])=>row(c,({ST:'职业稳定性',PF:'职业性格',MH:'心理倾向线索',RV:'作答质量'})[c],v.raw,v.reference)),
  dimensions:Object.entries(result.reference).map(([c,v])=>row(c,data.names[c],result.raw[c],v,result.coverage[c])),facts:result.facts,
  family:data.questions.filter(q=>q.type==='family').map(q=>({id:q.id,number:q.number,stem:q.stem,answer:answers[q.id]??null})),

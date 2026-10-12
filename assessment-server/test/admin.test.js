@@ -1,3 +1,5 @@
+import {createEmploymentAnswers} from '../employment-answers.js';
+import {fingerprint} from '../scoring.js';
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import os from 'node:os';import path from 'node:path';import {randomBytes,randomUUID} from 'node:crypto';import {createApplication} from '../server.js';
 const fixture=JSON.parse(fs.readFileSync(new URL('./fixtures/regression-40.json',import.meta.url)))[0];
 const presentation=JSON.parse(fs.readFileSync(new URL('../private/report-presentation.json',import.meta.url)));
@@ -55,6 +57,22 @@ test('only explicitly bound immutable user ID can read admin history/reports; au
   instance.db.prepare(`UPDATE assessments SET ${column}=? WHERE id=?`).run(valueRecord[column],saved.json.id);
  }
  instance.db.prepare('UPDATE assessments SET report_json=? WHERE id=?').run(valueRecord.report_json,saved.json.id);
+ // Employment display keeps immutable raw snapshots and original slot/status answers.
+ const employmentRecord={...instance.db.prepare('SELECT * FROM assessments WHERE id=?').get(saved.json.id)},legacyEmployment=JSON.parse(employmentRecord.report_json);delete legacyEmployment.employmentAnswers;const legacyEmploymentText=JSON.stringify(legacyEmployment);
+ for(const [route,cookie]of [['/api/assessments/',b.cookie],['/api/admin/assessments/',a.cookie]]){const response=await call(route+saved.json.id,cookie);assert.equal(response.status,200);assert.deepEqual(response.json.report.employmentAnswers,createEmploymentAnswers(fixture.answers,{version:'2.9',fingerprint}));}
+ instance.db.prepare('UPDATE assessments SET report_json=? WHERE id=?').run(legacyEmploymentText,saved.json.id);
+ for(const request of [()=>call('/api/assessments/'+saved.json.id,b.cookie),()=>call('/api/admin/assessments/'+saved.json.id,a.cookie),()=>call('/api/assessments',b.cookie,'POST',retryBody)]){const response=await request();assert.equal(response.status,200,response.text);assert.deepEqual(response.json.report.employmentAnswers,createEmploymentAnswers(fixture.answers,{version:'2.9',fingerprint},'archived-answers'));assert.deepEqual({...instance.db.prepare('SELECT * FROM assessments WHERE id=?').get(saved.json.id)},{...employmentRecord,report_json:legacyEmploymentText});}
+ for(const [employer,tenure]of [['A',{months:[0,0,0]}],['D',{months:[12,0,36],status:'已离职'}],['F',{months:[.5,12.25,0],status:'仍在职'}],['B',{none:true,months:[60,0,0],status:'仍在职'}],['B',{months:[60,0,0]}]]){
+  const answers={...fixture.answers,QB001:employer,QB002:tenure},answersText=JSON.stringify(answers);instance.db.prepare('UPDATE assessments SET answers_json=? WHERE id=?').run(answersText,saved.json.id);
+  for(const [route,cookie]of [['/api/assessments/',b.cookie],['/api/admin/assessments/',a.cookie]]){const response=await call(route+saved.json.id,cookie);assert.equal(response.status,200,response.text);assert.deepEqual(response.json.report.employmentAnswers,createEmploymentAnswers(answers,{version:'2.9',fingerprint},'archived-answers'));assert.deepEqual({...instance.db.prepare('SELECT * FROM assessments WHERE id=?').get(saved.json.id)},{...employmentRecord,report_json:legacyEmploymentText,answers_json:answersText});}
+ }
+ instance.db.prepare('UPDATE assessments SET answers_json=? WHERE id=?').run(employmentRecord.answers_json,saved.json.id);
+ for(const [column,value]of [['version','future'],['fingerprint','unknown'],['answers_json','{bad-json']]){
+  instance.db.prepare(`UPDATE assessments SET ${column}=? WHERE id=?`).run(value,saved.json.id);
+  for(const [route,cookie]of [['/api/assessments/',b.cookie],['/api/admin/assessments/',a.cookie]]){const response=await call(route+saved.json.id,cookie);assert.equal(response.status,200,response.text);const display=response.json.report.employmentAnswers;assert.equal(display.tenure.months,null);assert.equal(display.tenure.status,null);assert.deepEqual(display.tenure.recordedMonths,legacyEmployment.facts.tenure.months);if(column!=='answers_json')assert.equal(display.employersText,null);assert.deepEqual({...instance.db.prepare('SELECT * FROM assessments WHERE id=?').get(saved.json.id)},{...employmentRecord,report_json:legacyEmploymentText,[column]:value});}
+  instance.db.prepare(`UPDATE assessments SET ${column}=? WHERE id=?`).run(employmentRecord[column],saved.json.id);
+ }
+ instance.db.prepare('UPDATE assessments SET report_json=? WHERE id=?').run(employmentRecord.report_json,saved.json.id);
  env.ADMIN_USER_ID='';await stop();await start();assert.equal((await call('/api/admin/assessments',a.cookie)).status,403);assert.equal((await call('/api/assessments/'+saved.json.id,b.cookie)).status,200);
  }finally{if(server?.listening)await stop();fs.rmSync(dir,{recursive:true,force:true});}
 });
