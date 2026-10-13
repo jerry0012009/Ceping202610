@@ -314,3 +314,7 @@ test('employment report and print content show exact answers, labeled slots and 
  T.showReport({version:'2.9',createdAt:'2026-10-12T00:00:00Z',report:base});assert.doesNotMatch(node('main').innerHTML,/<img src=x|<svg onload|<script>alert/);assert.match(node('main').innerHTML,/&lt;script&gt;/);
  const client=fs.readFileSync(new URL('../public/app.js',import.meta.url),'utf8');assert.doesNotMatch(client,/事实稳定性分|事实持续性分|工作经历事实参照/);assert.match(client,/window\.print\(\)/);
 });
+
+test('historical partial report clearly separates answer/scoring versions and never displays unavailable scores as zero',async()=>{
+ const {T,node}=await harness(),r=calculateReport(T.state.answers,T.state.seconds);r.answerVersion='2.9';r.scoringVersion='2.11';r.rescoringStatus='partial';r.rescoringNotice='第41题含旧选项，相关指标无法完整重算。';const metric=r.dimensions.find(v=>v.code==='SJ1');metric.score=null;metric.raw=null;metric.label='无法重算';metric.unavailableReason='当前题库没有该旧选项映射，原始答案未改写。';T.showReport({version:'2.9',createdAt:'2026-10-12T00:00:00Z',report:r});const html=node('main').innerHTML;assert.match(html,/答卷 V2.9 · 计分 V2.11/);assert.match(html,/第41题含旧选项，相关指标无法完整重算/);assert.match(html,/无法重算/);assert.match(html,/当前题库没有该旧选项映射，原始答案未改写/);const card=html.split('<h3>'+metric.name+'</h3>')[1].split('</article>')[0];assert.doesNotMatch(card,/>0(?:\.0)?<\/b>/);
+});

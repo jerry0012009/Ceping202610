@@ -1,6 +1,6 @@
 import express from 'express';
 import {answerDetails} from './answer-details.js';
-import {createStoredReport} from './stored-report.js';
+import {createStoredReport,readStoredReport} from './stored-report.js';
 import {presentReport} from './report-presentation.js';
 import helmet from 'helmet';
 import {rateLimit} from 'express-rate-limit';
@@ -80,7 +80,7 @@ export async function createApplication(env=process.env){
  app.get('/api/assessments',(req,res)=>{
   const rows=db.prepare('SELECT id,version,created_at AS createdAt FROM assessments WHERE user_id=? ORDER BY created_at DESC,id DESC').all(req.user.id);res.json({assessments:rows});
  });
- const serialize=row=>({id:row.id,version:row.version,createdAt:row.created_at,report:presentReport(JSON.parse(row.report_json),{version:row.version,fingerprint:row.fingerprint,answersJson:row.answers_json})});
+ const serialize=row=>({id:row.id,version:row.version,createdAt:row.created_at,report:readStoredReport(row)});
  app.get('/api/assessments/:id',(req,res)=>{const row=db.prepare('SELECT * FROM assessments WHERE id=? AND user_id=?').get(req.params.id,req.user.id);if(!row)return res.status(404).json({error:'记录不存在'});res.json(serialize(row));});
  const audit=(adminId,action,assessmentId=null)=>db.prepare('INSERT INTO admin_audit VALUES (?,?,?,?,?)').run(randomUUID(),adminId,action,assessmentId,new Date().toISOString());
  app.use('/api/admin',(req,res,next)=>{if(!adminUserId||req.user.id!==adminUserId)return res.status(403).json({error:'无权查看此页面'});next();});
@@ -107,7 +107,7 @@ export async function createApplication(env=process.env){
   const existing=db.prepare('SELECT * FROM assessments WHERE user_id=? AND submission_id=?').get(req.user.id,b.submissionId);
   if(existing){if(existing.request_hash!==hash)return res.status(409).json({error:'相同提交标识对应不同答案，请重新提交'});return res.json(serialize(existing));}
   const {pages,fingerprint}=requireVersion(b.version);
-  const id=randomUUID(),createdAt=new Date().toISOString(),report=createStoredReport(b.answers,b.seconds,b.version);
+  const id=randomUUID(),createdAt=new Date().toISOString(),report=createStoredReport(b.answers,b.seconds,undefined,b.version);
   const draft=db.prepare('SELECT * FROM drafts WHERE user_id=?').get(req.user.id);
   if(draft&&draft.version!==b.version)return res.status(409).json({error:'提交版本与草稿版本不一致'});
   if(draft&&(!equal(JSON.parse(draft.answers_json),b.answers)||!equal(JSON.parse(draft.seconds_json),b.seconds)||draft.position!==pages.length))return res.status(409).json({error:'请先按顺序完成并保存所有页面'});

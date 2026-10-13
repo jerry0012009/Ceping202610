@@ -45,7 +45,7 @@ function create(data){
  };
  const pairScore=(p,a,b)=>{if(p.kind==='same-scale'||p.kind==='reverse-scale'){const diff=Math.abs(Number(a)-(p.kind==='reverse-scale'?6-Number(b):Number(b)));return diff===0?100:diff===1?50:0;}return (p.kind==='opposite'?a!==b:p.map[a]===b)?100:0;};
  const consistent=(p,a,b)=>pairScore(p,a,b)===100;
- function calculate(answers={},seconds={},expected=false){
+ function calculate(answers={},seconds={},expected=false,completionBank=byId){
   const trace={},raw={},reference={},coverage={};
   const collect=(code,isValue=false)=>data.questions.flatMap(q=>{
    if(['QB001','QB002'].includes(q.id))return [];
@@ -62,7 +62,8 @@ function create(data){
   const rv1=collect('RV1');raw.RV1=average(rv1);reference.RV1=raw.RV1;trace.RV1={records:rv1};
   const pairStates=data.pairs.map(p=>{const done=expected||p.ids.every(id=>complete(byId[id],answers[id]));const possible=byId[p.ids[0]].options.flatMap(a=>byId[p.ids[1]].options.map(b=>pairScore(p,a.key,b.key)));return {...p,done,score:expected?mean(possible):done?pairScore(p,...p.ids.map(id=>answers[id])):null};});
   raw.RV2=mean(pairStates.filter(p=>p.done).map(p=>p.score));reference.RV2=raw.RV2;coverage.RV2={answered:pairStates.filter(p=>p.done).length,total:data.pairs.length,records:pairStates.filter(p=>p.done).length};trace.RV2={pairs:pairStates};
-  const timed=data.questions.filter(q=>q.cost>0&&(expected||complete(q,answers[q.id])));
+  // Original answer-bank completion preserves recorded timing for removed historical options.
+  const timed=data.questions.filter(q=>q.cost>0&&(expected||complete(completionBank[q.id]||q,answers[q.id])));
   const baseline=sum(timed.map(q=>q.cost));
   const elapsed=expected?data.t0:sum(timed.map(q=>Math.max(0,Number(seconds[q.id])||0)));
   raw.RV3=baseline?clamp(100*elapsed/baseline):null;reference.RV3=raw.RV3;coverage.RV3={answered:timed.length,total:data.timedTotal,records:timed.length};trace.RV3={elapsed,baseline,fullBaseline:data.t0};
@@ -89,7 +90,7 @@ function create(data){
   const weights={ST:{ST1:.25,ST2:.5,ST3:.25},PF:{PF1:.2,PF2:.2,PF3:.15,PF4:.1,PF5:.1,PF6:.15,PF7:.1},MH:{MH1:.2,MH2:.25,MH3:.1,MH4:.15,MH5:.1,MH6:.2},RV:{RV1:-.3,RV2:.5,RV3:.2}};
   const totals={};for(const [k,w]of Object.entries(weights)){const r=weighted(raw,w),adj=weighted(reference,w);totals[k]={raw:r===null?null:r+(k==='RV'?30:0),reference:adj===null?null:adj+(k==='RV'?30:0)};}
   const salary=data.questions.filter(q=>q.scores.SJ4).map(q=>({id:q.id,number:q.number,answer:answers[q.id]??null,records:records(q,q.scores.SJ4,answers[q.id],expected)}));
-  return {raw,reference,coverage,trace,e,q,honesty:raw.RV1===null?null:100-raw.RV1,totals,valueParts,facts:facts(answers),salary,answered:expected?data.total:data.questions.filter(q=>q.type!=='family'&&complete(q,answers[q.id])).length,total:data.total};
+  return {raw,reference,coverage,trace,e,q,honesty:raw.RV1===null?null:100-raw.RV1,totals,valueParts,facts:facts(answers),salary,answered:expected?data.total:data.questions.filter(q=>q.type!=='family'&&complete(completionBank[q.id]||q,answers[q.id])).length,total:data.total};
  }
  function defaults(){const p=calculate({}, {},true),norm=(m)=>({mean:m,lower:Math.max(0,m-7.5),upper:Math.min(100,m+7.5)}),legacy=Object.fromEntries([...numericCodes.map(c=>[c,norm(p.reference[c])]),...['ST','PF','MH'].map(c=>[c,norm(p.totals[c].reference)])]);return Object.fromEntries(Object.keys(legacy).map(c=>[c,{...(data.referenceProfile?.values?.[c]||legacy[c])}]));}
  function contributions(id,answer){const q=byId[id],add=(c,rs,w)=>[c,rs.map(r=>({...r,weight:w,weighted:r.value*w}))];return {...Object.fromEntries(Object.entries(q.scores).map(([c,m])=>add(c,records(q,m,answer),q.weights[c]))),...Object.fromEntries(Object.entries(q.values).map(([c,m])=>add('ST3·'+c,records(q,m,answer),q.valueWeights[c])))};}

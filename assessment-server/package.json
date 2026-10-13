@@ -1,7 +1,7 @@
 {
   "name": "assessment-server",
-  "version": "2.10.0",
-  "description": "V2.10 个人测评服务端（兼容V2.9）",
+  "version": "2.11.0",
+  "description": "V2.11 个人测评服务端（历史答卷按当前规则解读）",
   "scripts": {
     "start": "node --env-file-if-exists=.env server.js",
     "test": "node --test test/*.test.js test/*.test.cjs",

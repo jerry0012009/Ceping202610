@@ -21,8 +21,8 @@ function savedAnswers(value,entry){
  return {version:value.version,fingerprint:value.fingerprint,source:value.source,employersText:value.employersText,tenure:{noExperience:tenure.noExperience,months:tenure.months?.slice()??null,status:tenure.status,recordedMonths:tenure.recordedMonths.slice()}};
 }
 export function resolveEmploymentAnswers(snapshot,context={}){
- const entry=getVersion(snapshot.version,context.fingerprint);
- const incompatible=!entry||(context.version!==undefined&&context.version!==snapshot.version);
+ const answerVersion=snapshot.answerVersion||snapshot.version,entry=getVersion(answerVersion,context.fingerprint);
+ const incompatible=!entry||(context.version!==undefined&&context.version!==answerVersion);
  const compatible=!incompatible&&context.version===entry.version&&context.fingerprint===entry.fingerprint;
  if(!incompatible){const saved=savedAnswers(snapshot.employmentAnswers,entry);if(saved)return saved;}
  // Old fact snapshots discarded zero slots and status. Keep only known values,

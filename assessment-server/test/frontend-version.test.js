@@ -7,7 +7,7 @@ import test from 'node:test';
 // No private scoring rules, account credentials, browser storage or live requests.
 const bank=(version,size,key,label)=>({version,total:size,groups:[{name:'测试问卷 '+version,ids:Array.from({length:size},(_,i)=>'Q'+(i+1))}],questions:Array.from({length:size},(_,i)=>({id:'Q'+(i+1),number:i+1,type:'single',stem:label+' '+(i+1),instructions:[],options:[{key,text:label+'选项'}]}))});
 const archived=bank('2.9',7,'L','旧版题目');
-const latest=bank('2.10',13,'N','新版题目');
+const latest=bank('2.11',13,'N','新版题目');
 const snapshot=()=>({version:'2.9',answers:Object.fromEntries(archived.questions.slice(0,6).map(q=>[q.id,'L'])),seconds:Object.fromEntries(archived.questions.slice(0,6).map(q=>[q.id,3])),position:1});
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 
@@ -32,7 +32,7 @@ async function harness({draft=null,current=latest}={}){
     if(questionnaireFailure)return error(questionnaireFailure,'Requested questionnaire unavailable');
     if(questionnaireOverride)return ok(questionnaireOverride);
     const version=new URL(url,'https://test.invalid').searchParams.get('version');
-    return !version?ok(current):version==='2.9'?ok(archived):version==='2.10'?ok(latest):error(422,'Unknown questionnaire version');
+    return !version?ok(current):version==='2.9'?ok(archived):version==='2.11'?ok(latest):error(422,'Unknown questionnaire version');
    }
    if(url==='/api/draft'){
     if(options.method==='DELETE'){
@@ -68,7 +68,7 @@ const writes=h=>h.requests.filter(r=>r.method!=='GET'&&!r.url.startsWith('/api/a
 
 test('a new assessment fetches the latest version and pins its new state',async()=>{
  const h=await harness();await h.T.start();
- assert.equal(h.T.state.version,'2.10');assert.equal(h.T.data.version,'2.10');assert.equal(h.T.pages.length,3);
+ assert.equal(h.T.state.version,'2.11');assert.equal(h.T.data.version,'2.11');assert.equal(h.T.pages.length,3);
  assert.deepEqual(questionnaireRequests(h).map(r=>r.url),['/api/questionnaire']);
  assert.match(h.node('main').innerHTML,/新版题目/);assert.doesNotMatch(h.node('main').innerHTML,/旧版题目/);
  assert.equal(writes(h)[0].headers['X-Assessment-Owner'],'owner-a');
@@ -178,7 +178,7 @@ for(const decisions of [[false],[true,false]])test(`canceling restart (${decisio
 
 test('an explicitly confirmed restart switches an old draft to latest only after successful deletion',async()=>{
  const h=await harness({draft:snapshot()});await h.T.resume();h.requests.length=0;await h.T.start();
- assert.equal(h.T.state.version,'2.10');assert.equal(h.T.data.version,'2.10');assert.equal(Object.keys(h.T.state.answers).length,0);assert.equal(h.draft,null);
+ assert.equal(h.T.state.version,'2.11');assert.equal(h.T.data.version,'2.11');assert.equal(Object.keys(h.T.state.answers).length,0);assert.equal(h.draft,null);
  assert.deepEqual(h.requests.map(r=>r.url),['/api/questionnaire','/api/draft']);assert.equal(writes(h)[0].method,'DELETE');assert.equal(writes(h)[0].headers['X-Assessment-Owner'],'owner-a');
  assert.match(h.confirmations[0],/删除上次尚未完成/);assert.match(h.confirmations[1],/授权管理员查看/);
 });
@@ -232,4 +232,9 @@ for(const keys of [['A','D'],['A','B','C','D']])test(`admin Q41 option display p
  assert.match(html,new RegExp((keys.length===2?'B':'D')+' · 原始选项D <b>（已选）</b>'));
  if(keys.length===2)assert.doesNotMatch(html,/D · 原始选项D/);else for(const key of keys)assert.ok(html.includes(key+' · 原始选项'+key));
  assert.equal(JSON.stringify(saved),before);assert.equal(saved.questions[0].options.at(-1).key,'D');
+});
+
+for(const keys of [['A','C','D'],['A','B','D'],['A','B','C']])test(`2.11 three-option labels are continuous while stored keys remain ${keys.join('/')}`,async()=>{
+ const q={id:'QBTEST',number:40,type:'choice',stem:'三项选择',instructions:[],options:keys.map(key=>({key,text:'原始选项'+key}))},current={version:'2.11',total:1,groups:[{name:'三选一',ids:[q.id]}],questions:[q]},h=await harness({current});await h.T.start();assert.deepEqual([...h.node('main').innerHTML.matchAll(/<span class="key">([^<]+)<\/span>/g)].map(m=>m[1]),['A','B','C']);h.T.mutate({dataset:{id:q.id},value:keys[2]});await h.T.next();for(const request of writes(h).filter(r=>r.method!=='DELETE')){assert.equal(request.body.version,'2.11');assert.equal(request.body.answers[q.id],keys[2]);}
+ const detail={...q,answered:true,answerText:'C · 原始选项'+keys[2],options:q.options.map(o=>({...o,selection:o.key===keys[2]?'selected':'unselected'}))};h.T.showAnswerDetails({owner:{name:'Synthetic',email:'synthetic@example.test'},version:'2.11',questionnaireVersion:'2.11',createdAt:'2026-10-12T00:00:00Z',questions:[detail]});assert.match(h.node('main').innerHTML,new RegExp('C · 原始选项'+keys[2]+' <b>（已选）</b>'));
 });

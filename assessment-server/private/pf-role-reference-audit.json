@@ -1,6 +1,12 @@
 {
-  "revision": "2.9-report-3-site-manager-proposed",
-  "status": "final_user_refined_weights_confirmed_by_parent_not_applied_by_auditor",
+  "version": "2.11",
+  "modelId": "construction-site-management-v2.11-v1",
+  "referenceId": "construction-site-management-synthetic-40-v2.11-v1",
+  "reference": {
+    "mean": 61,
+    "lower": 53.0,
+    "upper": 69.0
+  },
   "weights": {
     "PF1": 0.25,
     "PF2": 0.2,
@@ -10,363 +16,119 @@
     "PF6": 0.07,
     "PF7": 0.2
   },
-  "originalV29Weights": {
-    "PF1": 0.2,
-    "PF2": 0.2,
-    "PF3": 0.15,
-    "PF4": 0.1,
-    "PF5": 0.1,
-    "PF6": 0.15,
-    "PF7": 0.1
-  },
-  "supersededCandidateWeights": {
-    "PF1": 0.25,
-    "PF2": 0.2,
-    "PF3": 0.15,
-    "PF4": 0.05,
-    "PF5": 0.05,
-    "PF6": 0.1,
-    "PF7": 0.2
-  },
-  "mixture": {
-    "H": 0.2,
-    "D": 0.3,
-    "S": 0.3,
-    "Z": 0.2
-  },
-  "weightedMean": 62.36788115736807,
-  "weightedPopulationSD": 4.515967692123222,
-  "halfwidth": 7.5,
-  "params": {
-    "mean": 62,
-    "lower": 54.5,
-    "upper": 69.5
-  },
-  "sourceHashes": {
-    "assessment-hosted/private/questionnaire-v2.9.json": "ae1306e128898c92cfde9bdf1a24ba8d7bdbbd7ad63acf19c38c0c9a20ea8fe3",
-    "assessment-hosted/private/engine-v2.9.cjs": "16f02307ef211f46e47a8a9f3e23639b1d34c807cf55f8e3e7832e57eca5bb9b",
-    "assessment-hosted/test/fixtures/regression-40.json": "d0799bde7a4bf8f12525eec657f907b81221f45bdf9209efb46cad03a2598129"
-  },
-  "rows": [
-    {
-      "id": "P01-H",
-      "style": "H",
-      "weight": 0.02,
-      "raw": 64.70171593252672,
-      "reference": 64.70171593252672,
-      "originalV29Reference": 58.52540159676107
+  "method": {
+    "cohort": "40 synthetic fixtures: 10 personas × four strategies, not observed people or empirical population norms",
+    "mixture": {
+      "H": 0.2,
+      "D": 0.3,
+      "S": 0.3,
+      "Z": 0.2
     },
-    {
-      "id": "P01-D",
-      "style": "D",
-      "weight": 0.03,
-      "raw": 65.50630900057021,
-      "reference": 65.50630900057021,
-      "originalV29Reference": 64.86690117451175
-    },
-    {
-      "id": "P01-S",
-      "style": "S",
-      "weight": 0.03,
-      "raw": 67.51911832719942,
-      "reference": 60.32083963867484,
-      "originalV29Reference": 61.42978306996416
-    },
-    {
-      "id": "P01-Z",
-      "style": "Z",
-      "weight": 0.02,
-      "raw": 70.50530797183133,
-      "reference": 70.50530797183133,
-      "originalV29Reference": 65.60817017952752
-    },
-    {
-      "id": "P02-H",
-      "style": "H",
-      "weight": 0.02,
-      "raw": 58.1495555447474,
-      "reference": 58.1495555447474,
-      "originalV29Reference": 65.00706397216805
-    },
-    {
-      "id": "P02-D",
-      "style": "D",
-      "weight": 0.03,
-      "raw": 66.98484719866372,
-      "reference": 66.98484719866372,
-      "originalV29Reference": 67.29980086846273
-    },
-    {
-      "id": "P02-S",
-      "style": "S",
-      "weight": 0.03,
-      "raw": 70.92797875080149,
-      "reference": 63.7297000622769,
-      "originalV29Reference": 64.48691869016967
-    },
-    {
-      "id": "P02-Z",
-      "style": "Z",
-      "weight": 0.02,
-      "raw": 60.156736194785196,
-      "reference": 60.156736194785196,
-      "originalV29Reference": 67.17259685198665
-    },
-    {
-      "id": "P03-H",
-      "style": "H",
-      "weight": 0.02,
-      "raw": 56.66128568813691,
-      "reference": 56.66128568813691,
-      "originalV29Reference": 52.90556985923071
-    },
-    {
-      "id": "P03-D",
-      "style": "D",
-      "weight": 0.03,
-      "raw": 65.62948971493635,
-      "reference": 65.62948971493635,
-      "originalV29Reference": 64.88019301607108
-    },
-    {
-      "id": "P03-S",
-      "style": "S",
-      "weight": 0.03,
-      "raw": 70.92797875080149,
-      "reference": 63.7297000622769,
-      "originalV29Reference": 64.48691869016967
-    },
-    {
-      "id": "P03-Z",
-      "style": "Z",
-      "weight": 0.02,
-      "raw": 57.60414283099406,
-      "reference": 57.60414283099406,
-      "originalV29Reference": 54.08414128780214
-    },
-    {
-      "id": "P04-H",
-      "style": "H",
-      "weight": 0.02,
-      "raw": 55.579911985638205,
-      "reference": 55.579911985638205,
-      "originalV29Reference": 50.718988138106035
-    },
-    {
-      "id": "P04-D",
-      "style": "D",
-      "weight": 0.03,
-      "raw": 59.92076470691508,
-      "reference": 59.92076470691508,
-      "originalV29Reference": 56.944790576312904
-    },
-    {
-      "id": "P04-S",
-      "style": "S",
-      "weight": 0.03,
-      "raw": 68.55380480642316,
-      "reference": 61.35552611789856,
-      "originalV29Reference": 62.23875963214137
-    },
-    {
-      "id": "P04-Z",
-      "style": "Z",
-      "weight": 0.02,
-      "raw": 65.81903050788776,
-      "reference": 65.81903050788776,
-      "originalV29Reference": 64.04060926899811
-    },
-    {
-      "id": "P05-H",
-      "style": "H",
-      "weight": 0.02,
-      "raw": 52.6547093508467,
-      "reference": 52.6547093508467,
-      "originalV29Reference": 48.38780959984176
-    },
-    {
-      "id": "P05-D",
-      "style": "D",
-      "weight": 0.03,
-      "raw": 70.98955715252507,
-      "reference": 70.98955715252507,
-      "originalV29Reference": 68.44485811953977
-    },
-    {
-      "id": "P05-S",
-      "style": "S",
-      "weight": 0.03,
-      "raw": 66.44660273786401,
-      "reference": 59.24832404933943,
-      "originalV29Reference": 60.840712921040335
-    },
-    {
-      "id": "P05-Z",
-      "style": "Z",
-      "weight": 0.02,
-      "raw": 57.51544424729417,
-      "reference": 57.51544424729417,
-      "originalV29Reference": 54.29200675403677
-    },
-    {
-      "id": "P06-H",
-      "style": "H",
-      "weight": 0.02,
-      "raw": 63.5306141981318,
-      "reference": 63.5306141981318,
-      "originalV29Reference": 62.0146678308311
-    },
-    {
-      "id": "P06-D",
-      "style": "D",
-      "weight": 0.03,
-      "raw": 66.03798657901368,
-      "reference": 66.03798657901368,
-      "originalV29Reference": 65.96160962485078
-    },
-    {
-      "id": "P06-S",
-      "style": "S",
-      "weight": 0.03,
-      "raw": 69.43004944988215,
-      "reference": 62.231770761357566,
-      "originalV29Reference": 63.1230258462104
-    },
-    {
-      "id": "P06-Z",
-      "style": "Z",
-      "weight": 0.02,
-      "raw": 71.0235108481696,
-      "reference": 71.0235108481696,
-      "originalV29Reference": 71.03734571064969
-    },
-    {
-      "id": "P07-H",
-      "style": "H",
-      "weight": 0.02,
-      "raw": 57.96892833668517,
-      "reference": 57.96892833668517,
-      "originalV29Reference": 50.92598533131806
-    },
-    {
-      "id": "P07-D",
-      "style": "D",
-      "weight": 0.03,
-      "raw": 62.6742647681679,
-      "reference": 62.6742647681679,
-      "originalV29Reference": 60.64611070233928
-    },
-    {
-      "id": "P07-S",
-      "style": "S",
-      "weight": 0.03,
-      "raw": 67.62650987570547,
-      "reference": 60.42823118718088,
-      "originalV29Reference": 61.8091383232416
-    },
-    {
-      "id": "P07-Z",
-      "style": "Z",
-      "weight": 0.02,
-      "raw": 67.08984388966759,
-      "reference": 67.08984388966759,
-      "originalV29Reference": 62.15540830618177
-    },
-    {
-      "id": "P08-H",
-      "style": "H",
-      "weight": 0.02,
-      "raw": 62.765659691245226,
-      "reference": 62.765659691245226,
-      "originalV29Reference": 56.23033526198495
-    },
-    {
-      "id": "P08-D",
-      "style": "D",
-      "weight": 0.03,
-      "raw": 62.267843868927656,
-      "reference": 62.267843868927656,
-      "originalV29Reference": 59.54851617457737
-    },
-    {
-      "id": "P08-S",
-      "style": "S",
-      "weight": 0.03,
-      "raw": 66.45489569037167,
-      "reference": 59.25661700184709,
-      "originalV29Reference": 61.898017997048186
-    },
-    {
-      "id": "P08-Z",
-      "style": "Z",
-      "weight": 0.02,
-      "raw": 70.39500961732112,
-      "reference": 70.39500961732112,
-      "originalV29Reference": 65.82495762767805
-    },
-    {
-      "id": "P09-H",
-      "style": "H",
-      "weight": 0.02,
-      "raw": 50.23907880365121,
-      "reference": 50.23907880365121,
-      "originalV29Reference": 51.47086561244076
-    },
-    {
-      "id": "P09-D",
-      "style": "D",
-      "weight": 0.03,
-      "raw": 60.26649434391848,
-      "reference": 60.26649434391848,
-      "originalV29Reference": 59.652660262334955
-    },
-    {
-      "id": "P09-S",
-      "style": "S",
-      "weight": 0.03,
-      "raw": 70.58970320027838,
-      "reference": 63.39142451175379,
-      "originalV29Reference": 65.50410648583956
-    },
-    {
-      "id": "P09-Z",
-      "style": "Z",
-      "weight": 0.02,
-      "raw": 59.70285149949079,
-      "reference": 59.70285149949079,
-      "originalV29Reference": 63.1288600158759
-    },
-    {
-      "id": "P10-H",
-      "style": "H",
-      "weight": 0.02,
-      "raw": 56.64896172700827,
-      "reference": 56.64896172700827,
-      "originalV29Reference": 63.252976369613926
-    },
-    {
-      "id": "P10-D",
-      "style": "D",
-      "weight": 0.03,
-      "raw": 66.21611435145542,
-      "reference": 66.21611435145542,
-      "originalV29Reference": 66.95998509828235
-    },
-    {
-      "id": "P10-S",
-      "style": "S",
-      "weight": 0.03,
-      "raw": 74.13431326578579,
-      "reference": 66.9360345772612,
-      "originalV29Reference": 66.12671854653344
-    },
-    {
-      "id": "P10-Z",
-      "style": "Z",
-      "weight": 0.02,
-      "raw": 58.99899951990321,
-      "reference": 58.99899951990321,
-      "originalV29Reference": 65.84708067800395
+    "meanSD": "Normalized mixture-weighted mean and population SD (sum weights = 1). Before: original V2.10 fixtures. After: same retained answers plus explicitly logged synthetic assumed reanswers for retired choices. Seconds are identical. Never recode actual historical answers.",
+    "reference": "Compare original V2.10 to combined V2.11; add rounded primary mean delta to old reviewed centers unless tested variants reverse the direction, in which case hold old center. Multiply old asymmetric halfwidths by full primary SD ratio unless variants cross1, in which case hold old halfwidths. Keep minimum7.5, one-decimal bounds, affected upper <=99.9 and strictly below achievable maximum.",
+    "offsetRounding": "For changed centers, retain prior manual offset plus primary mean shift up to nearest whole-point rounding. For guarded centers, keep exact original reviewed center because assumed-answer scenarios disagree on shift direction; report offset residual rather than claiming it is preserved exactly.",
+    "unchanged": "Preserve unchanged quality metrics and inherited RV3 top-label exception. Actual historical answers are never recoded.",
+    "limits": "Ten designed personas × four strategies. 83 retired-option cells across29 cases (67% mixture weight) are assumed reanswers, never actual respondent data. Five sensitivity scenarios are illustrative and not exhaustive bounds or confidence intervals.",
+    "uncertaintyGuardrails": {
+      "centerHeld": [
+        "ST1",
+        "PF1",
+        "PF2",
+        "PF4",
+        "PF6"
+      ],
+      "halfwidthHeld": [
+        "ST1",
+        "PF1",
+        "PF3",
+        "PF4",
+        "PF6",
+        "ST"
+      ],
+      "decision": "Preserve the original V2.10 centers or halfwidths listed here when tested synthetic scenarios disagree on the direction of change."
     }
-  ]
+  },
+  "decision": {
+    "old": {
+      "mean": 62,
+      "lower": 54.5,
+      "upper": 69.5
+    },
+    "proposed": {
+      "mean": 61,
+      "lower": 53.0,
+      "upper": 69.0
+    },
+    "changed": true,
+    "unroundedCenter": 61.05179350859179,
+    "roundedCenterShift": -1,
+    "meanDelta": -0.9482064914082073,
+    "sdRatio": 1.0647852179570476,
+    "oldReviewedOffset": -0.5611872132298146,
+    "newReviewedOffset": -0.6129807218216072,
+    "offsetRoundingError": -0.05179350859179266,
+    "lowerHalfwidthBefore": 7.5,
+    "upperHalfwidthBefore": 7.5,
+    "unclippedLower": 53.014110865322145,
+    "unclippedUpper": 68.98588913467786,
+    "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+    "primaryArithmeticCandidate": {
+      "mean": 61,
+      "lower": 53,
+      "upper": 69
+    },
+    "centerHeldForScenarioUncertainty": false,
+    "widthHeldForScenarioUncertainty": false,
+    "appliedWidthRatio": 1.0647852179570476,
+    "testedScenarioSensitivity": {
+      "meanRange": [
+        60.89479064704645,
+        61.92927132196007
+      ],
+      "meanDeltaRange": [
+        -1.6663965661833657,
+        -0.6319158912697418
+      ],
+      "sdRange": [
+        4.711012224332056,
+        4.930241586363853
+      ],
+      "sdRatioRange": [
+        1.0647852179570476,
+        1.1143355423709709
+      ],
+      "referenceCenterRange": [
+        60,
+        61
+      ],
+      "referenceLowerRange": [
+        51.6,
+        53
+      ],
+      "referenceUpperRange": [
+        68.4,
+        69.1
+      ],
+      "meanDirectionRobustAcrossTestedVariants": true,
+      "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+    },
+    "newMeanShiftApplied": -1,
+    "finalReferenceChanged": true
+  },
+  "reachability": {
+    "reference": {
+      "mean": 61,
+      "lower": 53.0,
+      "upper": 69.0
+    },
+    "rawMinimum": 20.624611910098235,
+    "rawMaximum": 79.55973569880497,
+    "correctedMinimum": 14.656825334630161,
+    "correctedMaximum": 79.55973569880497,
+    "highestLabelReachable": true,
+    "lowestLabelReachable": true,
+    "highestWitnessValidated": true,
+    "lowerWitnessValidated": true,
+    "scopeException": null
+  }
 }

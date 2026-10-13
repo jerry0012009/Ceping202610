@@ -1,6 +1,6 @@
 {
-  "id": "construction-site-management-v2.10-v1",
-  "referenceId": "construction-site-management-synthetic-40-v2.10-v1",
+  "id": "construction-site-management-v2.11-v1",
+  "referenceId": "construction-site-management-synthetic-40-v2.11-v1",
   "roleTitle": "建筑工地外派管理岗",
   "weights": {
     "PF1": 0.25,
@@ -12,9 +12,9 @@
     "PF7": 0.2
   },
   "reference": {
-    "mean": 62,
-    "lower": 54.5,
-    "upper": 69.5
+    "mean": 61,
+    "lower": 53.0,
+    "upper": 69.0
   },
   "copy": {
     "name": "职业性格匹配度",

@@ -31,7 +31,7 @@ test('frozen reports remain exact after reversing only approved value-card repla
   assert.equal(hash(JSON.stringify(numericReport(report))),baseline.rows.find(row=>row.id===fixture.id).sha256,fixture.id);
  }
  for(const [path,expected] of Object.entries(baseline.protectedFiles)){
-  assert.equal(hash(fs.readFileSync(new URL('../'+(path==='private/pf-role-model.json'?'private/archive/v2.9/pf-role-model.json':path),import.meta.url))),expected,path+' must remain byte-for-byte unchanged');
+  assert.equal(hash(fs.readFileSync(new URL('../'+(['private/pf-role-model.json','private/pf-role-reference-audit.json'].includes(path)?path.replace('private/','private/archive/v2.9/'):path),import.meta.url))),expected,path+' must remain byte-for-byte unchanged');
  }
 });
 

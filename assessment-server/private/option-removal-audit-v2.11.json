@@ -1,0 +1,1013 @@
+{
+  "status": "Approved ten option removals applied after the 36 endpoint score revisions.",
+  "deletedQuestionCount": 10,
+  "retainedQuestionCount": 97,
+  "structuredOptionCountBefore": 319,
+  "structuredOptionCountAfter": 309,
+  "characterMethod": "Unicode code points excluding whitespace; stem + option text, no option labels/instructions/duplicated q.text. Reading-load proxy, not actual time.",
+  "totalCharactersBefore": 5730,
+  "totalCharactersAfter": 5568,
+  "charactersRemoved": 162,
+  "retainQuestions": [
+    20,
+    22,
+    31,
+    45,
+    88,
+    94
+  ],
+  "deletions": [
+    {
+      "number": 35,
+      "id": "QB240",
+      "deleteKey": "D",
+      "deletedOption": {
+        "key": "D",
+        "text": "由谁确认，确认前可做哪些准备。"
+      },
+      "keepKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "keepOriginalIndices": [
+        0,
+        1,
+        2
+      ],
+      "beforeOptions": [
+        {
+          "key": "A",
+          "text": "是否可行，会不会影响进度。"
+        },
+        {
+          "key": "B",
+          "text": "是否触及技术标准和检查要求。"
+        },
+        {
+          "key": "C",
+          "text": "是否改变双方工作范围与责任。"
+        },
+        {
+          "key": "D",
+          "text": "由谁确认，确认前可做哪些准备。"
+        }
+      ],
+      "afterOptions": [
+        {
+          "key": "A",
+          "text": "是否可行，会不会影响进度。"
+        },
+        {
+          "key": "B",
+          "text": "是否触及技术标准和检查要求。"
+        },
+        {
+          "key": "C",
+          "text": "是否改变双方工作范围与责任。"
+        }
+      ],
+      "stem": "合作方建议改用更快的工具，是否符合要求尚未确认。正式采用前，你认为先核查哪项？",
+      "afterText": "合作方建议改用更快的工具，是否符合要求尚未确认。正式采用前，你认为先核查哪项？\nA．是否可行，会不会影响进度。\nB．是否触及技术标准和检查要求。\nC．是否改变双方工作范围与责任。",
+      "charactersRemoved": 15,
+      "charactersBefore": 95,
+      "charactersAfter": 80,
+      "scoresBefore": {
+        "SJ3": [
+          33.333333333333336,
+          100,
+          50,
+          100
+        ],
+        "SJ1": [
+          25,
+          100,
+          50,
+          100
+        ]
+      },
+      "scoresAfter": {
+        "SJ3": [
+          33.333333333333336,
+          100,
+          50
+        ],
+        "SJ1": [
+          25,
+          100,
+          50
+        ]
+      },
+      "valuesBefore": {},
+      "valuesAfter": {},
+      "weights": {
+        "SJ3": 60,
+        "SJ1": 40
+      },
+      "valueWeights": {},
+      "source": "report_revision/four-to-three-v210/decisions.json",
+      "sourceCaseIndex": 4,
+      "rationale": "B与D在两个维度完全同分。题干问正式采用前核查什么，B直接对应技术标准和检查要求；留下可行性、规范、责任三个角度。",
+      "loss": "失去“先确认由谁决定及可准备什么”的程序偏好。虽然现有计分向量集合未变，两个高分选项变一个，选择分布仍可能改变。"
+    },
+    {
+      "number": 40,
+      "id": "QB308",
+      "deleteKey": "B",
+      "deletedOption": {
+        "key": "B",
+        "text": "当天能继续做，但会回想，过一晚多能放下。"
+      },
+      "keepKeys": [
+        "A",
+        "C",
+        "D"
+      ],
+      "keepOriginalIndices": [
+        0,
+        2,
+        3
+      ],
+      "beforeOptions": [
+        {
+          "key": "A",
+          "text": "很快接着做事，当时表达常较直接。"
+        },
+        {
+          "key": "B",
+          "text": "当天能继续做，但会回想，过一晚多能放下。"
+        },
+        {
+          "key": "C",
+          "text": "独自整理一两个小时后，能照常沟通。"
+        },
+        {
+          "key": "D",
+          "text": "当时较克制，隔天仍烦躁，恢复较慢。"
+        }
+      ],
+      "afterOptions": [
+        {
+          "key": "A",
+          "text": "很快接着做事，当时表达常较直接。"
+        },
+        {
+          "key": "C",
+          "text": "独自整理一两个小时后，能照常沟通。"
+        },
+        {
+          "key": "D",
+          "text": "当时较克制，隔天仍烦躁，恢复较慢。"
+        }
+      ],
+      "stem": "工作分歧已澄清，后续安排已定。我通常：",
+      "afterText": "工作分歧已澄清，后续安排已定。我通常：\nA．很快接着做事，当时表达常较直接。\nC．独自整理一两个小时后，能照常沟通。\nD．当时较克制，隔天仍烦躁，恢复较慢。",
+      "charactersRemoved": 20,
+      "charactersBefore": 89,
+      "charactersAfter": 69,
+      "scoresBefore": {
+        "PF3": [
+          100,
+          33.3333,
+          66.6667,
+          0
+        ],
+        "MH4": [
+          16.6667,
+          66.6667,
+          33.3333,
+          100
+        ],
+        "MH1": [
+          0,
+          66.6667,
+          33.3333,
+          100
+        ]
+      },
+      "scoresAfter": {
+        "PF3": [
+          100,
+          66.6667,
+          0
+        ],
+        "MH4": [
+          16.6667,
+          33.3333,
+          100
+        ],
+        "MH1": [
+          0,
+          33.3333,
+          100
+        ]
+      },
+      "valuesBefore": {},
+      "valuesAfter": {},
+      "weights": {
+        "PF3": 60,
+        "MH4": 30,
+        "MH1": 15
+      },
+      "valueWeights": {},
+      "source": "report_revision/four-to-three-v210/decisions.json",
+      "sourceCaseIndex": 6,
+      "rationale": "B与C都处在快速恢复和隔天仍烦躁之间。保留A快速恢复、C短暂停顿后正常沟通、D恢复较慢，三层主区分清楚。",
+      "loss": "失去“当天能做事，但回想至过一晚”的中间层；不再区分这一层与一两个小时的整理。PF3中间低档33.33消失。"
+    },
+    {
+      "number": 42,
+      "id": "QB081",
+      "deleteKey": "B",
+      "deletedOption": {
+        "key": "B",
+        "text": "先学通用工具，为以后转向留空间。"
+      },
+      "keepKeys": [
+        "A",
+        "C",
+        "D"
+      ],
+      "keepOriginalIndices": [
+        0,
+        2,
+        3
+      ],
+      "beforeOptions": [
+        {
+          "key": "A",
+          "text": "深钻当前职业的一项技能，短期用途集中些。"
+        },
+        {
+          "key": "B",
+          "text": "先学通用工具，为以后转向留空间。"
+        },
+        {
+          "key": "C",
+          "text": "围绕当前难题学，兼顾少量通用工具。"
+        },
+        {
+          "key": "D",
+          "text": "先接触不同领域，再找值得深入的方向。"
+        }
+      ],
+      "afterOptions": [
+        {
+          "key": "A",
+          "text": "深钻当前职业的一项技能，短期用途集中些。"
+        },
+        {
+          "key": "C",
+          "text": "围绕当前难题学，兼顾少量通用工具。"
+        },
+        {
+          "key": "D",
+          "text": "先接触不同领域，再找值得深入的方向。"
+        }
+      ],
+      "stem": "有固定学习时间时，我更愿意：",
+      "afterText": "有固定学习时间时，我更愿意：\nA．深钻当前职业的一项技能，短期用途集中些。\nC．围绕当前难题学，兼顾少量通用工具。\nD．先接触不同领域，再找值得深入的方向。",
+      "charactersRemoved": 16,
+      "charactersBefore": 85,
+      "charactersAfter": 69,
+      "scoresBefore": {
+        "ST1": [
+          100,
+          33.333333333333336,
+          83.33333333333333,
+          16.666666666666668
+        ],
+        "PF5": [
+          0,
+          66.66666666666667,
+          33.333333333333336,
+          100
+        ]
+      },
+      "scoresAfter": {
+        "ST1": [
+          100,
+          83.33333333333333,
+          16.666666666666668
+        ],
+        "PF5": [
+          0,
+          33.333333333333336,
+          100
+        ]
+      },
+      "valuesBefore": {},
+      "valuesAfter": {},
+      "weights": {
+        "ST1": 60,
+        "PF5": 30
+      },
+      "valueWeights": {},
+      "source": "report_revision/four-to-three-v210/decisions.json",
+      "sourceCaseIndex": 7,
+      "rationale": "保留A深钻当前职业、C围绕当前难题兼顾通用工具、D探索不同领域。职业承诺和认知灵活性的高低两端均保留。",
+      "loss": "失去“专学通用工具以便以后转向”的独立选择；ST1低中档33.33和PF5中高档66.67消失。B与D并非完全同义。"
+    },
+    {
+      "number": 48,
+      "id": "QB103",
+      "deleteKey": "C",
+      "deletedOption": {
+        "key": "C",
+        "text": "选适中的新目标，留时间兼顾其他任务。"
+      },
+      "keepKeys": [
+        "A",
+        "B",
+        "D"
+      ],
+      "keepOriginalIndices": [
+        0,
+        1,
+        3
+      ],
+      "beforeOptions": [
+        {
+          "key": "A",
+          "text": "挑战陌生目标，多试几次，结果不太确定。"
+        },
+        {
+          "key": "B",
+          "text": "做稳熟悉任务，积累可复用成果。"
+        },
+        {
+          "key": "C",
+          "text": "选适中的新目标，留时间兼顾其他任务。"
+        },
+        {
+          "key": "D",
+          "text": "合作挑战新目标，靠配合分担试错。"
+        }
+      ],
+      "afterOptions": [
+        {
+          "key": "A",
+          "text": "挑战陌生目标，多试几次，结果不太确定。"
+        },
+        {
+          "key": "B",
+          "text": "做稳熟悉任务，积累可复用成果。"
+        },
+        {
+          "key": "D",
+          "text": "合作挑战新目标，靠配合分担试错。"
+        }
+      ],
+      "stem": "下阶段任务可自选，各种投入都受认可。我更倾向：",
+      "afterText": "下阶段任务可自选，各种投入都受认可。我更倾向：\nA．挑战陌生目标，多试几次，结果不太确定。\nB．做稳熟悉任务，积累可复用成果。\nD．合作挑战新目标，靠配合分担试错。",
+      "charactersRemoved": 18,
+      "charactersBefore": 91,
+      "charactersAfter": 73,
+      "scoresBefore": {
+        "PF6": [
+          100,
+          16.666666666666668,
+          58.333333333333336,
+          50
+        ],
+        "PF2": [
+          0,
+          0,
+          0,
+          100
+        ]
+      },
+      "scoresAfter": {
+        "PF6": [
+          100,
+          16.666666666666668,
+          50
+        ],
+        "PF2": [
+          0,
+          0,
+          100
+        ]
+      },
+      "valuesBefore": {},
+      "valuesAfter": {},
+      "weights": {
+        "PF6": 60,
+        "PF2": 30
+      },
+      "valueWeights": {},
+      "source": "report_revision/four-to-three-v210/decisions.json",
+      "sourceCaseIndex": 10,
+      "rationale": "C的PF6为58.33，与D的50较近；D又是合作性唯一高分选项，应保留。A挑战、B熟悉任务、D合作挑战已覆盖主要方向。",
+      "loss": "失去“适度挑战并留时间兼顾”的个人节奏偏好；不能把原选C者自动记成D，两者合作性分不同。"
+    },
+    {
+      "number": 26,
+      "id": "QB239",
+      "deleteKey": "C",
+      "deletedOption": {
+        "key": "C",
+        "text": "请相关人员还原当时安排。"
+      },
+      "keepKeys": [
+        "A",
+        "B",
+        "D"
+      ],
+      "keepOriginalIndices": [
+        0,
+        1,
+        3
+      ],
+      "beforeOptions": [
+        {
+          "key": "A",
+          "text": "处理遗留问题，减少后续影响。"
+        },
+        {
+          "key": "B",
+          "text": "对照当时分工、要求和过程记录。"
+        },
+        {
+          "key": "C",
+          "text": "请相关人员还原当时安排。"
+        },
+        {
+          "key": "D",
+          "text": "请负责人明确后续处理与记录方式。"
+        }
+      ],
+      "afterOptions": [
+        {
+          "key": "A",
+          "text": "处理遗留问题，减少后续影响。"
+        },
+        {
+          "key": "B",
+          "text": "对照当时分工、要求和过程记录。"
+        },
+        {
+          "key": "D",
+          "text": "请负责人明确后续处理与记录方式。"
+        }
+      ],
+      "stem": "工作已结束，各方对原分工说法不一。核实原责任时，你认为先做哪项？",
+      "afterText": "工作已结束，各方对原分工说法不一。核实原责任时，你认为先做哪项？\nA．处理遗留问题，减少后续影响。\nB．对照当时分工、要求和过程记录。\nD．请负责人明确后续处理与记录方式。",
+      "charactersRemoved": 12,
+      "charactersBefore": 89,
+      "charactersAfter": 77,
+      "scoresBefore": {
+        "SJ1": [
+          25,
+          100,
+          75,
+          0
+        ],
+        "SJ3": [
+          0,
+          100,
+          50,
+          16.666666666666668
+        ]
+      },
+      "scoresAfter": {
+        "SJ1": [
+          25,
+          100,
+          0
+        ],
+        "SJ3": [
+          0,
+          100,
+          16.666666666666668
+        ]
+      },
+      "valuesBefore": {},
+      "valuesAfter": {},
+      "weights": {
+        "SJ1": 40,
+        "SJ3": 60
+      },
+      "valueWeights": {},
+      "source": "report_revision/four-to-three-v210/decisions.json",
+      "sourceCaseIndex": 2,
+      "rationale": "B保留最直接的原始记录核查，A和D保留解决后续问题与请负责人定后续程序两种较弱响应；SJ1、SJ3上下界不变。",
+      "loss": "失去询问相关人员以还原原安排这一证据来源。它是方法差异，非单纯程度；只在希望本题聚焦“查原记录”的主判断时删。"
+    },
+    {
+      "number": 38,
+      "id": "QB238",
+      "deleteKey": "B",
+      "deletedOption": {
+        "key": "B",
+        "text": "弄清原因及对后续任务的影响。"
+      },
+      "keepKeys": [
+        "A",
+        "C",
+        "D"
+      ],
+      "keepOriginalIndices": [
+        0,
+        2,
+        3
+      ],
+      "beforeOptions": [
+        {
+          "key": "A",
+          "text": "按新要求推进，之后补沟通。"
+        },
+        {
+          "key": "B",
+          "text": "弄清原因及对后续任务的影响。"
+        },
+        {
+          "key": "C",
+          "text": "确认决定权限和所需保留的记录。"
+        },
+        {
+          "key": "D",
+          "text": "与受影响同事协调工作顺序。"
+        }
+      ],
+      "afterOptions": [
+        {
+          "key": "A",
+          "text": "按新要求推进，之后补沟通。"
+        },
+        {
+          "key": "C",
+          "text": "确认决定权限和所需保留的记录。"
+        },
+        {
+          "key": "D",
+          "text": "与受影响同事协调工作顺序。"
+        }
+      ],
+      "stem": "工作安排临时改变，影响你负责的后续任务。你通常先：",
+      "afterText": "工作安排临时改变，影响你负责的后续任务。你通常先：\nA．按新要求推进，之后补沟通。\nC．确认决定权限和所需保留的记录。\nD．与受影响同事协调工作顺序。",
+      "charactersRemoved": 14,
+      "charactersBefore": 80,
+      "charactersAfter": 66,
+      "scoresBefore": {
+        "PF1": [
+          16.666666666666668,
+          66.66666666666667,
+          100,
+          50
+        ],
+        "SJ3": [
+          0,
+          50,
+          100,
+          25
+        ],
+        "PF2": [
+          0,
+          25,
+          0,
+          100
+        ],
+        "SJ2": [
+          30,
+          60,
+          50,
+          100
+        ]
+      },
+      "scoresAfter": {
+        "PF1": [
+          16.666666666666668,
+          100,
+          50
+        ],
+        "SJ3": [
+          0,
+          100,
+          25
+        ],
+        "PF2": [
+          0,
+          0,
+          100
+        ],
+        "SJ2": [
+          30,
+          50,
+          100
+        ]
+      },
+      "valuesBefore": {},
+      "valuesAfter": {},
+      "weights": {
+        "PF1": 60,
+        "SJ3": 40,
+        "PF2": 40,
+        "SJ2": 20
+      },
+      "valueWeights": {},
+      "source": "report_revision/four-to-three-v210/decisions.json",
+      "sourceCaseIndex": 5,
+      "rationale": "保留A先推进、C核权限与记录、D协调同事。PF1、SJ3、PF2和SJ2都保住原上下界和非恒定区分。",
+      "loss": "失去先理解原因及后续影响的分析路线；四维联合计分向量仿射秩3→2。它不只是把相似程度档合并。"
+    },
+    {
+      "number": 47,
+      "id": "QB091",
+      "deleteKey": "D",
+      "deletedOption": {
+        "key": "D",
+        "text": "先试几种小任务，再定深入哪一类。"
+      },
+      "keepKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "keepOriginalIndices": [
+        0,
+        1,
+        2
+      ],
+      "beforeOptions": [
+        {
+          "key": "A",
+          "text": "练熟难题，继续同类但边界更清楚的工作。"
+        },
+        {
+          "key": "B",
+          "text": "把可迁移经验用于另一类工作，接受适应期。"
+        },
+        {
+          "key": "C",
+          "text": "仍做同类工作，先换协作方式或任务组合。"
+        },
+        {
+          "key": "D",
+          "text": "先试几种小任务，再定深入哪一类。"
+        }
+      ],
+      "afterOptions": [
+        {
+          "key": "A",
+          "text": "练熟难题，继续同类但边界更清楚的工作。"
+        },
+        {
+          "key": "B",
+          "text": "把可迁移经验用于另一类工作，接受适应期。"
+        },
+        {
+          "key": "C",
+          "text": "仍做同类工作，先换协作方式或任务组合。"
+        }
+      ],
+      "stem": "刚结束一段要求多次变化、协调不易的工作。机会条件相近时，你更想：",
+      "afterText": "刚结束一段要求多次变化、协调不易的工作。机会条件相近时，你更想：\nA．练熟难题，继续同类但边界更清楚的工作。\nB．把可迁移经验用于另一类工作，接受适应期。\nC．仍做同类工作，先换协作方式或任务组合。",
+      "charactersRemoved": 16,
+      "charactersBefore": 106,
+      "charactersAfter": 90,
+      "scoresBefore": {
+        "ST1": [
+          100,
+          20,
+          80,
+          40
+        ],
+        "PF5": [
+          16.666666666666668,
+          83.33333333333333,
+          100,
+          66.66666666666667
+        ]
+      },
+      "scoresAfter": {
+        "ST1": [
+          100,
+          20,
+          80
+        ],
+        "PF5": [
+          16.666666666666668,
+          83.33333333333333,
+          100
+        ]
+      },
+      "valuesBefore": {},
+      "valuesAfter": {},
+      "weights": {
+        "ST1": 50,
+        "PF5": 30
+      },
+      "valueWeights": {},
+      "source": "report_revision/four-to-three-v210/decisions.json",
+      "sourceCaseIndex": 9,
+      "rationale": "保留A留在同类并练熟、B转到另一类、C同类但调整协作，职业方向与灵活性的两端均保留。",
+      "loss": "失去“先试小任务再决定”的探索型过渡策略；接受少区分尚未定方向者时才删。"
+    },
+    {
+      "number": 50,
+      "id": "QB087",
+      "deleteKey": "D",
+      "deletedOption": {
+        "key": "D",
+        "text": "已有办法省时省力，下次更容易完成工作。"
+      },
+      "keepKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "keepOriginalIndices": [
+        0,
+        1,
+        2
+      ],
+      "beforeOptions": [
+        {
+          "key": "A",
+          "text": "看到自己比上轮做得更好，即使没额外奖励。"
+        },
+        {
+          "key": "B",
+          "text": "团队配合更顺，大家愿意沿用我的做法。"
+        },
+        {
+          "key": "C",
+          "text": "额外投入与奖金或提成明确对应。"
+        },
+        {
+          "key": "D",
+          "text": "已有办法省时省力，下次更容易完成工作。"
+        }
+      ],
+      "afterOptions": [
+        {
+          "key": "A",
+          "text": "看到自己比上轮做得更好，即使没额外奖励。"
+        },
+        {
+          "key": "B",
+          "text": "团队配合更顺，大家愿意沿用我的做法。"
+        },
+        {
+          "key": "C",
+          "text": "额外投入与奖金或提成明确对应。"
+        }
+      ],
+      "stem": "固定工资按约支付。哪种反馈更能让我继续改进工作？",
+      "afterText": "固定工资按约支付。哪种反馈更能让我继续改进工作？\nA．看到自己比上轮做得更好，即使没额外奖励。\nB．团队配合更顺，大家愿意沿用我的做法。\nC．额外投入与奖金或提成明确对应。",
+      "charactersRemoved": 19,
+      "charactersBefore": 96,
+      "charactersAfter": 77,
+      "scoresBefore": {
+        "PF6": [
+          100,
+          50,
+          20,
+          60
+        ],
+        "PF2": [
+          40,
+          100,
+          50,
+          50
+        ]
+      },
+      "scoresAfter": {
+        "PF6": [
+          100,
+          50,
+          20
+        ],
+        "PF2": [
+          40,
+          100,
+          50
+        ]
+      },
+      "valuesBefore": {
+        "报酬回报": [
+          0,
+          25,
+          100,
+          25
+        ]
+      },
+      "valuesAfter": {
+        "报酬回报": [
+          0,
+          25,
+          100
+        ]
+      },
+      "weights": {
+        "PF6": 50,
+        "PF2": 15
+      },
+      "valueWeights": {
+        "报酬回报": 40
+      },
+      "source": "report_revision/four-to-three-v210/decisions.json",
+      "sourceCaseIndex": 11,
+      "rationale": "A个人进步、B团队采纳、C奖金提成，分别留下成就驱动、合作和报酬的主要锚点；三项分值上下界保持。",
+      "loss": "失去效率改善带来的反馈动机；PF6的60档消失，三个维度的联合向量仿射秩3→2。D并非无信息的重复项。"
+    },
+    {
+      "number": 80,
+      "id": "QB300",
+      "deleteKey": "B",
+      "deletedOption": {
+        "key": "B",
+        "text": "想换种轻松活动，让心情有些变化。"
+      },
+      "keepKeys": [
+        "A",
+        "C",
+        "D"
+      ],
+      "keepOriginalIndices": [
+        0,
+        2,
+        3
+      ],
+      "beforeOptions": [
+        {
+          "key": "A",
+          "text": "想接着做下一件事，延续当前状态。"
+        },
+        {
+          "key": "B",
+          "text": "想换种轻松活动，让心情有些变化。"
+        },
+        {
+          "key": "C",
+          "text": "踏实了，但不太兴奋，想少安排些事。"
+        },
+        {
+          "key": "D",
+          "text": "与人分享后更满足，独自回味时淡些。"
+        }
+      ],
+      "afterOptions": [
+        {
+          "key": "A",
+          "text": "想接着做下一件事，延续当前状态。"
+        },
+        {
+          "key": "C",
+          "text": "踏实了，但不太兴奋，想少安排些事。"
+        },
+        {
+          "key": "D",
+          "text": "与人分享后更满足，独自回味时淡些。"
+        }
+      ],
+      "stem": "做完自己在意的事后，我通常：",
+      "afterText": "做完自己在意的事后，我通常：\nA．想接着做下一件事，延续当前状态。\nC．踏实了，但不太兴奋，想少安排些事。\nD．与人分享后更满足，独自回味时淡些。",
+      "charactersRemoved": 16,
+      "charactersBefore": 80,
+      "charactersAfter": 64,
+      "scoresBefore": {},
+      "scoresAfter": {},
+      "valuesBefore": {},
+      "valuesAfter": {},
+      "weights": {},
+      "valueWeights": {},
+      "source": "report_revision/four-to-three-v210/decisions.json",
+      "sourceCaseIndex": 12,
+      "rationale": "Q80的B对应Q92的D。若决定缩为三个偏好类别，两端必须删同一类别，并同步缩减配对表。",
+      "loss": "本题虽无直接scores，仍提供四类RV2匹配信息。单独删B会让Q92选D者没有可匹配答案。"
+    },
+    {
+      "number": 92,
+      "id": "QB318",
+      "deleteKey": "D",
+      "deletedOption": {
+        "key": "D",
+        "text": "想换种小活动，用新鲜感带动心情。"
+      },
+      "keepKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "keepOriginalIndices": [
+        0,
+        1,
+        2
+      ],
+      "beforeOptions": [
+        {
+          "key": "A",
+          "text": "踏实了，但兴奋不多，想先少安排些事。"
+        },
+        {
+          "key": "B",
+          "text": "期待下一件事，趁状态继续投入。"
+        },
+        {
+          "key": "C",
+          "text": "和人分享后更满足，独自回味时淡些。"
+        },
+        {
+          "key": "D",
+          "text": "想换种小活动，用新鲜感带动心情。"
+        }
+      ],
+      "afterOptions": [
+        {
+          "key": "A",
+          "text": "踏实了，但兴奋不多，想先少安排些事。"
+        },
+        {
+          "key": "B",
+          "text": "期待下一件事，趁状态继续投入。"
+        },
+        {
+          "key": "C",
+          "text": "和人分享后更满足，独自回味时淡些。"
+        }
+      ],
+      "stem": "自己在意的事完成后，哪种感受更像我？",
+      "afterText": "自己在意的事完成后，哪种感受更像我？\nA．踏实了，但兴奋不多，想先少安排些事。\nB．期待下一件事，趁状态继续投入。\nC．和人分享后更满足，独自回味时淡些。",
+      "charactersRemoved": 16,
+      "charactersBefore": 84,
+      "charactersAfter": 68,
+      "scoresBefore": {
+        "PF4": [
+          0,
+          33.3333,
+          100,
+          16.6667
+        ],
+        "PF6": [
+          0,
+          100,
+          33.3333,
+          33.3333
+        ]
+      },
+      "scoresAfter": {
+        "PF4": [
+          0,
+          33.3333,
+          100
+        ],
+        "PF6": [
+          0,
+          100,
+          33.3333
+        ]
+      },
+      "valuesBefore": {},
+      "valuesAfter": {},
+      "weights": {
+        "PF4": 60,
+        "PF6": 60
+      },
+      "valueWeights": {},
+      "source": "report_revision/four-to-three-v210/decisions.json",
+      "sourceCaseIndex": 14,
+      "rationale": "删除D后，PF4和PF6的0—100范围仍在；A少安排、B继续投入、C分享满足三个偏好类别保留。",
+      "loss": "PF4的16.67档及“换活动带动心情”类别消失。与Q80联动后，均匀独立随机匹配率由1/4变1/3，不能沿用为完全相同的RV2设计。"
+    }
+  ],
+  "pairChange": {
+    "before": {
+      "ids": [
+        "QB318",
+        "QB300"
+      ],
+      "kind": "four-choice",
+      "label": "四选一换序题对",
+      "map": {
+        "A": "C",
+        "B": "A",
+        "C": "D",
+        "D": "B"
+      }
+    },
+    "after": {
+      "ids": [
+        "QB318",
+        "QB300"
+      ],
+      "kind": "four-choice",
+      "label": "四选一换序题对",
+      "map": {
+        "A": "C",
+        "B": "A",
+        "C": "D"
+      }
+    },
+    "meaning": "Three exact surviving correspondences preserved; no score-rule change; retired D→B entry removed."
+  },
+  "constraints": [
+    "Keep every retained original option key/text/order/score/value and every weight.",
+    "Only delete the approved option and slice every mapping array at its original index.",
+    "All 36 endpoint changes remain. Q25 SJ2 semantic75/100/0 retained.",
+    "Current application instructions/text may say three options where relevant; do not relabel noncontiguous keys.",
+    "Never automatically recode actual historical answers. Only separately labeled synthetic research assumptions may reanswer retired options.",
+    "No time-baseline or RV3 parameter change. E/Q/RV scoring formulae unchanged."
+  ]
+}

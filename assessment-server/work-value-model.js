@@ -5,10 +5,10 @@ export const workValueParts=model.parts;
 export const workValueArchive={version:model.scoringVersion,fingerprint:model.scoringFingerprint};
 const questionsFor=(entry,part)=>entry.data.questions.filter(q=>q.values?.[part]);
 const isObject=value=>value!==null&&typeof value==='object'&&!Array.isArray(value);
-export function createWorkValuePreferences(result,answers,source='completion',version=currentVersion){
+export function createWorkValuePreferences(result,answers,source='completion',version=currentVersion,answerBank){
  const entry=requireVersion(version),model=entry.workValueModel;
  return {modelId:model.id,referenceId:model.referenceId,scoringVersion:version,scoringFingerprint:entry.fingerprint,source,
-  scores:model.parts.map(({code,part})=>{const questions=questionsFor(entry,part),value=result.valueParts[part].value;return {code,raw:value,score:value,coverage:{answered:questions.filter(q=>entry.engine.complete(q,answers[q.id])).length,total:questions.length}};})};
+  scores:model.parts.map(({code,part})=>{const questions=questionsFor(entry,part),value=result.valueParts[part].value;return {code,raw:value,score:value,coverage:{answered:questions.filter(q=>(answerBank||entry).engine.complete((answerBank||entry).engine.byId[q.id],answers[q.id])).length,total:questions.length}};})};
 }
 function validSaved(value,entry){
  const model=entry.workValueModel;

@@ -1,0 +1,3426 @@
+{
+  "status": "Approved combined V2.11 release:36 endpoint mappings,10 option removals,and29 reference triples with19 changed.",
+  "version": "2.11",
+  "counts": {
+    "priorityMappings": 5,
+    "appendixIMappings": 31,
+    "uniqueMappings": 36,
+    "questions": 20,
+    "scoreMappings": 35,
+    "workValueMappings": 1,
+    "optionDeletionQuestions": 10,
+    "scoreAffectedMetrics": 23,
+    "referenceMetrics": 29,
+    "changedReferenceTriples": 19,
+    "unchangedReferenceTriples": 10,
+    "syntheticAssumedReanswerCells": 83,
+    "syntheticCasesWithReanswers": 29,
+    "syntheticCasesUnchanged": 11,
+    "syntheticReansweredMixtureWeight": 0.67
+  },
+  "referenceProfileId": "2.11-synthetic-40-endpoint-options-reviewed-centers-widths-v1",
+  "reportRevision": "2.11-report-1",
+  "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
+  "pfModelId": "construction-site-management-v2.11-v1",
+  "pfReferenceId": "construction-site-management-synthetic-40-v2.11-v1",
+  "workValueModelId": "work-value-preferences-v2.11-v1",
+  "workValueReferenceId": "work-value-synthetic-40-h20-d30-s30-z20-v2.11-v1",
+  "references": {
+    "ST1": {
+      "mean": 78,
+      "lower": 54.7,
+      "upper": 99.9
+    },
+    "ST2": {
+      "mean": 72,
+      "lower": 50.3,
+      "upper": 98.7
+    },
+    "ST3": {
+      "mean": 41,
+      "lower": 33.0,
+      "upper": 49.0
+    },
+    "PF1": {
+      "mean": 62,
+      "lower": 42.6,
+      "upper": 81.4
+    },
+    "PF2": {
+      "mean": 51,
+      "lower": 27.0,
+      "upper": 75.0
+    },
+    "PF3": {
+      "mean": 82,
+      "lower": 62.1,
+      "upper": 99.9
+    },
+    "PF4": {
+      "mean": 53,
+      "lower": 33.1,
+      "upper": 72.9
+    },
+    "PF5": {
+      "mean": 40,
+      "lower": 20.8,
+      "upper": 59.2
+    },
+    "PF6": {
+      "mean": 72,
+      "lower": 55,
+      "upper": 89
+    },
+    "PF7": {
+      "mean": 68,
+      "lower": 50.2,
+      "upper": 85.8
+    },
+    "SJ1": {
+      "mean": 84,
+      "lower": 70.6,
+      "upper": 99.9
+    },
+    "SJ2": {
+      "mean": 80,
+      "lower": 64.6,
+      "upper": 99.9
+    },
+    "SJ3": {
+      "mean": 74,
+      "lower": 61.1,
+      "upper": 90.0
+    },
+    "MH1": {
+      "mean": 26,
+      "lower": 12.9,
+      "upper": 39.1
+    },
+    "MH2": {
+      "mean": 19,
+      "lower": 7.9,
+      "upper": 30.1
+    },
+    "MH3": {
+      "mean": 23,
+      "lower": 9.8,
+      "upper": 36.2
+    },
+    "MH4": {
+      "mean": 25,
+      "lower": 12.6,
+      "upper": 37.4
+    },
+    "MH5": {
+      "mean": 39,
+      "lower": 31.1,
+      "upper": 46.9
+    },
+    "RV1": {
+      "mean": 49,
+      "lower": 16.7,
+      "upper": 81.3
+    },
+    "RV2": {
+      "mean": 36.75,
+      "lower": 29.25,
+      "upper": 44.25
+    },
+    "RV3": {
+      "mean": 100,
+      "lower": 92.5,
+      "upper": 100
+    },
+    "MH6": {
+      "mean": 26,
+      "lower": 14.5,
+      "upper": 37.5
+    },
+    "ST": {
+      "mean": 69,
+      "lower": 54.8,
+      "upper": 83.2
+    },
+    "PF": {
+      "mean": 61,
+      "lower": 53.0,
+      "upper": 69.0
+    },
+    "MH": {
+      "mean": 25,
+      "lower": 14.9,
+      "upper": 35.1
+    },
+    "RV": {
+      "mean": 85,
+      "lower": 75.3,
+      "upper": 94.7
+    },
+    "WV_STABILITY": {
+      "mean": 37,
+      "lower": 19.2,
+      "upper": 54.8
+    },
+    "WV_GROWTH": {
+      "mean": 61,
+      "lower": 41.5,
+      "upper": 80.5
+    },
+    "WV_REWARD": {
+      "mean": 27,
+      "lower": 13.4,
+      "upper": 40.6
+    }
+  },
+  "referenceDecisions": {
+    "ST1": {
+      "old": {
+        "mean": 78,
+        "lower": 54.7,
+        "upper": 99.9
+      },
+      "proposed": {
+        "mean": 78,
+        "lower": 54.7,
+        "upper": 99.9
+      },
+      "changed": true,
+      "unroundedCenter": 77.04,
+      "roundedCenterShift": 0,
+      "meanDelta": -0.9599999999999937,
+      "sdRatio": 1.1021358525886646,
+      "oldReviewedOffset": -5.747377049180315,
+      "newReviewedOffset": -4.787377049180321,
+      "offsetRoundingError": null,
+      "lowerHalfwidthBefore": 23.299999999999997,
+      "upperHalfwidthBefore": 21.900000000000006,
+      "unclippedLower": 51.32023463468411,
+      "unclippedUpper": 101.13677517169177,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 77,
+        "lower": 51.3,
+        "upper": 99.9
+      },
+      "centerHeldForScenarioUncertainty": true,
+      "widthHeldForScenarioUncertainty": true,
+      "appliedWidthRatio": 1,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          82.78737704918032,
+          84.38737704918033
+        ],
+        "meanDeltaRange": [
+          -0.9599999999999937,
+          0.6400000000000148
+        ],
+        "sdRange": [
+          22.61533548531044,
+          26.76215622236965
+        ],
+        "sdRatioRange": [
+          0.9313588878853912,
+          1.1021358525886646
+        ],
+        "referenceCenterRange": [
+          77,
+          79
+        ],
+        "referenceLowerRange": [
+          51.3,
+          57.3
+        ],
+        "referenceUpperRange": [
+          99.4,
+          99.9
+        ],
+        "meanDirectionRobustAcrossTestedVariants": false,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": 0,
+      "finalReferenceChanged": false,
+      "centerShiftResidualVersusPrimaryMeanDelta": 0.9599999999999937
+    },
+    "ST2": {
+      "old": {
+        "mean": 72,
+        "lower": 50.3,
+        "upper": 98.7
+      },
+      "proposed": {
+        "mean": 72,
+        "lower": 50.3,
+        "upper": 98.7
+      },
+      "changed": false,
+      "reason": "Scoring is unchanged; retain reviewed reference exactly.",
+      "finalReferenceChanged": false
+    },
+    "ST3": {
+      "old": {
+        "mean": 43,
+        "lower": 35.5,
+        "upper": 50.5
+      },
+      "proposed": {
+        "mean": 41,
+        "lower": 33.0,
+        "upper": 49.0
+      },
+      "changed": true,
+      "unroundedCenter": 40.633805031446535,
+      "roundedCenterShift": -2,
+      "meanDelta": -2.366194968553465,
+      "sdRatio": 1.0708740894394948,
+      "oldReviewedOffset": 0.48282211224525184,
+      "newReviewedOffset": 0.849017080798717,
+      "offsetRoundingError": 0.3661949685534651,
+      "lowerHalfwidthBefore": 7.5,
+      "upperHalfwidthBefore": 7.5,
+      "unclippedLower": 32.96844432920379,
+      "unclippedUpper": 49.03155567079621,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 41,
+        "lower": 33,
+        "upper": 49
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 1.0708740894394948,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          40.09542736364574,
+          40.19264958586796
+        ],
+        "meanDeltaRange": [
+          -2.421750524109008,
+          -2.3245283018867866
+        ],
+        "sdRange": [
+          7.602667166646982,
+          7.678994985259477
+        ],
+        "sdRatioRange": [
+          1.0648671340880063,
+          1.0755579855583495
+        ],
+        "referenceCenterRange": [
+          41,
+          41
+        ],
+        "referenceLowerRange": [
+          32.9,
+          33
+        ],
+        "referenceUpperRange": [
+          49,
+          49.1
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": -2,
+      "finalReferenceChanged": true
+    },
+    "PF1": {
+      "old": {
+        "mean": 62,
+        "lower": 42.6,
+        "upper": 81.4
+      },
+      "proposed": {
+        "mean": 62,
+        "lower": 42.6,
+        "upper": 81.4
+      },
+      "changed": true,
+      "unroundedCenter": 63.142857142857146,
+      "roundedCenterShift": 0,
+      "meanDelta": 1.142857142857146,
+      "sdRatio": 1.0527142967191894,
+      "oldReviewedOffset": -0.36860153897623604,
+      "newReviewedOffset": -1.511458681833382,
+      "offsetRoundingError": null,
+      "lowerHalfwidthBefore": 19.4,
+      "upperHalfwidthBefore": 19.400000000000006,
+      "unclippedLower": 42.577342643647725,
+      "unclippedUpper": 83.42265735635227,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 63,
+        "lower": 42.6,
+        "upper": 83.4
+      },
+      "centerHeldForScenarioUncertainty": true,
+      "widthHeldForScenarioUncertainty": true,
+      "appliedWidthRatio": 1,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          61.552275008364006,
+          64.00125460020072
+        ],
+        "meanDeltaRange": [
+          -0.8163265306122298,
+          1.632653061224488
+        ],
+        "sdRange": [
+          18.827168584411854,
+          20.75630776054163
+        ],
+        "sdRatioRange": [
+          0.968471237948847,
+          1.067706329922736
+        ],
+        "referenceCenterRange": [
+          61,
+          64
+        ],
+        "referenceLowerRange": [
+          42.2,
+          43.3
+        ],
+        "referenceUpperRange": [
+          79.8,
+          84.7
+        ],
+        "meanDirectionRobustAcrossTestedVariants": false,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": 0,
+      "finalReferenceChanged": false,
+      "centerShiftResidualVersusPrimaryMeanDelta": -1.142857142857146
+    },
+    "PF2": {
+      "old": {
+        "mean": 51,
+        "lower": 29.4,
+        "upper": 72.6
+      },
+      "proposed": {
+        "mean": 51,
+        "lower": 27.0,
+        "upper": 75.0
+      },
+      "changed": true,
+      "unroundedCenter": 49.20279720279719,
+      "roundedCenterShift": 0,
+      "meanDelta": -1.7972027972028073,
+      "sdRatio": 1.112050256194719,
+      "oldReviewedOffset": -0.6361114295540631,
+      "newReviewedOffset": 1.1610913676487442,
+      "offsetRoundingError": null,
+      "lowerHalfwidthBefore": 21.6,
+      "upperHalfwidthBefore": 21.599999999999994,
+      "unclippedLower": 24.979714466194068,
+      "unclippedUpper": 73.02028553380592,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 49,
+        "lower": 25,
+        "upper": 73
+      },
+      "centerHeldForScenarioUncertainty": true,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 1.112050256194719,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          49.341006534449164,
+          52.84170583514846
+        ],
+        "meanDeltaRange": [
+          -2.295104895104899,
+          1.2055944055943968
+        ],
+        "sdRange": [
+          21.862664915216524,
+          24.025145562861244
+        ],
+        "sdRatioRange": [
+          1.0119556635547966,
+          1.112050256194719
+        ],
+        "referenceCenterRange": [
+          49,
+          52
+        ],
+        "referenceLowerRange": [
+          25,
+          30.1
+        ],
+        "referenceUpperRange": [
+          72.8,
+          73.9
+        ],
+        "meanDirectionRobustAcrossTestedVariants": false,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": 0,
+      "finalReferenceChanged": true,
+      "centerShiftResidualVersusPrimaryMeanDelta": 1.7972027972028073
+    },
+    "PF3": {
+      "old": {
+        "mean": 74,
+        "lower": 54.1,
+        "upper": 93.9
+      },
+      "proposed": {
+        "mean": 82,
+        "lower": 62.1,
+        "upper": 99.9
+      },
+      "changed": true,
+      "unroundedCenter": 82.40000514285714,
+      "roundedCenterShift": 8,
+      "meanDelta": 8.40000514285714,
+      "sdRatio": 0.922704038637992,
+      "oldReviewedOffset": -0.053042782201401906,
+      "newReviewedOffset": -0.4530479250585415,
+      "offsetRoundingError": -0.4000051428571396,
+      "lowerHalfwidthBefore": 19.9,
+      "upperHalfwidthBefore": 19.900000000000006,
+      "unclippedLower": 63.638189631103955,
+      "unclippedUpper": 100.36181036889604,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 82,
+        "lower": 63.6,
+        "upper": 99.9
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": true,
+      "appliedWidthRatio": 1,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          77.31018821077284,
+          82.45304792505854
+        ],
+        "meanDeltaRange": [
+          3.257145428571434,
+          8.40000514285714
+        ],
+        "sdRange": [
+          18.379363296016024,
+          24.164650645264146
+        ],
+        "sdRatioRange": [
+          0.922704038637992,
+          1.213144350190549
+        ],
+        "referenceCenterRange": [
+          77,
+          82
+        ],
+        "referenceLowerRange": [
+          52.9,
+          63.6
+        ],
+        "referenceUpperRange": [
+          99.9,
+          99.9
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": 8,
+      "finalReferenceChanged": true
+    },
+    "PF4": {
+      "old": {
+        "mean": 53,
+        "lower": 33.1,
+        "upper": 72.9
+      },
+      "proposed": {
+        "mean": 53,
+        "lower": 33.1,
+        "upper": 72.9
+      },
+      "changed": true,
+      "unroundedCenter": 49.51063629787233,
+      "roundedCenterShift": 0,
+      "meanDelta": -3.489363702127669,
+      "sdRatio": 1.0264530576605293,
+      "oldReviewedOffset": 0.41322041437040724,
+      "newReviewedOffset": 3.902584116498076,
+      "offsetRoundingError": null,
+      "lowerHalfwidthBefore": 19.9,
+      "upperHalfwidthBefore": 19.900000000000006,
+      "unclippedLower": 29.57358415255547,
+      "unclippedUpper": 70.42641584744453,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 50,
+        "lower": 29.6,
+        "upper": 70.4
+      },
+      "centerHeldForScenarioUncertainty": true,
+      "widthHeldForScenarioUncertainty": true,
+      "appliedWidthRatio": 1,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          48.288905798395554,
+          52.62933133031042
+        ],
+        "meanDeltaRange": [
+          -4.297873787234039,
+          0.04255174468082856
+        ],
+        "sdRange": [
+          19.220722393886184,
+          20.38425736154301
+        ],
+        "sdRatioRange": [
+          0.9678630387030819,
+          1.0264530576605293
+        ],
+        "referenceCenterRange": [
+          49,
+          53
+        ],
+        "referenceLowerRange": [
+          29.5,
+          33.6
+        ],
+        "referenceUpperRange": [
+          68.5,
+          72.4
+        ],
+        "meanDirectionRobustAcrossTestedVariants": false,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": 0,
+      "finalReferenceChanged": false,
+      "centerShiftResidualVersusPrimaryMeanDelta": 3.489363702127669
+    },
+    "PF5": {
+      "old": {
+        "mean": 47,
+        "lower": 30.3,
+        "upper": 63.7
+      },
+      "proposed": {
+        "mean": 40,
+        "lower": 20.8,
+        "upper": 59.2
+      },
+      "changed": true,
+      "unroundedCenter": 40.11020408163266,
+      "roundedCenterShift": -7,
+      "meanDelta": -6.889795918367341,
+      "sdRatio": 1.1481318262934983,
+      "oldReviewedOffset": -0.02422214787554111,
+      "newReviewedOffset": -0.13442622950820038,
+      "offsetRoundingError": -0.11020408163265927,
+      "lowerHalfwidthBefore": 16.7,
+      "upperHalfwidthBefore": 16.700000000000003,
+      "unclippedLower": 20.826198500898577,
+      "unclippedUpper": 59.17380149910143,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 40,
+        "lower": 20.8,
+        "upper": 59.2
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 1.1481318262934983,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          40.05279357644698,
+          40.1344262295082
+        ],
+        "meanDeltaRange": [
+          -6.971428571428561,
+          -6.889795918367341
+        ],
+        "sdRange": [
+          19.204823039711002,
+          19.544650526781137
+        ],
+        "sdRatioRange": [
+          1.1481318262934983,
+          1.1684479079646386
+        ],
+        "referenceCenterRange": [
+          40,
+          40
+        ],
+        "referenceLowerRange": [
+          20.5,
+          20.8
+        ],
+        "referenceUpperRange": [
+          59.2,
+          59.5
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": -7,
+      "finalReferenceChanged": true
+    },
+    "PF6": {
+      "old": {
+        "mean": 72,
+        "lower": 55,
+        "upper": 89
+      },
+      "proposed": {
+        "mean": 72,
+        "lower": 55,
+        "upper": 89
+      },
+      "changed": true,
+      "unroundedCenter": 73.31851970370369,
+      "roundedCenterShift": 0,
+      "meanDelta": 1.3185197037036858,
+      "sdRatio": 1.0775874825038874,
+      "oldReviewedOffset": -0.23571504675167887,
+      "newReviewedOffset": -1.5542347504553646,
+      "offsetRoundingError": null,
+      "lowerHalfwidthBefore": 17,
+      "upperHalfwidthBefore": 17,
+      "unclippedLower": 54.681012797433915,
+      "unclippedUpper": 91.31898720256609,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 73,
+        "lower": 54.7,
+        "upper": 91.3
+      },
+      "centerHeldForScenarioUncertainty": true,
+      "widthHeldForScenarioUncertainty": true,
+      "appliedWidthRatio": 1,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          71.45238297267758,
+          77.109790380085
+        ],
+        "meanDeltaRange": [
+          -0.7833320740740959,
+          4.874075333333323
+        ],
+        "sdRange": [
+          15.221377399801497,
+          18.295074402732933
+        ],
+        "sdRatioRange": [
+          0.8965454521487741,
+          1.0775874825038874
+        ],
+        "referenceCenterRange": [
+          71,
+          77
+        ],
+        "referenceLowerRange": [
+          52.8,
+          61.8
+        ],
+        "referenceUpperRange": [
+          89.2,
+          92.2
+        ],
+        "meanDirectionRobustAcrossTestedVariants": false,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": 0,
+      "finalReferenceChanged": false,
+      "centerShiftResidualVersusPrimaryMeanDelta": -1.3185197037036858
+    },
+    "PF7": {
+      "old": {
+        "mean": 74,
+        "lower": 60.4,
+        "upper": 87.6
+      },
+      "proposed": {
+        "mean": 68,
+        "lower": 50.2,
+        "upper": 85.8
+      },
+      "changed": true,
+      "unroundedCenter": 68.2777777777778,
+      "roundedCenterShift": -6,
+      "meanDelta": -5.7222222222222,
+      "sdRatio": 1.3107095982702888,
+      "oldReviewedOffset": 0.3496539162113095,
+      "newReviewedOffset": 0.0718761384335096,
+      "offsetRoundingError": -0.2777777777777999,
+      "lowerHalfwidthBefore": 13.600000000000001,
+      "upperHalfwidthBefore": 13.599999999999994,
+      "unclippedLower": 50.17434946352407,
+      "unclippedUpper": 85.82565053647592,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 68,
+        "lower": 50.2,
+        "upper": 85.8
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 1.3107095982702888,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          67.92812386156649,
+          67.92812386156649
+        ],
+        "meanDeltaRange": [
+          -5.7222222222222,
+          -5.7222222222222
+        ],
+        "sdRange": [
+          17.88646192650855,
+          17.88646192650855
+        ],
+        "sdRatioRange": [
+          1.3107095982702888,
+          1.3107095982702888
+        ],
+        "referenceCenterRange": [
+          68,
+          68
+        ],
+        "referenceLowerRange": [
+          50.2,
+          50.2
+        ],
+        "referenceUpperRange": [
+          85.8,
+          85.8
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": -6,
+      "finalReferenceChanged": true
+    },
+    "SJ1": {
+      "old": {
+        "mean": 90,
+        "lower": 82.5,
+        "upper": 99.3
+      },
+      "proposed": {
+        "mean": 84,
+        "lower": 70.6,
+        "upper": 99.9
+      },
+      "changed": true,
+      "unroundedCenter": 84.169696969697,
+      "roundedCenterShift": -6,
+      "meanDelta": -5.830303030303,
+      "sdRatio": 1.7906058439143022,
+      "oldReviewedOffset": -3.5855191256830494,
+      "newReviewedOffset": -3.7552160953800495,
+      "offsetRoundingError": -0.1696969696970001,
+      "lowerHalfwidthBefore": 7.5,
+      "upperHalfwidthBefore": 9.299999999999997,
+      "unclippedLower": 70.57045617064273,
+      "unclippedUpper": 100.65263434840301,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 84,
+        "lower": 70.6,
+        "upper": 99.9
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 1.7906058439143022,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          86.60370094386488,
+          87.75521609538005
+        ],
+        "meanDeltaRange": [
+          -6.98181818181817,
+          -5.830303030303
+        ],
+        "sdRange": [
+          11.424041164145496,
+          12.969203978792178
+        ],
+        "sdRatioRange": [
+          1.7906058439143022,
+          2.032794884197962
+        ],
+        "referenceCenterRange": [
+          83,
+          84
+        ],
+        "referenceLowerRange": [
+          67.8,
+          70.6
+        ],
+        "referenceUpperRange": [
+          99.9,
+          99.9
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": -6,
+      "finalReferenceChanged": true
+    },
+    "SJ2": {
+      "old": {
+        "mean": 87,
+        "lower": 77.3,
+        "upper": 99.6
+      },
+      "proposed": {
+        "mean": 80,
+        "lower": 64.6,
+        "upper": 99.9
+      },
+      "changed": true,
+      "unroundedCenter": 79.87894736842102,
+      "roundedCenterShift": -7,
+      "meanDelta": -7.121052631578976,
+      "sdRatio": 1.5852907210919587,
+      "oldReviewedOffset": -5.071685360943377,
+      "newReviewedOffset": -4.950632729364401,
+      "offsetRoundingError": 0.12105263157897639,
+      "lowerHalfwidthBefore": 9.700000000000003,
+      "upperHalfwidthBefore": 12.599999999999994,
+      "unclippedLower": 64.622680005408,
+      "unclippedUpper": 99.97466308575866,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 80,
+        "lower": 64.6,
+        "upper": 99.9
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 1.5852907210919587,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          84.66993097497843,
+          86.07343974690826
+        ],
+        "meanDeltaRange": [
+          -7.401754385964949,
+          -5.998245614035113
+        ],
+        "sdRange": [
+          14.384792420197776,
+          15.370525934323394
+        ],
+        "sdRatioRange": [
+          1.4836237904944078,
+          1.5852907210919587
+        ],
+        "referenceCenterRange": [
+          80,
+          81
+        ],
+        "referenceLowerRange": [
+          64.6,
+          66.6
+        ],
+        "referenceUpperRange": [
+          99.7,
+          99.9
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": -7,
+      "finalReferenceChanged": true
+    },
+    "SJ3": {
+      "old": {
+        "mean": 79,
+        "lower": 68,
+        "upper": 92.7
+      },
+      "proposed": {
+        "mean": 74,
+        "lower": 61.1,
+        "upper": 90.0
+      },
+      "changed": true,
+      "unroundedCenter": 73.67179487179486,
+      "roundedCenterShift": -5,
+      "meanDelta": -5.328205128205141,
+      "sdRatio": 1.1712788117047228,
+      "oldReviewedOffset": -3.270933165195487,
+      "newReviewedOffset": -2.9427280369903457,
+      "offsetRoundingError": 0.32820512820514125,
+      "lowerHalfwidthBefore": 11,
+      "upperHalfwidthBefore": 13.700000000000003,
+      "unclippedLower": 61.11593307124805,
+      "unclippedUpper": 90.04651972035471,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 74,
+        "lower": 61.1,
+        "upper": 90
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 1.1712788117047228,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          72.71195880622112,
+          77.55811265237494
+        ],
+        "meanDeltaRange": [
+          -9.558974358974368,
+          -4.712820512820542
+        ],
+        "sdRange": [
+          11.97727999896257,
+          14.09072175310309
+        ],
+        "sdRatioRange": [
+          1.0927904287729355,
+          1.2856179255747042
+        ],
+        "referenceCenterRange": [
+          69,
+          74
+        ],
+        "referenceLowerRange": [
+          54.9,
+          61.1
+        ],
+        "referenceUpperRange": [
+          86,
+          90.9
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": -5,
+      "finalReferenceChanged": true
+    },
+    "MH1": {
+      "old": {
+        "mean": 25,
+        "lower": 12.3,
+        "upper": 37.7
+      },
+      "proposed": {
+        "mean": 26,
+        "lower": 12.9,
+        "upper": 39.1
+      },
+      "changed": true,
+      "unroundedCenter": 25.582679920327873,
+      "roundedCenterShift": 1,
+      "meanDelta": 0.5826799203278732,
+      "sdRatio": 1.0349270059946787,
+      "oldReviewedOffset": -0.4798198077868818,
+      "newReviewedOffset": -0.062499728114755015,
+      "offsetRoundingError": 0.4173200796721268,
+      "lowerHalfwidthBefore": 12.7,
+      "upperHalfwidthBefore": 12.700000000000003,
+      "unclippedLower": 12.856427023867582,
+      "unclippedUpper": 39.14357297613242,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 26,
+        "lower": 12.9,
+        "upper": 39.1
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 1.0349270059946787,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          26.062499728114755,
+          26.470040915491808
+        ],
+        "meanDeltaRange": [
+          0.5826799203278732,
+          0.9902211077049259
+        ],
+        "sdRange": [
+          13.176234168342559,
+          13.377929735102287
+        ],
+        "sdRatioRange": [
+          1.0349270059946787,
+          1.0507691795901182
+        ],
+        "referenceCenterRange": [
+          26,
+          26
+        ],
+        "referenceLowerRange": [
+          12.7,
+          12.9
+        ],
+        "referenceUpperRange": [
+          39.1,
+          39.3
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": 1,
+      "finalReferenceChanged": true
+    },
+    "MH2": {
+      "old": {
+        "mean": 21,
+        "lower": 10.5,
+        "upper": 31.5
+      },
+      "proposed": {
+        "mean": 19,
+        "lower": 7.9,
+        "upper": 30.1
+      },
+      "changed": true,
+      "unroundedCenter": 19.154512227895722,
+      "roundedCenterShift": -2,
+      "meanDelta": -1.8454877721042777,
+      "sdRatio": 1.0616791640515575,
+      "oldReviewedOffset": 0.10431066917495002,
+      "newReviewedOffset": -0.050201558720772255,
+      "offsetRoundingError": -0.15451222789572228,
+      "lowerHalfwidthBefore": 10.5,
+      "upperHalfwidthBefore": 10.5,
+      "unclippedLower": 7.852368777458647,
+      "unclippedUpper": 30.147631222541353,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 19,
+        "lower": 7.9,
+        "upper": 30.1
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 1.0616791640515575,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          19.050201558720772,
+          19.050201558720772
+        ],
+        "meanDeltaRange": [
+          -1.8454877721042777,
+          -1.8454877721042777
+        ],
+        "sdRange": [
+          11.126670148946243,
+          11.126670148946243
+        ],
+        "sdRatioRange": [
+          1.0616791640515575,
+          1.0616791640515575
+        ],
+        "referenceCenterRange": [
+          19,
+          19
+        ],
+        "referenceLowerRange": [
+          7.9,
+          7.9
+        ],
+        "referenceUpperRange": [
+          30.1,
+          30.1
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": -2,
+      "finalReferenceChanged": true
+    },
+    "MH3": {
+      "old": {
+        "mean": 31,
+        "lower": 18.5,
+        "upper": 43.5
+      },
+      "proposed": {
+        "mean": 23,
+        "lower": 9.8,
+        "upper": 36.2
+      },
+      "changed": true,
+      "unroundedCenter": 23.187606557377045,
+      "roundedCenterShift": -8,
+      "meanDelta": -7.812393442622955,
+      "sdRatio": 1.0564936431965242,
+      "oldReviewedOffset": 0.8049836065573714,
+      "newReviewedOffset": 0.6173770491803268,
+      "offsetRoundingError": -0.18760655737704468,
+      "lowerHalfwidthBefore": 12.5,
+      "upperHalfwidthBefore": 12.5,
+      "unclippedLower": 9.793829460043447,
+      "unclippedUpper": 36.20617053995655,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 23,
+        "lower": 9.8,
+        "upper": 36.2
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 1.0564936431965242,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          22.382622950819673,
+          22.382622950819673
+        ],
+        "meanDeltaRange": [
+          -7.812393442622955,
+          -7.812393442622955
+        ],
+        "sdRange": [
+          13.308458072789458,
+          13.308458072789458
+        ],
+        "sdRatioRange": [
+          1.0564936431965242,
+          1.0564936431965242
+        ],
+        "referenceCenterRange": [
+          23,
+          23
+        ],
+        "referenceLowerRange": [
+          9.8,
+          9.8
+        ],
+        "referenceUpperRange": [
+          36.2,
+          36.2
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": -8,
+      "finalReferenceChanged": true
+    },
+    "MH4": {
+      "old": {
+        "mean": 30,
+        "lower": 19,
+        "upper": 41
+      },
+      "proposed": {
+        "mean": 25,
+        "lower": 12.6,
+        "upper": 37.4
+      },
+      "changed": true,
+      "unroundedCenter": 25.370151504352737,
+      "roundedCenterShift": -5,
+      "meanDelta": -4.629848495647263,
+      "sdRatio": 1.1251797361707498,
+      "oldReviewedOffset": 0.02320865268513117,
+      "newReviewedOffset": -0.3469428516676061,
+      "offsetRoundingError": -0.37015150435273725,
+      "lowerHalfwidthBefore": 11,
+      "upperHalfwidthBefore": 11,
+      "unclippedLower": 12.623022902121752,
+      "unclippedUpper": 37.376977097878246,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 25,
+        "lower": 12.6,
+        "upper": 37.4
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 1.1251797361707498,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          25.346942851667606,
+          26.47119440305257
+        ],
+        "meanDeltaRange": [
+          -4.629848495647263,
+          -3.5055969442622974
+        ],
+        "sdRange": [
+          12.352325934810278,
+          12.59758347659293
+        ],
+        "sdRatioRange": [
+          1.1251797361707498,
+          1.1475203720650158
+        ],
+        "referenceCenterRange": [
+          25,
+          26
+        ],
+        "referenceLowerRange": [
+          12.6,
+          13.4
+        ],
+        "referenceUpperRange": [
+          37.4,
+          38.6
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": -5,
+      "finalReferenceChanged": true
+    },
+    "MH5": {
+      "old": {
+        "mean": 35,
+        "lower": 26.9,
+        "upper": 43.1
+      },
+      "proposed": {
+        "mean": 39,
+        "lower": 31.1,
+        "upper": 46.9
+      },
+      "changed": true,
+      "unroundedCenter": 39.4799344262295,
+      "roundedCenterShift": 4,
+      "meanDelta": 4.479934426229498,
+      "sdRatio": 0.9725141323161788,
+      "oldReviewedOffset": 0.03690163934425783,
+      "newReviewedOffset": -0.44303278688524017,
+      "offsetRoundingError": -0.479934426229498,
+      "lowerHalfwidthBefore": 8.100000000000001,
+      "upperHalfwidthBefore": 8.100000000000001,
+      "unclippedLower": 31.122635528238952,
+      "unclippedUpper": 46.87736447176105,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 39,
+        "lower": 31.1,
+        "upper": 46.9
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 0.9725141323161788,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          39.44303278688524,
+          39.44303278688524
+        ],
+        "meanDeltaRange": [
+          4.479934426229498,
+          4.479934426229498
+        ],
+        "sdRange": [
+          7.887630759204573,
+          7.887630759204573
+        ],
+        "sdRatioRange": [
+          0.9725141323161788,
+          0.9725141323161788
+        ],
+        "referenceCenterRange": [
+          39,
+          39
+        ],
+        "referenceLowerRange": [
+          31.1,
+          31.1
+        ],
+        "referenceUpperRange": [
+          46.9,
+          46.9
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": 4,
+      "finalReferenceChanged": true
+    },
+    "RV1": {
+      "old": {
+        "mean": 49,
+        "lower": 16.7,
+        "upper": 81.3
+      },
+      "proposed": {
+        "mean": 49,
+        "lower": 16.7,
+        "upper": 81.3
+      },
+      "changed": false,
+      "reason": "Scoring is unchanged; retain reviewed reference exactly.",
+      "finalReferenceChanged": false
+    },
+    "RV2": {
+      "old": {
+        "mean": 36.75,
+        "lower": 29.25,
+        "upper": 44.25
+      },
+      "proposed": {
+        "mean": 36.75,
+        "lower": 29.25,
+        "upper": 44.25
+      },
+      "changed": false,
+      "reason": "Scoring is unchanged; retain reviewed reference exactly.",
+      "finalReferenceChanged": false
+    },
+    "RV3": {
+      "old": {
+        "mean": 100,
+        "lower": 92.5,
+        "upper": 100
+      },
+      "proposed": {
+        "mean": 100,
+        "lower": 92.5,
+        "upper": 100
+      },
+      "changed": false,
+      "reason": "Scoring is unchanged; retain reviewed reference exactly.",
+      "finalReferenceChanged": false
+    },
+    "MH6": {
+      "old": {
+        "mean": 27,
+        "lower": 15.2,
+        "upper": 38.8
+      },
+      "proposed": {
+        "mean": 26,
+        "lower": 14.5,
+        "upper": 37.5
+      },
+      "changed": true,
+      "unroundedCenter": 25.960090446579976,
+      "roundedCenterShift": -1,
+      "meanDelta": -1.0399095534200242,
+      "sdRatio": 0.972265508803345,
+      "oldReviewedOffset": 0.45446579988693614,
+      "newReviewedOffset": 0.49437535330696036,
+      "offsetRoundingError": 0.039909553420024224,
+      "lowerHalfwidthBefore": 11.8,
+      "upperHalfwidthBefore": 11.799999999999997,
+      "unclippedLower": 14.52726699612053,
+      "unclippedUpper": 37.47273300387947,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 26,
+        "lower": 14.5,
+        "upper": 37.5
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 0.972265508803345,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          25.50562464669304,
+          25.50562464669304
+        ],
+        "meanDeltaRange": [
+          -1.0399095534200242,
+          -1.0399095534200242
+        ],
+        "sdRange": [
+          11.500375354537947,
+          11.500375354537947
+        ],
+        "sdRatioRange": [
+          0.972265508803345,
+          0.972265508803345
+        ],
+        "referenceCenterRange": [
+          26,
+          26
+        ],
+        "referenceLowerRange": [
+          14.5,
+          14.5
+        ],
+        "referenceUpperRange": [
+          37.5,
+          37.5
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": -1,
+      "finalReferenceChanged": true
+    },
+    "ST": {
+      "old": {
+        "mean": 70,
+        "lower": 55.8,
+        "upper": 84.2
+      },
+      "proposed": {
+        "mean": 69,
+        "lower": 54.8,
+        "upper": 83.2
+      },
+      "changed": true,
+      "unroundedCenter": 69.16845125786163,
+      "roundedCenterShift": -1,
+      "meanDelta": -0.8315487421383665,
+      "sdRatio": 1.026448436635797,
+      "oldReviewedOffset": 0.014547741176073714,
+      "newReviewedOffset": -0.1539035166855598,
+      "offsetRoundingError": -0.1684512578616335,
+      "lowerHalfwidthBefore": 14.200000000000003,
+      "upperHalfwidthBefore": 14.200000000000003,
+      "unclippedLower": 54.42443219977168,
+      "unclippedUpper": 83.57556780022833,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 69,
+        "lower": 54.4,
+        "upper": 83.6
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": true,
+      "appliedWidthRatio": 1,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          69.15390351668556,
+          69.54001462779668
+        ],
+        "meanDeltaRange": [
+          -0.8315487421383665,
+          -0.44543763102724654
+        ],
+        "sdRange": [
+          14.169508749909781,
+          15.039466837905952
+        ],
+        "sdRatioRange": [
+          0.9670735180308587,
+          1.026448436635797
+        ],
+        "referenceCenterRange": [
+          69,
+          70
+        ],
+        "referenceLowerRange": [
+          54.4,
+          56.3
+        ],
+        "referenceUpperRange": [
+          83.6,
+          83.7
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": -1,
+      "finalReferenceChanged": true
+    },
+    "PF": {
+      "old": {
+        "mean": 62,
+        "lower": 54.5,
+        "upper": 69.5
+      },
+      "proposed": {
+        "mean": 61,
+        "lower": 53.0,
+        "upper": 69.0
+      },
+      "changed": true,
+      "unroundedCenter": 61.05179350859179,
+      "roundedCenterShift": -1,
+      "meanDelta": -0.9482064914082073,
+      "sdRatio": 1.0647852179570476,
+      "oldReviewedOffset": -0.5611872132298146,
+      "newReviewedOffset": -0.6129807218216072,
+      "offsetRoundingError": -0.05179350859179266,
+      "lowerHalfwidthBefore": 7.5,
+      "upperHalfwidthBefore": 7.5,
+      "unclippedLower": 53.014110865322145,
+      "unclippedUpper": 68.98588913467786,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 61,
+        "lower": 53,
+        "upper": 69
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 1.0647852179570476,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          60.89479064704645,
+          61.92927132196007
+        ],
+        "meanDeltaRange": [
+          -1.6663965661833657,
+          -0.6319158912697418
+        ],
+        "sdRange": [
+          4.711012224332056,
+          4.930241586363853
+        ],
+        "sdRatioRange": [
+          1.0647852179570476,
+          1.1143355423709709
+        ],
+        "referenceCenterRange": [
+          60,
+          61
+        ],
+        "referenceLowerRange": [
+          51.6,
+          53
+        ],
+        "referenceUpperRange": [
+          68.4,
+          69.1
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": -1,
+      "finalReferenceChanged": true
+    },
+    "MH": {
+      "old": {
+        "mean": 27,
+        "lower": 16.7,
+        "upper": 37.3
+      },
+      "proposed": {
+        "mean": 25,
+        "lower": 14.9,
+        "upper": 35.1
+      },
+      "changed": true,
+      "unroundedCenter": 25.419458954369073,
+      "roundedCenterShift": -2,
+      "meanDelta": -1.5805410456309268,
+      "sdRatio": 0.9850949980675539,
+      "oldReviewedOffset": 0.35867668820668186,
+      "newReviewedOffset": -0.06078226616239135,
+      "offsetRoundingError": -0.4194589543690732,
+      "lowerHalfwidthBefore": 10.3,
+      "upperHalfwidthBefore": 10.299999999999997,
+      "unclippedLower": 14.853521519904195,
+      "unclippedUpper": 35.1464784800958,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 25,
+        "lower": 14.9,
+        "upper": 35.1
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 0.9850949980675539,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          25.06078226616239,
+          25.310928236345546
+        ],
+        "meanDeltaRange": [
+          -1.5805410456309268,
+          -1.3303950754477718
+        ],
+        "sdRange": [
+          10.147351331292931,
+          10.264212228177612
+        ],
+        "sdRatioRange": [
+          0.9850949980675539,
+          0.9964397402798174
+        ],
+        "referenceCenterRange": [
+          25,
+          26
+        ],
+        "referenceLowerRange": [
+          14.9,
+          15.7
+        ],
+        "referenceUpperRange": [
+          35.1,
+          36.3
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": -2,
+      "finalReferenceChanged": true
+    },
+    "RV": {
+      "old": {
+        "mean": 85,
+        "lower": 75.3,
+        "upper": 94.7
+      },
+      "proposed": {
+        "mean": 85,
+        "lower": 75.3,
+        "upper": 94.7
+      },
+      "changed": false,
+      "reason": "Scoring is unchanged; retain reviewed reference exactly.",
+      "finalReferenceChanged": false
+    },
+    "WV_STABILITY": {
+      "old": {
+        "mean": 37,
+        "lower": 19.2,
+        "upper": 54.8
+      },
+      "proposed": {
+        "mean": 37,
+        "lower": 19.2,
+        "upper": 54.8
+      },
+      "changed": false,
+      "reason": "Scoring is unchanged; retain reviewed reference exactly.",
+      "finalReferenceChanged": false
+    },
+    "WV_GROWTH": {
+      "old": {
+        "mean": 68,
+        "lower": 48.7,
+        "upper": 87.3
+      },
+      "proposed": {
+        "mean": 61,
+        "lower": 41.5,
+        "upper": 80.5
+      },
+      "changed": true,
+      "unroundedCenter": 61.35849056603773,
+      "roundedCenterShift": -7,
+      "meanDelta": -6.64150943396227,
+      "sdRatio": 1.0093042943708441,
+      "oldReviewedOffset": 0.2735849056603712,
+      "newReviewedOffset": -0.08490566037735903,
+      "offsetRoundingError": -0.3584905660377302,
+      "lowerHalfwidthBefore": 19.299999999999997,
+      "upperHalfwidthBefore": 19.299999999999997,
+      "unclippedLower": 41.520427118642715,
+      "unclippedUpper": 80.47957288135729,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 61,
+        "lower": 41.5,
+        "upper": 80.5
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 1.0093042943708441,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          61.08490566037736,
+          61.08490566037736
+        ],
+        "meanDeltaRange": [
+          -6.64150943396227,
+          -6.64150943396227
+        ],
+        "sdRange": [
+          19.45107096340336,
+          19.45107096340336
+        ],
+        "sdRatioRange": [
+          1.0093042943708441,
+          1.0093042943708441
+        ],
+        "referenceCenterRange": [
+          61,
+          61
+        ],
+        "referenceLowerRange": [
+          41.5,
+          41.5
+        ],
+        "referenceUpperRange": [
+          80.5,
+          80.5
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": -7,
+      "finalReferenceChanged": true
+    },
+    "WV_REWARD": {
+      "old": {
+        "mean": 27,
+        "lower": 13.6,
+        "upper": 40.4
+      },
+      "proposed": {
+        "mean": 27,
+        "lower": 13.4,
+        "upper": 40.6
+      },
+      "changed": true,
+      "unroundedCenter": 26.833333333333336,
+      "roundedCenterShift": 0,
+      "meanDelta": -0.1666666666666643,
+      "sdRatio": 1.0123460941984734,
+      "oldReviewedOffset": -0.4444444444444464,
+      "newReviewedOffset": -0.2777777777777821,
+      "offsetRoundingError": 0.1666666666666643,
+      "lowerHalfwidthBefore": 13.4,
+      "upperHalfwidthBefore": 13.399999999999999,
+      "unclippedLower": 13.434562337740456,
+      "unclippedUpper": 40.56543766225954,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 27,
+        "lower": 13.4,
+        "upper": 40.6
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 1.0123460941984734,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          27.05555555555556,
+          27.444444444444446
+        ],
+        "meanDeltaRange": [
+          -0.38888888888888573,
+          0
+        ],
+        "sdRange": [
+          13.444444444444445,
+          13.825522114133522
+        ],
+        "sdRatioRange": [
+          1,
+          1.028344620059518
+        ],
+        "referenceCenterRange": [
+          27,
+          27
+        ],
+        "referenceLowerRange": [
+          13.2,
+          13.6
+        ],
+        "referenceUpperRange": [
+          40.4,
+          40.8
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": 0,
+      "finalReferenceChanged": true
+    }
+  },
+  "affected": [
+    "ST1",
+    "ST3",
+    "PF1",
+    "PF2",
+    "PF3",
+    "PF4",
+    "PF5",
+    "PF6",
+    "PF7",
+    "SJ1",
+    "SJ2",
+    "SJ3",
+    "MH1",
+    "MH2",
+    "MH3",
+    "MH4",
+    "MH5",
+    "MH6",
+    "ST",
+    "PF",
+    "MH",
+    "WV_GROWTH",
+    "WV_REWARD"
+  ],
+  "reachability": {
+    "ST1": {
+      "reference": {
+        "mean": 78,
+        "lower": 54.7,
+        "upper": 99.9
+      },
+      "rawMinimum": 8,
+      "rawMaximum": 100,
+      "correctedMinimum": 0,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "ST2": {
+      "reference": {
+        "mean": 72,
+        "lower": 50.3,
+        "upper": 98.7
+      },
+      "rawMinimum": 0,
+      "rawMaximum": 100,
+      "correctedMinimum": 0,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "ST3": {
+      "reference": {
+        "mean": 41,
+        "lower": 33.0,
+        "upper": 49.0
+      },
+      "rawMinimum": 23.08700209643606,
+      "rawMaximum": 77.9035639412998,
+      "correctedMinimum": 13.087002096436061,
+      "correctedMaximum": 77.9035639412998,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "PF1": {
+      "reference": {
+        "mean": 62,
+        "lower": 42.6,
+        "upper": 81.4
+      },
+      "rawMinimum": 8.16326530612245,
+      "rawMaximum": 100,
+      "correctedMinimum": 0,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "PF2": {
+      "reference": {
+        "mean": 51,
+        "lower": 27.0,
+        "upper": 75.0
+      },
+      "rawMinimum": 2.7972027972027975,
+      "rawMaximum": 100.00000000000001,
+      "correctedMinimum": 0,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "PF3": {
+      "reference": {
+        "mean": 82,
+        "lower": 62.1,
+        "upper": 99.9
+      },
+      "rawMinimum": 0,
+      "rawMaximum": 100.00000000000001,
+      "correctedMinimum": 0,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "PF4": {
+      "reference": {
+        "mean": 53,
+        "lower": 33.1,
+        "upper": 72.9
+      },
+      "rawMinimum": 3.3510638297872344,
+      "rawMaximum": 100,
+      "correctedMinimum": 0,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "PF5": {
+      "reference": {
+        "mean": 40,
+        "lower": 20.8,
+        "upper": 59.2
+      },
+      "rawMinimum": 1.0204081632653061,
+      "rawMaximum": 100,
+      "correctedMinimum": 0,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "PF6": {
+      "reference": {
+        "mean": 72,
+        "lower": 55,
+        "upper": 89
+      },
+      "rawMinimum": 12.870370370370368,
+      "rawMaximum": 99.44444444444446,
+      "correctedMinimum": 8.804796599878568,
+      "correctedMaximum": 99.44444444444444,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "PF7": {
+      "reference": {
+        "mean": 68,
+        "lower": 50.2,
+        "upper": 85.8
+      },
+      "rawMinimum": 12.333333333333334,
+      "rawMaximum": 99.99999999999999,
+      "correctedMinimum": 4.3333333333333215,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "SJ1": {
+      "reference": {
+        "mean": 84,
+        "lower": 70.6,
+        "upper": 99.9
+      },
+      "rawMinimum": 24.242424242424246,
+      "rawMaximum": 100.00000000000001,
+      "correctedMinimum": 23.333333333333336,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "SJ2": {
+      "reference": {
+        "mean": 80,
+        "lower": 64.6,
+        "upper": 99.9
+      },
+      "rawMinimum": 23.157894736842106,
+      "rawMaximum": 100.00000000000001,
+      "correctedMinimum": 19.68421052631579,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "SJ3": {
+      "reference": {
+        "mean": 74,
+        "lower": 61.1,
+        "upper": 90.0
+      },
+      "rawMinimum": 15.384615384615387,
+      "rawMaximum": 100.00000000000001,
+      "correctedMinimum": 15.384615384615387,
+      "correctedMaximum": 99.99999999999999,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "MH1": {
+      "reference": {
+        "mean": 26,
+        "lower": 12.9,
+        "upper": 39.1
+      },
+      "rawMinimum": 0,
+      "rawMaximum": 98.875,
+      "correctedMinimum": 0.9836065573770425,
+      "correctedMaximum": 98.875,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "MH2": {
+      "reference": {
+        "mean": 19,
+        "lower": 7.9,
+        "upper": 30.1
+      },
+      "rawMinimum": 0,
+      "rawMaximum": 100,
+      "correctedMinimum": 1.6393442622950838,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "MH3": {
+      "reference": {
+        "mean": 23,
+        "lower": 9.8,
+        "upper": 36.2
+      },
+      "rawMinimum": 0,
+      "rawMaximum": 100,
+      "correctedMinimum": 0,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "MH4": {
+      "reference": {
+        "mean": 25,
+        "lower": 12.6,
+        "upper": 37.4
+      },
+      "rawMinimum": 2.413796551724138,
+      "rawMaximum": 99.99999999999999,
+      "correctedMinimum": 3.3499185867721817,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "MH5": {
+      "reference": {
+        "mean": 39,
+        "lower": 31.1,
+        "upper": 46.9
+      },
+      "rawMinimum": 0,
+      "rawMaximum": 100,
+      "correctedMinimum": 0.9836065573770425,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "RV1": {
+      "reference": {
+        "mean": 49,
+        "lower": 16.7,
+        "upper": 81.3
+      },
+      "rawMinimum": 0,
+      "rawMaximum": 100,
+      "correctedMinimum": 0,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "MH6": {
+      "reference": {
+        "mean": 26,
+        "lower": 14.5,
+        "upper": 37.5
+      },
+      "rawMinimum": 0,
+      "rawMaximum": 100,
+      "correctedMinimum": 1.9672131147541017,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "ST": {
+      "reference": {
+        "mean": 69,
+        "lower": 54.8,
+        "upper": 83.2
+      },
+      "rawMinimum": 9.752882599580714,
+      "rawMaximum": 90.4114255765199,
+      "correctedMinimum": 5.252882599580714,
+      "correctedMaximum": 90.41142557651992,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "PF": {
+      "reference": {
+        "mean": 61,
+        "lower": 53.0,
+        "upper": 69.0
+      },
+      "rawMinimum": 20.624611910098235,
+      "rawMaximum": 79.55973569880497,
+      "correctedMinimum": 14.656825334630161,
+      "correctedMaximum": 79.55973569880497,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "MH": {
+      "reference": {
+        "mean": 25,
+        "lower": 14.9,
+        "upper": 35.1
+      },
+      "rawMinimum": 6.970888024307518,
+      "rawMaximum": 93.1661814584511,
+      "correctedMinimum": 10.074627248783697,
+      "correctedMaximum": 93.16618145845109,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "WV_STABILITY": {
+      "reference": {
+        "mean": 37,
+        "lower": 19.2,
+        "upper": 54.8
+      },
+      "rawMinimum": 0,
+      "rawMaximum": 100,
+      "correctedMinimum": 0,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "WV_GROWTH": {
+      "reference": {
+        "mean": 61,
+        "lower": 41.5,
+        "upper": 80.5
+      },
+      "rawMinimum": 2.830188679245283,
+      "rawMaximum": 100,
+      "correctedMinimum": 2.830188679245283,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "WV_REWARD": {
+      "reference": {
+        "mean": 27,
+        "lower": 13.4,
+        "upper": 40.6
+      },
+      "rawMinimum": 0,
+      "rawMaximum": 100,
+      "correctedMinimum": 0,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "RV2": {
+      "reference": {
+        "mean": 36.75,
+        "lower": 29.25,
+        "upper": 44.25
+      },
+      "rawMinimum": 0,
+      "rawMaximum": 100,
+      "correctedMinimum": 0,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    },
+    "RV3": {
+      "reference": {
+        "mean": 100,
+        "lower": 92.5,
+        "upper": 100
+      },
+      "rawMinimum": 0,
+      "rawMaximum": 100,
+      "correctedMinimum": 0,
+      "correctedMaximum": 100,
+      "highestLabelReachable": false,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": "Pre-existing unchanged RV3 upper=100; highest label requires >100. Explicitly excluded from this release."
+    },
+    "RV": {
+      "reference": {
+        "mean": 85,
+        "lower": 75.3,
+        "upper": 94.7
+      },
+      "rawMinimum": 0,
+      "rawMaximum": 100,
+      "correctedMinimum": 0,
+      "correctedMaximum": 100,
+      "highestLabelReachable": true,
+      "lowestLabelReachable": true,
+      "highestWitnessValidated": true,
+      "lowerWitnessValidated": true,
+      "scopeException": null
+    }
+  },
+  "method": {
+    "cohort": "40 synthetic fixtures: 10 personas × four strategies, not observed people or empirical population norms",
+    "mixture": {
+      "H": 0.2,
+      "D": 0.3,
+      "S": 0.3,
+      "Z": 0.2
+    },
+    "meanSD": "Normalized mixture-weighted mean and population SD (sum weights = 1). Before: original V2.10 fixtures. After: same retained answers plus explicitly logged synthetic assumed reanswers for retired choices. Seconds are identical. Never recode actual historical answers.",
+    "reference": "Compare original V2.10 to combined V2.11; add rounded primary mean delta to old reviewed centers unless tested variants reverse the direction, in which case hold old center. Multiply old asymmetric halfwidths by full primary SD ratio unless variants cross1, in which case hold old halfwidths. Keep minimum7.5, one-decimal bounds, affected upper <=99.9 and strictly below achievable maximum.",
+    "offsetRounding": "For changed centers, retain prior manual offset plus primary mean shift up to nearest whole-point rounding. For guarded centers, keep exact original reviewed center because assumed-answer scenarios disagree on shift direction; report offset residual rather than claiming it is preserved exactly.",
+    "unchanged": "Preserve unchanged quality metrics and inherited RV3 top-label exception. Actual historical answers are never recoded.",
+    "limits": "Ten designed personas × four strategies. 83 retired-option cells across29 cases (67% mixture weight) are assumed reanswers, never actual respondent data. Five sensitivity scenarios are illustrative and not exhaustive bounds or confidence intervals.",
+    "uncertaintyGuardrails": {
+      "centerHeld": [
+        "ST1",
+        "PF1",
+        "PF2",
+        "PF4",
+        "PF6"
+      ],
+      "halfwidthHeld": [
+        "ST1",
+        "PF1",
+        "PF3",
+        "PF4",
+        "PF6",
+        "ST"
+      ],
+      "decision": "Preserve the original V2.10 centers or halfwidths listed here when tested synthetic scenarios disagree on the direction of change."
+    }
+  },
+  "scope": {
+    "scoreArrayChanges": 36,
+    "optionDeletions": 10,
+    "activeOptionCount": 309,
+    "activeCharacterCount": 5568
+  },
+  "scoreAffectedMetrics": [
+    "ST1",
+    "ST3",
+    "PF1",
+    "PF2",
+    "PF3",
+    "PF4",
+    "PF5",
+    "PF6",
+    "PF7",
+    "SJ1",
+    "SJ2",
+    "SJ3",
+    "MH1",
+    "MH2",
+    "MH3",
+    "MH4",
+    "MH5",
+    "MH6",
+    "ST",
+    "PF",
+    "MH",
+    "WV_GROWTH",
+    "WV_REWARD"
+  ],
+  "referenceChangedMetrics": [
+    "ST3",
+    "PF2",
+    "PF3",
+    "PF5",
+    "PF7",
+    "SJ1",
+    "SJ2",
+    "SJ3",
+    "MH1",
+    "MH2",
+    "MH3",
+    "MH4",
+    "MH5",
+    "MH6",
+    "ST",
+    "PF",
+    "MH",
+    "WV_GROWTH",
+    "WV_REWARD"
+  ],
+  "referenceUnchangedMetrics": [
+    "ST1",
+    "ST2",
+    "PF1",
+    "PF4",
+    "PF6",
+    "RV1",
+    "RV2",
+    "RV3",
+    "RV",
+    "WV_STABILITY"
+  ],
+  "deletionContract": {
+    "status": "Approved combined scope:36 score mappings and10 option removals.",
+    "deletedQuestionCount": 10,
+    "retainedQuestionCount": 97,
+    "structuredOptionCountBefore": 319,
+    "structuredOptionCountAfter": 309,
+    "characterMethod": "Unicode code points excluding whitespace; stem + option text, no option labels/instructions/duplicated q.text. Reading-load proxy, not actual time.",
+    "totalCharactersBefore": 5730,
+    "totalCharactersAfter": 5568,
+    "charactersRemoved": 162,
+    "retainQuestions": [
+      20,
+      22,
+      31,
+      45,
+      88,
+      94
+    ],
+    "deletions": [
+      {
+        "number": 35,
+        "id": "QB240",
+        "deleteKey": "D",
+        "deletedOption": {
+          "key": "D",
+          "text": "由谁确认，确认前可做哪些准备。"
+        },
+        "keepKeys": [
+          "A",
+          "B",
+          "C"
+        ],
+        "keepOriginalIndices": [
+          0,
+          1,
+          2
+        ],
+        "beforeOptions": [
+          {
+            "key": "A",
+            "text": "是否可行，会不会影响进度。"
+          },
+          {
+            "key": "B",
+            "text": "是否触及技术标准和检查要求。"
+          },
+          {
+            "key": "C",
+            "text": "是否改变双方工作范围与责任。"
+          },
+          {
+            "key": "D",
+            "text": "由谁确认，确认前可做哪些准备。"
+          }
+        ],
+        "afterOptions": [
+          {
+            "key": "A",
+            "text": "是否可行，会不会影响进度。"
+          },
+          {
+            "key": "B",
+            "text": "是否触及技术标准和检查要求。"
+          },
+          {
+            "key": "C",
+            "text": "是否改变双方工作范围与责任。"
+          }
+        ],
+        "stem": "合作方建议改用更快的工具，是否符合要求尚未确认。正式采用前，你认为先核查哪项？",
+        "afterText": "合作方建议改用更快的工具，是否符合要求尚未确认。正式采用前，你认为先核查哪项？\nA．是否可行，会不会影响进度。\nB．是否触及技术标准和检查要求。\nC．是否改变双方工作范围与责任。",
+        "charactersRemoved": 15,
+        "charactersBefore": 95,
+        "charactersAfter": 80,
+        "scoresBefore": {
+          "SJ3": [
+            33.333333333333336,
+            100,
+            50,
+            100
+          ],
+          "SJ1": [
+            25,
+            100,
+            50,
+            100
+          ]
+        },
+        "scoresAfter": {
+          "SJ3": [
+            33.333333333333336,
+            100,
+            50
+          ],
+          "SJ1": [
+            25,
+            100,
+            50
+          ]
+        },
+        "valuesBefore": {},
+        "valuesAfter": {},
+        "weights": {
+          "SJ3": 60,
+          "SJ1": 40
+        },
+        "valueWeights": {},
+        "source": "report_revision/four-to-three-v210/decisions.json",
+        "sourceCaseIndex": 4,
+        "rationale": "B与D在两个维度完全同分。题干问正式采用前核查什么，B直接对应技术标准和检查要求；留下可行性、规范、责任三个角度。",
+        "loss": "失去“先确认由谁决定及可准备什么”的程序偏好。虽然现有计分向量集合未变，两个高分选项变一个，选择分布仍可能改变。"
+      },
+      {
+        "number": 40,
+        "id": "QB308",
+        "deleteKey": "B",
+        "deletedOption": {
+          "key": "B",
+          "text": "当天能继续做，但会回想，过一晚多能放下。"
+        },
+        "keepKeys": [
+          "A",
+          "C",
+          "D"
+        ],
+        "keepOriginalIndices": [
+          0,
+          2,
+          3
+        ],
+        "beforeOptions": [
+          {
+            "key": "A",
+            "text": "很快接着做事，当时表达常较直接。"
+          },
+          {
+            "key": "B",
+            "text": "当天能继续做，但会回想，过一晚多能放下。"
+          },
+          {
+            "key": "C",
+            "text": "独自整理一两个小时后，能照常沟通。"
+          },
+          {
+            "key": "D",
+            "text": "当时较克制，隔天仍烦躁，恢复较慢。"
+          }
+        ],
+        "afterOptions": [
+          {
+            "key": "A",
+            "text": "很快接着做事，当时表达常较直接。"
+          },
+          {
+            "key": "C",
+            "text": "独自整理一两个小时后，能照常沟通。"
+          },
+          {
+            "key": "D",
+            "text": "当时较克制，隔天仍烦躁，恢复较慢。"
+          }
+        ],
+        "stem": "工作分歧已澄清，后续安排已定。我通常：",
+        "afterText": "工作分歧已澄清，后续安排已定。我通常：\nA．很快接着做事，当时表达常较直接。\nC．独自整理一两个小时后，能照常沟通。\nD．当时较克制，隔天仍烦躁，恢复较慢。",
+        "charactersRemoved": 20,
+        "charactersBefore": 89,
+        "charactersAfter": 69,
+        "scoresBefore": {
+          "PF3": [
+            100,
+            33.3333,
+            66.6667,
+            0
+          ],
+          "MH4": [
+            16.6667,
+            66.6667,
+            33.3333,
+            100
+          ],
+          "MH1": [
+            0,
+            66.6667,
+            33.3333,
+            100
+          ]
+        },
+        "scoresAfter": {
+          "PF3": [
+            100,
+            66.6667,
+            0
+          ],
+          "MH4": [
+            16.6667,
+            33.3333,
+            100
+          ],
+          "MH1": [
+            0,
+            33.3333,
+            100
+          ]
+        },
+        "valuesBefore": {},
+        "valuesAfter": {},
+        "weights": {
+          "PF3": 60,
+          "MH4": 30,
+          "MH1": 15
+        },
+        "valueWeights": {},
+        "source": "report_revision/four-to-three-v210/decisions.json",
+        "sourceCaseIndex": 6,
+        "rationale": "B与C都处在快速恢复和隔天仍烦躁之间。保留A快速恢复、C短暂停顿后正常沟通、D恢复较慢，三层主区分清楚。",
+        "loss": "失去“当天能做事，但回想至过一晚”的中间层；不再区分这一层与一两个小时的整理。PF3中间低档33.33消失。"
+      },
+      {
+        "number": 42,
+        "id": "QB081",
+        "deleteKey": "B",
+        "deletedOption": {
+          "key": "B",
+          "text": "先学通用工具，为以后转向留空间。"
+        },
+        "keepKeys": [
+          "A",
+          "C",
+          "D"
+        ],
+        "keepOriginalIndices": [
+          0,
+          2,
+          3
+        ],
+        "beforeOptions": [
+          {
+            "key": "A",
+            "text": "深钻当前职业的一项技能，短期用途集中些。"
+          },
+          {
+            "key": "B",
+            "text": "先学通用工具，为以后转向留空间。"
+          },
+          {
+            "key": "C",
+            "text": "围绕当前难题学，兼顾少量通用工具。"
+          },
+          {
+            "key": "D",
+            "text": "先接触不同领域，再找值得深入的方向。"
+          }
+        ],
+        "afterOptions": [
+          {
+            "key": "A",
+            "text": "深钻当前职业的一项技能，短期用途集中些。"
+          },
+          {
+            "key": "C",
+            "text": "围绕当前难题学，兼顾少量通用工具。"
+          },
+          {
+            "key": "D",
+            "text": "先接触不同领域，再找值得深入的方向。"
+          }
+        ],
+        "stem": "有固定学习时间时，我更愿意：",
+        "afterText": "有固定学习时间时，我更愿意：\nA．深钻当前职业的一项技能，短期用途集中些。\nC．围绕当前难题学，兼顾少量通用工具。\nD．先接触不同领域，再找值得深入的方向。",
+        "charactersRemoved": 16,
+        "charactersBefore": 85,
+        "charactersAfter": 69,
+        "scoresBefore": {
+          "ST1": [
+            100,
+            33.333333333333336,
+            83.33333333333333,
+            16.666666666666668
+          ],
+          "PF5": [
+            0,
+            66.66666666666667,
+            33.333333333333336,
+            100
+          ]
+        },
+        "scoresAfter": {
+          "ST1": [
+            100,
+            83.33333333333333,
+            16.666666666666668
+          ],
+          "PF5": [
+            0,
+            33.333333333333336,
+            100
+          ]
+        },
+        "valuesBefore": {},
+        "valuesAfter": {},
+        "weights": {
+          "ST1": 60,
+          "PF5": 30
+        },
+        "valueWeights": {},
+        "source": "report_revision/four-to-three-v210/decisions.json",
+        "sourceCaseIndex": 7,
+        "rationale": "保留A深钻当前职业、C围绕当前难题兼顾通用工具、D探索不同领域。职业承诺和认知灵活性的高低两端均保留。",
+        "loss": "失去“专学通用工具以便以后转向”的独立选择；ST1低中档33.33和PF5中高档66.67消失。B与D并非完全同义。"
+      },
+      {
+        "number": 48,
+        "id": "QB103",
+        "deleteKey": "C",
+        "deletedOption": {
+          "key": "C",
+          "text": "选适中的新目标，留时间兼顾其他任务。"
+        },
+        "keepKeys": [
+          "A",
+          "B",
+          "D"
+        ],
+        "keepOriginalIndices": [
+          0,
+          1,
+          3
+        ],
+        "beforeOptions": [
+          {
+            "key": "A",
+            "text": "挑战陌生目标，多试几次，结果不太确定。"
+          },
+          {
+            "key": "B",
+            "text": "做稳熟悉任务，积累可复用成果。"
+          },
+          {
+            "key": "C",
+            "text": "选适中的新目标，留时间兼顾其他任务。"
+          },
+          {
+            "key": "D",
+            "text": "合作挑战新目标，靠配合分担试错。"
+          }
+        ],
+        "afterOptions": [
+          {
+            "key": "A",
+            "text": "挑战陌生目标，多试几次，结果不太确定。"
+          },
+          {
+            "key": "B",
+            "text": "做稳熟悉任务，积累可复用成果。"
+          },
+          {
+            "key": "D",
+            "text": "合作挑战新目标，靠配合分担试错。"
+          }
+        ],
+        "stem": "下阶段任务可自选，各种投入都受认可。我更倾向：",
+        "afterText": "下阶段任务可自选，各种投入都受认可。我更倾向：\nA．挑战陌生目标，多试几次，结果不太确定。\nB．做稳熟悉任务，积累可复用成果。\nD．合作挑战新目标，靠配合分担试错。",
+        "charactersRemoved": 18,
+        "charactersBefore": 91,
+        "charactersAfter": 73,
+        "scoresBefore": {
+          "PF6": [
+            100,
+            16.666666666666668,
+            58.333333333333336,
+            50
+          ],
+          "PF2": [
+            0,
+            0,
+            0,
+            100
+          ]
+        },
+        "scoresAfter": {
+          "PF6": [
+            100,
+            16.666666666666668,
+            50
+          ],
+          "PF2": [
+            0,
+            0,
+            100
+          ]
+        },
+        "valuesBefore": {},
+        "valuesAfter": {},
+        "weights": {
+          "PF6": 60,
+          "PF2": 30
+        },
+        "valueWeights": {},
+        "source": "report_revision/four-to-three-v210/decisions.json",
+        "sourceCaseIndex": 10,
+        "rationale": "C的PF6为58.33，与D的50较近；D又是合作性唯一高分选项，应保留。A挑战、B熟悉任务、D合作挑战已覆盖主要方向。",
+        "loss": "失去“适度挑战并留时间兼顾”的个人节奏偏好；不能把原选C者自动记成D，两者合作性分不同。"
+      },
+      {
+        "number": 26,
+        "id": "QB239",
+        "deleteKey": "C",
+        "deletedOption": {
+          "key": "C",
+          "text": "请相关人员还原当时安排。"
+        },
+        "keepKeys": [
+          "A",
+          "B",
+          "D"
+        ],
+        "keepOriginalIndices": [
+          0,
+          1,
+          3
+        ],
+        "beforeOptions": [
+          {
+            "key": "A",
+            "text": "处理遗留问题，减少后续影响。"
+          },
+          {
+            "key": "B",
+            "text": "对照当时分工、要求和过程记录。"
+          },
+          {
+            "key": "C",
+            "text": "请相关人员还原当时安排。"
+          },
+          {
+            "key": "D",
+            "text": "请负责人明确后续处理与记录方式。"
+          }
+        ],
+        "afterOptions": [
+          {
+            "key": "A",
+            "text": "处理遗留问题，减少后续影响。"
+          },
+          {
+            "key": "B",
+            "text": "对照当时分工、要求和过程记录。"
+          },
+          {
+            "key": "D",
+            "text": "请负责人明确后续处理与记录方式。"
+          }
+        ],
+        "stem": "工作已结束，各方对原分工说法不一。核实原责任时，你认为先做哪项？",
+        "afterText": "工作已结束，各方对原分工说法不一。核实原责任时，你认为先做哪项？\nA．处理遗留问题，减少后续影响。\nB．对照当时分工、要求和过程记录。\nD．请负责人明确后续处理与记录方式。",
+        "charactersRemoved": 12,
+        "charactersBefore": 89,
+        "charactersAfter": 77,
+        "scoresBefore": {
+          "SJ1": [
+            25,
+            100,
+            75,
+            0
+          ],
+          "SJ3": [
+            0,
+            100,
+            50,
+            16.666666666666668
+          ]
+        },
+        "scoresAfter": {
+          "SJ1": [
+            25,
+            100,
+            0
+          ],
+          "SJ3": [
+            0,
+            100,
+            16.666666666666668
+          ]
+        },
+        "valuesBefore": {},
+        "valuesAfter": {},
+        "weights": {
+          "SJ1": 40,
+          "SJ3": 60
+        },
+        "valueWeights": {},
+        "source": "report_revision/four-to-three-v210/decisions.json",
+        "sourceCaseIndex": 2,
+        "rationale": "B保留最直接的原始记录核查，A和D保留解决后续问题与请负责人定后续程序两种较弱响应；SJ1、SJ3上下界不变。",
+        "loss": "失去询问相关人员以还原原安排这一证据来源。它是方法差异，非单纯程度；只在希望本题聚焦“查原记录”的主判断时删。"
+      },
+      {
+        "number": 38,
+        "id": "QB238",
+        "deleteKey": "B",
+        "deletedOption": {
+          "key": "B",
+          "text": "弄清原因及对后续任务的影响。"
+        },
+        "keepKeys": [
+          "A",
+          "C",
+          "D"
+        ],
+        "keepOriginalIndices": [
+          0,
+          2,
+          3
+        ],
+        "beforeOptions": [
+          {
+            "key": "A",
+            "text": "按新要求推进，之后补沟通。"
+          },
+          {
+            "key": "B",
+            "text": "弄清原因及对后续任务的影响。"
+          },
+          {
+            "key": "C",
+            "text": "确认决定权限和所需保留的记录。"
+          },
+          {
+            "key": "D",
+            "text": "与受影响同事协调工作顺序。"
+          }
+        ],
+        "afterOptions": [
+          {
+            "key": "A",
+            "text": "按新要求推进，之后补沟通。"
+          },
+          {
+            "key": "C",
+            "text": "确认决定权限和所需保留的记录。"
+          },
+          {
+            "key": "D",
+            "text": "与受影响同事协调工作顺序。"
+          }
+        ],
+        "stem": "工作安排临时改变，影响你负责的后续任务。你通常先：",
+        "afterText": "工作安排临时改变，影响你负责的后续任务。你通常先：\nA．按新要求推进，之后补沟通。\nC．确认决定权限和所需保留的记录。\nD．与受影响同事协调工作顺序。",
+        "charactersRemoved": 14,
+        "charactersBefore": 80,
+        "charactersAfter": 66,
+        "scoresBefore": {
+          "PF1": [
+            16.666666666666668,
+            66.66666666666667,
+            100,
+            50
+          ],
+          "SJ3": [
+            0,
+            50,
+            100,
+            25
+          ],
+          "PF2": [
+            0,
+            25,
+            0,
+            100
+          ],
+          "SJ2": [
+            30,
+            60,
+            50,
+            100
+          ]
+        },
+        "scoresAfter": {
+          "PF1": [
+            16.666666666666668,
+            100,
+            50
+          ],
+          "SJ3": [
+            0,
+            100,
+            25
+          ],
+          "PF2": [
+            0,
+            0,
+            100
+          ],
+          "SJ2": [
+            30,
+            50,
+            100
+          ]
+        },
+        "valuesBefore": {},
+        "valuesAfter": {},
+        "weights": {
+          "PF1": 60,
+          "SJ3": 40,
+          "PF2": 40,
+          "SJ2": 20
+        },
+        "valueWeights": {},
+        "source": "report_revision/four-to-three-v210/decisions.json",
+        "sourceCaseIndex": 5,
+        "rationale": "保留A先推进、C核权限与记录、D协调同事。PF1、SJ3、PF2和SJ2都保住原上下界和非恒定区分。",
+        "loss": "失去先理解原因及后续影响的分析路线；四维联合计分向量仿射秩3→2。它不只是把相似程度档合并。"
+      },
+      {
+        "number": 47,
+        "id": "QB091",
+        "deleteKey": "D",
+        "deletedOption": {
+          "key": "D",
+          "text": "先试几种小任务，再定深入哪一类。"
+        },
+        "keepKeys": [
+          "A",
+          "B",
+          "C"
+        ],
+        "keepOriginalIndices": [
+          0,
+          1,
+          2
+        ],
+        "beforeOptions": [
+          {
+            "key": "A",
+            "text": "练熟难题，继续同类但边界更清楚的工作。"
+          },
+          {
+            "key": "B",
+            "text": "把可迁移经验用于另一类工作，接受适应期。"
+          },
+          {
+            "key": "C",
+            "text": "仍做同类工作，先换协作方式或任务组合。"
+          },
+          {
+            "key": "D",
+            "text": "先试几种小任务，再定深入哪一类。"
+          }
+        ],
+        "afterOptions": [
+          {
+            "key": "A",
+            "text": "练熟难题，继续同类但边界更清楚的工作。"
+          },
+          {
+            "key": "B",
+            "text": "把可迁移经验用于另一类工作，接受适应期。"
+          },
+          {
+            "key": "C",
+            "text": "仍做同类工作，先换协作方式或任务组合。"
+          }
+        ],
+        "stem": "刚结束一段要求多次变化、协调不易的工作。机会条件相近时，你更想：",
+        "afterText": "刚结束一段要求多次变化、协调不易的工作。机会条件相近时，你更想：\nA．练熟难题，继续同类但边界更清楚的工作。\nB．把可迁移经验用于另一类工作，接受适应期。\nC．仍做同类工作，先换协作方式或任务组合。",
+        "charactersRemoved": 16,
+        "charactersBefore": 106,
+        "charactersAfter": 90,
+        "scoresBefore": {
+          "ST1": [
+            100,
+            20,
+            80,
+            40
+          ],
+          "PF5": [
+            16.666666666666668,
+            83.33333333333333,
+            100,
+            66.66666666666667
+          ]
+        },
+        "scoresAfter": {
+          "ST1": [
+            100,
+            20,
+            80
+          ],
+          "PF5": [
+            16.666666666666668,
+            83.33333333333333,
+            100
+          ]
+        },
+        "valuesBefore": {},
+        "valuesAfter": {},
+        "weights": {
+          "ST1": 50,
+          "PF5": 30
+        },
+        "valueWeights": {},
+        "source": "report_revision/four-to-three-v210/decisions.json",
+        "sourceCaseIndex": 9,
+        "rationale": "保留A留在同类并练熟、B转到另一类、C同类但调整协作，职业方向与灵活性的两端均保留。",
+        "loss": "失去“先试小任务再决定”的探索型过渡策略；接受少区分尚未定方向者时才删。"
+      },
+      {
+        "number": 50,
+        "id": "QB087",
+        "deleteKey": "D",
+        "deletedOption": {
+          "key": "D",
+          "text": "已有办法省时省力，下次更容易完成工作。"
+        },
+        "keepKeys": [
+          "A",
+          "B",
+          "C"
+        ],
+        "keepOriginalIndices": [
+          0,
+          1,
+          2
+        ],
+        "beforeOptions": [
+          {
+            "key": "A",
+            "text": "看到自己比上轮做得更好，即使没额外奖励。"
+          },
+          {
+            "key": "B",
+            "text": "团队配合更顺，大家愿意沿用我的做法。"
+          },
+          {
+            "key": "C",
+            "text": "额外投入与奖金或提成明确对应。"
+          },
+          {
+            "key": "D",
+            "text": "已有办法省时省力，下次更容易完成工作。"
+          }
+        ],
+        "afterOptions": [
+          {
+            "key": "A",
+            "text": "看到自己比上轮做得更好，即使没额外奖励。"
+          },
+          {
+            "key": "B",
+            "text": "团队配合更顺，大家愿意沿用我的做法。"
+          },
+          {
+            "key": "C",
+            "text": "额外投入与奖金或提成明确对应。"
+          }
+        ],
+        "stem": "固定工资按约支付。哪种反馈更能让我继续改进工作？",
+        "afterText": "固定工资按约支付。哪种反馈更能让我继续改进工作？\nA．看到自己比上轮做得更好，即使没额外奖励。\nB．团队配合更顺，大家愿意沿用我的做法。\nC．额外投入与奖金或提成明确对应。",
+        "charactersRemoved": 19,
+        "charactersBefore": 96,
+        "charactersAfter": 77,
+        "scoresBefore": {
+          "PF6": [
+            100,
+            50,
+            20,
+            60
+          ],
+          "PF2": [
+            40,
+            100,
+            50,
+            50
+          ]
+        },
+        "scoresAfter": {
+          "PF6": [
+            100,
+            50,
+            20
+          ],
+          "PF2": [
+            40,
+            100,
+            50
+          ]
+        },
+        "valuesBefore": {
+          "报酬回报": [
+            0,
+            25,
+            100,
+            25
+          ]
+        },
+        "valuesAfter": {
+          "报酬回报": [
+            0,
+            25,
+            100
+          ]
+        },
+        "weights": {
+          "PF6": 50,
+          "PF2": 15
+        },
+        "valueWeights": {
+          "报酬回报": 40
+        },
+        "source": "report_revision/four-to-three-v210/decisions.json",
+        "sourceCaseIndex": 11,
+        "rationale": "A个人进步、B团队采纳、C奖金提成，分别留下成就驱动、合作和报酬的主要锚点；三项分值上下界保持。",
+        "loss": "失去效率改善带来的反馈动机；PF6的60档消失，三个维度的联合向量仿射秩3→2。D并非无信息的重复项。"
+      },
+      {
+        "number": 80,
+        "id": "QB300",
+        "deleteKey": "B",
+        "deletedOption": {
+          "key": "B",
+          "text": "想换种轻松活动，让心情有些变化。"
+        },
+        "keepKeys": [
+          "A",
+          "C",
+          "D"
+        ],
+        "keepOriginalIndices": [
+          0,
+          2,
+          3
+        ],
+        "beforeOptions": [
+          {
+            "key": "A",
+            "text": "想接着做下一件事，延续当前状态。"
+          },
+          {
+            "key": "B",
+            "text": "想换种轻松活动，让心情有些变化。"
+          },
+          {
+            "key": "C",
+            "text": "踏实了，但不太兴奋，想少安排些事。"
+          },
+          {
+            "key": "D",
+            "text": "与人分享后更满足，独自回味时淡些。"
+          }
+        ],
+        "afterOptions": [
+          {
+            "key": "A",
+            "text": "想接着做下一件事，延续当前状态。"
+          },
+          {
+            "key": "C",
+            "text": "踏实了，但不太兴奋，想少安排些事。"
+          },
+          {
+            "key": "D",
+            "text": "与人分享后更满足，独自回味时淡些。"
+          }
+        ],
+        "stem": "做完自己在意的事后，我通常：",
+        "afterText": "做完自己在意的事后，我通常：\nA．想接着做下一件事，延续当前状态。\nC．踏实了，但不太兴奋，想少安排些事。\nD．与人分享后更满足，独自回味时淡些。",
+        "charactersRemoved": 16,
+        "charactersBefore": 80,
+        "charactersAfter": 64,
+        "scoresBefore": {},
+        "scoresAfter": {},
+        "valuesBefore": {},
+        "valuesAfter": {},
+        "weights": {},
+        "valueWeights": {},
+        "source": "report_revision/four-to-three-v210/decisions.json",
+        "sourceCaseIndex": 12,
+        "rationale": "Q80的B对应Q92的D。若决定缩为三个偏好类别，两端必须删同一类别，并同步缩减配对表。",
+        "loss": "本题虽无直接scores，仍提供四类RV2匹配信息。单独删B会让Q92选D者没有可匹配答案。"
+      },
+      {
+        "number": 92,
+        "id": "QB318",
+        "deleteKey": "D",
+        "deletedOption": {
+          "key": "D",
+          "text": "想换种小活动，用新鲜感带动心情。"
+        },
+        "keepKeys": [
+          "A",
+          "B",
+          "C"
+        ],
+        "keepOriginalIndices": [
+          0,
+          1,
+          2
+        ],
+        "beforeOptions": [
+          {
+            "key": "A",
+            "text": "踏实了，但兴奋不多，想先少安排些事。"
+          },
+          {
+            "key": "B",
+            "text": "期待下一件事，趁状态继续投入。"
+          },
+          {
+            "key": "C",
+            "text": "和人分享后更满足，独自回味时淡些。"
+          },
+          {
+            "key": "D",
+            "text": "想换种小活动，用新鲜感带动心情。"
+          }
+        ],
+        "afterOptions": [
+          {
+            "key": "A",
+            "text": "踏实了，但兴奋不多，想先少安排些事。"
+          },
+          {
+            "key": "B",
+            "text": "期待下一件事，趁状态继续投入。"
+          },
+          {
+            "key": "C",
+            "text": "和人分享后更满足，独自回味时淡些。"
+          }
+        ],
+        "stem": "自己在意的事完成后，哪种感受更像我？",
+        "afterText": "自己在意的事完成后，哪种感受更像我？\nA．踏实了，但兴奋不多，想先少安排些事。\nB．期待下一件事，趁状态继续投入。\nC．和人分享后更满足，独自回味时淡些。",
+        "charactersRemoved": 16,
+        "charactersBefore": 84,
+        "charactersAfter": 68,
+        "scoresBefore": {
+          "PF4": [
+            0,
+            33.3333,
+            100,
+            16.6667
+          ],
+          "PF6": [
+            0,
+            100,
+            33.3333,
+            33.3333
+          ]
+        },
+        "scoresAfter": {
+          "PF4": [
+            0,
+            33.3333,
+            100
+          ],
+          "PF6": [
+            0,
+            100,
+            33.3333
+          ]
+        },
+        "valuesBefore": {},
+        "valuesAfter": {},
+        "weights": {
+          "PF4": 60,
+          "PF6": 60
+        },
+        "valueWeights": {},
+        "source": "report_revision/four-to-three-v210/decisions.json",
+        "sourceCaseIndex": 14,
+        "rationale": "删除D后，PF4和PF6的0—100范围仍在；A少安排、B继续投入、C分享满足三个偏好类别保留。",
+        "loss": "PF4的16.67档及“换活动带动心情”类别消失。与Q80联动后，均匀独立随机匹配率由1/4变1/3，不能沿用为完全相同的RV2设计。"
+      }
+    ],
+    "pairChange": {
+      "before": {
+        "ids": [
+          "QB318",
+          "QB300"
+        ],
+        "kind": "four-choice",
+        "label": "四选一换序题对",
+        "map": {
+          "A": "C",
+          "B": "A",
+          "C": "D",
+          "D": "B"
+        }
+      },
+      "after": {
+        "ids": [
+          "QB318",
+          "QB300"
+        ],
+        "kind": "four-choice",
+        "label": "四选一换序题对",
+        "map": {
+          "A": "C",
+          "B": "A",
+          "C": "D"
+        }
+      },
+      "meaning": "Three exact surviving correspondences preserved; no score-rule change; retired D→B entry removed."
+    },
+    "constraints": [
+      "Keep every retained original option key/text/order/score/value and every weight.",
+      "Only delete the approved option and slice every mapping array at its original index.",
+      "All 36 endpoint changes remain. Q25 SJ2 semantic75/100/0 retained.",
+      "Current application instructions/text may say three options where relevant; do not relabel noncontiguous keys.",
+      "Never automatically recode actual historical answers. Only separately labeled synthetic research assumptions may reanswer retired options.",
+      "No time-baseline or RV3 parameter change. E/Q/RV scoring formulae unchanged."
+    ]
+  },
+  "syntheticAssumptionsSummary": {
+    "assumedReanswerCells": 83,
+    "affectedCases": 29,
+    "affectedCaseWeight": 0.6700000000000003,
+    "pairAffectedCases": 15,
+    "limitations": [
+      "Alternative response behavior cannot be known from old answers.",
+      "Five scenarios are illustrative sensitivity, not exhaustive worst-case bounds.",
+      "Primary and every variant preserve existing RV2 pair consistency; independently inconsistent reanswers could alter Q/MH/RV, not modeled as a default assumption.",
+      "40 scenarios represent ten designed personas, not a random or real population."
+    ]
+  },
+  "approvedReferenceContractSha256": "985f6bbb34547a59ef8153e72b19fe84d22cc3ae84d89704a9fcfce586e8570f"
+}

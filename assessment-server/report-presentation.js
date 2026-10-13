@@ -3,7 +3,7 @@ import {resolveWorkValuePreferences} from './work-value-model.js';
 import {rolePFTotal} from './pf-role-model.js';
 import {getVersion} from './version-registry.js';
 const classify=(score,r)=>!Number.isFinite(score)?'无参照':score<r.lower?'较低':score<(r.lower+r.mean)/2?'稍低':score<=(r.mean+r.upper)/2?'平均':score<=r.upper?'稍高':'较高';
-// Response projection only. Existing totals/dimensions stay frozen; the work-value and employment-answer views may derive from version-matched archived answers. The stored snapshot is never modified.
+// Sanitize report responses. Historical routes recalculate current scores from immutable answers before this projection. The stored snapshot is never modified.
 const stripPrivate=value=>Array.isArray(value)?value.map(stripPrivate):value&&typeof value==='object'?Object.fromEntries(Object.entries(value).filter(([key])=>!['internalEvidence','example','examples','representativeAnswers'].includes(key)).map(([key,item])=>[key,stripPrivate(item)])):value;
 export function presentReport(snapshot,context={}){
  snapshot=stripPrivate(snapshot);
@@ -30,6 +30,7 @@ export function presentReport(snapshot,context={}){
   }
   if(value.code==='MH')copy.name='心理问题倾向';
   if(value.code==='RV'&&presentation.rvReference&&[value.mean,value.lower,value.upper].some(v=>!Number.isFinite(v))){Object.assign(copy,presentation.rvReference,{label:classify(value.score,presentation.rvReference),referenceNote:'作答质量总分参考区间为本次新增的模拟参照，未重算本次得分。'});}
+  if(value.unavailableReason){copy.score=null;copy.raw=null;copy.label='无法重算';}
   return copy;
  };
  return {...report,employmentAnswers:resolveEmploymentAnswers(snapshot,context),workValuePreferences:values,workValueNotice:values?'三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。':'',workValueDerivationNotice:values?.source==='archived-answers'?'工作价值观三项根据本次原始作答补充展示，原始记录保留。':'',workValueUnavailable:values?'':'本记录缺少可兼容的完整作答，暂无法展示工作价值观分项。',reportRevision:presentation.revision,referenceRevision:presentation.referenceRevision,referenceDescription:presentation.referenceDescription,disclaimer:presentation.referenceDescription||report.disclaimer,storedPFModelId:report.storedPFModelId||snapshot.pfModelId||'legacy-general-v'+entry.version,viewPFModelId:report.pfModelId||'legacy-general-v'+entry.version,interpretationNotes:(presentation.notes||[]).filter(note=>report.pfModelId===pfModelId||!note.startsWith('职业性格匹配度为建筑工地')),referenceLabel:presentation.referenceLabel||'模拟参照',totals:(report.totals||[]).map(row),dimensions:viewDimensions.map(row)};

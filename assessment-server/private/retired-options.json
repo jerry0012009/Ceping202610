@@ -1,0 +1,164 @@
+{
+  "version": "2.11",
+  "purpose": "Original 2.10 answer structure and current-rule scoring for known retired options. Never returned for new 2.11 questionnaires. No stored answers are recoded.",
+  "options": [
+    {
+      "id": "QB239",
+      "number": 26,
+      "index": 2,
+      "option": {
+        "key": "C",
+        "text": "请相关人员还原当时安排。"
+      },
+      "scores": {
+        "SJ1": 75,
+        "SJ3": 50
+      },
+      "values": {}
+    },
+    {
+      "id": "QB240",
+      "number": 35,
+      "index": 3,
+      "option": {
+        "key": "D",
+        "text": "由谁确认，确认前可做哪些准备。"
+      },
+      "scores": {
+        "SJ3": 100,
+        "SJ1": 100
+      },
+      "values": {}
+    },
+    {
+      "id": "QB238",
+      "number": 38,
+      "index": 1,
+      "option": {
+        "key": "B",
+        "text": "弄清原因及对后续任务的影响。"
+      },
+      "scores": {
+        "PF1": 66.66666666666667,
+        "SJ3": 50,
+        "PF2": 25,
+        "SJ2": 60
+      },
+      "values": {}
+    },
+    {
+      "id": "QB308",
+      "number": 40,
+      "index": 1,
+      "option": {
+        "key": "B",
+        "text": "当天能继续做，但会回想，过一晚多能放下。"
+      },
+      "scores": {
+        "PF3": 33.3333,
+        "MH4": 66.6667,
+        "MH1": 66.6667
+      },
+      "values": {}
+    },
+    {
+      "id": "QB081",
+      "number": 42,
+      "index": 1,
+      "option": {
+        "key": "B",
+        "text": "先学通用工具，为以后转向留空间。"
+      },
+      "scores": {
+        "ST1": 33.333333333333336,
+        "PF5": 66.66666666666667
+      },
+      "values": {}
+    },
+    {
+      "id": "QB091",
+      "number": 47,
+      "index": 3,
+      "option": {
+        "key": "D",
+        "text": "先试几种小任务，再定深入哪一类。"
+      },
+      "scores": {
+        "ST1": 40,
+        "PF5": 66.66666666666667
+      },
+      "values": {}
+    },
+    {
+      "id": "QB103",
+      "number": 48,
+      "index": 2,
+      "option": {
+        "key": "C",
+        "text": "选适中的新目标，留时间兼顾其他任务。"
+      },
+      "scores": {
+        "PF6": 58.333333333333336,
+        "PF2": 0
+      },
+      "values": {}
+    },
+    {
+      "id": "QB087",
+      "number": 50,
+      "index": 3,
+      "option": {
+        "key": "D",
+        "text": "已有办法省时省力，下次更容易完成工作。"
+      },
+      "scores": {
+        "PF6": 60,
+        "PF2": 50
+      },
+      "values": {
+        "报酬回报": 25
+      }
+    },
+    {
+      "id": "QB300",
+      "number": 80,
+      "index": 1,
+      "option": {
+        "key": "B",
+        "text": "想换种轻松活动，让心情有些变化。"
+      },
+      "scores": {},
+      "values": {}
+    },
+    {
+      "id": "QB318",
+      "number": 92,
+      "index": 3,
+      "option": {
+        "key": "D",
+        "text": "想换种小活动，用新鲜感带动心情。"
+      },
+      "scores": {
+        "PF4": 16.6667,
+        "PF6": 33.3333
+      },
+      "values": {}
+    }
+  ],
+  "historicalPairs": [
+    {
+      "ids": [
+        "QB318",
+        "QB300"
+      ],
+      "kind": "four-choice",
+      "label": "四选一换序题对",
+      "map": {
+        "A": "C",
+        "B": "A",
+        "C": "D",
+        "D": "B"
+      }
+    }
+  ]
+}

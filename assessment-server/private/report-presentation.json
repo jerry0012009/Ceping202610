@@ -1,5 +1,5 @@
 {
-  "revision": "2.10-report-1",
+  "revision": "2.11-report-1",
   "metrics": {
     "ST1": {
       "name": "职业承诺",
@@ -199,7 +199,7 @@
   "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
   "showRepresentativeAnswers": false,
   "showCodes": false,
-  "referenceRevision": "2.10-synthetic-40-reviewed-centers-widths-v1",
+  "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
   "referenceOverrides": {
     "ST1": {
       "mean": 78,
@@ -211,45 +211,140 @@
       "lower": 50.3,
       "upper": 98.7
     },
-    "SJ1": {
-      "mean": 90,
-      "lower": 82.5,
-      "upper": 99.3
+    "ST3": {
+      "mean": 41,
+      "lower": 33.0,
+      "upper": 49.0
     },
-    "SJ2": {
-      "mean": 87,
-      "lower": 77.3,
-      "upper": 99.6
-    },
-    "SJ3": {
-      "mean": 79,
-      "lower": 68.0,
-      "upper": 92.7
+    "PF1": {
+      "mean": 62,
+      "lower": 42.6,
+      "upper": 81.4
     },
     "PF2": {
       "mean": 51,
-      "lower": 29.4,
-      "upper": 72.6
+      "lower": 27.0,
+      "upper": 75.0
+    },
+    "PF3": {
+      "mean": 82,
+      "lower": 62.1,
+      "upper": 99.9
+    },
+    "PF4": {
+      "mean": 53,
+      "lower": 33.1,
+      "upper": 72.9
     },
     "PF5": {
-      "mean": 47,
-      "lower": 30.3,
-      "upper": 63.7
+      "mean": 40,
+      "lower": 20.8,
+      "upper": 59.2
+    },
+    "PF6": {
+      "mean": 72,
+      "lower": 55,
+      "upper": 89
     },
     "PF7": {
+      "mean": 68,
+      "lower": 50.2,
+      "upper": 85.8
+    },
+    "SJ1": {
+      "mean": 84,
+      "lower": 70.6,
+      "upper": 99.9
+    },
+    "SJ2": {
+      "mean": 80,
+      "lower": 64.6,
+      "upper": 99.9
+    },
+    "SJ3": {
       "mean": 74,
-      "lower": 60.4,
-      "upper": 87.6
+      "lower": 61.1,
+      "upper": 90.0
+    },
+    "MH1": {
+      "mean": 26,
+      "lower": 12.9,
+      "upper": 39.1
+    },
+    "MH2": {
+      "mean": 19,
+      "lower": 7.9,
+      "upper": 30.1
     },
     "MH3": {
-      "mean": 31,
-      "lower": 18.5,
-      "upper": 43.5
+      "mean": 23,
+      "lower": 9.8,
+      "upper": 36.2
+    },
+    "MH4": {
+      "mean": 25,
+      "lower": 12.6,
+      "upper": 37.4
+    },
+    "MH5": {
+      "mean": 39,
+      "lower": 31.1,
+      "upper": 46.9
+    },
+    "RV1": {
+      "mean": 49,
+      "lower": 16.7,
+      "upper": 81.3
+    },
+    "RV2": {
+      "mean": 36.75,
+      "lower": 29.25,
+      "upper": 44.25
+    },
+    "RV3": {
+      "mean": 100,
+      "lower": 92.5,
+      "upper": 100
+    },
+    "MH6": {
+      "mean": 26,
+      "lower": 14.5,
+      "upper": 37.5
+    },
+    "ST": {
+      "mean": 69,
+      "lower": 54.8,
+      "upper": 83.2
+    },
+    "PF": {
+      "mean": 61,
+      "lower": 53.0,
+      "upper": 69.0
     },
     "MH": {
+      "mean": 25,
+      "lower": 14.9,
+      "upper": 35.1
+    },
+    "RV": {
+      "mean": 85,
+      "lower": 75.3,
+      "upper": 94.7
+    },
+    "WV_STABILITY": {
+      "mean": 37,
+      "lower": 19.2,
+      "upper": 54.8
+    },
+    "WV_GROWTH": {
+      "mean": 61,
+      "lower": 41.5,
+      "upper": 80.5
+    },
+    "WV_REWARD": {
       "mean": 27,
-      "lower": 16.7,
-      "upper": 37.3
+      "lower": 13.4,
+      "upper": 40.6
     }
   }
 }

@@ -1,1335 +1,220 @@
 {
-  "schemaVersion": 1,
-  "auditDate": "2026-10-12",
-  "status": "independently_verified",
-  "referenceId": "work-value-synthetic-40-h20-d30-s30-z20-v1",
-  "basis": "Existing engine valueParts raw values only. No impression-management, confidence, or other correction. Synthetic reference; not empirical population norms.",
-  "mixture": {
-    "H": 0.2,
-    "D": 0.3,
-    "S": 0.3,
-    "Z": 0.2
-  },
-  "personaCount": 10,
-  "fixtureCount": 40,
-  "equalPersonaWeights": true,
-  "formula": {
-    "mean": "sum(weight * raw) / sum(weight)",
-    "populationSD": "sqrt(sum(weight * (raw - exactWeightedMean)^2) / sum(weight))",
-    "rowWeight": "mixture[mode] / 10",
-    "referenceCenter": "Round exact weighted mean to nearest integer",
-    "referenceBand": "Clamp rounded mean +/- unrounded weighted population SD to [0,100], then round endpoints to one decimal",
-    "coverage": "Unique complete contributing questions, never record slots; QB031 contributes two records to stable and growth"
-  },
-  "verification": {
-    "all40FrozenRawReferenceTotalsExact": true,
-    "all120RawPartValuesIndependentlyReconstructed": true,
-    "maximumReconstructionFloatingPointError": 0,
-    "all40CombinedRawST3Match": true,
-    "all40CompleteValueQuestionCoverage": true
-  },
-  "provenance": {
-    "scoringVersion": "2.9",
-    "scoringFingerprint": "40df986e630a93426ad5e1535316ffe34d0eba0fe9fe564817e4e5629c92a9e5",
-    "fingerprintAlgorithm": "SHA-256(questionnaire file bytes followed by engine file bytes)",
-    "sourceHashes": {
-      "assessment-hosted/private/questionnaire-v2.9.json": "ae1306e128898c92cfde9bdf1a24ba8d7bdbbd7ad63acf19c38c0c9a20ea8fe3",
-      "assessment-hosted/private/engine-v2.9.cjs": "16f02307ef211f46e47a8a9f3e23639b1d34c807cf55f8e3e7832e57eca5bb9b",
-      "assessment-hosted/test/fixtures/regression-40.json": "d0799bde7a4bf8f12525eec657f907b81221f45bdf9209efb46cad03a2598129"
+  "version": "2.11",
+  "modelId": "work-value-preferences-v2.11-v1",
+  "referenceId": "work-value-synthetic-40-h20-d30-s30-z20-v2.11-v1",
+  "parts": [
+    {
+      "code": "WV_STABILITY",
+      "part": "稳定保障",
+      "name": "稳定保障偏好",
+      "reference": {
+        "mean": 37,
+        "lower": 19.2,
+        "upper": 54.8
+      }
+    },
+    {
+      "code": "WV_GROWTH",
+      "part": "学习成长",
+      "name": "学习成长偏好",
+      "reference": {
+        "mean": 61,
+        "lower": 41.5,
+        "upper": 80.5
+      }
+    },
+    {
+      "code": "WV_REWARD",
+      "part": "报酬回报",
+      "name": "报酬回报偏好",
+      "reference": {
+        "mean": 27,
+        "lower": 13.4,
+        "upper": 40.6
+      }
+    }
+  ],
+  "method": {
+    "cohort": "40 synthetic fixtures: 10 personas × four strategies, not observed people or empirical population norms",
+    "mixture": {
+      "H": 0.2,
+      "D": 0.3,
+      "S": 0.3,
+      "Z": 0.2
+    },
+    "meanSD": "Normalized mixture-weighted mean and population SD (sum weights = 1). Before: original V2.10 fixtures. After: same retained answers plus explicitly logged synthetic assumed reanswers for retired choices. Seconds are identical. Never recode actual historical answers.",
+    "reference": "Compare original V2.10 to combined V2.11; add rounded primary mean delta to old reviewed centers unless tested variants reverse the direction, in which case hold old center. Multiply old asymmetric halfwidths by full primary SD ratio unless variants cross1, in which case hold old halfwidths. Keep minimum7.5, one-decimal bounds, affected upper <=99.9 and strictly below achievable maximum.",
+    "offsetRounding": "For changed centers, retain prior manual offset plus primary mean shift up to nearest whole-point rounding. For guarded centers, keep exact original reviewed center because assumed-answer scenarios disagree on shift direction; report offset residual rather than claiming it is preserved exactly.",
+    "unchanged": "Preserve unchanged quality metrics and inherited RV3 top-label exception. Actual historical answers are never recoded.",
+    "limits": "Ten designed personas × four strategies. 83 retired-option cells across29 cases (67% mixture weight) are assumed reanswers, never actual respondent data. Five sensitivity scenarios are illustrative and not exhaustive bounds or confidence intervals.",
+    "uncertaintyGuardrails": {
+      "centerHeld": [
+        "ST1",
+        "PF1",
+        "PF2",
+        "PF4",
+        "PF6"
+      ],
+      "halfwidthHeld": [
+        "ST1",
+        "PF1",
+        "PF3",
+        "PF4",
+        "PF6",
+        "ST"
+      ],
+      "decision": "Preserve the original V2.10 centers or halfwidths listed here when tested synthetic scenarios disagree on the direction of change."
     }
   },
-  "stats": {
-    "stable": {
-      "label": "稳定保障",
-      "exactWeightedMeanFraction": "659/18",
-      "weightedMean": 36.611111111111114,
-      "exactWeightedPopulationVarianceFraction": "103219/324",
-      "weightedPopulationVariance": 318.57716049382714,
-      "weightedPopulationSD": 17.848729940637995,
-      "approvedReference": {
+  "decisions": {
+    "WV_STABILITY": {
+      "old": {
         "mean": 37,
         "lower": 19.2,
         "upper": 54.8
       },
-      "exactMeanCenteredBand": [
-        18.76238117047312,
-        54.45984105174911
-      ],
-      "modeMeans": {
-        "H": 52.77777777777778,
-        "D": 30.0,
-        "S": 21.666666666666668,
-        "Z": 52.77777777777778
+      "proposed": {
+        "mean": 37,
+        "lower": 19.2,
+        "upper": 54.8
       },
-      "coverage": {
-        "uniqueQuestionCount": 4,
-        "questionIds": [
-          "QB015",
-          "QB051",
-          "QB031",
-          "QB040"
-        ],
-        "questionNumbers": [
-          11,
-          21,
-          31,
-          53
-        ],
-        "recordCount": 5,
-        "totalRecordWeight": 360
-      }
+      "changed": false,
+      "reason": "Scoring is unchanged; retain reviewed reference exactly.",
+      "finalReferenceChanged": false
     },
-    "growth": {
-      "label": "学习成长",
-      "exactWeightedMeanFraction": "7179/106",
-      "weightedMean": 67.72641509433963,
-      "exactWeightedPopulationVarianceFraction": "4173059/11236",
-      "weightedPopulationVariance": 371.4007653969384,
-      "weightedPopulationSD": 19.271760827618696,
-      "approvedReference": {
+    "WV_GROWTH": {
+      "old": {
         "mean": 68,
         "lower": 48.7,
         "upper": 87.3
       },
-      "exactMeanCenteredBand": [
-        48.45465426672094,
-        86.99817592195832
-      ],
-      "modeMeans": {
-        "H": 53.490566037735846,
-        "D": 75.18867924528301,
-        "S": 79.24528301886792,
-        "Z": 53.490566037735846
+      "proposed": {
+        "mean": 61,
+        "lower": 41.5,
+        "upper": 80.5
       },
-      "coverage": {
-        "uniqueQuestionCount": 6,
-        "questionIds": [
-          "QB015",
-          "QB022",
-          "QB170",
-          "QB031",
-          "QB109",
-          "QB024"
+      "changed": true,
+      "unroundedCenter": 61.35849056603773,
+      "roundedCenterShift": -7,
+      "meanDelta": -6.64150943396227,
+      "sdRatio": 1.0093042943708441,
+      "oldReviewedOffset": 0.2735849056603712,
+      "newReviewedOffset": -0.08490566037735903,
+      "offsetRoundingError": -0.3584905660377302,
+      "lowerHalfwidthBefore": 19.299999999999997,
+      "upperHalfwidthBefore": 19.299999999999997,
+      "unclippedLower": 41.520427118642715,
+      "unclippedUpper": 80.47957288135729,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 61,
+        "lower": 41.5,
+        "upper": 80.5
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 1.0093042943708441,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          61.08490566037736,
+          61.08490566037736
         ],
-        "questionNumbers": [
-          11,
-          27,
-          28,
-          31,
-          33,
-          36
+        "meanDeltaRange": [
+          -6.64150943396227,
+          -6.64150943396227
         ],
-        "recordCount": 7,
-        "totalRecordWeight": 530
-      }
+        "sdRange": [
+          19.45107096340336,
+          19.45107096340336
+        ],
+        "sdRatioRange": [
+          1.0093042943708441,
+          1.0093042943708441
+        ],
+        "referenceCenterRange": [
+          61,
+          61
+        ],
+        "referenceLowerRange": [
+          41.5,
+          41.5
+        ],
+        "referenceUpperRange": [
+          80.5,
+          80.5
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": -7,
+      "finalReferenceChanged": true
     },
-    "pay": {
-      "label": "报酬回报",
-      "exactWeightedMeanFraction": "247/9",
-      "weightedMean": 27.444444444444443,
-      "exactWeightedPopulationVarianceFraction": "14641/81",
-      "weightedPopulationVariance": 180.7530864197531,
-      "weightedPopulationSD": 13.444444444444445,
-      "approvedReference": {
+    "WV_REWARD": {
+      "old": {
         "mean": 27,
         "lower": 13.6,
         "upper": 40.4
       },
-      "exactMeanCenteredBand": [
-        13.999999999999998,
-        40.888888888888886
-      ],
-      "modeMeans": {
-        "H": 24.444444444444443,
-        "D": 22.77777777777778,
-        "S": 36.111111111111114,
-        "Z": 24.444444444444443
+      "proposed": {
+        "mean": 27,
+        "lower": 13.4,
+        "upper": 40.6
       },
-      "coverage": {
-        "uniqueQuestionCount": 3,
-        "questionIds": [
-          "QB054",
-          "QB087",
-          "QB040"
+      "changed": true,
+      "unroundedCenter": 26.833333333333336,
+      "roundedCenterShift": 0,
+      "meanDelta": -0.1666666666666643,
+      "sdRatio": 1.0123460941984734,
+      "oldReviewedOffset": -0.4444444444444464,
+      "newReviewedOffset": -0.2777777777777821,
+      "offsetRoundingError": 0.1666666666666643,
+      "lowerHalfwidthBefore": 13.4,
+      "upperHalfwidthBefore": 13.399999999999999,
+      "unclippedLower": 13.434562337740456,
+      "unclippedUpper": 40.56543766225954,
+      "reason": "Use primary combined change from original V2.10 baseline, but retain original reviewed center when tested mean-shift directions disagree, and retain old asymmetric halfwidths when tested SD-ratio directions disagree. Else use full SD ratio with 7.5 floor; no 10% cap.",
+      "primaryArithmeticCandidate": {
+        "mean": 27,
+        "lower": 13.4,
+        "upper": 40.6
+      },
+      "centerHeldForScenarioUncertainty": false,
+      "widthHeldForScenarioUncertainty": false,
+      "appliedWidthRatio": 1.0123460941984734,
+      "testedScenarioSensitivity": {
+        "meanRange": [
+          27.05555555555556,
+          27.444444444444446
         ],
-        "questionNumbers": [
-          22,
-          50,
-          53
+        "meanDeltaRange": [
+          -0.38888888888888573,
+          0
         ],
-        "recordCount": 3,
-        "totalRecordWeight": 180
-      }
+        "sdRange": [
+          13.444444444444445,
+          13.825522114133522
+        ],
+        "sdRatioRange": [
+          1,
+          1.028344620059518
+        ],
+        "referenceCenterRange": [
+          27,
+          27
+        ],
+        "referenceLowerRange": [
+          13.2,
+          13.6
+        ],
+        "referenceUpperRange": [
+          40.4,
+          40.8
+        ],
+        "meanDirectionRobustAcrossTestedVariants": true,
+        "scope": "Observed range across five specified synthetic scenarios only; not exhaustive extrema, confidence intervals or population uncertainty bounds."
+      },
+      "newMeanShiftApplied": 0,
+      "finalReferenceChanged": true
     }
-  },
-  "rows": [
-    {
-      "id": "P01-H",
-      "mode": "H",
-      "weight": 0.02,
-      "raw": {
-        "stable": 61.111111111111114,
-        "growth": 33.0188679245283,
-        "pay": 16.666666666666668
-      },
-      "exactRaw": {
-        "stable": "550/9",
-        "growth": "1750/53",
-        "pay": "50/3"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P01-D",
-      "mode": "D",
-      "weight": 0.03,
-      "raw": {
-        "stable": 27.77777777777778,
-        "growth": 84.90566037735849,
-        "pay": 22.22222222222222
-      },
-      "exactRaw": {
-        "stable": "250/9",
-        "growth": "4500/53",
-        "pay": "200/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P01-S",
-      "mode": "S",
-      "weight": 0.03,
-      "raw": {
-        "stable": 22.22222222222222,
-        "growth": 92.45283018867924,
-        "pay": 33.333333333333336
-      },
-      "exactRaw": {
-        "stable": "200/9",
-        "growth": "4900/53",
-        "pay": "100/3"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P01-Z",
-      "mode": "Z",
-      "weight": 0.02,
-      "raw": {
-        "stable": 61.111111111111114,
-        "growth": 33.0188679245283,
-        "pay": 16.666666666666668
-      },
-      "exactRaw": {
-        "stable": "550/9",
-        "growth": "1750/53",
-        "pay": "50/3"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P02-H",
-      "mode": "H",
-      "weight": 0.02,
-      "raw": {
-        "stable": 55.55555555555556,
-        "growth": 66.98113207547169,
-        "pay": 55.55555555555556
-      },
-      "exactRaw": {
-        "stable": "500/9",
-        "growth": "3550/53",
-        "pay": "500/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P02-D",
-      "mode": "D",
-      "weight": 0.03,
-      "raw": {
-        "stable": 22.22222222222222,
-        "growth": 84.90566037735849,
-        "pay": 33.333333333333336
-      },
-      "exactRaw": {
-        "stable": "200/9",
-        "growth": "4500/53",
-        "pay": "100/3"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P02-S",
-      "mode": "S",
-      "weight": 0.03,
-      "raw": {
-        "stable": 16.666666666666668,
-        "growth": 66.0377358490566,
-        "pay": 44.44444444444444
-      },
-      "exactRaw": {
-        "stable": "50/3",
-        "growth": "3500/53",
-        "pay": "400/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P02-Z",
-      "mode": "Z",
-      "weight": 0.02,
-      "raw": {
-        "stable": 55.55555555555556,
-        "growth": 66.98113207547169,
-        "pay": 55.55555555555556
-      },
-      "exactRaw": {
-        "stable": "500/9",
-        "growth": "3550/53",
-        "pay": "500/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P03-H",
-      "mode": "H",
-      "weight": 0.02,
-      "raw": {
-        "stable": 33.333333333333336,
-        "growth": 84.90566037735849,
-        "pay": 11.11111111111111
-      },
-      "exactRaw": {
-        "stable": "100/3",
-        "growth": "4500/53",
-        "pay": "100/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P03-D",
-      "mode": "D",
-      "weight": 0.03,
-      "raw": {
-        "stable": 33.333333333333336,
-        "growth": 84.90566037735849,
-        "pay": 11.11111111111111
-      },
-      "exactRaw": {
-        "stable": "100/3",
-        "growth": "4500/53",
-        "pay": "100/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P03-S",
-      "mode": "S",
-      "weight": 0.03,
-      "raw": {
-        "stable": 22.22222222222222,
-        "growth": 66.0377358490566,
-        "pay": 33.333333333333336
-      },
-      "exactRaw": {
-        "stable": "200/9",
-        "growth": "3500/53",
-        "pay": "100/3"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P03-Z",
-      "mode": "Z",
-      "weight": 0.02,
-      "raw": {
-        "stable": 33.333333333333336,
-        "growth": 84.90566037735849,
-        "pay": 11.11111111111111
-      },
-      "exactRaw": {
-        "stable": "100/3",
-        "growth": "4500/53",
-        "pay": "100/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P04-H",
-      "mode": "H",
-      "weight": 0.02,
-      "raw": {
-        "stable": 33.333333333333336,
-        "growth": 66.0377358490566,
-        "pay": 11.11111111111111
-      },
-      "exactRaw": {
-        "stable": "100/3",
-        "growth": "3500/53",
-        "pay": "100/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P04-D",
-      "mode": "D",
-      "weight": 0.03,
-      "raw": {
-        "stable": 27.77777777777778,
-        "growth": 82.0754716981132,
-        "pay": 22.22222222222222
-      },
-      "exactRaw": {
-        "stable": "250/9",
-        "growth": "4350/53",
-        "pay": "200/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P04-S",
-      "mode": "S",
-      "weight": 0.03,
-      "raw": {
-        "stable": 22.22222222222222,
-        "growth": 81.13207547169812,
-        "pay": 33.333333333333336
-      },
-      "exactRaw": {
-        "stable": "200/9",
-        "growth": "4300/53",
-        "pay": "100/3"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P04-Z",
-      "mode": "Z",
-      "weight": 0.02,
-      "raw": {
-        "stable": 33.333333333333336,
-        "growth": 66.0377358490566,
-        "pay": 11.11111111111111
-      },
-      "exactRaw": {
-        "stable": "100/3",
-        "growth": "3500/53",
-        "pay": "100/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P05-H",
-      "mode": "H",
-      "weight": 0.02,
-      "raw": {
-        "stable": 83.33333333333333,
-        "growth": 29.245283018867923,
-        "pay": 55.55555555555556
-      },
-      "exactRaw": {
-        "stable": "250/3",
-        "growth": "1550/53",
-        "pay": "500/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P05-D",
-      "mode": "D",
-      "weight": 0.03,
-      "raw": {
-        "stable": 33.333333333333336,
-        "growth": 51.886792452830186,
-        "pay": 16.666666666666668
-      },
-      "exactRaw": {
-        "stable": "100/3",
-        "growth": "2750/53",
-        "pay": "50/3"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P05-S",
-      "mode": "S",
-      "weight": 0.03,
-      "raw": {
-        "stable": 22.22222222222222,
-        "growth": 92.45283018867924,
-        "pay": 33.333333333333336
-      },
-      "exactRaw": {
-        "stable": "200/9",
-        "growth": "4900/53",
-        "pay": "100/3"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P05-Z",
-      "mode": "Z",
-      "weight": 0.02,
-      "raw": {
-        "stable": 83.33333333333333,
-        "growth": 29.245283018867923,
-        "pay": 55.55555555555556
-      },
-      "exactRaw": {
-        "stable": "250/3",
-        "growth": "1550/53",
-        "pay": "500/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P06-H",
-      "mode": "H",
-      "weight": 0.02,
-      "raw": {
-        "stable": 50,
-        "growth": 51.886792452830186,
-        "pay": 16.666666666666668
-      },
-      "exactRaw": {
-        "stable": "50",
-        "growth": "2750/53",
-        "pay": "50/3"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P06-D",
-      "mode": "D",
-      "weight": 0.03,
-      "raw": {
-        "stable": 27.77777777777778,
-        "growth": 70.75471698113208,
-        "pay": 27.77777777777778
-      },
-      "exactRaw": {
-        "stable": "250/9",
-        "growth": "3750/53",
-        "pay": "250/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P06-S",
-      "mode": "S",
-      "weight": 0.03,
-      "raw": {
-        "stable": 22.22222222222222,
-        "growth": 81.13207547169812,
-        "pay": 33.333333333333336
-      },
-      "exactRaw": {
-        "stable": "200/9",
-        "growth": "4300/53",
-        "pay": "100/3"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P06-Z",
-      "mode": "Z",
-      "weight": 0.02,
-      "raw": {
-        "stable": 50,
-        "growth": 51.886792452830186,
-        "pay": 16.666666666666668
-      },
-      "exactRaw": {
-        "stable": "50",
-        "growth": "2750/53",
-        "pay": "50/3"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P07-H",
-      "mode": "H",
-      "weight": 0.02,
-      "raw": {
-        "stable": 66.66666666666667,
-        "growth": 35.84905660377358,
-        "pay": 0
-      },
-      "exactRaw": {
-        "stable": "200/3",
-        "growth": "1900/53",
-        "pay": "0"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P07-D",
-      "mode": "D",
-      "weight": 0.03,
-      "raw": {
-        "stable": 33.333333333333336,
-        "growth": 84.90566037735849,
-        "pay": 11.11111111111111
-      },
-      "exactRaw": {
-        "stable": "100/3",
-        "growth": "4500/53",
-        "pay": "100/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P07-S",
-      "mode": "S",
-      "weight": 0.03,
-      "raw": {
-        "stable": 22.22222222222222,
-        "growth": 92.45283018867924,
-        "pay": 33.333333333333336
-      },
-      "exactRaw": {
-        "stable": "200/9",
-        "growth": "4900/53",
-        "pay": "100/3"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P07-Z",
-      "mode": "Z",
-      "weight": 0.02,
-      "raw": {
-        "stable": 66.66666666666667,
-        "growth": 35.84905660377358,
-        "pay": 0
-      },
-      "exactRaw": {
-        "stable": "200/3",
-        "growth": "1900/53",
-        "pay": "0"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P08-H",
-      "mode": "H",
-      "weight": 0.02,
-      "raw": {
-        "stable": 61.111111111111114,
-        "growth": 29.245283018867923,
-        "pay": 16.666666666666668
-      },
-      "exactRaw": {
-        "stable": "550/9",
-        "growth": "1550/53",
-        "pay": "50/3"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P08-D",
-      "mode": "D",
-      "weight": 0.03,
-      "raw": {
-        "stable": 27.77777777777778,
-        "growth": 70.75471698113208,
-        "pay": 22.22222222222222
-      },
-      "exactRaw": {
-        "stable": "250/9",
-        "growth": "3750/53",
-        "pay": "200/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P08-S",
-      "mode": "S",
-      "weight": 0.03,
-      "raw": {
-        "stable": 22.22222222222222,
-        "growth": 92.45283018867924,
-        "pay": 38.888888888888886
-      },
-      "exactRaw": {
-        "stable": "200/9",
-        "growth": "4900/53",
-        "pay": "350/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P08-Z",
-      "mode": "Z",
-      "weight": 0.02,
-      "raw": {
-        "stable": 61.111111111111114,
-        "growth": 29.245283018867923,
-        "pay": 16.666666666666668
-      },
-      "exactRaw": {
-        "stable": "550/9",
-        "growth": "1550/53",
-        "pay": "50/3"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P09-H",
-      "mode": "H",
-      "weight": 0.02,
-      "raw": {
-        "stable": 22.22222222222222,
-        "growth": 70.75471698113208,
-        "pay": 33.333333333333336
-      },
-      "exactRaw": {
-        "stable": "200/9",
-        "growth": "3750/53",
-        "pay": "100/3"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P09-D",
-      "mode": "D",
-      "weight": 0.03,
-      "raw": {
-        "stable": 22.22222222222222,
-        "growth": 63.20754716981132,
-        "pay": 33.333333333333336
-      },
-      "exactRaw": {
-        "stable": "200/9",
-        "growth": "3350/53",
-        "pay": "100/3"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P09-S",
-      "mode": "S",
-      "weight": 0.03,
-      "raw": {
-        "stable": 22.22222222222222,
-        "growth": 73.58490566037736,
-        "pay": 38.888888888888886
-      },
-      "exactRaw": {
-        "stable": "200/9",
-        "growth": "3900/53",
-        "pay": "350/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P09-Z",
-      "mode": "Z",
-      "weight": 0.02,
-      "raw": {
-        "stable": 22.22222222222222,
-        "growth": 70.75471698113208,
-        "pay": 33.333333333333336
-      },
-      "exactRaw": {
-        "stable": "200/9",
-        "growth": "3750/53",
-        "pay": "100/3"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P10-H",
-      "mode": "H",
-      "weight": 0.02,
-      "raw": {
-        "stable": 61.111111111111114,
-        "growth": 66.98113207547169,
-        "pay": 27.77777777777778
-      },
-      "exactRaw": {
-        "stable": "550/9",
-        "growth": "3550/53",
-        "pay": "250/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P10-D",
-      "mode": "D",
-      "weight": 0.03,
-      "raw": {
-        "stable": 44.44444444444444,
-        "growth": 73.58490566037736,
-        "pay": 27.77777777777778
-      },
-      "exactRaw": {
-        "stable": "400/9",
-        "growth": "3900/53",
-        "pay": "250/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P10-S",
-      "mode": "S",
-      "weight": 0.03,
-      "raw": {
-        "stable": 22.22222222222222,
-        "growth": 54.716981132075475,
-        "pay": 38.888888888888886
-      },
-      "exactRaw": {
-        "stable": "200/9",
-        "growth": "2900/53",
-        "pay": "350/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    },
-    {
-      "id": "P10-Z",
-      "mode": "Z",
-      "weight": 0.02,
-      "raw": {
-        "stable": 61.111111111111114,
-        "growth": 66.98113207547169,
-        "pay": 27.77777777777778
-      },
-      "exactRaw": {
-        "stable": "550/9",
-        "growth": "3550/53",
-        "pay": "250/9"
-      },
-      "coverage": {
-        "stable": {
-          "answered": 4,
-          "total": 4
-        },
-        "growth": {
-          "answered": 6,
-          "total": 6
-        },
-        "pay": {
-          "answered": 3,
-          "total": 3
-        }
-      }
-    }
-  ],
-  "historicalDerivationRisks": [
-    "The saved report snapshot lacks the full valueParts; the combined ST3 score cannot determine three component values, and sparse internalEvidence cannot reconstruct them. Derive only from original stored answers with the matching archived engine and questionnaire.",
-    "Require both the stored assessment version and stored fingerprint to match a supported immutable archive. Do not supply current fingerprint as a default when the stored one is absent. Unknown or absent provenance must show unavailable rather than silently use current rules.",
-    "The scoring fingerprint binds exact questionnaire and engine bytes, but not these presentation reference parameters. Preserve an explicit separate work-value reference identifier and raw derivation basis.",
-    "Raw engine averages return partial values for missing contributors and may accept one valid double-choice slot. Require complete unique contributing-question coverage for each displayed complete score; missing or invalid contributors must not be silently treated as full coverage.",
-    "Use a response projection for historical cards; never rewrite answers_json, report_json, version, fingerprint, or stored totals/dimensions. Apply the same provenance guard to owner, admin, and idempotent-submit read paths.",
-    "The forty rows are four modes repeated across ten personas and are synthetic, not forty independent population observations. The approved interval is centered on rounded mean rather than exact mean."
-  ]
+  }
 }

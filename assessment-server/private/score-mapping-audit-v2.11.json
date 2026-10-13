@@ -1,0 +1,1738 @@
+{
+  "status": "Approved technical score mapping contract; applied before the separately approved ten option removals.",
+  "fromVersion": "2.10",
+  "toVersion": "2.11",
+  "approval": {
+    "status": "Approved endpoint score-vector revisions: five main mappings and all 31 Appendix I mappings."
+  },
+  "counts": {
+    "priorityMappings": 5,
+    "appendixIMappings": 31,
+    "uniqueMappings": 36,
+    "questions": 20,
+    "scoreMappings": 35,
+    "workValueMappings": 1
+  },
+  "sourceHashes": {
+    "assessment-server/private/questionnaire-v2.10.json": "7c0ec1f8947bc0901ff2ed7be2aa3fbc76004ac62db6cd48d97277b439e9ee0d",
+    "assessment-server/private/engine-v2.10.cjs": "16f02307ef211f46e47a8a9f3e23639b1d34c807cf55f8e3e7832e57eca5bb9b",
+    "assessment-server/private/report-presentation.json": "5ddde3f9b7aa73aba2943e7a152e185319c711e4733d50fa0e086521df22520e",
+    "assessment-server/private/pf-role-model.json": "17dcff98b9945ebe9663dcffe92b8f06dd8558267b667162156146f511545a20",
+    "assessment-server/private/work-value-model.json": "71c393b9ed00c9e0d55ad29e02dcb640f4839b10d723dd1220ba3d7f4b068652",
+    "assessment-server/test/fixtures/synthetic-assumed-v2.10-40.json": "7eca57a64e8df01d46189c2177b38835196ed364f1c0a3918959b13bf0fa73e7",
+    "report_revision/mapping-proposal/finalconfig-v2.10.json": "503ce7b03e13cf1293a8d168dab928faf2c07125a14844394219a1bd6891796c",
+    "outputs/V2.10题目分值与权重语义审查.docx": "9733a284f04239560588980f99a4218617d11358674ec59f5934bc8616212f25",
+    "outputs/V2.10题目分值与权重语义审查.pdf": "223c4da670cfafb86bff46182411c1865541724633d79325d33f78142d503d57",
+    "report_revision/semantic-audit-v210/document-decisions.json": "fa9ff2dfaca88aa6e5c85f656f9ed7532bc89098c973c91b887d9c057688c30d",
+    "report_revision/semantic-audit-v210/normalized-review.json": "1abb80371557f2e911550ff2b65bcf8f4bcf8e07ff2132ea2f4c3dafd6009dd2",
+    "report_revision/semantic-audit-v210/first.json": "9b9e83f801f81405d966f4f4d4914499d79fdddc8964ec9483b5edbc429e21a6",
+    "report_revision/semantic-audit-v210/middle.json": "d056178459ef1d1e192b5717b8fcf2013024bc2b73b711b7fafddddc945113a2",
+    "report_revision/semantic-audit-v210/last.json": "2320a276ca7261dd7c80a3a7ae789c9270918b088632ffaaf48d948ae140307f"
+  },
+  "mappings": [
+    {
+      "number": 72,
+      "id": "QB206",
+      "code": "PF2",
+      "name": "合作性",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "哪一个对你来说是更高的评价？",
+      "questionText": "哪一个对你来说是更高的评价？\nA．富有同情心\nB．有好胜心",
+      "options": [
+        {
+          "key": "A",
+          "text": "富有同情心"
+        },
+        {
+          "key": "B",
+          "text": "有好胜心"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        75,
+        65
+      ],
+      "scoresAfter": [
+        100,
+        0
+      ],
+      "weightBefore": 15,
+      "weightAfter": 15,
+      "source": {
+        "section": "二 五项优先审阅候选",
+        "priorityPosition": 1,
+        "docxParagraphIndexZeroBased": 13,
+        "pdfPhysicalPages": [
+          2
+        ],
+        "jsonPointer": "/priority_cases/0"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/last.json",
+      "rationale": "原设计明确将它视为弱线索：只给10分的窄差，同时采用权重15。关联弱已经通过低权重体现。按已确认的两类相对投射意图，合作性应以A=100、B=0表达高低，权重15独立控制其与合作性的关联程度。"
+    },
+    {
+      "number": 28,
+      "id": "QB170",
+      "code": "PF7",
+      "name": "计划与组织",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "发现一种不熟悉的软件可能提高效率，但学习也要占用时间。我更愿意先：",
+      "questionText": "发现一种不熟悉的软件可能提高效率，但学习也要占用时间。我更愿意先：\nA．留出一段固定学习时间，接受短期内仍要用原工具。\nB．请熟悉的人演示常用功能，先解决当前最需要的一处。\nC．等下一次有明确使用任务时再学，先把现有工作做稳。\n选择更接近自己的一项。",
+      "options": [
+        {
+          "key": "A",
+          "text": "留出一段固定学习时间，接受短期内仍要用原工具。"
+        },
+        {
+          "key": "B",
+          "text": "请熟悉的人演示常用功能，先解决当前最需要的一处。"
+        },
+        {
+          "key": "C",
+          "text": "等下一次有明确使用任务时再学，先把现有工作做稳。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "scoresBefore": [
+        85,
+        70,
+        70
+      ],
+      "scoresAfter": [
+        100,
+        0,
+        0
+      ],
+      "weightBefore": 20,
+      "weightAfter": 20,
+      "source": {
+        "section": "二 五项优先审阅候选",
+        "priorityPosition": 2,
+        "docxParagraphIndexZeroBased": 22,
+        "pdfPhysicalPages": [
+          2
+        ],
+        "jsonPointer": "/priority_cases/1"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/first.json",
+      "rationale": "A明确体现提前安排固定学习时间；B、C投射即时解题或任务触发的安排。此前85/70/70保留了“三种做法都有合理性”的部分得分；若本维度只取预先规划这一投射对比，可采用100/0/0，并由权重20控制关联强度。"
+    },
+    {
+      "number": 29,
+      "id": "QB195",
+      "code": "SJ1",
+      "name": "问题解决判断",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "熟悉的做法仍能完成任务，但新信息提示另一种做法可能更合适。我更倾向：",
+      "questionText": "熟悉的做法仍能完成任务，但新信息提示另一种做法可能更合适。我更倾向：\nA．先按熟悉的做法完成这一轮，再研究是否调整。\nB．先小范围试另一种做法，再根据结果决定是否调整。\n选择更接近自己的一项。",
+      "options": [
+        {
+          "key": "A",
+          "text": "先按熟悉的做法完成这一轮，再研究是否调整。"
+        },
+        {
+          "key": "B",
+          "text": "先小范围试另一种做法，再根据结果决定是否调整。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        75,
+        90
+      ],
+      "scoresAfter": [
+        0,
+        100
+      ],
+      "weightBefore": 20,
+      "weightAfter": 20,
+      "source": {
+        "section": "二 五项优先审阅候选",
+        "priorityPosition": 3,
+        "docxParagraphIndexZeroBased": 32,
+        "pdfPhysicalPages": [
+          3
+        ],
+        "jsonPointer": "/priority_cases/2"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/first.json",
+      "rationale": "本次取“先小范围验证再调整”这一相对投射，B对应更明确的试验验证，A先延续熟悉做法。原75/90承认两种做法都有合理性，分差只有15；候选0/100用于强化既定的相对位置对比，权重20保持。"
+    },
+    {
+      "number": 34,
+      "id": "QB237",
+      "code": "SJ3",
+      "name": "规范判断",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "工作收尾时，我更关注：",
+      "questionText": "工作收尾时，我更关注：\nA．成果资料、完成标准和书面确认。\nB．人员后续安排、团队稳定和继续合作。",
+      "options": [
+        {
+          "key": "A",
+          "text": "成果资料、完成标准和书面确认。"
+        },
+        {
+          "key": "B",
+          "text": "人员后续安排、团队稳定和继续合作。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        100,
+        60
+      ],
+      "scoresAfter": [
+        100,
+        0
+      ],
+      "weightBefore": 30,
+      "weightAfter": 30,
+      "source": {
+        "section": "二 五项优先审阅候选",
+        "priorityPosition": 4,
+        "docxParagraphIndexZeroBased": 41,
+        "pdfPhysicalPages": [
+          3
+        ],
+        "jsonPointer": "/priority_cases/3"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/middle.json",
+      "rationale": "A直接指向成果资料、标准与书面确认，B侧重人员与继续合作。原100/60把B作为合理关注给出部分得分；若只按规范确认这一投射对比，建议A=100、B=0，关联强弱仍由权重30体现。"
+    },
+    {
+      "number": 25,
+      "id": "QB133",
+      "code": "SJ2",
+      "name": "人际判断",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "我负责的工作安排受质疑时，我通常先：",
+      "questionText": "我负责的工作安排受质疑时，我通常先：\nA．问清具体问题。\nB．听完对方理由，再考虑调整。\nC．看是否影响眼前进度。",
+      "options": [
+        {
+          "key": "A",
+          "text": "问清具体问题。"
+        },
+        {
+          "key": "B",
+          "text": "听完对方理由，再考虑调整。"
+        },
+        {
+          "key": "C",
+          "text": "看是否影响眼前进度。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B",
+        "C"
+      ],
+      "scoresBefore": [
+        85,
+        100,
+        60
+      ],
+      "scoresAfter": [
+        75,
+        100,
+        0
+      ],
+      "weightBefore": 30,
+      "weightAfter": 30,
+      "source": {
+        "section": "二 五项优先审阅候选",
+        "priorityPosition": 5,
+        "docxParagraphIndexZeroBased": 50,
+        "pdfPhysicalPages": [
+          3
+        ],
+        "jsonPointer": "/priority_cases/4"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/first.json",
+      "rationale": "B先听完理由并考虑调整，对人际回应的投射最强；A先问清具体问题，保留中间位置75；C先看眼前进度，作为该投射的低端0。原85/100/60各项均高，削弱了三类回应的差别。权重30保持。"
+    },
+    {
+      "number": 12,
+      "id": "QB236",
+      "code": "PF2",
+      "name": "合作性",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "如果两种角色都可以选择，开会时你更愿意承担哪一种？",
+      "questionText": "如果两种角色都可以选择，开会时你更愿意承担哪一种？\nA．拍板定方案、分派任务。\nB．补充信息、协调不同意见。",
+      "options": [
+        {
+          "key": "A",
+          "text": "拍板定方案、分派任务。"
+        },
+        {
+          "key": "B",
+          "text": "补充信息、协调不同意见。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        50,
+        100
+      ],
+      "scoresAfter": [
+        0,
+        100
+      ],
+      "weightBefore": 40,
+      "weightAfter": 40,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 1,
+        "appendixQuestionPosition": 1,
+        "docxTableIndexZeroBased": 1,
+        "docxTableDataRowIndexOneBased": 1,
+        "pdfPhysicalPages": [
+          5
+        ],
+        "jsonPointer": "/secondary_candidates/0"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/first.json",
+      "rationale": "B补充信息、协调不同意见，较直接体现协作取向；A拍板分派作为同组较低合作投射端。原50是部分分，若把这道二选设计为题内相对两极，可改0/100；不是断言A绝对不合作。"
+    },
+    {
+      "number": 12,
+      "id": "QB236",
+      "code": "PF7",
+      "name": "计划与组织",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "如果两种角色都可以选择，开会时你更愿意承担哪一种？",
+      "questionText": "如果两种角色都可以选择，开会时你更愿意承担哪一种？\nA．拍板定方案、分派任务。\nB．补充信息、协调不同意见。",
+      "options": [
+        {
+          "key": "A",
+          "text": "拍板定方案、分派任务。"
+        },
+        {
+          "key": "B",
+          "text": "补充信息、协调不同意见。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        100,
+        50
+      ],
+      "scoresAfter": [
+        100,
+        0
+      ],
+      "weightBefore": 40,
+      "weightAfter": 40,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 2,
+        "appendixQuestionPosition": 1,
+        "docxTableIndexZeroBased": 1,
+        "docxTableDataRowIndexOneBased": 2,
+        "pdfPhysicalPages": [
+          5
+        ],
+        "jsonPointer": "/secondary_candidates/1"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/first.json",
+      "rationale": "A拍板分派体现组织主导，B补充协调在本组相对较低；若接受该投射且要求二选覆盖相对高低端，可改100/0。旧50部分分没有算错。"
+    },
+    {
+      "number": 18,
+      "id": "QB197",
+      "code": "PF5",
+      "name": "认知灵活性",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "当你有一份特别的任务，你更喜欢怎样开始？",
+      "questionText": "当你有一份特别的任务，你更喜欢怎样开始？\nA．先组织计划，把主要步骤安排清楚。\nB．先做小范围尝试，再根据实际情况安排后续步骤。",
+      "options": [
+        {
+          "key": "A",
+          "text": "先组织计划，把主要步骤安排清楚。"
+        },
+        {
+          "key": "B",
+          "text": "先做小范围尝试，再根据实际情况安排后续步骤。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        33.333333333333336,
+        100
+      ],
+      "scoresAfter": [
+        0,
+        100
+      ],
+      "weightBefore": 60,
+      "weightAfter": 60,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 3,
+        "appendixQuestionPosition": 2,
+        "docxTableIndexZeroBased": 2,
+        "docxTableDataRowIndexOneBased": 1,
+        "pdfPhysicalPages": [
+          5
+        ],
+        "jsonPointer": "/secondary_candidates/2"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/first.json",
+      "rationale": "A先计划、B先小试并根据实际安排，B相对更突出灵活尝试；按二选相对两极可由33.333/100改0/100。A仍可具有实际灵活性，本候选只改变题内对比量尺。"
+    },
+    {
+      "number": 18,
+      "id": "QB197",
+      "code": "PF7",
+      "name": "计划与组织",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "当你有一份特别的任务，你更喜欢怎样开始？",
+      "questionText": "当你有一份特别的任务，你更喜欢怎样开始？\nA．先组织计划，把主要步骤安排清楚。\nB．先做小范围尝试，再根据实际情况安排后续步骤。",
+      "options": [
+        {
+          "key": "A",
+          "text": "先组织计划，把主要步骤安排清楚。"
+        },
+        {
+          "key": "B",
+          "text": "先做小范围尝试，再根据实际情况安排后续步骤。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        100,
+        33.333333333333336
+      ],
+      "scoresAfter": [
+        100,
+        0
+      ],
+      "weightBefore": 60,
+      "weightAfter": 60,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 4,
+        "appendixQuestionPosition": 2,
+        "docxTableIndexZeroBased": 2,
+        "docxTableDataRowIndexOneBased": 2,
+        "pdfPhysicalPages": [
+          5
+        ],
+        "jsonPointer": "/secondary_candidates/3"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/first.json",
+      "rationale": "A先组织计划、B先试再排后续，A更突出事前规划；若分数表示此题相对高低端，100/33.333可改100/0，w60不变。"
+    },
+    {
+      "number": 21,
+      "id": "QB051",
+      "code": "PF7",
+      "name": "计划与组织",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "一项出差／外派工作预计还要延长4个月，职责和收入不变。我更想先了解：",
+      "questionText": "一项出差／外派工作预计还要延长4个月，职责和收入不变。我更想先了解：\nA．近期节点和任务怎么安排。\nB．人员后续职责与去向。\n请选择更接近自己的一个选项。",
+      "options": [
+        {
+          "key": "A",
+          "text": "近期节点和任务怎么安排。"
+        },
+        {
+          "key": "B",
+          "text": "人员后续职责与去向。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        100,
+        40
+      ],
+      "scoresAfter": [
+        100,
+        0
+      ],
+      "weightBefore": 20,
+      "weightAfter": 20,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 5,
+        "appendixQuestionPosition": 3,
+        "docxTableIndexZeroBased": 3,
+        "docxTableDataRowIndexOneBased": 1,
+        "pdfPhysicalPages": [
+          5
+        ],
+        "jsonPointer": "/secondary_candidates/4"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/first.json",
+      "rationale": "A先问近期节点/任务安排，B先问人员后续职责去向，按目前近程计划组织投射A较高；若本题有意把两种侧重当相对端点，可改100/40为100/0。B也含职责安排是保留40的旧设计理由，是否转端点由用户审议。"
+    },
+    {
+      "number": 24,
+      "id": "QB231",
+      "code": "PF7",
+      "name": "计划与组织",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "分配任务时，你更习惯：",
+      "questionText": "分配任务时，你更习惯：\nA．明确分工、定标准、定节点，按计划检查\nB．先听成员想法再协调分工，过程中灵活调整",
+      "options": [
+        {
+          "key": "A",
+          "text": "明确分工、定标准、定节点，按计划检查"
+        },
+        {
+          "key": "B",
+          "text": "先听成员想法再协调分工，过程中灵活调整"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        100,
+        33.333333333333336
+      ],
+      "scoresAfter": [
+        100,
+        0
+      ],
+      "weightBefore": 60,
+      "weightAfter": 60,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 6,
+        "appendixQuestionPosition": 4,
+        "docxTableIndexZeroBased": 4,
+        "docxTableDataRowIndexOneBased": 1,
+        "pdfPhysicalPages": [
+          6
+        ],
+        "jsonPointer": "/secondary_candidates/5"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/first.json",
+      "rationale": "A明确定分工标准节点并检查、B听成员想法后灵活协调，按原投射A的结构化计划更强；若二选相对两极为目标，100/33.333改100/0，仍保留B原有PF2/PF5归属。"
+    },
+    {
+      "number": 24,
+      "id": "QB231",
+      "code": "PF5",
+      "name": "认知灵活性",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "分配任务时，你更习惯：",
+      "questionText": "分配任务时，你更习惯：\nA．明确分工、定标准、定节点，按计划检查\nB．先听成员想法再协调分工，过程中灵活调整",
+      "options": [
+        {
+          "key": "A",
+          "text": "明确分工、定标准、定节点，按计划检查"
+        },
+        {
+          "key": "B",
+          "text": "先听成员想法再协调分工，过程中灵活调整"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        40,
+        100
+      ],
+      "scoresAfter": [
+        0,
+        100
+      ],
+      "weightBefore": 20,
+      "weightAfter": 20,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 7,
+        "appendixQuestionPosition": 4,
+        "docxTableIndexZeroBased": 4,
+        "docxTableDataRowIndexOneBased": 2,
+        "pdfPhysicalPages": [
+          6
+        ],
+        "jsonPointer": "/secondary_candidates/6"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/first.json",
+      "rationale": "B明确过程中灵活调整、A按既定计划检查，原方向B>A保持；40/100可在相对二极口径下改0/100。题维相关性继续只由w20表达。"
+    },
+    {
+      "number": 29,
+      "id": "QB195",
+      "code": "PF5",
+      "name": "认知灵活性",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "熟悉的做法仍能完成任务，但新信息提示另一种做法可能更合适。我更倾向：",
+      "questionText": "熟悉的做法仍能完成任务，但新信息提示另一种做法可能更合适。我更倾向：\nA．先按熟悉的做法完成这一轮，再研究是否调整。\nB．先小范围试另一种做法，再根据结果决定是否调整。\n选择更接近自己的一项。",
+      "options": [
+        {
+          "key": "A",
+          "text": "先按熟悉的做法完成这一轮，再研究是否调整。"
+        },
+        {
+          "key": "B",
+          "text": "先小范围试另一种做法，再根据结果决定是否调整。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        50,
+        100
+      ],
+      "scoresAfter": [
+        0,
+        100
+      ],
+      "weightBefore": 40,
+      "weightAfter": 40,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 8,
+        "appendixQuestionPosition": 5,
+        "docxTableIndexZeroBased": 5,
+        "docxTableDataRowIndexOneBased": 1,
+        "pdfPhysicalPages": [
+          6
+        ],
+        "jsonPointer": "/secondary_candidates/7"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/first.json",
+      "rationale": "B及时小试并依结果调整、A本轮沿熟悉法后研究，按原方向B的即时尝试倾向较高；若新增SJ1也审议为0/100，原PF5的50/100应列出同口径0/100候选，避免新旧映射采用不一致原则。"
+    },
+    {
+      "number": 36,
+      "id": "QB024",
+      "code": "学习成长",
+      "name": "工作价值观·学习成长",
+      "storageField": "values",
+      "weightField": "valueWeights",
+      "questionStem": "两种路径的基本工作条件相近，我更愿意：",
+      "questionText": "两种路径的基本工作条件相近，我更愿意：\nA．继续在熟悉的单位承担任务，积累更深入的经验。\nB．考虑不同单位的工作机会，积累更广的经验。\n必须二选一。",
+      "options": [
+        {
+          "key": "A",
+          "text": "继续在熟悉的单位承担任务，积累更深入的经验。"
+        },
+        {
+          "key": "B",
+          "text": "考虑不同单位的工作机会，积累更广的经验。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        50,
+        100
+      ],
+      "scoresAfter": [
+        0,
+        100
+      ],
+      "weightBefore": 80,
+      "weightAfter": 80,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 9,
+        "appendixQuestionPosition": 6,
+        "docxTableIndexZeroBased": 6,
+        "docxTableDataRowIndexOneBased": 1,
+        "pdfPhysicalPages": [
+          6
+        ],
+        "jsonPointer": "/secondary_candidates/8"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/middle.json",
+      "rationale": "按最新二选投射两端口径建议满幅；只改score，保留所有维度及原权重。此为候选文档，未实施。"
+    },
+    {
+      "number": 37,
+      "id": "QB227",
+      "code": "SJ2",
+      "name": "人际判断",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "团队开会讨论有分歧时，你通常：",
+      "questionText": "团队开会讨论有分歧时，你通常：\nA．主动发言，推动讨论形成结论\nB．先听各方观点，再在合适时机表达自己的看法",
+      "options": [
+        {
+          "key": "A",
+          "text": "主动发言，推动讨论形成结论"
+        },
+        {
+          "key": "B",
+          "text": "先听各方观点，再在合适时机表达自己的看法"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        66.66666666666667,
+        100
+      ],
+      "scoresAfter": [
+        0,
+        100
+      ],
+      "weightBefore": 30,
+      "weightAfter": 30,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 10,
+        "appendixQuestionPosition": 7,
+        "docxTableIndexZeroBased": 7,
+        "docxTableDataRowIndexOneBased": 1,
+        "pdfPhysicalPages": [
+          7
+        ],
+        "jsonPointer": "/secondary_candidates/9"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/middle.json",
+      "rationale": "按最新二选投射两端口径建议满幅；只改score，保留所有维度及原权重。此为候选文档，未实施。"
+    },
+    {
+      "number": 41,
+      "id": "QB246",
+      "code": "SJ1",
+      "name": "问题解决判断",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "合作方报的完成量比你的记录多，称有临时增加的工作未登记。核实差异时，你认为先：",
+      "questionText": "合作方报的完成量比你的记录多，称有临时增加的工作未登记。核实差异时，你认为先：\nA．请他列出增加内容和时间，逐项核对。\nD．核清工作范围与标准，再判断哪些需补证。",
+      "options": [
+        {
+          "key": "A",
+          "text": "请他列出增加内容和时间，逐项核对。"
+        },
+        {
+          "key": "D",
+          "text": "核清工作范围与标准，再判断哪些需补证。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "D"
+      ],
+      "scoresBefore": [
+        100,
+        66.66666666666667
+      ],
+      "scoresAfter": [
+        100,
+        0
+      ],
+      "weightBefore": 60,
+      "weightAfter": 60,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 11,
+        "appendixQuestionPosition": 8,
+        "docxTableIndexZeroBased": 8,
+        "docxTableDataRowIndexOneBased": 1,
+        "pdfPhysicalPages": [
+          7
+        ],
+        "jsonPointer": "/secondary_candidates/10"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/middle.json",
+      "rationale": "需另确认：本题为情境判断，原A/D都获部分正向分；若也按二选相对两端解释才采用。原key保留不是错误。"
+    },
+    {
+      "number": 41,
+      "id": "QB246",
+      "code": "SJ3",
+      "name": "规范判断",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "合作方报的完成量比你的记录多，称有临时增加的工作未登记。核实差异时，你认为先：",
+      "questionText": "合作方报的完成量比你的记录多，称有临时增加的工作未登记。核实差异时，你认为先：\nA．请他列出增加内容和时间，逐项核对。\nD．核清工作范围与标准，再判断哪些需补证。",
+      "options": [
+        {
+          "key": "A",
+          "text": "请他列出增加内容和时间，逐项核对。"
+        },
+        {
+          "key": "D",
+          "text": "核清工作范围与标准，再判断哪些需补证。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "D"
+      ],
+      "scoresBefore": [
+        83.33333333333333,
+        100
+      ],
+      "scoresAfter": [
+        0,
+        100
+      ],
+      "weightBefore": 60,
+      "weightAfter": 60,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 12,
+        "appendixQuestionPosition": 8,
+        "docxTableIndexZeroBased": 8,
+        "docxTableDataRowIndexOneBased": 2,
+        "pdfPhysicalPages": [
+          7
+        ],
+        "jsonPointer": "/secondary_candidates/11"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/middle.json",
+      "rationale": "需另确认：本题为情境判断，原A/D都获部分正向分；若也按二选相对两端解释才采用。原key保留不是错误。"
+    },
+    {
+      "number": 51,
+      "id": "QB185",
+      "code": "ST1",
+      "name": "职业承诺",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "已有经验能支持下一步发展，两条路径收入、投入相近。你更倾向：",
+      "questionText": "已有经验能支持下一步发展，两条路径收入、投入相近。你更倾向：\nA．转做另一类工作，结合旧经验与新领域。\nB．接更复杂的同类任务，继续补足专业细节。",
+      "options": [
+        {
+          "key": "A",
+          "text": "转做另一类工作，结合旧经验与新领域。"
+        },
+        {
+          "key": "B",
+          "text": "接更复杂的同类任务，继续补足专业细节。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        16.666666666666668,
+        100
+      ],
+      "scoresAfter": [
+        0,
+        100
+      ],
+      "weightBefore": 60,
+      "weightAfter": 60,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 13,
+        "appendixQuestionPosition": 9,
+        "docxTableIndexZeroBased": 9,
+        "docxTableDataRowIndexOneBased": 1,
+        "pdfPhysicalPages": [
+          7
+        ],
+        "jsonPointer": "/secondary_candidates/12"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/middle.json",
+      "rationale": "按最新二选投射两端口径建议满幅；只改score，保留所有维度及原权重。此为候选文档，未实施。"
+    },
+    {
+      "number": 51,
+      "id": "QB185",
+      "code": "PF5",
+      "name": "认知灵活性",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "已有经验能支持下一步发展，两条路径收入、投入相近。你更倾向：",
+      "questionText": "已有经验能支持下一步发展，两条路径收入、投入相近。你更倾向：\nA．转做另一类工作，结合旧经验与新领域。\nB．接更复杂的同类任务，继续补足专业细节。",
+      "options": [
+        {
+          "key": "A",
+          "text": "转做另一类工作，结合旧经验与新领域。"
+        },
+        {
+          "key": "B",
+          "text": "接更复杂的同类任务，继续补足专业细节。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        100,
+        33.333333333333336
+      ],
+      "scoresAfter": [
+        100,
+        0
+      ],
+      "weightBefore": 30,
+      "weightAfter": 30,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 14,
+        "appendixQuestionPosition": 9,
+        "docxTableIndexZeroBased": 9,
+        "docxTableDataRowIndexOneBased": 2,
+        "pdfPhysicalPages": [
+          7
+        ],
+        "jsonPointer": "/secondary_candidates/13"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/middle.json",
+      "rationale": "按最新二选投射两端口径建议满幅；只改score，保留所有维度及原权重。此为候选文档，未实施。"
+    },
+    {
+      "number": 62,
+      "id": "QB208",
+      "code": "SJ2",
+      "name": "人际判断",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "和别人交流时，我通常更先留意：",
+      "questionText": "和别人交流时，我通常更先留意：\nA．对方是否需要情感上的支持。\nB．对方的说法是否前后连贯。\n选择更接近自己的一项。",
+      "options": [
+        {
+          "key": "A",
+          "text": "对方是否需要情感上的支持。"
+        },
+        {
+          "key": "B",
+          "text": "对方的说法是否前后连贯。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        100,
+        85
+      ],
+      "scoresAfter": [
+        100,
+        0
+      ],
+      "weightBefore": 15,
+      "weightAfter": 15,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 15,
+        "appendixQuestionPosition": 10,
+        "docxTableIndexZeroBased": 10,
+        "docxTableDataRowIndexOneBased": 1,
+        "pdfPhysicalPages": [
+          8
+        ],
+        "jsonPointer": "/secondary_candidates/14"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/middle.json",
+      "rationale": "按最新二选投射两端口径建议满幅；只改score，保留所有维度及原权重。此为候选文档，未实施。"
+    },
+    {
+      "number": 64,
+      "id": "QB276",
+      "code": "MH1",
+      "name": "焦虑倾向",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。",
+      "questionText": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。\nA．躺下以后脑子停不下来，总在想白天的事。\nB．能睡着，但醒得太早，天没亮就再也睡不回去。\n选择：____",
+      "options": [
+        {
+          "key": "A",
+          "text": "躺下以后脑子停不下来，总在想白天的事。"
+        },
+        {
+          "key": "B",
+          "text": "能睡着，但醒得太早，天没亮就再也睡不回去。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        80,
+        20
+      ],
+      "scoresAfter": [
+        100,
+        0
+      ],
+      "weightBefore": 20,
+      "weightAfter": 20,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 16,
+        "appendixQuestionPosition": 11,
+        "docxTableIndexZeroBased": 11,
+        "docxTableDataRowIndexOneBased": 1,
+        "pdfPhysicalPages": [
+          8
+        ],
+        "jsonPointer": "/secondary_candidates/15"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/middle.json",
+      "rationale": "按最新二选投射两端口径建议满幅；只改score，保留所有维度及原权重。此为候选文档，未实施。"
+    },
+    {
+      "number": 64,
+      "id": "QB276",
+      "code": "MH3",
+      "name": "疲劳感倾向",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。",
+      "questionText": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。\nA．躺下以后脑子停不下来，总在想白天的事。\nB．能睡着，但醒得太早，天没亮就再也睡不回去。\n选择：____",
+      "options": [
+        {
+          "key": "A",
+          "text": "躺下以后脑子停不下来，总在想白天的事。"
+        },
+        {
+          "key": "B",
+          "text": "能睡着，但醒得太早，天没亮就再也睡不回去。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        50,
+        90
+      ],
+      "scoresAfter": [
+        0,
+        100
+      ],
+      "weightBefore": 20,
+      "weightAfter": 20,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 17,
+        "appendixQuestionPosition": 11,
+        "docxTableIndexZeroBased": 11,
+        "docxTableDataRowIndexOneBased": 2,
+        "pdfPhysicalPages": [
+          8
+        ],
+        "jsonPointer": "/secondary_candidates/16"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/middle.json",
+      "rationale": "按最新二选投射两端口径建议满幅；只改score，保留所有维度及原权重。此为候选文档，未实施。"
+    },
+    {
+      "number": 66,
+      "id": "QB207",
+      "code": "PF2",
+      "name": "合作性",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "当你不同意对方想法时，你更自然的沟通方式是：",
+      "questionText": "当你不同意对方想法时，你更自然的沟通方式是：\nA．先照顾对方感受，再逐步说明分歧。\nB．先把分歧和理由说清楚，再讨论如何协调。",
+      "options": [
+        {
+          "key": "A",
+          "text": "先照顾对方感受，再逐步说明分歧。"
+        },
+        {
+          "key": "B",
+          "text": "先把分歧和理由说清楚，再讨论如何协调。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        100,
+        33.333333333333336
+      ],
+      "scoresAfter": [
+        100,
+        0
+      ],
+      "weightBefore": 60,
+      "weightAfter": 60,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 18,
+        "appendixQuestionPosition": 12,
+        "docxTableIndexZeroBased": 12,
+        "docxTableDataRowIndexOneBased": 1,
+        "pdfPhysicalPages": [
+          8
+        ],
+        "jsonPointer": "/secondary_candidates/17"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/middle.json",
+      "rationale": "按最新二选投射两端口径建议满幅；只改score，保留所有维度及原权重。此为候选文档，未实施。"
+    },
+    {
+      "number": 66,
+      "id": "QB207",
+      "code": "PF4",
+      "name": "社会主动性",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "当你不同意对方想法时，你更自然的沟通方式是：",
+      "questionText": "当你不同意对方想法时，你更自然的沟通方式是：\nA．先照顾对方感受，再逐步说明分歧。\nB．先把分歧和理由说清楚，再讨论如何协调。",
+      "options": [
+        {
+          "key": "A",
+          "text": "先照顾对方感受，再逐步说明分歧。"
+        },
+        {
+          "key": "B",
+          "text": "先把分歧和理由说清楚，再讨论如何协调。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        33.333333333333336,
+        100
+      ],
+      "scoresAfter": [
+        0,
+        100
+      ],
+      "weightBefore": 60,
+      "weightAfter": 60,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 19,
+        "appendixQuestionPosition": 12,
+        "docxTableIndexZeroBased": 12,
+        "docxTableDataRowIndexOneBased": 2,
+        "pdfPhysicalPages": [
+          8
+        ],
+        "jsonPointer": "/secondary_candidates/18"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/middle.json",
+      "rationale": "按最新二选投射两端口径建议满幅；只改score，保留所有维度及原权重。此为候选文档，未实施。"
+    },
+    {
+      "number": 66,
+      "id": "QB207",
+      "code": "SJ2",
+      "name": "人际判断",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "当你不同意对方想法时，你更自然的沟通方式是：",
+      "questionText": "当你不同意对方想法时，你更自然的沟通方式是：\nA．先照顾对方感受，再逐步说明分歧。\nB．先把分歧和理由说清楚，再讨论如何协调。",
+      "options": [
+        {
+          "key": "A",
+          "text": "先照顾对方感受，再逐步说明分歧。"
+        },
+        {
+          "key": "B",
+          "text": "先把分歧和理由说清楚，再讨论如何协调。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        100,
+        66.66666666666667
+      ],
+      "scoresAfter": [
+        100,
+        0
+      ],
+      "weightBefore": 30,
+      "weightAfter": 30,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 20,
+        "appendixQuestionPosition": 12,
+        "docxTableIndexZeroBased": 12,
+        "docxTableDataRowIndexOneBased": 3,
+        "pdfPhysicalPages": [
+          8
+        ],
+        "jsonPointer": "/secondary_candidates/19"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/middle.json",
+      "rationale": "按最新二选投射两端口径建议满幅；只改score，保留所有维度及原权重。此为候选文档，未实施。"
+    },
+    {
+      "number": 70,
+      "id": "QB282",
+      "code": "MH1",
+      "name": "焦虑倾向",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。",
+      "questionText": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。\nA．一点小事就容易上火、不耐烦。\nB．不一定发火，但事后会反复想，停不下来。\n选择：____",
+      "options": [
+        {
+          "key": "A",
+          "text": "一点小事就容易上火、不耐烦。"
+        },
+        {
+          "key": "B",
+          "text": "不一定发火，但事后会反复想，停不下来。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        30,
+        80
+      ],
+      "scoresAfter": [
+        0,
+        100
+      ],
+      "weightBefore": 30,
+      "weightAfter": 30,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 21,
+        "appendixQuestionPosition": 13,
+        "docxTableIndexZeroBased": 13,
+        "docxTableDataRowIndexOneBased": 1,
+        "pdfPhysicalPages": [
+          9
+        ],
+        "jsonPointer": "/secondary_candidates/20"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/last.json",
+      "rationale": "两种计分意图须二选一：若现分表示两句各自的绝对程度（例如两者都较有困扰、都较低稳定性），保留原分；若本题只拟投射两类人的相对高低，而原分差缩小仅为表达关联有限，则用本候选相对端点，独立权重保持。这里0只代表本题相对低端，不能另解释成该体验完全不存在。不是从最大值不足100自动判错。"
+    },
+    {
+      "number": 70,
+      "id": "QB282",
+      "code": "MH4",
+      "name": "情绪调节困难倾向",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。",
+      "questionText": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。\nA．一点小事就容易上火、不耐烦。\nB．不一定发火，但事后会反复想，停不下来。\n选择：____",
+      "options": [
+        {
+          "key": "A",
+          "text": "一点小事就容易上火、不耐烦。"
+        },
+        {
+          "key": "B",
+          "text": "不一定发火，但事后会反复想，停不下来。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        80,
+        30
+      ],
+      "scoresAfter": [
+        100,
+        0
+      ],
+      "weightBefore": 30,
+      "weightAfter": 30,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 22,
+        "appendixQuestionPosition": 13,
+        "docxTableIndexZeroBased": 13,
+        "docxTableDataRowIndexOneBased": 2,
+        "pdfPhysicalPages": [
+          9
+        ],
+        "jsonPointer": "/secondary_candidates/21"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/last.json",
+      "rationale": "两种计分意图须二选一：若现分表示两句各自的绝对程度（例如两者都较有困扰、都较低稳定性），保留原分；若本题只拟投射两类人的相对高低，而原分差缩小仅为表达关联有限，则用本候选相对端点，独立权重保持。这里0只代表本题相对低端，不能另解释成该体验完全不存在。不是从最大值不足100自动判错。"
+    },
+    {
+      "number": 70,
+      "id": "QB282",
+      "code": "MH6",
+      "name": "紧张与压力反应",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。",
+      "questionText": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。\nA．一点小事就容易上火、不耐烦。\nB．不一定发火，但事后会反复想，停不下来。\n选择：____",
+      "options": [
+        {
+          "key": "A",
+          "text": "一点小事就容易上火、不耐烦。"
+        },
+        {
+          "key": "B",
+          "text": "不一定发火，但事后会反复想，停不下来。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        70,
+        60
+      ],
+      "scoresAfter": [
+        100,
+        0
+      ],
+      "weightBefore": 20,
+      "weightAfter": 20,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 23,
+        "appendixQuestionPosition": 13,
+        "docxTableIndexZeroBased": 13,
+        "docxTableDataRowIndexOneBased": 3,
+        "pdfPhysicalPages": [
+          9
+        ],
+        "jsonPointer": "/secondary_candidates/22"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/last.json",
+      "rationale": "两种计分意图须二选一：若现分表示两句各自的绝对程度（例如两者都较有困扰、都较低稳定性），保留原分；若本题只拟投射两类人的相对高低，而原分差缩小仅为表达关联有限，则用本候选相对端点，独立权重保持。这里0只代表本题相对低端，不能另解释成该体验完全不存在。不是从最大值不足100自动判错。"
+    },
+    {
+      "number": 78,
+      "id": "QB285",
+      "code": "MH5",
+      "name": "注意集中困难倾向",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。",
+      "questionText": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。\nA．刚交代、刚想好的事，转身就容易忘。\nB．不一定忘事，但总觉得心里发空、提不起劲。\n选择：____",
+      "options": [
+        {
+          "key": "A",
+          "text": "刚交代、刚想好的事，转身就容易忘。"
+        },
+        {
+          "key": "B",
+          "text": "不一定忘事，但总觉得心里发空、提不起劲。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        80,
+        20
+      ],
+      "scoresAfter": [
+        100,
+        0
+      ],
+      "weightBefore": 30,
+      "weightAfter": 30,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 24,
+        "appendixQuestionPosition": 14,
+        "docxTableIndexZeroBased": 14,
+        "docxTableDataRowIndexOneBased": 1,
+        "pdfPhysicalPages": [
+          9
+        ],
+        "jsonPointer": "/secondary_candidates/23"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/last.json",
+      "rationale": "两种计分意图须二选一：若现分表示两句各自的绝对程度（例如两者都较有困扰、都较低稳定性），保留原分；若本题只拟投射两类人的相对高低，而原分差缩小仅为表达关联有限，则用本候选相对端点，独立权重保持。这里0只代表本题相对低端，不能另解释成该体验完全不存在。不是从最大值不足100自动判错。"
+    },
+    {
+      "number": 78,
+      "id": "QB285",
+      "code": "MH2",
+      "name": "抑郁相关倾向",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。",
+      "questionText": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。\nA．刚交代、刚想好的事，转身就容易忘。\nB．不一定忘事，但总觉得心里发空、提不起劲。\n选择：____",
+      "options": [
+        {
+          "key": "A",
+          "text": "刚交代、刚想好的事，转身就容易忘。"
+        },
+        {
+          "key": "B",
+          "text": "不一定忘事，但总觉得心里发空、提不起劲。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        20,
+        80
+      ],
+      "scoresAfter": [
+        0,
+        100
+      ],
+      "weightBefore": 30,
+      "weightAfter": 30,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 25,
+        "appendixQuestionPosition": 14,
+        "docxTableIndexZeroBased": 14,
+        "docxTableDataRowIndexOneBased": 2,
+        "pdfPhysicalPages": [
+          9
+        ],
+        "jsonPointer": "/secondary_candidates/24"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/last.json",
+      "rationale": "两种计分意图须二选一：若现分表示两句各自的绝对程度（例如两者都较有困扰、都较低稳定性），保留原分；若本题只拟投射两类人的相对高低，而原分差缩小仅为表达关联有限，则用本候选相对端点，独立权重保持。这里0只代表本题相对低端，不能另解释成该体验完全不存在。不是从最大值不足100自动判错。"
+    },
+    {
+      "number": 78,
+      "id": "QB285",
+      "code": "PF6",
+      "name": "自驱与成就追求",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。",
+      "questionText": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。\nA．刚交代、刚想好的事，转身就容易忘。\nB．不一定忘事，但总觉得心里发空、提不起劲。\n选择：____",
+      "options": [
+        {
+          "key": "A",
+          "text": "刚交代、刚想好的事，转身就容易忘。"
+        },
+        {
+          "key": "B",
+          "text": "不一定忘事，但总觉得心里发空、提不起劲。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        70,
+        30
+      ],
+      "scoresAfter": [
+        100,
+        0
+      ],
+      "weightBefore": 15,
+      "weightAfter": 15,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 26,
+        "appendixQuestionPosition": 14,
+        "docxTableIndexZeroBased": 14,
+        "docxTableDataRowIndexOneBased": 3,
+        "pdfPhysicalPages": [
+          9
+        ],
+        "jsonPointer": "/secondary_candidates/25"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/last.json",
+      "rationale": "两种计分意图须二选一：若现分表示两句各自的绝对程度（例如两者都较有困扰、都较低稳定性），保留原分；若本题只拟投射两类人的相对高低，而原分差缩小仅为表达关联有限，则用本候选相对端点，独立权重保持。这里0只代表本题相对低端，不能另解释成该体验完全不存在。不是从最大值不足100自动判错。"
+    },
+    {
+      "number": 86,
+      "id": "QB284",
+      "code": "MH5",
+      "name": "注意集中困难倾向",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。",
+      "questionText": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。\nA．阅读资料、核对信息、听说明时容易走神，要反复确认。\nB．脑子转得比以前慢，决定难下，事情容易拖。\n选择：____",
+      "options": [
+        {
+          "key": "A",
+          "text": "阅读资料、核对信息、听说明时容易走神，要反复确认。"
+        },
+        {
+          "key": "B",
+          "text": "脑子转得比以前慢，决定难下，事情容易拖。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        80,
+        60
+      ],
+      "scoresAfter": [
+        100,
+        0
+      ],
+      "weightBefore": 30,
+      "weightAfter": 30,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 27,
+        "appendixQuestionPosition": 15,
+        "docxTableIndexZeroBased": 15,
+        "docxTableDataRowIndexOneBased": 1,
+        "pdfPhysicalPages": [
+          9
+        ],
+        "jsonPointer": "/secondary_candidates/26"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/last.json",
+      "rationale": "两种计分意图须二选一：若现分表示两句各自的绝对程度（例如两者都较有困扰、都较低稳定性），保留原分；若本题只拟投射两类人的相对高低，而原分差缩小仅为表达关联有限，则用本候选相对端点，独立权重保持。这里0只代表本题相对低端，不能另解释成该体验完全不存在。不是从最大值不足100自动判错。"
+    },
+    {
+      "number": 86,
+      "id": "QB284",
+      "code": "MH2",
+      "name": "抑郁相关倾向",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。",
+      "questionText": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。\nA．阅读资料、核对信息、听说明时容易走神，要反复确认。\nB．脑子转得比以前慢，决定难下，事情容易拖。\n选择：____",
+      "options": [
+        {
+          "key": "A",
+          "text": "阅读资料、核对信息、听说明时容易走神，要反复确认。"
+        },
+        {
+          "key": "B",
+          "text": "脑子转得比以前慢，决定难下，事情容易拖。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        10,
+        50
+      ],
+      "scoresAfter": [
+        0,
+        100
+      ],
+      "weightBefore": 15,
+      "weightAfter": 15,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 28,
+        "appendixQuestionPosition": 15,
+        "docxTableIndexZeroBased": 15,
+        "docxTableDataRowIndexOneBased": 2,
+        "pdfPhysicalPages": [
+          9
+        ],
+        "jsonPointer": "/secondary_candidates/27"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/last.json",
+      "rationale": "两种计分意图须二选一：若现分表示两句各自的绝对程度（例如两者都较有困扰、都较低稳定性），保留原分；若本题只拟投射两类人的相对高低，而原分差缩小仅为表达关联有限，则用本候选相对端点，独立权重保持。这里0只代表本题相对低端，不能另解释成该体验完全不存在。不是从最大值不足100自动判错。"
+    },
+    {
+      "number": 90,
+      "id": "QB286",
+      "code": "MH4",
+      "name": "情绪调节困难倾向",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。",
+      "questionText": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。\nA．情绪一上来，话会比较冲，事后有点后悔。\nB．情绪不一定外露，但自己心里憋得难受。\n选择：____",
+      "options": [
+        {
+          "key": "A",
+          "text": "情绪一上来，话会比较冲，事后有点后悔。"
+        },
+        {
+          "key": "B",
+          "text": "情绪不一定外露，但自己心里憋得难受。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        80,
+        60
+      ],
+      "scoresAfter": [
+        100,
+        0
+      ],
+      "weightBefore": 30,
+      "weightAfter": 30,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 29,
+        "appendixQuestionPosition": 16,
+        "docxTableIndexZeroBased": 16,
+        "docxTableDataRowIndexOneBased": 1,
+        "pdfPhysicalPages": [
+          10
+        ],
+        "jsonPointer": "/secondary_candidates/28"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/last.json",
+      "rationale": "两种计分意图须二选一：若现分表示两句各自的绝对程度（例如两者都较有困扰、都较低稳定性），保留原分；若本题只拟投射两类人的相对高低，而原分差缩小仅为表达关联有限，则用本候选相对端点，独立权重保持。这里0只代表本题相对低端，不能另解释成该体验完全不存在。不是从最大值不足100自动判错。"
+    },
+    {
+      "number": 90,
+      "id": "QB286",
+      "code": "MH6",
+      "name": "紧张与压力反应",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。",
+      "questionText": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。\nA．情绪一上来，话会比较冲，事后有点后悔。\nB．情绪不一定外露，但自己心里憋得难受。\n选择：____",
+      "options": [
+        {
+          "key": "A",
+          "text": "情绪一上来，话会比较冲，事后有点后悔。"
+        },
+        {
+          "key": "B",
+          "text": "情绪不一定外露，但自己心里憋得难受。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        60,
+        70
+      ],
+      "scoresAfter": [
+        0,
+        100
+      ],
+      "weightBefore": 20,
+      "weightAfter": 20,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 30,
+        "appendixQuestionPosition": 16,
+        "docxTableIndexZeroBased": 16,
+        "docxTableDataRowIndexOneBased": 2,
+        "pdfPhysicalPages": [
+          10
+        ],
+        "jsonPointer": "/secondary_candidates/29"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/last.json",
+      "rationale": "两种计分意图须二选一：若现分表示两句各自的绝对程度（例如两者都较有困扰、都较低稳定性），保留原分；若本题只拟投射两类人的相对高低，而原分差缩小仅为表达关联有限，则用本候选相对端点，独立权重保持。这里0只代表本题相对低端，不能另解释成该体验完全不存在。不是从最大值不足100自动判错。"
+    },
+    {
+      "number": 90,
+      "id": "QB286",
+      "code": "PF3",
+      "name": "情绪稳定性",
+      "storageField": "scores",
+      "weightField": "weights",
+      "questionStem": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。",
+      "questionText": "两句都可能有点像你，请选更接近自己的一句（必须二选一）。\nA．情绪一上来，话会比较冲，事后有点后悔。\nB．情绪不一定外露，但自己心里憋得难受。\n选择：____",
+      "options": [
+        {
+          "key": "A",
+          "text": "情绪一上来，话会比较冲，事后有点后悔。"
+        },
+        {
+          "key": "B",
+          "text": "情绪不一定外露，但自己心里憋得难受。"
+        }
+      ],
+      "optionKeys": [
+        "A",
+        "B"
+      ],
+      "scoresBefore": [
+        20,
+        40
+      ],
+      "scoresAfter": [
+        0,
+        100
+      ],
+      "weightBefore": 20,
+      "weightAfter": 20,
+      "source": {
+        "section": "附录一 其他二选映射的条件候选",
+        "appendixMappingPosition": 31,
+        "appendixQuestionPosition": 16,
+        "docxTableIndexZeroBased": 16,
+        "docxTableDataRowIndexOneBased": 3,
+        "pdfPhysicalPages": [
+          10
+        ],
+        "jsonPointer": "/secondary_candidates/30"
+      },
+      "crossCheckSource": "report_revision/semantic-audit-v210/last.json",
+      "rationale": "两种计分意图须二选一：若现分表示两句各自的绝对程度（例如两者都较有困扰、都较低稳定性），保留原分；若本题只拟投射两类人的相对高低，而原分差缩小仅为表达关联有限，则用本候选相对端点，独立权重保持。这里0只代表本题相对低端，不能另解释成该体验完全不存在。不是从最大值不足100自动判错。"
+    }
+  ],
+  "constraints": [
+    "Only these 36 score/value mappings change; all weights, dimension memberships, E/Q coefficients, timing costs and composite formulas stay unchanged.",
+    "The separate retired-options.json records the ten approved later option removals and preserves original keys, text and current-rule historical contributions.",
+    "Q25 SJ2 uses the approved semantic vector 75/100/0.",
+    "Original stored answers and timings are never recoded or rewritten."
+  ],
+  "baselineInvariantSha256": "9f083cc953c45dbd1f78f99e477145a91e2a181ada6d5bee258083c6c62964d6",
+  "invariantDefinition": "Canonical JSON with keys sorted; omit version, referenceProfile and per-question scoreText; replace only the 36 approved scoresAfter vectors with scoresBefore."
+}
