@@ -30,3 +30,11 @@
 .delta{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;white-space:nowrap;font-size:12px;font-weight:600;line-height:1.5;padding:3px 9px;border:1px solid var(--band-border,#dce1e5);border-radius:999px;color:var(--band-text,#52606d);background:var(--band-tint,#f1f3f5)}
 .metric-bar i{background:var(--band-accent,#86929e)}
 @media print{.delta,.metric-bar i{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+/* Report-4: four domains, with room for the ten-axis personality profile. */
+.domain-totals{grid-template-columns:repeat(3,minmax(0,1fr))}.radars{grid-template-columns:minmax(0,1fr)}.quality-total{grid-template-columns:minmax(0,1fr);max-width:660px}.radar-card:first-child{grid-column:auto}.radar-card-wide{grid-column:1/-1}.radar-card{min-width:0}.radar-card svg{max-width:660px}.radar-card-wide svg{max-width:660px}.radar-hint{padding:0 8px}.radar-legend{flex-wrap:wrap}
+@media(max-width:900px){.domain-totals{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.radars{grid-template-columns:1fr}.radar-card-wide{grid-column:auto}.radar-card{padding:18px 8px}.radar-card svg{min-height:0}.radar-card h3{font-size:16px}}
+@media(max-width:380px){.domain-totals{grid-template-columns:1fr}}
+
+.conclusion-cards .metric-foot{margin-top:14px}.total-card .conclusion-interpretation{font-size:14px;line-height:1.85;color:var(--ink);margin-top:17px}.report-summary{border:1px solid var(--line);border-radius:11px;background:#fff;padding:20px 24px;margin:22px 0}.report-summary .section-heading{margin:0 0 12px}.summary-overview{font-size:14px;line-height:1.9;margin:0;white-space:pre-line}

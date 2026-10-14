@@ -14,56 +14,101 @@
   "approvedReferenceContractSha256": "985f6bbb34547a59ef8153e72b19fe84d22cc3ae84d89704a9fcfce586e8570f",
   "validation": {
     "portableTests": {
-      "passed": 106,
+      "passed": 138,
       "failed": 0
     },
-    "hostedTests": {
-      "passed": 103,
-      "failed": 0
-    },
-    "hostedBuild": "passed",
-    "hostedESMValidation": "passed",
-    "portableProductionSyntax": "passed",
-    "browserPrintLayout": {
+    "serverPdfHTTP": {
       "status": "passed",
-      "baselinePages": 10,
-      "metrics": 28,
+      "permissionAndSecurityCases": 27,
+      "runs": 2,
+      "realHttpDownload": true
+    },
+    "downloadInterfaceVM": {
+      "status": "passed",
+      "cases": 15,
+      "realBrowserClick": "not tested"
+    },
+    "pdfGenerationTests": {
+      "status": "passed",
+      "cases": 3
+    },
+    "independentPdfQA": {
+      "status": "passed",
+      "syntheticAnswerVersions": [
+        "2.9",
+        "2.10",
+        "2.11"
+      ],
+      "standardPagesPerVersion": 10,
       "vectorRadars": 3,
-      "scope": "Current approved MH3 copy, baseline and all maximum-length known family fields, lossless long text, absent score dots, metrics, radars, five bands, loaded fonts, page bounds, footer clearance and orphan checks.",
-      "longTextPages": 19,
-      "unavailableHistoricalScorePages": 12,
-      "testedRendererRevision": "2.11-report-2",
-      "scopeNote": "Recorded layout validation from the previous renderer release; not a report-3 native browser PDF acceptance."
+      "radarAxes": [
+        5,
+        10,
+        6
+      ],
+      "currentDimensions": 24,
+      "scoresComparedByCode": "unchanged",
+      "overview": "Three conclusion cards and deterministic per-report summary; no overview triangle and no repeated total-score values",
+      "fontCodepointsPerWeight": 44810,
+      "fontGlyphsPerWeight": 44301
     },
-    "browserSavedPDF": {
-      "status": "unverified",
-      "reason": "The QA browser has printing disabled by its managed policy; native PDF saving was not executed."
+    "dockerBuild": {
+      "status": "not_run",
+      "reason": "No docker command in the implementation environment."
     },
-    "independentRenderer": {
-      "engine": "WeasyPrint 70",
-      "status": "partial",
-      "detail": "9 of 10 individual pages rendered with embedded Unicode fonts; radar-page grid hit a renderer-specific assertion. This is not browser PDF verification.",
-      "testedRendererRevision": "2.11-report-2"
-    },
-    "report3Regression": {
-      "status": "passed",
-      "scope": "Relative asset/font paths, versioned resource loading and template readiness/failure guards covered by unit/security regression tests; hosted build and ESM validation passed. Native browser PDF saving remains unverified."
-    }
+    "productionDeployment": "not performed",
+    "hostedWorker": "Not updated; the Python backend generator applies only to assessment-server."
   },
   "originalAnswers": "No database migrations or bulk record rewrites. Historical answer/timing rows remain immutable; current reports derive from original answers on read.",
   "excluded": [
     "Installed dependencies",
     "All real databases and account/session data",
     "Actual .env and secrets",
+    "All generated PDFs, user answers, QA inputs, extracted text and QA outputs",
     "VCS metadata",
-    "Hosted Site metadata and generated bundles"
+    "Hosted Site metadata and generated bundles",
+    "Python bytecode and caches"
   ],
-  "manifestScope": "Every packaged file except this manifest; the external release manifest hashes this file and the completed ZIP.",
+  "manifestScope": "Every publishable portable source file except this manifest; the publication checkpoint independently hashes the manifest and repository root README.",
+  "reportPresentationRevision": "2.11-report-4",
+  "printExport": {
+    "method": "Authenticated server-generated PDF attachment download",
+    "revision": "2.11-report-4",
+    "renderer": "Python 3 + ReportLab",
+    "standardSyntheticPages": 10,
+    "radars": 3,
+    "radarAxes": [
+      5,
+      10,
+      6
+    ],
+    "longText": "Lossless extra pages with automatic page numbering; headings omit continuation suffixes",
+    "content": "Selectable/searchable Unicode text and vector scores/radars; not screenshots",
+    "storage": "Memory-only generation; no public PDF links, stored PDF files or external PDF service",
+    "fonts": "Bundled OFL-derived TrueType fonts in report-pdf/fonts; backend-only reads, no runtime font download",
+    "routes": [
+      "GET /api/assessments/:id/pdf",
+      "GET /api/admin/assessments/:id/pdf"
+    ],
+    "overview": "Three conclusion cards and deterministic per-report summary"
+  },
+  "reportRendererRevision": "2.11-report-4",
+  "runtime": {
+    "node": ">=24.15.0 <25",
+    "python": "Python 3 executable as python3",
+    "pythonLibrary": "ReportLab",
+    "dockerPackages": [
+      "python3",
+      "python3-reportlab"
+    ],
+    "fontLicense": "report-pdf/fonts/LICENSE-Noto.txt",
+    "rebuildRequired": "docker compose up -d --build"
+  },
   "files": [
     {
       "path": ".dockerignore",
-      "bytes": 80,
-      "sha256": "86432f00fbbe9c80136b2d5b842d9305a4510cd66c93310324e30ce4b566e651"
+      "bytes": 99,
+      "sha256": "ea914f554fd34b78bcf8b46183438b6fd0fc492c79a9d136204fb6f061b22c4b"
     },
     {
       "path": ".env.example",
@@ -72,8 +117,8 @@
     },
     {
       "path": ".gitignore",
-      "bytes": 66,
-      "sha256": "6f0ec3b5a949ac3243425e6ae3dfe7a7b2b8dc37a1220126f7dc47d604ed5813"
+      "bytes": 86,
+      "sha256": "bfbd1802cca4ce7e1f0ed4c35a84d3014f43d1de9b0ba470a9c346faa5ed7efb"
     },
     {
       "path": "Caddyfile.example",
@@ -82,13 +127,13 @@
     },
     {
       "path": "Dockerfile",
-      "bytes": 579,
-      "sha256": "da2a4c023e1afb8e22d9f3ac835e52599ad807d5702f80ff59ff4fd3e51ae833"
+      "bytes": 780,
+      "sha256": "c25fcfff888d27f5e879114535816aae43eaa6123d1485d55f9e4b74c90ff7ae"
     },
     {
       "path": "README.md",
-      "bytes": 24610,
-      "sha256": "8d9b85a04e0c5d2c482d8786d712186efde2d114e982238a5da888ad88b9fb9a"
+      "bytes": 26919,
+      "sha256": "54691f16f3873d4fdb3082b7544c9ae99277dbf5b65f9fa9fa737c29be907fd8"
     },
     {
       "path": "account-id.js",
@@ -227,8 +272,8 @@
     },
     {
       "path": "private/report-presentation.json",
-      "bytes": 20440,
-      "sha256": "dbdabdf16f0db73b05d02f7a35174e963ef6785f3db01c572383359f2293922b"
+      "bytes": 20377,
+      "sha256": "3ad339061b86f96165707b3b49e549b13f0ff7bdde345bd2be88a127a180fb89"
     },
     {
       "path": "private/retired-options.json",
@@ -267,8 +312,8 @@
     },
     {
       "path": "public/app.js",
-      "bytes": 36877,
-      "sha256": "a0aff9ae2f46fe7ae57c31d1832eaaaa62130427286c9c5dba5101f21a402a77"
+      "bytes": 40749,
+      "sha256": "25570988c86e5b0e934886795c017c512e7ac6cf99888a987cafff95d9863e2d"
     },
     {
       "path": "public/fonts/LICENSE-Noto.txt",
@@ -287,8 +332,8 @@
     },
     {
       "path": "public/index.html",
-      "bytes": 1750,
-      "sha256": "a10de894fd1abefba99f980e7f605f226693d9eb88d3ff2285be5d31fb1d0c31"
+      "bytes": 910,
+      "sha256": "8f933eb3b989f94db2295364b66282107d3ed5279716ec95099dfe4dd9b1b6e3"
     },
     {
       "path": "public/report-print.css",
@@ -302,13 +347,43 @@
     },
     {
       "path": "public/style.css",
-      "bytes": 18436,
-      "sha256": "7b4babf23e13996d87407c49d608bc455e7c93ca831a90cf41a4195b90aa0f03"
+      "bytes": 19640,
+      "sha256": "d5f1c842708383c29093fb197125ac57f3a94618b7273056bd7ebe3b2387bec8"
+    },
+    {
+      "path": "report-pdf.js",
+      "bytes": 2512,
+      "sha256": "fb4fe8d8b76f7af034f50c9b81e1c72115e55c8724974dccd45c08e14ed4fc80"
+    },
+    {
+      "path": "report-pdf/fonts/DurenReportCJK-Bold.ttf",
+      "bytes": 12172944,
+      "sha256": "f45142834c99eeda35b0610028571c19585e59dce749a479944a72e65da71e92"
+    },
+    {
+      "path": "report-pdf/fonts/DurenReportCJK-Regular.ttf",
+      "bytes": 12386848,
+      "sha256": "cd107e5fafd8b5bbe742d65ea7666a61d26a1a4acd4791cf7ba0fb1c04e4b872"
+    },
+    {
+      "path": "report-pdf/fonts/LICENSE-Noto.txt",
+      "bytes": 14712,
+      "sha256": "849f4ea9c214fa4ac3593b770c699f387534b11ce671264c1b10d85bdcb5997b"
+    },
+    {
+      "path": "report-pdf/render_report.py",
+      "bytes": 17992,
+      "sha256": "2f3ddb5fe2325680880554350aeeead66b956fb3338275fade6460d21bb0c610"
     },
     {
       "path": "report-presentation.js",
-      "bytes": 5585,
-      "sha256": "41b0858d2cf3619ce6b58e206e37e6ec3a8d7b49c60d25907ae67571f0f0a85a"
+      "bytes": 5795,
+      "sha256": "7aa4157e49db0cf4b899413410c585ad1f8fefe06cdae8f8860617bee8cca835"
+    },
+    {
+      "path": "report-summary.js",
+      "bytes": 3970,
+      "sha256": "70a649db5e5c8ca56cdc717110785288fad2d22eca527185860d13a8de5dc9d2"
     },
     {
       "path": "scoring.js",
@@ -317,13 +392,13 @@
     },
     {
       "path": "scripts/build-report-fonts.py",
-      "bytes": 1677,
-      "sha256": "18bedd560e9e912a4502ad0a417f423ec8063a6a1d96ee58059c3c68d25b3fcc"
+      "bytes": 1863,
+      "sha256": "bf8c9fcd9a6c3ae8492dabd67e4a7c0ff46aafdfc7c82c935c820c5c07b66713"
     },
     {
       "path": "server.js",
-      "bytes": 14347,
-      "sha256": "7e1cac3b71167ae0f58002d045876bc1c51bdcad64cf8de9f8cc8c8860d61c32"
+      "bytes": 15920,
+      "sha256": "bbfdc7d55a1453ec25159812e38614f4d7a75d25a55ba9ba94a7406e53acf217"
     },
     {
       "path": "start.sh",
@@ -377,8 +452,8 @@
     },
     {
       "path": "test/fixtures/synthetic-assumed-v2.11-40.json",
-      "bytes": 1588882,
-      "sha256": "ef80de0132c9308d0645547b306582d4069f253b24b98ebe28a83c3e264a36fe"
+      "bytes": 1628971,
+      "sha256": "eb9eb0fc01050454f834665e65cffdcbb48af7628f3f37bf9ad2c79448b9b4ce"
     },
     {
       "path": "test/fixtures/synthetic-v2.11-reanswer-assumptions.json",
@@ -392,8 +467,8 @@
     },
     {
       "path": "test/frontend.test.js",
-      "bytes": 27191,
-      "sha256": "5c3f45b462af00c1e69ffad3fbe32e670d00454e8dc3f834da57a50f4efa6359"
+      "bytes": 30910,
+      "sha256": "3d9b24a26c991baa0a990b10c797c08975a5777c808d48c2d3a2736e1f39d732"
     },
     {
       "path": "test/legacy-helpers.js",
@@ -404,6 +479,11 @@
       "path": "test/password.test.js",
       "bytes": 1499,
       "sha256": "653f19e0e0512c44d6e98a97b95a5a921e19d60d829f365f5ca64ab341bb4bab"
+    },
+    {
+      "path": "test/pdf-download-ui.test.js",
+      "bytes": 7169,
+      "sha256": "369ac5dbe1941acb4367c3b98f94f01f3e468589b9152f765786e71246c855ae"
     },
     {
       "path": "test/private-answer-evidence.test.cjs",
@@ -421,14 +501,29 @@
       "sha256": "23fcc304e8180faa13d33d68e296c11ff5cfee73e4d7e0c141fb6473cba7dec1"
     },
     {
+      "path": "test/report-pdf-api.test.js",
+      "bytes": 11039,
+      "sha256": "00a0d5826e6ae48040df4edf17a115b8f9d96d76476194254f5cb754b54990b7"
+    },
+    {
+      "path": "test/report-pdf-render.test.js",
+      "bytes": 5604,
+      "sha256": "a298a539822d34a3141fdecb0e41f6d6f479320c910e13acc32008712ea6cbc6"
+    },
+    {
       "path": "test/report-presentation.test.js",
       "bytes": 5602,
       "sha256": "12775da757f0a81014d2da165bd3407dabae38956fb8b4da2d28fcbb6c13b7e2"
     },
     {
       "path": "test/report-print.test.js",
-      "bytes": 9892,
-      "sha256": "244a306bf8f835a264b76d1a12738fb431107d405c339c8a125f717c491ab4c4"
+      "bytes": 9150,
+      "sha256": "1aaa4af61ecf1ae1d4e3af04712e3feeb866294470afdbfc875345dd57cafe7b"
+    },
+    {
+      "path": "test/report-summary.test.js",
+      "bytes": 3031,
+      "sha256": "8f921dc73a43a97d501dd26ebd0683e675cdf7c8a5c995f57a5cc6279f2d71f3"
     },
     {
       "path": "test/stored-report.test.js",
@@ -460,17 +555,5 @@
       "bytes": 2938,
       "sha256": "0cabc35cf87b5856cfda240dc6f22042c02e1b31b2c3cd72ff381dc3870637e8"
     }
-  ],
-  "reportPresentationRevision": "2.11-report-2",
-  "printExport": {
-    "method": "Browser-native A4 print / Save as PDF",
-    "baselinePages": 10,
-    "longText": "Lossless continuation pages",
-    "storage": "No server-side PDF storage or external PDF service",
-    "fontLoading": "Starts only when opening a report; questionnaire and page-save flow do not load report fonts.",
-    "rendererRevision": "2.11-report-3",
-    "assetPaths": "Relative URLs support root and subpath hosting; front-end resources share a version token.",
-    "readiness": "Printing is blocked until the matching report script, stylesheet and fonts are ready; normal webpage content is hidden from unready print flows."
-  },
-  "reportRendererRevision": "2.11-report-3"
+  ]
 }

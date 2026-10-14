@@ -158,9 +158,9 @@ test('queued writes keep their original owner header after account context chang
 
 
 test('report cards and radar show Chinese names and explanations without codes or representative answers',async()=>{
- const {T,node}=await harness();const report=calculateReport(T.state.answers,T.state.seconds);T.showReport({version:'2.9',createdAt:new Date().toISOString(),report});const html=node('main').innerHTML;assert.match(html,/职业性格匹配度/);assert.match(html,/心理问题倾向/);assert.match(html,/较高：/);assert.match(html,/较低：/);assert.doesNotMatch(html,/>[^<]*(?:PF[1-7]|ST[1-3]|MH[1-6]|RV[1-3]|SJ[1-3])[^<]*</);assert.doesNotMatch(html,/data-action="dimension"|典型回答|查看典型/);
- for(const row of [...report.totals,...report.dimensions])for(const key of ['definition','highMeaning','lowMeaning'])assert.ok(html.includes(row[key]),row.code+'.'+key+' renders in its report card');
- const radar=T.radar('完整中文维度',report.dimensions.filter(x=>x.code.startsWith('PF')));assert.match(radar,/<tspan/);assert.match(radar,/自驱与成就追求/);assert.doesNotMatch(radar,/PF[1-7]/);
+ const {T,node}=await harness();const report=calculateReport(T.state.answers,T.state.seconds);T.showReport({version:'2.9',createdAt:new Date().toISOString(),report});const html=node('main').innerHTML;assert.match(html,/<h3>职业性格<\/h3>/);assert.match(html,/<h3>心理困扰倾向<\/h3>/);assert.match(html,/较高：/);assert.match(html,/较低：/);assert.doesNotMatch(html,/>[^<]*(?:PF[1-7]|ST[1-3]|MH[1-6]|RV[1-3]|SJ[1-3])[^<]*</);assert.doesNotMatch(html,/data-action="dimension"|典型回答|查看典型/);
+ for(const row of [...report.totals.filter(v=>v.code==='RV'),...report.dimensions])for(const key of ['definition','highMeaning','lowMeaning'])assert.ok(html.includes(row[key]),row.code+'.'+key+' renders in its report card');
+ const radar=T.radar('完整中文维度',report.dimensions.filter(x=>x.code.startsWith('PF')));assert.match(radar,/<tspan/);assert.match(radar,/主动进取/);assert.doesNotMatch(radar,/PF[1-7]/);
 });
 
 test('admin answer details show every original question with escaped owner and free text',async()=>{
@@ -183,9 +183,9 @@ test('all five score bands color total and dimension badges and bars without cha
   assert.match(html,/参照中心 54\.5<br>参照区间 45\.5—63\.5/);
   assert.equal(JSON.stringify(row),before);
  }
- const report={totals:rows,dimensions:rows,family:[],facts:{},answered:80,total:80},before=JSON.stringify(report);
+ const report={totals:rows.slice(0,4).map((row,i)=>({...row,code:['ST','PF','MH','RV'][i]})),dimensions:rows,family:[],facts:{},answered:80,total:80},before=JSON.stringify(report);
  T.showReport({version:'2.9',createdAt:'2026-10-12T00:00:00Z',report});
- for(const [label,band] of scoreBands)assert.equal(node('main').innerHTML.split(`<span class="delta score-band-${band}">${label}</span>`).length-1,2);
+ for(const [i,[label,band]] of scoreBands.entries())assert.equal(node('main').innerHTML.split(`<span class="delta score-band-${band}">${label}</span>`).length-1,i<4?2:1);
  assert.match(node('main').innerHTML,/颜色仅区分得分档位，高低分的具体含义请结合各项说明。/);
  assert.equal(JSON.stringify(report),before);
 });
@@ -285,7 +285,7 @@ test('work value cards and radar replace the combined point, with Chinese labels
  assert.doesNotMatch(html,/>[^<]*(?:WV_STABILITY|WV_GROWTH|WV_REWARD|ST3)[^<]*</);
  const radar=T.radar('工作投入与情境判断',report.dimensions.filter(row=>/^(ST|SJ|WV_)/.test(row.code)));
  assert.equal((radar.match(/<circle /g)||[]).length,8);for(const name of names)assert.ok(radar.includes('<title>'+name+'</title>'));assert.doesNotMatch(radar,/<title>工作价值观<\/title>/);
- const missing={...report,dimensions:report.dimensions.filter(row=>!row.code.startsWith('WV_')),workValuePreferences:null,workValueNotice:'',workValueUnavailable:'本记录缺少可兼容的完整作答，暂无法展示工作价值观分项。'};
+ const missing={...report,reportSummary:undefined,dimensions:report.dimensions.filter(row=>!row.code.startsWith('WV_')),workValuePreferences:null,workValueNotice:'',workValueUnavailable:'本记录缺少可兼容的完整作答，暂无法展示工作价值观分项。'};
  T.showReport({version:'2.9',createdAt:'2026-10-12T00:00:00Z',report:missing});assert.match(node('main').innerHTML,/暂无法展示工作价值观分项/);for(const name of names)assert.ok(!node('main').innerHTML.includes(name));
 });
 
@@ -312,9 +312,35 @@ test('employment report and print content show exact answers, labeled slots and 
  T.showReport({version:'2.9',createdAt:'2026-10-12T00:00:00Z',report:base});const legacy=node('main').innerHTML.split('<h2>工作经历</h2>')[1].split('<h2>家庭与支持信息</h2>')[0];assert.match(legacy,/已记录的在职月数：60个月/);assert.match(legacy,/原记录未保留各段对应关系/);assert.match(legacy,/最近一段状态：原记录未保留/);assert.doesNotMatch(legacy,/最近一段：60个月|上一段：/);
  base.employmentAnswers={source:'completion',employersText:'<img src=x onerror=alert(1)>',tenure:{noExperience:false,months:['<svg onload=alert(1)>',0,36],status:'<script>alert(1)</script>',recordedMonths:[]}};
  T.showReport({version:'2.9',createdAt:'2026-10-12T00:00:00Z',report:base});assert.doesNotMatch(node('main').innerHTML,/<img src=x|<svg onload|<script>alert/);assert.match(node('main').innerHTML,/&lt;script&gt;/);
- const client=fs.readFileSync(new URL('../public/app.js',import.meta.url),'utf8');assert.doesNotMatch(client,/事实稳定性分|事实持续性分|工作经历事实参照/);assert.match(client,/window\.print\(\)/);
+ const client=fs.readFileSync(new URL('../public/app.js',import.meta.url),'utf8');assert.doesNotMatch(client,/事实稳定性分|事实持续性分|工作经历事实参照/);assert.match(client,/async function downloadPDF\(/);assert.doesNotMatch(client,/window\.print\(\)/);
 });
 
 test('historical partial report clearly separates answer/scoring versions and never displays unavailable scores as zero',async()=>{
  const {T,node}=await harness(),r=calculateReport(T.state.answers,T.state.seconds);r.answerVersion='2.9';r.scoringVersion='2.11';r.rescoringStatus='partial';r.rescoringNotice='第41题含旧选项，相关指标无法完整重算。';const metric=r.dimensions.find(v=>v.code==='SJ1');metric.score=null;metric.raw=null;metric.label='无法重算';metric.unavailableReason='当前题库没有该旧选项映射，原始答案未改写。';T.showReport({version:'2.9',createdAt:'2026-10-12T00:00:00Z',report:r});const html=node('main').innerHTML;assert.match(html,/答卷 V2.9 · 计分 V2.11/);assert.match(html,/第41题含旧选项，相关指标无法完整重算/);assert.match(html,/无法重算/);assert.match(html,/当前题库没有该旧选项映射，原始答案未改写/);const card=html.split('<h3>'+metric.name+'</h3>')[1].split('</article>')[0];assert.doesNotMatch(card,/>0(?:\.0)?<\/b>/);
+});
+
+test('report-4 orders conclusion summary then four domains, with three domain radars and unchanged metric values',async()=>{
+ const {T,node}=await harness();
+ const codeGroups=[['ST1','ST2','WV_STABILITY','WV_GROWTH','WV_REWARD'],['PF1','PF2','PF3','PF4','PF5','PF6','PF7','SJ1','SJ2','SJ3'],['MH1','MH2','MH3','MH4','MH5','MH6'],['RV1','RV2','RV3']];
+ const row=(code,i)=>({code,name:'名称'+code,score:40+i,mean:50,lower:35,upper:65,label:'平均',definition:'定义'+code,highMeaning:'高分'+code,lowMeaning:'低分'+code});
+ const report={totals:['ST','PF','MH','RV'].map(row),dimensions:codeGroups.flat().map(row),family:[],answered:89,total:89,workValueNotice:'工作价值观限制',workValueDerivationNotice:'推导限制',interpretationNotes:['整体限制']},before=JSON.stringify(report);
+ T.showReport({id:'test',version:'2.11',createdAt:'2026-10-14T00:00:00Z',report});const html=node('main').innerHTML;
+ assert.equal((html.match(/<svg /g)||[]).length,3);assert.equal((html.match(/class="metric-card"/g)||[]).length,24);assert.equal((html.match(/class="total-card"/g)||[]).length,4);
+ const sections=html.split('<section class="report-domain">');assert.equal(sections.length,5);
+ assert.match(sections[0],/本次总体概述/);assert.doesNotMatch(sections[0],/<svg|综合指标概览|图形面积/);assert.doesNotMatch(sections[0],/名称RV/);
+ for(const [i,title] of ['职业稳定性','职业性格','心理困扰倾向','掩饰性与作答质量'].entries()){
+  const section=sections[i+1];assert.match(section,new RegExp('<h2>'+title+'</h2>'));assert.equal((section.match(/<svg /g)||[]).length,i<3?1:0);assert.equal((section.match(/class="metric-card"/g)||[]).length,codeGroups[i].length);
+  for(const code of codeGroups[i])assert.ok(section.includes('<h3>名称'+code+'</h3>'));
+ }
+ assert.match(sections[1],/工作价值观限制/);assert.match(sections[1],/推导限制/);assert.match(sections[2],/radar-card-wide/);assert.match(sections[4],/名称RV<\/h3>/);assert.match(html,/整体限制/);assert.equal(JSON.stringify(report),before);
+ const css=fs.readFileSync(new URL('../public/style.css',import.meta.url),'utf8');assert.match(css,/@media\(max-width:650px\)\{\.radars\{grid-template-columns:1fr\}/);
+});
+
+test('conclusion cards use server interpretations once, escape summary prose and keep original values',async()=>{
+ const {T,node}=await harness();const r=calculateReport(T.state.answers,T.state.seconds);
+ r.reportSummary={cards:['ST','PF','MH'].map(code=>({code,interpretation:'解读'+code+'<script>bad()</script>'})),overview:'本次动态概述<img src=x onerror=bad>\n依据实际得分'};const before=JSON.stringify(r);
+ T.showReport({id:'summary-test',version:'2.11',createdAt:'2026-10-14T00:00:00Z',report:r});const overview=node('main').innerHTML.split('<section class="report-domain">')[0];
+ assert.equal((overview.match(/data-conclusion=/g)||[]).length,3);assert.equal((overview.match(/class="big-score"/g)||[]).length,3);assert.equal((overview.match(/class="delta /g)||[]).length,3);assert.doesNotMatch(overview,/<svg|<script>|<img|较高：|较低：/);
+ for(const code of ['ST','PF','MH']){assert.equal(overview.split('解读'+code).length-1,1);assert.match(overview,/&lt;script&gt;bad/);const total=r.totals.find(row=>row.code===code);assert.ok(overview.includes(total.score.toFixed(1)+'<small>/ 100</small>'));}
+ assert.match(overview,/本次动态概述&lt;img src=x onerror=bad&gt;/);assert.match(overview,/依据实际得分/);assert.equal(JSON.stringify(r),before);
 });

@@ -36,19 +36,14 @@ test('font assets and print CSS are same-origin and A4, with all report content 
  const css=fs.readFileSync(new URL('../public/report-print.css',import.meta.url),'utf8');assert.match(css,/@page\{size:A4 portrait;margin:0\}/);assert.match(css,/print-color-adjust:exact/);assert.match(css,/report-print-available/);assert.doesNotMatch(css,/https?:\/\//);
  for(const weight of ['Regular','Bold'])assert.equal(fs.readFileSync(new URL('../public/fonts/NotoSansCJKsc-'+weight+'.woff2',import.meta.url)).subarray(0,4).toString(),'wOF2');
  assert.match(fs.readFileSync(new URL('../public/fonts/LICENSE-Noto.txt',import.meta.url),'utf8'),/SIL OPEN FONT LICENSE/);
- const app=fs.readFileSync(new URL('../public/app.js',import.meta.url),'utf8');assert.match(app,/await window\.AssessmentPrint\.ready\(\);window\.print\(\)/);assert.match(app,/if\(next!=='report'\)\{report=null;window\.AssessmentPrint\?\.clear\(\)/);
+ const app=fs.readFileSync(new URL('../public/app.js',import.meta.url),'utf8');assert.doesNotMatch(app,/window\.print|AssessmentPrint/);assert.match(app,/async function downloadPDF\(/);
 });
-test('report-3 assets are versioned and resolve fonts under root or subpath deployments',()=>{
- const html=fs.readFileSync(new URL('../public/index.html',import.meta.url),'utf8'),css=fs.readFileSync(new URL('../public/report-print.css',import.meta.url),'utf8');
- assert.equal(renderer.version,'2.11-report-3');
- for(const file of ['style.css','report-print.css','report-print.js','app.js'])assert.ok(html.includes(`./${file}?v=2.11-report-3`),file);
- for(const root of ['https://example.test/','https://example.test/ceping202610/']){
-  const sheet=new URL('./report-print.css?v=2.11-report-3',root);
-  for(const match of css.matchAll(/url\('([^']+)'\)/g))assert.equal(new URL(match[1],sheet).pathname,new URL('fonts/'+match[1].split('/').at(-1),root).pathname);
- }
- assert.match(html,/id="report-print-safety"/);assert.match(html,/body:not\(\.report-print-ready\) #assessment-print-root\{display:none!important\}/);assert.match(html,/独立报告尚未准备好，已停止打印网页/);
- assert.match(source,/getPropertyValue\('--report-template-version'\)/);assert.match(css,/--report-template-version:2\.11-report-3/);
- const app=fs.readFileSync(new URL('../public/app.js',import.meta.url),'utf8');assert.match(app,/AssessmentPrint\?\.version!=='2\.11-report-3'/);
+test('report-4 client only loads screen assets and downloads server PDFs',()=>{
+ const html=fs.readFileSync(new URL('../public/index.html',import.meta.url),'utf8');
+ for(const file of ['style.css','app.js'])assert.ok(html.includes(`./${file}?v=2.11-report-4`),file);
+ assert.doesNotMatch(html,/report-print|AssessmentPrint|打印窗口/);
+ const app=fs.readFileSync(new URL('../public/app.js',import.meta.url),'utf8');assert.doesNotMatch(app,/window\.print|AssessmentPrint|另存为 PDF|打印 \/ 导出 PDF/);
+ assert.equal((app.match(/data-action="downloadPDF">导出PDF/g)||[]).length,2);
 });
 
 function lifecycleHarness({cssVersion='2.11-report-3',fontFailure=false}={}){

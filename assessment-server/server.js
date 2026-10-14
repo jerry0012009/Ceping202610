@@ -2,6 +2,7 @@ import express from 'express';
 import {answerDetails} from './answer-details.js';
 import {createStoredReport,readStoredReport} from './stored-report.js';
 import {presentReport} from './report-presentation.js';
+import {generateReportPdf,pdfDisposition,PDF_REVISION} from './report-pdf.js';
 import helmet from 'helmet';
 import {rateLimit} from 'express-rate-limit';
 import {betterAuth} from 'better-auth';
@@ -82,6 +83,25 @@ export async function createApplication(env=process.env){
  });
  const serialize=row=>({id:row.id,version:row.version,createdAt:row.created_at,report:readStoredReport(row)});
  app.get('/api/assessments/:id',(req,res)=>{const row=db.prepare('SELECT * FROM assessments WHERE id=? AND user_id=?').get(req.params.id,req.user.id);if(!row)return res.status(404).json({error:'记录不存在'});res.json(serialize(row));});
+ // Export only the same server-recalculated presentation used by history views.
+ const sendPdf=async(req,res,row,owner,onSuccess)=>{
+  if(!row)return res.status(404).json({error:'记录不存在'});
+  if(req.get('X-Assessment-Owner')&&req.get('X-Assessment-Owner')!==req.user.id)return res.status(401).json({error:'登录账户已切换，请重新登录后继续。'});
+  const saved={...serialize(row),owner};
+  const controller=new AbortController();
+  const closed=()=>{if(!res.writableEnded)controller.abort();};
+  res.once('close',closed);
+  try{
+   const pdf=await generateReportPdf(saved,{signal:controller.signal});
+   if(controller.signal.aborted)return;
+   onSuccess?.();
+   res.set({'Content-Type':'application/pdf','Content-Disposition':pdfDisposition(saved),'Cache-Control':'no-store','X-Report-Export-Version':PDF_REVISION}).send(pdf);
+  }finally{res.removeListener('close',closed);}
+ };
+ app.get('/api/assessments/:id/pdf',async(req,res)=>{
+  const row=db.prepare('SELECT * FROM assessments WHERE id=? AND user_id=?').get(req.params.id,req.user.id);
+  await sendPdf(req,res,row,{name:req.user.name,email:req.user.email});
+ });
  const audit=(adminId,action,assessmentId=null)=>db.prepare('INSERT INTO admin_audit VALUES (?,?,?,?,?)').run(randomUUID(),adminId,action,assessmentId,new Date().toISOString());
  app.use('/api/admin',(req,res,next)=>{if(!adminUserId||req.user.id!==adminUserId)return res.status(403).json({error:'无权查看此页面'});next();});
  app.get('/api/admin/assessments',(req,res)=>{
@@ -93,6 +113,10 @@ export async function createApplication(env=process.env){
   const row=db.prepare('SELECT a.*,u.id AS ownerId,u.name AS ownerName,u.email AS ownerEmail FROM assessments a JOIN user u ON u.id=a.user_id WHERE a.id=?').get(req.params.id);
   if(!row)return res.status(404).json({error:'记录不存在'});
   audit(req.user.id,'view',row.id);res.json({...serialize(row),owner:{id:row.ownerId,name:row.ownerName,email:row.ownerEmail}});
+ });
+ app.get('/api/admin/assessments/:id/pdf',async(req,res)=>{
+  const row=db.prepare('SELECT a.*,u.name AS ownerName,u.email AS ownerEmail FROM assessments a JOIN user u ON u.id=a.user_id WHERE a.id=?').get(req.params.id);
+  await sendPdf(req,res,row,row?{name:row.ownerName,email:row.ownerEmail}:null,()=>audit(req.user.id,'export-pdf',row.id));
  });
  app.get('/api/admin/assessments/:id/answers',(req,res)=>{
   const row=db.prepare('SELECT a.*,u.id AS ownerId,u.name AS ownerName,u.email AS ownerEmail FROM assessments a JOIN user u ON u.id=a.user_id WHERE a.id=?').get(req.params.id);

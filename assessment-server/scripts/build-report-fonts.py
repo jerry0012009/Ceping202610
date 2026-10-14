@@ -1,23 +1,32 @@
-"""Optional font-asset regeneration. Runtime/build does not require Python.
-Requires fonttools[woff] and official Noto CJK installed locally; SIL OFL 1.1.
-The regular font covers arbitrary CJK entered text. Bold needs only authored
-headings/labels; free text and names are rendered in the full regular face.
+"""One-time maintainer utility. Not needed when running the application.
+Convert locally installed OFL Noto Sans CJK SC outlines into TrueType for ReportLab.
+Keeps the complete Unicode cmap, not a subset of any user's answers.
+Requires fonttools; Debian source package: fonts-noto-cjk.
 """
 from pathlib import Path
-import argparse
-from fontTools import subset
 from fontTools.ttLib import TTFont
-parser=argparse.ArgumentParser();parser.add_argument('--font-dir',default='/usr/share/fonts/opentype/noto');parser.add_argument('--license',default='/usr/share/doc/fonts-noto-cjk/copyright');args=parser.parse_args()
-root=Path(__file__).resolve().parents[1];out=root/'public/fonts';out.mkdir(exist_ok=True)
-corpus=''.join((root/p).read_text() for p in ['public/report-print.js','private/report-presentation.json','public/app.js'])
-for weight in ['Regular','Bold']:
- dest=out/f'NotoSansCJKsc-{weight}.woff2'
- if weight=='Regular' and dest.exists():continue
- font=TTFont(Path(args.font_dir)/f'NotoSansCJK-{weight}.ttc',fontNumber=2)
- opts=subset.Options();opts.layout_features=[];opts.name_IDs=['*'];opts.name_languages=['*'];opts.recalc_timestamp=False
- s=subset.Subsetter(options=opts)
- if weight=='Regular':
-  codes=[x for x in font.getBestCmap() if x<=0x052f or 0x2000<=x<=0x206f or 0x2e80<=x<=0x9fff or 0xf900<=x<=0xfaff or 0xfe00<=x<=0xffef or 0x20000<=x<=0x2ffff]
- else:codes=set(map(ord,corpus))|set(range(0x20,0x250))|set(range(0x2000,0x2070))|set(range(0xff00,0xfff0))
- s.populate(unicodes=codes);s.subset(font);font.flavor='woff2';font.save(dest);print(dest.name,dest.stat().st_size)
-(out/'LICENSE-Noto.txt').write_text(Path(args.license).read_text())
+from fontTools.fontBuilder import FontBuilder
+from fontTools.pens.ttGlyphPen import TTGlyphPen
+from fontTools.pens.cu2quPen import Cu2QuPen
+out = Path(__file__).resolve().parents[1] / 'report-pdf/fonts'
+for weight in ['Regular', 'Bold']:
+    source = TTFont('/usr/share/fonts/opentype/noto/NotoSansCJK-' + weight + '.ttc', fontNumber=2)
+    cmap = source.getBestCmap()
+    names = ['.notdef'] + list(dict.fromkeys(cmap.values()))
+    glyphset = source.getGlyphSet()
+    glyphs = {}
+    for name in names:
+        pen = TTGlyphPen(None)
+        glyphset[name].draw(Cu2QuPen(pen, max_err=1.0, reverse_direction=True))
+        glyphs[name] = pen.glyph()
+    font = FontBuilder(source['head'].unitsPerEm, isTTF=True)
+    font.setupGlyphOrder(names); font.setupCharacterMap(cmap); font.setupGlyf(glyphs)
+    font.setupHorizontalMetrics({n: source['hmtx'].metrics[n] for n in names})
+    font.setupHorizontalHeader(ascent=source['hhea'].ascent, descent=source['hhea'].descent)
+    font.setupNameTable({'familyName': 'Duren Report CJK', 'styleName': weight,
+        'uniqueFontIdentifier': 'DurenReportCJK-' + weight,
+        'fullName': 'Duren Report CJK ' + weight, 'psName': 'DurenReportCJK-' + weight})
+    font.setupOS2(sTypoAscender=source['hhea'].ascent, sTypoDescender=source['hhea'].descent,
+        usWinAscent=source['hhea'].ascent, usWinDescent=-source['hhea'].descent)
+    font.setupPost(keepGlyphNames=False); font.save(out / ('DurenReportCJK-' + weight + '.ttf'))
+    print(weight, len(cmap), flush=True)
