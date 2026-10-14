@@ -26,7 +26,7 @@ test('standard PDF is ten text/vector pages with merged summary and unchanged di
   assert.doesNotMatch(text,/综合指标说明/,'there is no separate comprehensive-explanations chapter');
   for(const title of pages.map(pageTitle))assert.doesNotMatch(title,/续/,'all standard page titles omit continuation labels');
   assert.ok(text.includes(s.owner.name),'supplementary Unicode is searchable and copied correctly');
-  assert.ok(text.includes('职业与心理健康测评'));assert.ok(text.includes('测评结果报告·V2.13'));assert.doesNotMatch(text,/建筑行业生产管理岗|答卷V2\.11|计分V2\.11/);
+  assert.ok(text.includes('职业与心理健康测评'));assert.ok(text.includes('测评结果报告·V2.14'));assert.doesNotMatch(text,/建筑行业生产管理岗|答卷V2\.11|计分V2\.11/);
   assert.doesNotMatch(text,/模拟参照|模拟作答|实测人群常模|真实人群常模验证/,'report-visible source disclosure removed; metadata remains truthful');
   for(const removed of ['分数反映本问卷的回答与既定计分规则','心理困扰倾向反映本次作答中呈现的困扰线索','高低只作相对描述，不应套用正常','高分方向不一：心理困扰倾向高分表示困扰更多'])assert.ok(!text.includes(removed),'specified generic notice removed');
   for(const row of s.report.totals.filter(row=>['ST','PF','MH'].includes(row.code))){

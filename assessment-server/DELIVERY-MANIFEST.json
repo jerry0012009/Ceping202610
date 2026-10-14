@@ -1,5 +1,5 @@
 {
-  "release": "2.13",
+  "release": "2.14",
   "scope": {
     "questions": 97,
     "activeOptions": 309,
@@ -14,106 +14,79 @@
   "approvedReferenceContractSha256": "985f6bbb34547a59ef8153e72b19fe84d22cc3ae84d89704a9fcfce586e8570f",
   "validation": {
     "portableTests": {
-      "passed": 159,
-      "failed": 0
+      "passed": 193,
+      "failed": 0,
+      "skipped": 0,
+      "independentlyRepeated": true
     },
-    "serverPdfHTTP": {
-      "status": "passed",
-      "permissionAndSecurityCases": 27,
-      "runs": 2,
-      "realHttpDownload": true
+    "quotaAPI": {
+      "passed": 13,
+      "failed": 0,
+      "realHTTP": true,
+      "separateProcessRaces": true,
+      "sqlRollbackInjection": true,
+      "zeroQuotaRealPDF": true,
+      "legacyMigration": true,
+      "restartAndLostResponseRecovery": true
     },
-    "downloadInterfaceVM": {
-      "status": "passed",
-      "cases": 15,
-      "realBrowserClick": "passed separately for final V2.12 in browserPageReview"
+    "quotaUI": {
+      "passed": 21,
+      "failed": 0,
+      "kind": "VM behavioral tests"
     },
-    "pdfGenerationTests": {
-      "status": "passed",
-      "cases": 3
-    },
-    "independentPdfQA": {
-      "status": "passed",
-      "syntheticAnswerVersions": [
-        "2.9",
-        "2.10",
-        "2.11"
-      ],
-      "standardPagesPerVersion": 10,
-      "vectorRadars": 3,
-      "radarAxes": [
-        5,
-        10,
-        6
-      ],
-      "currentDimensions": 24,
-      "scoresComparedByCode": "unchanged",
-      "overview": "Three conclusion cards and deterministic per-report summary; no overview triangle and no repeated total-score values",
-      "fontCodepointsPerWeight": 44810,
-      "fontGlyphsPerWeight": 44301,
-      "scopeNote": "Final V2.12 synthetic sample and browser-downloaded PDF verified at ten pages; existing historical and numeric regression coverage preserved."
-    },
-    "dockerBuild": {
-      "status": "not_run",
-      "reason": "No docker command in the implementation environment."
-    },
-    "productionDeployment": "not performed",
-    "hostedWorker": "Not updated; the Python backend generator applies only to assessment-server.",
-    "reportVisibleSourceCopy": {
-      "status": "passed",
-      "scope": "Reference-source wording removed from visible web/PDF reports; numeric values, reference ranges and source metadata preserved."
+    "independentAdversarial": {
+      "httpGroupsPassed": 8,
+      "recoveryGroupsPassed": 4,
+      "cliBoundaryGroupsPassed": 5
     },
     "browserPageReview": {
-      "status": "passed",
-      "revision": "2.12",
-      "route": "/ceping202610/",
-      "viewportWidthsPx": [
-        1188,
-        500
-      ],
-      "horizontalOverflow": false,
-      "realDownloadClick": "passed",
-      "downloadedPdfPages": 10,
-      "printDialogOpened": false,
-      "webAndPdfContentMatch": [
-        "three conclusion cards",
-        "three direct overview paragraphs",
-        "eight family field groups"
-      ],
-      "authenticationAndConsent": [
-        "login/register tabs",
-        "default-unchecked consent",
-        "gate before answering",
-        "cancel",
-        "save",
-        "refresh/resume"
+      "release": "2.14",
+      "environment": "isolated synthetic cloud browser and shared temporary SQLite only",
+      "passed": true,
+      "checks": {
+        "default_trial_ordinary_10": true,
+        "default_trial_admin_10": true,
+        "cli_paid_5": true,
+        "paid_ordinary_hides_balance": true,
+        "paid_admin_shows_5": true,
+        "consent_unchecked_disabled": true,
+        "consent_then_save_page_1": true,
+        "zero_refresh_new_blocked": true,
+        "zero_continue_blocked": true,
+        "zero_admin_new_blocked": true,
+        "zero_history_view_and_real_download": true,
+        "trial_zero_label_and_blocked": true,
+        "narrow_500px_no_overflow": true,
+        "logout_login_tabs_preserved": true
+      },
+      "download": {
+        "pages": 10,
+        "sha256": "591fb12b787085211c91b0c88ae1a80d0f00cb355190f82df5d0034300e330e3"
+      },
+      "limits": [
+        "Login credential UI submission not tested; test accounts created through real local API and session fixtures. Browser login tabs and post-auth flows verified.",
+        "No narrower-than-500px emulation due to managed DevTools restriction."
       ]
     },
-    "summaryInterpretation": {
-      "status": "passed",
-      "totalBandTemplates": 15,
-      "dimensionDirectionTemplates": 48,
-      "syntheticProfiles": 40,
-      "rules": "Independent five-band total explanations; standardized per-dimension prominence and cross-checks with response quality; no score, weight or reference changes."
-    },
-    "consentRegression": {
-      "status": "passed",
-      "scope": "Explicit versioned acceptance, source/account validation, lifecycle and gate bypass protections."
-    },
-    "releaseHttpPdf": {
-      "status": "passed",
-      "revision": "2.13",
-      "downloadedPdfPages": 10,
+    "scoringPreservation": {
+      "frozenScoringReferenceAndFixtureFilesUnchanged": 31,
+      "answerVersion": "2.11",
+      "scoringVersion": "2.11",
       "RV2Reference": {
         "mean": 72,
         "lower": 53.2,
         "upper": 90.8
       },
-      "scoresUnchanged": true,
-      "otherReferencesUnchanged": true
-    }
+      "scoresAndOtherReferencesUnchanged": true
+    },
+    "dockerBuild": {
+      "status": "not_run",
+      "reason": "No docker command in the implementation environment; Dockerfile COPY entries reviewed."
+    },
+    "productionDeployment": "not performed",
+    "hostedWorker": "not changed"
   },
-  "originalAnswers": "Existing answers, timing, scores and historical snapshots are not rewritten. Startup adds idempotent consent audit, active-assessment consent and assessment-link tables; no historical consent is fabricated.",
+  "originalAnswers": "Existing answers, timing, scores, historical snapshots and archived synthetic fixtures are unchanged. Additive singleton assessment_quota initializes trial/10 once, without historical debit; existing consent UUID provides a persistent browser submission identity. No production database, account or secret was accessed.",
   "excluded": [
     "Installed dependencies",
     "All real databases and account/session data",
@@ -124,10 +97,10 @@
     "Python bytecode and caches"
   ],
   "manifestScope": "Every publishable portable source file except this manifest; the publication checkpoint independently hashes the manifest and repository root README.",
-  "reportPresentationRevision": "2.13",
+  "reportPresentationRevision": "2.14",
   "printExport": {
     "method": "Authenticated server-generated PDF attachment download",
-    "revision": "2.13",
+    "revision": "2.14",
     "renderer": "Python 3 + ReportLab",
     "standardSyntheticPages": 10,
     "radars": 3,
@@ -147,7 +120,7 @@
     "overview": "Three direct paragraphs: conclusions, meaning and prominent dimensions; response-quality warning only when concrete issues are detected.",
     "title": "职业与心理健康测评"
   },
-  "reportRendererRevision": "2.13",
+  "reportRendererRevision": "2.14",
   "runtime": {
     "node": ">=24.15.0 <25",
     "python": "Python 3 executable as python3",
@@ -182,13 +155,13 @@
     },
     {
       "path": "Dockerfile",
-      "bytes": 810,
-      "sha256": "086ca3c0f3abc01d05b251019d797452c10efd3776d6b7a080f58842da85cde0"
+      "bytes": 878,
+      "sha256": "ee199c171f7b95bf75680c70200b56be34eca094f12e1bf8c8e1dfa5eabb96b4"
     },
     {
       "path": "README.md",
-      "bytes": 31459,
-      "sha256": "9b9df6945ce13d82309da2a211c8d57b9a3cc71abb78eba539982b38264b6aa3"
+      "bytes": 34313,
+      "sha256": "312d55f3d0d9d9931b6d9ed144e57e91bdd88024d6a73f403683d9ae1b8ee127"
     },
     {
       "path": "account-id.js",
@@ -223,12 +196,12 @@
     {
       "path": "package-lock.json",
       "bytes": 44012,
-      "sha256": "ef10115bc4792922185181b60564baa6592c1ad392a7d1d48408f49546d40eee"
+      "sha256": "2df3e20912ba13053bb850ac184c261d375ffc8edcf12bff47ac2db7e1b496eb"
     },
     {
       "path": "package.json",
-      "bytes": 614,
-      "sha256": "439bfacec673f906044267bfce1f182fe2d5ee0a75ec17d952598621dc00727a"
+      "bytes": 678,
+      "sha256": "565c148b9633de0bcf153e55a6909f86f4a3694177ae6df3f206394d7883836a"
     },
     {
       "path": "pf-role-model.js",
@@ -333,7 +306,7 @@
     {
       "path": "private/report-presentation.json",
       "bytes": 19904,
-      "sha256": "9ad93d4cf131119968f7c8e45d42ec2344d420ebddb88087ae8e36bb16319ff7"
+      "sha256": "d4a2c42ba60cb805bc4e04aa0d886c81660d623973ef3f79d0d28fd850b4f10c"
     },
     {
       "path": "private/retired-options.json",
@@ -372,8 +345,8 @@
     },
     {
       "path": "public/app.js",
-      "bytes": 43469,
-      "sha256": "457bf9020597ecd6d87e73deac00efb9e956baf99f51a71107fd4c96c1092d78"
+      "bytes": 46211,
+      "sha256": "9fb9d0caa127924945519d909b1e7ea9c7c72444a7afd76fc277d8f5fc4f337e"
     },
     {
       "path": "public/fonts/LICENSE-Noto.txt",
@@ -393,7 +366,7 @@
     {
       "path": "public/index.html",
       "bytes": 926,
-      "sha256": "d62182be4b947c472219ae83e683d17deadef53cc9dff4a11714011b43e1f4f6"
+      "sha256": "3540ce0caa4d82f099b724456d42be2eed604a8fbd87a6b7c84e9c9c21ede459"
     },
     {
       "path": "public/report-print.css",
@@ -407,13 +380,18 @@
     },
     {
       "path": "public/style.css",
-      "bytes": 20881,
-      "sha256": "04d3f3dcc7fc46ce33eeff9e3807ab51e4df2444f2afc1a0ba1b227d7d1b1560"
+      "bytes": 21114,
+      "sha256": "e7384403b29bab6545c65950bbf86d549ee375b50394e5d11e016eef4d9ac30d"
+    },
+    {
+      "path": "quota.js",
+      "bytes": 1108,
+      "sha256": "a3b33cf350bc6617634b40b72c7a63921f5751dd15f6feb2e5996ad1f6aa8d22"
     },
     {
       "path": "release-version.js",
       "bytes": 159,
-      "sha256": "d5e79ce684ae2a154745aff33ae7fe82bede9bfbd59c2be0433bd45db8e76288"
+      "sha256": "3ab26ba925653dafbc17c168716e05b0c5ccc4d1dc767d11c234c30efa496f89"
     },
     {
       "path": "report-pdf.js",
@@ -461,9 +439,14 @@
       "sha256": "bf8c9fcd9a6c3ae8492dabd67e4a7c0ff46aafdfc7c82c935c820c5c07b66713"
     },
     {
+      "path": "scripts/quota.js",
+      "bytes": 2698,
+      "sha256": "c171793583cdb8e87e15424cad9bb052faed00e2d69aa3498234267f5d2801cb"
+    },
+    {
       "path": "server.js",
-      "bytes": 17287,
-      "sha256": "42684a5bfcfd2163d62f516e00d5fd0a867a848c37f692a812db6eae1c6cd931"
+      "bytes": 18470,
+      "sha256": "366e4ecef081aaa0c9a7ac70d54737c9f0be750b7fab49ee4286e034e5e410e1"
     },
     {
       "path": "start.sh",
@@ -502,8 +485,8 @@
     },
     {
       "path": "test/consent-ui.test.js",
-      "bytes": 5788,
-      "sha256": "7653cf63e7197ad51cf3f3be39d6c191fa666cebc0cd3599742a677cff508e71"
+      "bytes": 5866,
+      "sha256": "0ea5ee4029e06f8737634375b2e3727f2cdaa1f38a9047f6491f8666262907f9"
     },
     {
       "path": "test/draft.test.js",
@@ -542,13 +525,13 @@
     },
     {
       "path": "test/frontend-version.test.js",
-      "bytes": 21275,
-      "sha256": "18eb3f8a3fafd5dd617720916660c95eab0a2028e84da74ebfa98b3316ace6dd"
+      "bytes": 21386,
+      "sha256": "335220e4ff632fc5caa1b0cc1b113ebd60a05c8b6c09a0d4a8e745b64cbc3c75"
     },
     {
       "path": "test/frontend.test.js",
-      "bytes": 33994,
-      "sha256": "a2a4d10e1af57445c35c273b510643eb7f98395699ff4e8f33db72270935dc42"
+      "bytes": 34108,
+      "sha256": "57476aea9e2a50b2de5e0a6b9ca37c839307d96eaee50a6237a222d894d80a76"
     },
     {
       "path": "test/legacy-helpers.js",
@@ -576,9 +559,19 @@
       "sha256": "23ab9b445999405dd3de9706a6c6eb64ba27139e0e78ccf1139b566405ade634"
     },
     {
+      "path": "test/quota-api.test.js",
+      "bytes": 30454,
+      "sha256": "3852feeec0de09e1bcec6ec2dac25fd5885697843e62bc43d681517f453ef08e"
+    },
+    {
+      "path": "test/quota-ui.test.js",
+      "bytes": 15838,
+      "sha256": "0e45097c013aca770dbbee93e688066901596c7d1ceb73e1cad56b1340bedc1d"
+    },
+    {
       "path": "test/release-version.test.js",
       "bytes": 1436,
-      "sha256": "f6d79e110dcd2535977e51ea4457d43d61b045de1ebb5f34e91d0eb7737f587b"
+      "sha256": "b7c1e72d2ee0d920a8249e8e553be53a3b2b6d14a4d3090b53b515618149b507"
     },
     {
       "path": "test/report-copy.test.js",
@@ -588,12 +581,12 @@
     {
       "path": "test/report-pdf-api.test.js",
       "bytes": 11903,
-      "sha256": "ad60c76c9f808f517290bd42b0ca002a9bea00996be45eaed1d4393000e24b8b"
+      "sha256": "53b2964c5a28891468fe19d6479ee0f424b7545495c0d4103c75c7438ad4aff9"
     },
     {
       "path": "test/report-pdf-render.test.js",
       "bytes": 6297,
-      "sha256": "96283305ab84940356039fc0de6f5557225bd92d671b54f9f024644d1f353e51"
+      "sha256": "fbd23f71be94252f801ce01b6367743788cfaa2d1fdc4f13356aee5f7760d14e"
     },
     {
       "path": "test/report-presentation.test.js",
@@ -603,7 +596,7 @@
     {
       "path": "test/report-print.test.js",
       "bytes": 9138,
-      "sha256": "f440f3b5f23dc6e5e8462b6908eeaa57064d36afb962e38180abd7039878d905"
+      "sha256": "ef465013823f4439b669b5d32837408226304896bb7776b2d6a8e55cdc3c5806"
     },
     {
       "path": "test/report-summary.test.js",
@@ -612,8 +605,8 @@
     },
     {
       "path": "test/rv2-reference.test.js",
-      "bytes": 2283,
-      "sha256": "ed19674b7a253230835d976e9a59d917d3de4141a25949a995c7e405dfa8afc8"
+      "bytes": 2394,
+      "sha256": "cd22e9a5e9368b1f5ebceb118c8c69686685263ca4198ea444f76ea247667a40"
     },
     {
       "path": "test/stored-report.test.js",
@@ -627,8 +620,8 @@
     },
     {
       "path": "test/version-registry.test.js",
-      "bytes": 12685,
-      "sha256": "5b5a54eae75e30396645c7105164e305edf1228aad9feadb6f5f76a89b38b3a4"
+      "bytes": 12819,
+      "sha256": "dffa6715acc2759948f3e70517d12ca1ac12c79bfad8c60976e220d4358f9224"
     },
     {
       "path": "test/work-value.test.js",
@@ -646,7 +639,7 @@
       "sha256": "0cabc35cf87b5856cfda240dc6f22042c02e1b31b2c3cd72ff381dc3870637e8"
     }
   ],
-  "packageVersion": "2.13.0",
+  "packageVersion": "2.14.0",
   "questionnaireVersion": "2.11",
   "scoringVersion": "2.11",
   "consent": {
@@ -660,5 +653,124 @@
     ],
     "enforcement": "Client dialog and authenticated backend gate before new draft saves or new assessment submissions. Historical report reads/exports and existing idempotent submission retries remain available.",
     "storage": "Versioned notice snapshot and acceptance time; preserve existing answer records and data volume."
+  },
+  "priorReleaseValidation": {
+    "release": "2.13",
+    "validation": {
+      "portableTests": {
+        "passed": 159,
+        "failed": 0
+      },
+      "serverPdfHTTP": {
+        "status": "passed",
+        "permissionAndSecurityCases": 27,
+        "runs": 2,
+        "realHttpDownload": true
+      },
+      "downloadInterfaceVM": {
+        "status": "passed",
+        "cases": 15,
+        "realBrowserClick": "passed separately for final V2.12 in browserPageReview"
+      },
+      "pdfGenerationTests": {
+        "status": "passed",
+        "cases": 3
+      },
+      "independentPdfQA": {
+        "status": "passed",
+        "syntheticAnswerVersions": [
+          "2.9",
+          "2.10",
+          "2.11"
+        ],
+        "standardPagesPerVersion": 10,
+        "vectorRadars": 3,
+        "radarAxes": [
+          5,
+          10,
+          6
+        ],
+        "currentDimensions": 24,
+        "scoresComparedByCode": "unchanged",
+        "overview": "Three conclusion cards and deterministic per-report summary; no overview triangle and no repeated total-score values",
+        "fontCodepointsPerWeight": 44810,
+        "fontGlyphsPerWeight": 44301,
+        "scopeNote": "Final V2.12 synthetic sample and browser-downloaded PDF verified at ten pages; existing historical and numeric regression coverage preserved."
+      },
+      "dockerBuild": {
+        "status": "not_run",
+        "reason": "No docker command in the implementation environment."
+      },
+      "productionDeployment": "not performed",
+      "hostedWorker": "Not updated; the Python backend generator applies only to assessment-server.",
+      "reportVisibleSourceCopy": {
+        "status": "passed",
+        "scope": "Reference-source wording removed from visible web/PDF reports; numeric values, reference ranges and source metadata preserved."
+      },
+      "browserPageReview": {
+        "status": "passed",
+        "revision": "2.12",
+        "route": "/ceping202610/",
+        "viewportWidthsPx": [
+          1188,
+          500
+        ],
+        "horizontalOverflow": false,
+        "realDownloadClick": "passed",
+        "downloadedPdfPages": 10,
+        "printDialogOpened": false,
+        "webAndPdfContentMatch": [
+          "three conclusion cards",
+          "three direct overview paragraphs",
+          "eight family field groups"
+        ],
+        "authenticationAndConsent": [
+          "login/register tabs",
+          "default-unchecked consent",
+          "gate before answering",
+          "cancel",
+          "save",
+          "refresh/resume"
+        ]
+      },
+      "summaryInterpretation": {
+        "status": "passed",
+        "totalBandTemplates": 15,
+        "dimensionDirectionTemplates": 48,
+        "syntheticProfiles": 40,
+        "rules": "Independent five-band total explanations; standardized per-dimension prominence and cross-checks with response quality; no score, weight or reference changes."
+      },
+      "consentRegression": {
+        "status": "passed",
+        "scope": "Explicit versioned acceptance, source/account validation, lifecycle and gate bypass protections."
+      },
+      "releaseHttpPdf": {
+        "status": "passed",
+        "revision": "2.13",
+        "downloadedPdfPages": 10,
+        "RV2Reference": {
+          "mean": 72,
+          "lower": 53.2,
+          "upper": 90.8
+        },
+        "scoresUnchanged": true,
+        "otherReferencesUnchanged": true
+      }
+    }
+  },
+  "quota": {
+    "scope": "one shared allowance per installation",
+    "firstInitialization": {
+      "mode": "trial",
+      "remaining": 10
+    },
+    "visibility": {
+      "trial": "all authenticated users",
+      "paid": "remaining visible only to bound administrator; ordinary status contains mode/canStart only"
+    },
+    "administration": "read-only HTTP; local operator scripts/quota.js supports status, mode, set, add on an existing database",
+    "charging": "atomic successful new completion only; BEGIN IMMEDIATE rechecks submission identity, allowance, consent and draft; failures roll back; repeated successful submission returns original report",
+    "exhaustion": "block new questionnaire access, frontend start/resume and new calculation; preserve draft saving and historical view/PDF access",
+    "refreshRecovery": "browser uses persisted consent UUID; completed lost responses remain in history; original submission retries do not debit again"
   }
 }

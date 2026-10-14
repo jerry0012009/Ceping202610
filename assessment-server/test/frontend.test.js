@@ -22,7 +22,8 @@ async function harness({failDraftOnce=false,failSubmissionOnce=false,holdSaves=f
     window:{scrollTo(){},addEventListener(){}},
     fetch:async(url,options={})=>{requestHeaders.push({url,headers:options.headers,method:options.method});
       const ok=value=>({ok:true,json:async()=>value});
-      if(url==='/api/consent')return ok({notice:{version:'notice-test',text:'测试指导语'},consent:{id:'test',version:'notice-test'},required:false});
+      if(url==='/api/quota')return ok({mode:'trial',canStart:true,remaining:10});
+      if(url==='/api/consent')return ok({notice:{version:'notice-test',text:'测试指导语'},consent:{id:'11111111-1111-4111-8111-111111111111',version:'notice-test'},required:false});
       if(url==='/api/questionnaire')return ok(questionnaire);
       if(url==='/api/draft'){
         if(options.method==='DELETE'){draft=null;return ok({ok:true});}
@@ -352,10 +353,10 @@ test('report-5 omits source prose but retains reference metadata, numbers and un
  assert.match(T.metric({name:'兼容指标',referenceNote:'保留无关参考说明'}),/保留无关参考说明/);
 });
 
-test('V2.13 page branding and report display version do not replace stored schema versions',async()=>{
- const {T,node}=await harness(),r=calculateReport(T.state.answers,T.state.seconds);r.answerVersion='2.9';r.scoringVersion='2.11';r.displayVersion='2.13';const before=JSON.stringify(r);
- T.showReport({version:'2.9',createdAt:'2026-10-14T00:00:00Z',report:r});assert.match(node('main').innerHTML,/报告 V2\.13/);assert.doesNotMatch(node('main').innerHTML,/答卷 V|计分 V/);assert.equal(JSON.stringify(r),before);
- const index=fs.readFileSync(new URL('../public/index.html',import.meta.url),'utf8');assert.match(index,/<title>职业与心理健康测评<\/title>/);assert.doesNotMatch(index,/职业适应测评|report-6/);for(const file of ['style.css','app.js'])assert.ok(index.includes(file+'?v=2.13'));
+test('V2.14 page branding and report display version do not replace stored schema versions',async()=>{
+ const {T,node}=await harness(),r=calculateReport(T.state.answers,T.state.seconds);r.answerVersion='2.9';r.scoringVersion='2.11';r.displayVersion='2.14';const before=JSON.stringify(r);
+ T.showReport({version:'2.9',createdAt:'2026-10-14T00:00:00Z',report:r});assert.match(node('main').innerHTML,/报告 V2\.14/);assert.doesNotMatch(node('main').innerHTML,/答卷 V|计分 V/);assert.equal(JSON.stringify(r),before);
+ const index=fs.readFileSync(new URL('../public/index.html',import.meta.url),'utf8');assert.match(index,/<title>职业与心理健康测评<\/title>/);assert.doesNotMatch(index,/职业适应测评|report-6/);for(const file of ['style.css','app.js'])assert.ok(index.includes(file+'?v=2.14'));
 });
 
 test('login and registration have explicit accessible switches while keeping password validation',async()=>{

@@ -1,3 +1,4 @@
+import {releaseVersion} from '../release-version.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -18,7 +19,7 @@ test('RV2 public reference applies identically to current and compatible histori
   assert.equal(value.score,100);assert.equal(value.label,'较高');
   assert.equal(JSON.stringify(row),before);
  }
- for(const row of current)assert.deepEqual(calculateReport(row.answers,row.seconds),row.report,'only the explicitly updated RV2 reference fixture differs from the prior release');
+ for(const row of current)assert.deepEqual(calculateReport(row.answers,row.seconds),{...row.report,releaseVersion,displayVersion:releaseVersion,reportRevision:releaseVersion},'only release metadata differs from the frozen RV2 fixture');
 });
 
 test('RV2 reference classifies boundaries and preserves missing values and coverage',()=>{

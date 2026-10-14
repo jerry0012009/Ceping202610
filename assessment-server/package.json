@@ -1,11 +1,12 @@
 {
   "name": "assessment-server",
-  "version": "2.13.0",
-  "description": "V2.13 职业与心理健康测评（报告发布版本独立于原答卷/评分版本）",
+  "version": "2.14.0",
+  "description": "V2.14 职业与心理健康测评（报告发布版本独立于原答卷/评分版本）",
   "scripts": {
     "start": "node --env-file-if-exists=.env server.js",
     "test": "node --test test/*.test.js test/*.test.cjs",
-    "account-id": "node --env-file-if-exists=.env account-id.js"
+    "account-id": "node --env-file-if-exists=.env account-id.js",
+    "quota": "node --env-file-if-exists=.env scripts/quota.js"
   },
   "type": "module",
   "dependencies": {

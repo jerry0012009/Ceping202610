@@ -24,7 +24,8 @@ async function harness({draft=null,current=latest}={}){
   document:{getElementById:node,body:{classList:{toggle(){}}},visibilityState:'visible',hasFocus:()=>true,addEventListener(type,fn){listeners[type]=fn;},querySelector:()=>({disabled:false,textContent:'',isConnected:false})},
   window:{scrollTo(){},addEventListener(){}},
   fetch:async(url,options={})=>{
-   if(url==='/api/consent')return ok({notice:{version:'notice-test',text:'授权管理员查看'},consent:{id:'test',version:'notice-test'},required:false});
+   if(url==='/api/quota')return ok({mode:'trial',canStart:true,remaining:10});
+   if(url==='/api/consent')return ok({notice:{version:'notice-test',text:'授权管理员查看'},consent:{id:'11111111-1111-4111-8111-111111111111',version:'notice-test'},required:false});
    requests.push({url,method:options.method||'GET',headers:options.headers,body:options.body?JSON.parse(options.body):undefined});
    if(url==='/api/auth/sign-in/email'){signedIn=true;return ok({});}
    if(url==='/api/me')return signedIn?ok({user:{id:owner}}):error(401,'Session expired');

@@ -1,4 +1,5 @@
 import express from 'express';
+import {createQuotaStore,quotaError} from './quota.js';
 import {CONSENT_NOTICE,createConsentStore} from './consent.js';
 import {answerDetails} from './answer-details.js';
 import {createStoredReport,readStoredReport} from './stored-report.js';
@@ -40,6 +41,7 @@ export async function createApplication(env=process.env){
  db.exec('CREATE TABLE IF NOT EXISTS drafts (user_id TEXT PRIMARY KEY REFERENCES user(id), version TEXT NOT NULL, position INTEGER NOT NULL, answers_json TEXT NOT NULL, seconds_json TEXT NOT NULL, updated_at TEXT NOT NULL)');
  db.exec('CREATE TABLE IF NOT EXISTS admin_audit (id TEXT PRIMARY KEY, admin_id TEXT NOT NULL, action TEXT NOT NULL, report_id TEXT, created_at TEXT NOT NULL)');
  const consents=createConsentStore(db);
+ const quota=createQuotaStore(db);
  const app=express();app.disable('x-powered-by');
  // Accept proxy addresses only from loopback. The deployment proxy must overwrite forwarding headers.
  app.set('trust proxy',env.TRUST_PROXY==='loopback'?'loopback':false);
@@ -59,6 +61,7 @@ export async function createApplication(env=process.env){
   next();
  });
  app.get('/api/me',(req,res)=>res.json({user:{id:req.user.id,name:req.user.name,email:req.user.email,isAdmin:!!adminUserId&&req.user.id===adminUserId}}));
+ app.get('/api/quota',(req,res)=>{if(req.get('X-Assessment-Owner')&&req.get('X-Assessment-Owner')!==req.user.id)return res.status(401).json({error:'登录账户已切换，请重新登录后继续。'});res.json(quota.status(!!adminUserId&&req.user.id===adminUserId));});
  app.get('/api/consent',(req,res)=>res.json(consents.status(req.user.id)));
  app.post('/api/consent',(req,res)=>{
   const body=req.body;
@@ -71,10 +74,10 @@ export async function createApplication(env=process.env){
   if(!consent)res.status(403).json({error:'请先阅读并同意测评指导语，再开始或继续作答。',code:'CONSENT_REQUIRED'});
   return consent;
  };
- app.get('/api/questionnaire',(req,res)=>{try{res.json(requireVersion(req.query.version||undefined).questionnaire);}catch(error){res.status(422).json({error:error.message});}});
+ app.get('/api/questionnaire',(req,res)=>{const allowance=quota.current();if(allowance.remaining===0)return res.status(403).json(quotaError(allowance.mode));try{res.json(requireVersion(req.query.version||undefined).questionnaire);}catch(error){res.status(422).json({error:error.message});}});
  const canonical=v=>v&&typeof v==='object'?(Array.isArray(v)?v.map(canonical):Object.fromEntries(Object.keys(v).sort().map(k=>[k,canonical(v[k])]))):v;
  const equal=(a,b)=>JSON.stringify(canonical(a))===JSON.stringify(canonical(b));
- app.get('/api/draft',(req,res)=>{const row=db.prepare('SELECT * FROM drafts WHERE user_id=?').get(req.user.id);res.json({draft:row?{version:row.version,position:row.position,answers:JSON.parse(row.answers_json),seconds:JSON.parse(row.seconds_json),updatedAt:row.updated_at}:null});});
+ app.get('/api/draft',(req,res)=>{const row=db.prepare('SELECT * FROM drafts WHERE user_id=?').get(req.user.id);res.json({draft:row?{submissionId:consents.current(req.user.id)?.id||null,version:row.version,position:row.position,answers:JSON.parse(row.answers_json),seconds:JSON.parse(row.seconds_json),updatedAt:row.updated_at}:null});});
  app.delete('/api/draft',(req,res)=>{
   db.exec('BEGIN IMMEDIATE');try{db.prepare('DELETE FROM drafts WHERE user_id=?').run(req.user.id);consents.reset(req.user.id);db.exec('COMMIT');}catch(error){db.exec('ROLLBACK');throw error;}
   res.json({ok:true});
@@ -146,17 +149,28 @@ export async function createApplication(env=process.env){
   let b;try{b=validateSubmission(req.body);}catch(e){return res.status(400).json({error:e.message});}
   // Deterministic key ordering makes retried equivalent JSON idempotent.
   const hash=createHash('sha256').update(JSON.stringify(canonical(b))).digest('hex');
-  const existing=db.prepare('SELECT * FROM assessments WHERE user_id=? AND submission_id=?').get(req.user.id,b.submissionId);
-  if(existing){if(existing.request_hash!==hash)return res.status(409).json({error:'相同提交标识对应不同答案，请重新提交'});return res.json(serialize(existing));}
-  const consent=requireConsent(req,res);if(!consent)return;
-  const {pages,fingerprint}=requireVersion(b.version);
-  const id=randomUUID(),createdAt=new Date().toISOString(),report=createStoredReport(b.answers,b.seconds,undefined,b.version);
-  const draft=db.prepare('SELECT * FROM drafts WHERE user_id=?').get(req.user.id);
-  if(draft&&draft.version!==b.version)return res.status(409).json({error:'提交版本与草稿版本不一致'});
-  if(draft&&(!equal(JSON.parse(draft.answers_json),b.answers)||!equal(JSON.parse(draft.seconds_json),b.seconds)||draft.position!==pages.length))return res.status(409).json({error:'请先按顺序完成并保存所有页面'});
+  // Serialize across processes: the idempotency read, eligibility checks, score,
+  // debit, saved report and consent consumption are one atomic write transaction.
   db.exec('BEGIN IMMEDIATE');
-  try{db.prepare('INSERT INTO assessments VALUES (?,?,?,?,?,?,?,?,?,?)').run(id,req.user.id,b.submissionId,b.version,fingerprint,createdAt,hash,JSON.stringify(b.answers),JSON.stringify(b.seconds),JSON.stringify(report));db.prepare('DELETE FROM drafts WHERE user_id=?').run(req.user.id);consents.consume(req.user.id,id,consent.id);db.exec('COMMIT');}catch(error){db.exec('ROLLBACK');throw error;}
-  res.status(201).json({id,version:b.version,createdAt,report:presentReport(report)});
+  try{
+   const existing=db.prepare('SELECT * FROM assessments WHERE user_id=? AND submission_id=?').get(req.user.id,b.submissionId);
+   if(existing){db.exec('COMMIT');if(existing.request_hash!==hash)return res.status(409).json({error:'相同提交标识对应不同答案，请重新提交'});return res.json(serialize(existing));}
+   const allowance=quota.current();
+   if(allowance.remaining===0){db.exec('ROLLBACK');return res.status(403).json(quotaError(allowance.mode));}
+   const consent=consents.current(req.user.id);
+   if(!consent){db.exec('ROLLBACK');return res.status(403).json({error:'请先阅读并同意测评指导语，再开始或继续作答。',code:'CONSENT_REQUIRED'});}
+   const {pages,fingerprint}=requireVersion(b.version);
+   const draft=db.prepare('SELECT * FROM drafts WHERE user_id=?').get(req.user.id);
+   if(draft&&draft.version!==b.version){db.exec('ROLLBACK');return res.status(409).json({error:'提交版本与草稿版本不一致'});}
+   if(draft&&(!equal(JSON.parse(draft.answers_json),b.answers)||!equal(JSON.parse(draft.seconds_json),b.seconds)||draft.position!==pages.length)){db.exec('ROLLBACK');return res.status(409).json({error:'请先按顺序完成并保存所有页面'});}
+   const id=randomUUID(),createdAt=new Date().toISOString(),report=createStoredReport(b.answers,b.seconds,undefined,b.version);
+   if(!quota.consume())throw new Error('Allowance changed during transaction');
+   db.prepare('INSERT INTO assessments VALUES (?,?,?,?,?,?,?,?,?,?)').run(id,req.user.id,b.submissionId,b.version,fingerprint,createdAt,hash,JSON.stringify(b.answers),JSON.stringify(b.seconds),JSON.stringify(report));
+   db.prepare('DELETE FROM drafts WHERE user_id=?').run(req.user.id);consents.consume(req.user.id,id,consent.id);
+   db.exec('COMMIT');
+   res.status(201).json({id,version:b.version,createdAt,report:presentReport(report)});
+  }catch(error){if(db.isTransaction)db.exec('ROLLBACK');throw error;}
+
  });
  app.use('/api',(req,res)=>res.status(404).json({error:'接口不存在'}));
  // Never serve the project root, private/, data/, tests, or node_modules.
