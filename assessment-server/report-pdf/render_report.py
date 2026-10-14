@@ -1,4 +1,4 @@
-"""Server-only vector/text PDF renderer, template 2.11-report-4.
+"""Server-only vector/text PDF renderer, template 2.11-report-5.
 Reads one authorized presentation JSON from stdin, writes PDF bytes to stdout.
 No browser, network, shell, external font loading or report files on disk.
 """
@@ -48,7 +48,7 @@ W,H=595.2756,841.8898; M=43; CW=W-2*M
 NAVY=HexColor('#28465F'); BLUE=HexColor('#627F97'); INK=HexColor('#172A39'); MUTED=HexColor('#657887'); RULE=HexColor('#D9E1E6'); PALE=HexColor('#EDF2F6'); WHITE=HexColor('#FFFFFF')
 OUT=io.BytesIO()
 c=NumberedCanvas(OUT,pagesize=(W,H),pageCompression=1)
-c.setTitle('渡仁 建筑行业生产管理岗 测评结果报告');c.setAuthor('渡仁');c.setSubject('测评结果报告 · 2.11-report-4')
+c.setTitle('渡仁 建筑行业生产管理岗 测评结果报告');c.setAuthor('渡仁');c.setSubject('测评结果报告 · 2.11-report-5')
 PAGE=0; LOG=[]; TITLE=''; SUB=''; BOTTOM=H-53
 def finite(v):return isinstance(v,(int,float)) and math.isfinite(v)
 def nf(v):return str(Decimal.from_float(float(v)).quantize(Decimal('0.1'),rounding=ROUND_HALF_UP)) if finite(v) else '—'
@@ -267,9 +267,9 @@ for v in overview:
  y+=height+13
 
 y=heading('本次总体概述',y+1)
-y=para(M,y,escape(summary.get('overview') or '本次综合概述暂不可用，请结合分项与作答质量核对。'),size=10.6,lead=17)+13
+y=para(M,y,escape(summary.get('overview') or '本次综合概述暂不可用，请结合分项与作答质量核对。'),width=CW-10.6,size=10.6,lead=17)+13
 # Only essential interpretation boundaries are repeated on the overview page.
-for note in [R.get('referenceDescription') or R.get('disclaimer'),'高分方向不一：心理困扰倾向高分表示困扰更多。职业性格是岗位导向组合分，不是能力值或匹配概率。',R.get('rescoringNotice'),R.get('pfReinterpretationNotice')]:
+for note in ['高分方向不一：心理困扰倾向高分表示困扰更多。职业性格是岗位导向组合分，不是能力值或匹配概率。',R.get('rescoringNotice'),R.get('pfReinterpretationNotice')]:
  if note:y=para(M,y,escape(note),size=9.3,lead=14,color=MUTED)+6
 
 y=page('职业稳定性','职业承诺、留任倾向与三项工作价值偏好。')

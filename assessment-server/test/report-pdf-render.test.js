@@ -26,6 +26,7 @@ test('standard PDF is ten text/vector pages with merged summary and unchanged di
   assert.doesNotMatch(text,/综合指标说明/,'there is no separate comprehensive-explanations chapter');
   for(const title of pages.map(pageTitle))assert.doesNotMatch(title,/续/,'all standard page titles omit continuation labels');
   assert.ok(text.includes(s.owner.name),'supplementary Unicode is searchable and copied correctly');
+  assert.doesNotMatch(text,/模拟参照|模拟作答|实测人群常模|真实人群常模验证/,'report-visible source disclosure removed; metadata remains truthful');
   for(const row of s.report.totals.filter(row=>['ST','PF','MH'].includes(row.code))){
    assert.ok(compact(first).includes(compact(row.name)),row.code+' summary remains on the cover');
    assert.equal(scoreOccurrences(first,row.score.toFixed(1)),1,row.code+' total score appears exactly once on the first page');

@@ -79,7 +79,7 @@ test('frontend renders all questions, saves locked pages and renders sanitized r
   assert.equal(draftRequests.length,17);
   assert.equal(submissionRequests[0].answers.QB002.months[0],12);
   assert.match(node('main').innerHTML,/测评结果/);
-  assert.match(node('main').innerHTML,/参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。/);
+  assert.doesNotMatch(node('main').innerHTML,/模拟参照|模拟作答|实测人群常模|本报告采用模拟参照/);
   assert.doesNotMatch(node('main').innerHTML,/data-action="dimension"|查看典型|典型回答|data-code=/);
   assert(!node('main').innerHTML.includes('<script>alert'));
   assert.equal(Object.keys(T.state.answers).length,0);
@@ -290,9 +290,9 @@ test('work value cards and radar replace the combined point, with Chinese labels
 });
 
 
-test('cards, radar legends and source footnote identify reviewed reference centers honestly',async()=>{
+test('cards and radar legends retain numeric reference centers without source prose',async()=>{
  const {T,node}=await harness(),report=calculateReport(T.state.answers,T.state.seconds);T.showReport({version:'2.9',createdAt:'2026-10-12T00:00:00Z',report});
- const html=node('main').innerHTML;assert.match(html,/参照中心/);assert.doesNotMatch(html,/模拟参照均值/);assert.match(html,/参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。/);
+ const html=node('main').innerHTML;assert.match(html,/参照中心/);assert.doesNotMatch(html,/模拟参照均值/);assert.doesNotMatch(html,/模拟参照|模拟作答|实测人群常模|本报告采用模拟参照/);assert.match(html,/参照区间/);
  assert.match(T.radar('工作投入与情境判断',report.dimensions.filter(row=>/^(ST|SJ|WV_)/.test(row.code))),/legend-line gray[^]*参照中心/);
 });
 
@@ -343,4 +343,10 @@ test('conclusion cards use server interpretations once, escape summary prose and
  assert.equal((overview.match(/data-conclusion=/g)||[]).length,3);assert.equal((overview.match(/class="big-score"/g)||[]).length,3);assert.equal((overview.match(/class="delta /g)||[]).length,3);assert.doesNotMatch(overview,/<svg|<script>|<img|较高：|较低：/);
  for(const code of ['ST','PF','MH']){assert.equal(overview.split('解读'+code).length-1,1);assert.match(overview,/&lt;script&gt;bad/);const total=r.totals.find(row=>row.code===code);assert.ok(overview.includes(total.score.toFixed(1)+'<small>/ 100</small>'));}
  assert.match(overview,/本次动态概述&lt;img src=x onerror=bad&gt;/);assert.match(overview,/依据实际得分/);assert.equal(JSON.stringify(r),before);
+});
+
+test('report-5 omits source prose but retains reference metadata, numbers and unrelated limitations',async()=>{
+ const {T,node}=await harness(),r=calculateReport(T.state.answers,T.state.seconds);r.referenceDescription='参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。';r.disclaimer='旧说明不再重复';r.interpretationNotes=['保留使用限制'];r.totals.find(v=>v.code==='RV').referenceNote='新增的模拟参照仍需验证';const before=JSON.stringify(r);
+ T.showReport({id:'reference-copy',version:'2.11',createdAt:'2026-10-14T00:00:00Z',report:r});const html=node('main').innerHTML;assert.doesNotMatch(html,/模拟参照|模拟作答|实测人群常模|旧说明不再重复/);assert.match(html,/参照中心/);assert.match(html,/参照区间/);assert.match(html,/保留使用限制/);assert.equal(JSON.stringify(r),before);
+ assert.match(T.metric({name:'兼容指标',referenceNote:'保留无关参考说明'}),/保留无关参考说明/);
 });

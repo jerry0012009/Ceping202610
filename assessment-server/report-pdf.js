@@ -1,7 +1,7 @@
 import {spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 
-export const PDF_REVISION='2.11-report-4';
+export const PDF_REVISION='2.11-report-5';
 const renderer=fileURLToPath(new URL('./report-pdf/render_report.py',import.meta.url));
 const failure=()=>Object.assign(new Error('PDF 暂时无法生成，请稍后重试或联系管理员。'),{status:503});
 let active=0;

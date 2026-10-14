@@ -14,7 +14,7 @@
   "approvedReferenceContractSha256": "985f6bbb34547a59ef8153e72b19fe84d22cc3ae84d89704a9fcfce586e8570f",
   "validation": {
     "portableTests": {
-      "passed": 138,
+      "passed": 146,
       "failed": 0
     },
     "serverPdfHTTP": {
@@ -26,7 +26,7 @@
     "downloadInterfaceVM": {
       "status": "passed",
       "cases": 15,
-      "realBrowserClick": "not tested"
+      "realBrowserClick": "passed separately for final report-5 in browserPageReview"
     },
     "pdfGenerationTests": {
       "status": "passed",
@@ -57,7 +57,35 @@
       "reason": "No docker command in the implementation environment."
     },
     "productionDeployment": "not performed",
-    "hostedWorker": "Not updated; the Python backend generator applies only to assessment-server."
+    "hostedWorker": "Not updated; the Python backend generator applies only to assessment-server.",
+    "reportVisibleSourceCopy": {
+      "status": "passed",
+      "scope": "Reference-source wording removed from visible web/PDF reports; numeric values, reference ranges and source metadata preserved."
+    },
+    "browserPageReview": {
+      "status": "passed",
+      "revision": "2.11-report-5",
+      "route": "/ceping202610/",
+      "viewportWidthsPx": [
+        1188,
+        500
+      ],
+      "horizontalOverflow": false,
+      "realDownloadClick": "passed",
+      "printDialogOpened": false,
+      "webAndPdfContentMatch": [
+        "three total scores",
+        "bands",
+        "deterministic overall summary"
+      ]
+    },
+    "summaryInterpretation": {
+      "status": "passed",
+      "totalBandTemplates": 15,
+      "dimensionDirectionTemplates": 48,
+      "syntheticProfiles": 40,
+      "rules": "Independent five-band total explanations; standardized per-dimension prominence and cross-checks with response quality; no score, weight or reference changes."
+    }
   },
   "originalAnswers": "No database migrations or bulk record rewrites. Historical answer/timing rows remain immutable; current reports derive from original answers on read.",
   "excluded": [
@@ -70,10 +98,10 @@
     "Python bytecode and caches"
   ],
   "manifestScope": "Every publishable portable source file except this manifest; the publication checkpoint independently hashes the manifest and repository root README.",
-  "reportPresentationRevision": "2.11-report-4",
+  "reportPresentationRevision": "2.11-report-5",
   "printExport": {
     "method": "Authenticated server-generated PDF attachment download",
-    "revision": "2.11-report-4",
+    "revision": "2.11-report-5",
     "renderer": "Python 3 + ReportLab",
     "standardSyntheticPages": 10,
     "radars": 3,
@@ -92,7 +120,7 @@
     ],
     "overview": "Three conclusion cards and deterministic per-report summary"
   },
-  "reportRendererRevision": "2.11-report-4",
+  "reportRendererRevision": "2.11-report-5",
   "runtime": {
     "node": ">=24.15.0 <25",
     "python": "Python 3 executable as python3",
@@ -132,8 +160,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 26919,
-      "sha256": "54691f16f3873d4fdb3082b7544c9ae99277dbf5b65f9fa9fa737c29be907fd8"
+      "bytes": 28472,
+      "sha256": "f2bede8e3f07435763b92a2f3a0504640586e24aae14905aff1705a9c02446b9"
     },
     {
       "path": "account-id.js",
@@ -272,8 +300,8 @@
     },
     {
       "path": "private/report-presentation.json",
-      "bytes": 20377,
-      "sha256": "3ad339061b86f96165707b3b49e549b13f0ff7bdde345bd2be88a127a180fb89"
+      "bytes": 20281,
+      "sha256": "8decc26c3917075467535a669c0a7bd9d0105c8f20f7548a62f30cfcb587fbfc"
     },
     {
       "path": "private/retired-options.json",
@@ -312,8 +340,8 @@
     },
     {
       "path": "public/app.js",
-      "bytes": 40749,
-      "sha256": "25570988c86e5b0e934886795c017c512e7ac6cf99888a987cafff95d9863e2d"
+      "bytes": 40672,
+      "sha256": "673974640cd69eb50a7ce2a6351d4ededbdbe08e05d628a1bdeebf1e6087e19b"
     },
     {
       "path": "public/fonts/LICENSE-Noto.txt",
@@ -333,7 +361,7 @@
     {
       "path": "public/index.html",
       "bytes": 910,
-      "sha256": "8f933eb3b989f94db2295364b66282107d3ed5279716ec95099dfe4dd9b1b6e3"
+      "sha256": "ee74c6d9f88d939247a822ec6583111b66802f86a5a7194fe483227ebeda72be"
     },
     {
       "path": "public/report-print.css",
@@ -353,7 +381,7 @@
     {
       "path": "report-pdf.js",
       "bytes": 2512,
-      "sha256": "fb4fe8d8b76f7af034f50c9b81e1c72115e55c8724974dccd45c08e14ed4fc80"
+      "sha256": "2e37e99fa33177773bd8b988e0bec0add07316acf468141feaafc296f220e36a"
     },
     {
       "path": "report-pdf/fonts/DurenReportCJK-Bold.ttf",
@@ -372,8 +400,8 @@
     },
     {
       "path": "report-pdf/render_report.py",
-      "bytes": 17992,
-      "sha256": "2f3ddb5fe2325680880554350aeeead66b956fb3338275fade6460d21bb0c610"
+      "bytes": 17953,
+      "sha256": "d7c648df0a7bc1fc7186e75fae577511a49179d6b2d54622af2a5d53884c74a6"
     },
     {
       "path": "report-presentation.js",
@@ -382,8 +410,8 @@
     },
     {
       "path": "report-summary.js",
-      "bytes": 3970,
-      "sha256": "70a649db5e5c8ca56cdc717110785288fad2d22eca527185860d13a8de5dc9d2"
+      "bytes": 11363,
+      "sha256": "3ba653ee6731b842a59473c280351094e04d2274436d5b1f247648dcf1207c58"
     },
     {
       "path": "scoring.js",
@@ -452,8 +480,8 @@
     },
     {
       "path": "test/fixtures/synthetic-assumed-v2.11-40.json",
-      "bytes": 1628971,
-      "sha256": "eb9eb0fc01050454f834665e65cffdcbb48af7628f3f37bf9ad2c79448b9b4ce"
+      "bytes": 1637269,
+      "sha256": "fd90b83e11126bd315049bd55d77e2408ab9875306ebad866db44d7cfa3bb509"
     },
     {
       "path": "test/fixtures/synthetic-v2.11-reanswer-assumptions.json",
@@ -467,8 +495,8 @@
     },
     {
       "path": "test/frontend.test.js",
-      "bytes": 30910,
-      "sha256": "3d9b24a26c991baa0a990b10c797c08975a5777c808d48c2d3a2736e1f39d732"
+      "bytes": 31907,
+      "sha256": "510822fefe51eb77a44e17c9accd922c63322b06c6a14aa27167db104ed6404d"
     },
     {
       "path": "test/legacy-helpers.js",
@@ -507,8 +535,8 @@
     },
     {
       "path": "test/report-pdf-render.test.js",
-      "bytes": 5604,
-      "sha256": "a298a539822d34a3141fdecb0e41f6d6f479320c910e13acc32008712ea6cbc6"
+      "bytes": 5775,
+      "sha256": "38c7d453f33bf17e6866fecc357afd55a9f5b9093e5daaf00d4dfe7c2b5b1ee6"
     },
     {
       "path": "test/report-presentation.test.js",
@@ -518,12 +546,12 @@
     {
       "path": "test/report-print.test.js",
       "bytes": 9150,
-      "sha256": "1aaa4af61ecf1ae1d4e3af04712e3feeb866294470afdbfc875345dd57cafe7b"
+      "sha256": "088277a260d8e9d70997c95417a16bd43851ffba6280f974b3b408344438b98e"
     },
     {
       "path": "test/report-summary.test.js",
-      "bytes": 3031,
-      "sha256": "8f921dc73a43a97d501dd26ebd0683e675cdf7c8a5c995f57a5cc6279f2d71f3"
+      "bytes": 10129,
+      "sha256": "b03b2dfe39b396c0c8053af2d79720dbcb12a1836fdafa24ad1e04a2b4df5674"
     },
     {
       "path": "test/stored-report.test.js",
