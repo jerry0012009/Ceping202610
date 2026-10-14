@@ -1,7 +1,7 @@
 /* A4 report template, matching the approved 渡仁 report. Fonts stay on this origin. */
-@font-face{font-family:'Duren Report';src:url('/fonts/NotoSansCJKsc-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block}
-@font-face{font-family:'Duren Report';src:url('/fonts/NotoSansCJKsc-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:block}
-#assessment-print-root{position:absolute;left:-12000px;top:0;width:210mm;color:#172a39;font:10.3pt/1.55 'Duren Report',sans-serif;letter-spacing:0;background:#fff;pointer-events:none}
+@font-face{font-family:'Duren Report';src:url('./fonts/NotoSansCJKsc-Regular.woff2') format('woff2');font-weight:400;font-style:normal;font-display:block}
+@font-face{font-family:'Duren Report';src:url('./fonts/NotoSansCJKsc-Bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:block}
+#assessment-print-root{--report-template-version:2.11-report-3;position:absolute;left:-12000px;top:0;width:210mm;color:#172a39;font:10.3pt/1.55 'Duren Report',sans-serif;letter-spacing:0;background:#fff;pointer-events:none}
 #assessment-print-root *{box-sizing:border-box}
 #assessment-print-root p,#assessment-print-root h1,#assessment-print-root h2,#assessment-print-root h3{margin:0}
 #assessment-print-root p{margin-bottom:5pt;overflow-wrap:anywhere;white-space:pre-wrap}
@@ -68,8 +68,8 @@
 @page{size:A4 portrait;margin:0}
 @media print{
  html,body{width:210mm!important;margin:0!important;padding:0!important;background:white!important}
- body.report-print-available>*:not(#assessment-print-root){display:none!important}
- body.report-print-available #assessment-print-root{position:static!important;display:block!important;width:210mm;pointer-events:auto}
+ body.report-print-available>*:not(#assessment-print-root):not(#report-print-error){display:none!important}
+ body.report-print-ready #assessment-print-root{position:static!important;display:block!important;width:210mm;pointer-events:auto}
  #assessment-print-root,#assessment-print-root *{print-color-adjust:exact!important;-webkit-print-color-adjust:exact!important}
 }
 /* Match the sample's 62pt score/header area; keep body type unchanged. */
@@ -77,3 +77,7 @@
 .rp-metric .rp-scorebar{margin:-2pt 0 5pt}
 .stability .rp-pair{margin-bottom:15pt}
 .psychology .rp-pair{margin-bottom:11pt}
+
+/* Approved sample: employment label column and radar table rule. */
+.rp-record-head.rp-employment-row,.rp-record-row.rp-employment-row{grid-template-columns:180pt minmax(0,1fr)}
+.rp-radar-table-head{border-bottom:.6pt solid #d9e1e6}

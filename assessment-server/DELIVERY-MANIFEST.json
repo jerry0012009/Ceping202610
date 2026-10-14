@@ -14,11 +14,11 @@
   "approvedReferenceContractSha256": "985f6bbb34547a59ef8153e72b19fe84d22cc3ae84d89704a9fcfce586e8570f",
   "validation": {
     "portableTests": {
-      "passed": 102,
+      "passed": 106,
       "failed": 0
     },
     "hostedTests": {
-      "passed": 99,
+      "passed": 103,
       "failed": 0
     },
     "hostedBuild": "passed",
@@ -31,7 +31,9 @@
       "vectorRadars": 3,
       "scope": "Current approved MH3 copy, baseline and all maximum-length known family fields, lossless long text, absent score dots, metrics, radars, five bands, loaded fonts, page bounds, footer clearance and orphan checks.",
       "longTextPages": 19,
-      "unavailableHistoricalScorePages": 12
+      "unavailableHistoricalScorePages": 12,
+      "testedRendererRevision": "2.11-report-2",
+      "scopeNote": "Recorded layout validation from the previous renderer release; not a report-3 native browser PDF acceptance."
     },
     "browserSavedPDF": {
       "status": "unverified",
@@ -40,7 +42,12 @@
     "independentRenderer": {
       "engine": "WeasyPrint 70",
       "status": "partial",
-      "detail": "9 of 10 individual pages rendered with embedded Unicode fonts; radar-page grid hit a renderer-specific assertion. This is not browser PDF verification."
+      "detail": "9 of 10 individual pages rendered with embedded Unicode fonts; radar-page grid hit a renderer-specific assertion. This is not browser PDF verification.",
+      "testedRendererRevision": "2.11-report-2"
+    },
+    "report3Regression": {
+      "status": "passed",
+      "scope": "Relative asset/font paths, versioned resource loading and template readiness/failure guards covered by unit/security regression tests; hosted build and ESM validation passed. Native browser PDF saving remains unverified."
     }
   },
   "originalAnswers": "No database migrations or bulk record rewrites. Historical answer/timing rows remain immutable; current reports derive from original answers on read.",
@@ -80,8 +87,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 23491,
-      "sha256": "148306cfe7d6b8d7114a95a89ea19d48df7083411800d76e4cc37672ff9998f4"
+      "bytes": 24610,
+      "sha256": "8d9b85a04e0c5d2c482d8786d712186efde2d114e982238a5da888ad88b9fb9a"
     },
     {
       "path": "account-id.js",
@@ -260,8 +267,8 @@
     },
     {
       "path": "public/app.js",
-      "bytes": 36836,
-      "sha256": "4cc943fe729f51ea004f5898f256b3e108f9bbac16e1b69d2f6fb869e9b78f70"
+      "bytes": 36877,
+      "sha256": "a0aff9ae2f46fe7ae57c31d1832eaaaa62130427286c9c5dba5101f21a402a77"
     },
     {
       "path": "public/fonts/LICENSE-Noto.txt",
@@ -280,18 +287,18 @@
     },
     {
       "path": "public/index.html",
-      "bytes": 970,
-      "sha256": "8db7ce92237ae2784e29c7c604a3a75b081fe8a09ce48fb58a0219a25138902c"
+      "bytes": 1750,
+      "sha256": "a10de894fd1abefba99f980e7f605f226693d9eb88d3ff2285be5d31fb1d0c31"
     },
     {
       "path": "public/report-print.css",
-      "bytes": 6975,
-      "sha256": "35e36911840426bf8fcb263d291c13ce24b0017674940b2fee723224be3497ae"
+      "bytes": 7273,
+      "sha256": "35df82a6411edca67816f2e53c890f870c6509cd110d547acfb966b67fb4750b"
     },
     {
       "path": "public/report-print.js",
-      "bytes": 17644,
-      "sha256": "fa8f2ab8812eb0bb5404c9602ccdac677a448f561370062d120419cb90cca9a6"
+      "bytes": 18705,
+      "sha256": "025ffd250814e985714e2d43f6325bb67a3e606cefa4296a4cdb2fc37e0864d3"
     },
     {
       "path": "public/style.css",
@@ -420,8 +427,8 @@
     },
     {
       "path": "test/report-print.test.js",
-      "bytes": 5479,
-      "sha256": "28a4e83d58055a820049819d7b52d6fa152b0166ffb9ecdf43d3ce3406913ba5"
+      "bytes": 9892,
+      "sha256": "244a306bf8f835a264b76d1a12738fb431107d405c339c8a125f717c491ab4c4"
     },
     {
       "path": "test/stored-report.test.js",
@@ -460,6 +467,10 @@
     "baselinePages": 10,
     "longText": "Lossless continuation pages",
     "storage": "No server-side PDF storage or external PDF service",
-    "fontLoading": "Starts only when opening a report; questionnaire and page-save flow do not load report fonts."
-  }
+    "fontLoading": "Starts only when opening a report; questionnaire and page-save flow do not load report fonts.",
+    "rendererRevision": "2.11-report-3",
+    "assetPaths": "Relative URLs support root and subpath hosting; front-end resources share a version token.",
+    "readiness": "Printing is blocked until the matching report script, stylesheet and fonts are ready; normal webpage content is hidden from unready print flows."
+  },
+  "reportRendererRevision": "2.11-report-3"
 }

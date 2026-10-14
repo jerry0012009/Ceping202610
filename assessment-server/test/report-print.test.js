@@ -38,3 +38,48 @@ test('font assets and print CSS are same-origin and A4, with all report content 
  assert.match(fs.readFileSync(new URL('../public/fonts/LICENSE-Noto.txt',import.meta.url),'utf8'),/SIL OPEN FONT LICENSE/);
  const app=fs.readFileSync(new URL('../public/app.js',import.meta.url),'utf8');assert.match(app,/await window\.AssessmentPrint\.ready\(\);window\.print\(\)/);assert.match(app,/if\(next!=='report'\)\{report=null;window\.AssessmentPrint\?\.clear\(\)/);
 });
+test('report-3 assets are versioned and resolve fonts under root or subpath deployments',()=>{
+ const html=fs.readFileSync(new URL('../public/index.html',import.meta.url),'utf8'),css=fs.readFileSync(new URL('../public/report-print.css',import.meta.url),'utf8');
+ assert.equal(renderer.version,'2.11-report-3');
+ for(const file of ['style.css','report-print.css','report-print.js','app.js'])assert.ok(html.includes(`./${file}?v=2.11-report-3`),file);
+ for(const root of ['https://example.test/','https://example.test/ceping202610/']){
+  const sheet=new URL('./report-print.css?v=2.11-report-3',root);
+  for(const match of css.matchAll(/url\('([^']+)'\)/g))assert.equal(new URL(match[1],sheet).pathname,new URL('fonts/'+match[1].split('/').at(-1),root).pathname);
+ }
+ assert.match(html,/id="report-print-safety"/);assert.match(html,/body:not\(\.report-print-ready\) #assessment-print-root\{display:none!important\}/);assert.match(html,/独立报告尚未准备好，已停止打印网页/);
+ assert.match(source,/getPropertyValue\('--report-template-version'\)/);assert.match(css,/--report-template-version:2\.11-report-3/);
+ const app=fs.readFileSync(new URL('../public/app.js',import.meta.url),'utf8');assert.match(app,/AssessmentPrint\?\.version!=='2\.11-report-3'/);
+});
+
+function lifecycleHarness({cssVersion='2.11-report-3',fontFailure=false}={}){
+ const classes=new Set(),events={},roots=[];
+ class Element{
+  constructor(){this.children=[];this.dataset={};this.className='';this.innerHTML='';}
+  append(n){this.children.push(n);n.parent=this;}
+  remove(){if(this.parent)this.parent.children=this.parent.children.filter(n=>n!==this);}
+  replaceChildren(){this.children=[];}
+  setAttribute(){}
+  getBoundingClientRect(){return {bottom:100};}
+  querySelector(sel){if(sel==='[data-overflow="true"]')return null;if(sel==='.rp-body'){return this.body||(this.body=new Element());}if(sel==='.rp-page-number')return this.number||(this.number=new Element());return null;}
+  querySelectorAll(){return [];}
+ }
+ const body=new Element();body.classList={add:(...xs)=>xs.forEach(x=>classes.add(x)),remove:(...xs)=>xs.forEach(x=>classes.delete(x))};
+ const doc={body,title:'网页标题',createElement:()=>{const e=new Element();roots.push(e);return e;},fonts:{load:async()=>{if(fontFailure)throw new Error('font blocked');return [{}];},check:()=>!fontFailure}};
+ const win={addEventListener:(name,fn)=>events[name]=fn,getComputedStyle:()=>({getPropertyValue:()=>cssVersion})};
+ const ctx={window:win,document:doc,console};vm.createContext(ctx);vm.runInContext(source,ctx);
+ return {api:win.AssessmentPrint,classes,events,doc,setCSS(v){cssVersion=v;},setFontFailure(v){fontFailure=v;}};
+}
+test('missing or stale CSS and failed fonts never mark a mounted report printable',async()=>{
+ for(const options of [{cssVersion:''},{cssVersion:'2.11-report-2'},{fontFailure:true}]){
+  const h=lifecycleHarness(options);h.api.mount(saved);await assert.rejects(h.api.ready());assert.equal(h.classes.has('report-print-ready'),false);h.events.beforeprint();assert.equal(h.classes.has('report-print-ready'),false);
+ }
+});
+test('current report becomes ready; invalidation and clear remove permission to print stale content',async()=>{
+ const h=lifecycleHarness();h.api.mount(saved);await h.api.ready();assert.equal(h.classes.has('report-print-ready'),true);assert.equal(h.doc.body.children.length,1);
+ h.setCSS('');await assert.rejects(h.api.ready());assert.equal(h.classes.has('report-print-ready'),false);h.events.beforeprint();assert.equal(h.classes.has('report-print-ready'),false);
+ h.api.clear();assert.equal(h.doc.body.children.length,0);assert.equal(h.classes.has('report-print-available'),false);assert.equal(h.classes.has('report-print-ready'),false);await assert.rejects(h.api.ready(),/请先打开/);
+ h.setCSS('2.11-report-3');h.api.mount({...saved,id:'second'});await h.api.ready();assert.equal(h.doc.body.children.length,1);h.setFontFailure(true);h.events.beforeprint();assert.equal(h.classes.has('report-print-ready'),false);
+});
+test('approved employment label width and radar header rule remain local presentation changes',()=>{
+ const css=fs.readFileSync(new URL('../public/report-print.css',import.meta.url),'utf8');assert.match(css,/grid-template-columns:180pt minmax\(0,1fr\)/);assert.match(css,/\.rp-radar-table-head\{border-bottom:\.6pt solid #d9e1e6\}/);assert.match(html(),/rp-record-row rp-employment-row/);
+});

@@ -2,6 +2,7 @@
    It never fetches/stores answers, recalculates scores, or creates a public PDF URL. */
 (function (global) {
   'use strict';
+  const version = '2.11-report-3';
   const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   const fmt = value => Number.isFinite(value) ? value.toFixed(1) : '—';
   const pct = value => Math.max(0, Math.min(100, Number(value) || 0));
@@ -49,7 +50,7 @@
       rows.push(...recordRows('在职月数',tenure?.recordedMonths?.length ? `已记录：${tenure.recordedMonths.join(' / ')}个月；原记录未保留各段对应关系。` : '未填写 / 原记录未保留'));
       rows.push(...recordRows('最近一段状态',tenure?.status || (answers?.source==='completion'?'未填写':'原记录未保留')));
     }
-    return rows;
+    return rows.map(html=>html.replace('class="rp-record-row"','class="rp-record-row rp-employment-row"'));
   }
   function sections(saved, options={}) {
     const r=saved.report || {}, dims=r.dimensions || [], totals=r.totals || [];
@@ -80,7 +81,7 @@
       {title:'情境判断与处理偏好',subtitle:'呈现对现场问题、人际分歧与规范要求的判断倾向。',kind:'details judgement',blocks:byPrefix('SJ').map(metric)},
       {title:'心理问题倾向',subtitle:'反映主观困扰线索，不用于疾病诊断或岗位资格判断。',kind:'details psychology',blocks:pairs(byPrefix('MH'))},
       {title:'作答参考',subtitle:'先理解作答过程，再结合具体经历使用其他结果。',kind:'details response',blocks:[...byPrefix('RV').map(metric),p(r.timingNotice,'rp-muted rp-small')]},
-      {title:'信息记录与报告使用说明',kind:'records',blocks:[heading('工作经历'),infoHeader,...employmentRows(r.employmentAnswers),heading('家庭与支持信息','仅作信息记录，不计分'),infoHeader,...family,heading('报告使用说明'),...(r.interpretationNotes || []).map(note=>p(note,'rp-muted rp-small'))]}
+      {title:'信息记录与报告使用说明',kind:'records',blocks:[heading('工作经历'),infoHeader.replace('class="rp-record-head"','class="rp-record-head rp-employment-row"'),...employmentRows(r.employmentAnswers),heading('家庭与支持信息','仅作信息记录，不计分'),infoHeader,...family,heading('报告使用说明'),...(r.interpretationNotes || []).map(note=>p(note,'rp-muted rp-small'))]}
     ].map(section=>({...section,blocks:section.blocks.filter(Boolean)}));
   }
   function paginate(saved, options) {
@@ -105,7 +106,7 @@
             block.remove();carry.forEach(node=>node.remove());body=addPage(section,true);
             carry.forEach(node=>body.append(node));
             if(section.kind==='records'&&block.querySelector('.rp-record-row')&&!carry.some(node=>node.querySelector('.rp-record-head'))){
-              const header=document.createElement('div');header.className='rp-block';header.innerHTML='<div class="rp-record-head"><span>信息项目</span><span>原始作答</span></div>';body.append(header);
+              const header=document.createElement('div');header.className='rp-block';header.innerHTML='<div class="rp-record-head'+(block.querySelector('.rp-employment-row')?' rp-employment-row':'')+'"><span>信息项目</span><span>原始作答</span></div>';body.append(header);
             }
             body.append(block);
           }
@@ -122,34 +123,39 @@
   }
   function clear() {
     generation++;current=null;root?.remove();root=null;pending=Promise.resolve();
-    document.body.classList.remove('report-print-available');
+    document.body.classList.remove('report-print-available','report-print-ready');
     if(originalTitle!==null){document.title=originalTitle;originalTitle=null;}
   }
   function mount(saved,options={}) {
     clear();const token=generation;current={saved,options};
     root=document.createElement('div');root.id='assessment-print-root';root.setAttribute('aria-hidden','true');document.body.append(root);document.body.classList.add('report-print-available');
     paginate(saved,options);
-    pending=loadFonts().then(()=>{if(generation===token)paginate(saved,options);});
+    pending=loadFonts().then(()=>{if(generation===token){paginate(saved,options);validateLayout();document.body.classList.add('report-print-ready');}});
     pending.catch(()=>{}); // The export button reports a retryable error; no unhandled rejection.
   }
   function loadFonts() {
     return document.fonts?Promise.all([document.fonts.load('400 10px "Duren Report"'),document.fonts.load('700 10px "Duren Report"')]).then(loaded=>{if(loaded.some(list=>!list.length))throw new Error('报告字体未能加载，请联网后重试。');}):Promise.resolve();
   }
+  function validateLayout() {
+    if(!root || global.getComputedStyle(root).getPropertyValue('--report-template-version').trim()!==version)throw new Error('独立报告样式未加载或版本不一致，请刷新页面后重试。');
+    if(root.querySelector('[data-overflow="true"]'))throw new Error('报告中有超长内容，暂时无法完整排版，请联系管理员。原始信息未改动。');
+  }
   async function ready() {
     if(!current)throw new Error('请先打开需要导出的报告。');
+    document.body.classList.remove('report-print-ready');
     const token=generation;await loadFonts();await pending.catch(()=>{});
     if(!current||generation!==token)throw new Error('报告已切换，请在当前报告中重新点击导出。');
     paginate(current.saved,current.options);
-    if(root.querySelector('[data-overflow="true"]'))throw new Error('报告中有超长内容，暂时无法完整排版，请联系管理员。原始信息未改动。');
+    validateLayout();document.body.classList.add('report-print-ready');
   }
   global.addEventListener('beforeprint',()=>{
     if(!current)return;
-    paginate(current.saved,current.options);
+    try{validateLayout();if(document.fonts&&(!document.fonts.check('400 10px "Duren Report"')||!document.fonts.check('700 10px "Duren Report"')))throw new Error('报告字体尚未加载');paginate(current.saved,current.options);validateLayout();document.body.classList.add('report-print-ready');}catch{document.body.classList.remove('report-print-ready');return;}
     if(originalTitle===null)originalTitle=document.title;
     const owner=current.saved.owner||current.options.owner;
     const name=String(owner?.name||'').replace(/[\\/:*?"<>|\r\n]/g,'').slice(0,50);
     document.title=`渡仁_测评结果报告${name?'_'+name:''}`;
   });
   global.addEventListener('afterprint',()=>{if(originalTitle!==null){document.title=originalTitle;originalTitle=null;}});
-  global.AssessmentPrint={mount,clear,ready,sections,metric,bar,radar,recordRows};
+  global.AssessmentPrint={version,mount,clear,ready,sections,metric,bar,radar,recordRows};
 })(window);
