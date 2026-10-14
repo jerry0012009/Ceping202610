@@ -22,6 +22,7 @@ async function harness({failDraftOnce=false,failSubmissionOnce=false,holdSaves=f
     window:{scrollTo(){},addEventListener(){}},
     fetch:async(url,options={})=>{requestHeaders.push({url,headers:options.headers,method:options.method});
       const ok=value=>({ok:true,json:async()=>value});
+      if(url==='/api/consent')return ok({notice:{version:'notice-test',text:'测试指导语'},consent:{id:'test',version:'notice-test'},required:false});
       if(url==='/api/questionnaire')return ok(questionnaire);
       if(url==='/api/draft'){
         if(options.method==='DELETE'){draft=null;return ok({ok:true});}
@@ -54,7 +55,7 @@ async function harness({failDraftOnce=false,failSubmissionOnce=false,holdSaves=f
     },
   };
   let source=fs.readFileSync(new URL('../public/app.js',import.meta.url),'utf8');
-  source=source.replace(/\}\)\(\);\s*$/,`globalThis.T={showAnswerDetails,metric,radar,field,familyText,mutate,start,done,drain,awaitSaved,fail,get heldState(){return heldState},setUser(value){user=value},questionPage,next,showReport,clearPrivateUI,get report(){return report},get savedDraft(){return savedDraft},get state(){return state},get pages(){return pages}};})();`);
+  source=source.replace(/\}\)\(\);\s*$/,`requestConsent=async()=>true;globalThis.T={auth,setRegistration(value){register=value},showAnswerDetails,metric,radar,field,familyText,mutate,start,done,drain,awaitSaved,fail,get heldState(){return heldState},setUser(value){user=value},questionPage,next,showReport,clearPrivateUI,get report(){return report},get savedDraft(){return savedDraft},get state(){return state},get pages(){return pages}};})();`);
   vm.runInNewContext(source,context);
   await new Promise(resolve=>setTimeout(resolve,0));
   context.T.setUser({id:'owner-a'});
@@ -316,7 +317,7 @@ test('employment report and print content show exact answers, labeled slots and 
 });
 
 test('historical partial report clearly separates answer/scoring versions and never displays unavailable scores as zero',async()=>{
- const {T,node}=await harness(),r=calculateReport(T.state.answers,T.state.seconds);r.answerVersion='2.9';r.scoringVersion='2.11';r.rescoringStatus='partial';r.rescoringNotice='第41题含旧选项，相关指标无法完整重算。';const metric=r.dimensions.find(v=>v.code==='SJ1');metric.score=null;metric.raw=null;metric.label='无法重算';metric.unavailableReason='当前题库没有该旧选项映射，原始答案未改写。';T.showReport({version:'2.9',createdAt:'2026-10-12T00:00:00Z',report:r});const html=node('main').innerHTML;assert.match(html,/答卷 V2.9 · 计分 V2.11/);assert.match(html,/第41题含旧选项，相关指标无法完整重算/);assert.match(html,/无法重算/);assert.match(html,/当前题库没有该旧选项映射，原始答案未改写/);const card=html.split('<h3>'+metric.name+'</h3>')[1].split('</article>')[0];assert.doesNotMatch(card,/>0(?:\.0)?<\/b>/);
+ const {T,node}=await harness(),r=calculateReport(T.state.answers,T.state.seconds);r.answerVersion='2.9';r.scoringVersion='2.11';r.rescoringStatus='partial';r.rescoringNotice='第41题含旧选项，相关指标无法完整重算。';const metric=r.dimensions.find(v=>v.code==='SJ1');metric.score=null;metric.raw=null;metric.label='无法重算';metric.unavailableReason='当前题库没有该旧选项映射，原始答案未改写。';T.showReport({version:'2.9',createdAt:'2026-10-12T00:00:00Z',report:r});const html=node('main').innerHTML;assert.doesNotMatch(html,/答卷 V2.9|计分 V2.11/);assert.equal(r.answerVersion,'2.9');assert.equal(r.scoringVersion,'2.11');assert.match(html,/第41题含旧选项，相关指标无法完整重算/);assert.match(html,/无法重算/);assert.match(html,/当前题库没有该旧选项映射，原始答案未改写/);const card=html.split('<h3>'+metric.name+'</h3>')[1].split('</article>')[0];assert.doesNotMatch(card,/>0(?:\.0)?<\/b>/);
 });
 
 test('report-4 orders conclusion summary then four domains, with three domain radars and unchanged metric values',async()=>{
@@ -338,15 +339,25 @@ test('report-4 orders conclusion summary then four domains, with three domain ra
 
 test('conclusion cards use server interpretations once, escape summary prose and keep original values',async()=>{
  const {T,node}=await harness();const r=calculateReport(T.state.answers,T.state.seconds);
- r.reportSummary={cards:['ST','PF','MH'].map(code=>({code,interpretation:'解读'+code+'<script>bad()</script>'})),overview:'本次动态概述<img src=x onerror=bad>\n依据实际得分'};const before=JSON.stringify(r);
+ r.reportSummary={cards:['ST','PF','MH'].map(code=>({code,interpretation:'解读'+code+'<script>bad()</script>'})),overview:'本次动态概述<img src=x onerror=bad>\n\n依据实际得分'};const before=JSON.stringify(r);
  T.showReport({id:'summary-test',version:'2.11',createdAt:'2026-10-14T00:00:00Z',report:r});const overview=node('main').innerHTML.split('<section class="report-domain">')[0];
  assert.equal((overview.match(/data-conclusion=/g)||[]).length,3);assert.equal((overview.match(/class="big-score"/g)||[]).length,3);assert.equal((overview.match(/class="delta /g)||[]).length,3);assert.doesNotMatch(overview,/<svg|<script>|<img|较高：|较低：/);
  for(const code of ['ST','PF','MH']){assert.equal(overview.split('解读'+code).length-1,1);assert.match(overview,/&lt;script&gt;bad/);const total=r.totals.find(row=>row.code===code);assert.ok(overview.includes(total.score.toFixed(1)+'<small>/ 100</small>'));}
- assert.match(overview,/本次动态概述&lt;img src=x onerror=bad&gt;/);assert.match(overview,/依据实际得分/);assert.equal(JSON.stringify(r),before);
+ assert.match(overview,/本次动态概述&lt;img src=x onerror=bad&gt;/);assert.ok(overview.includes('本次动态概述&lt;img src=x onerror=bad&gt;\n\n依据实际得分'));assert.equal(JSON.stringify(r),before);const css=fs.readFileSync(new URL('../public/style.css',import.meta.url),'utf8');assert.match(css,/\.summary-overview\{[^}]*white-space:pre-line/);
 });
 
 test('report-5 omits source prose but retains reference metadata, numbers and unrelated limitations',async()=>{
  const {T,node}=await harness(),r=calculateReport(T.state.answers,T.state.seconds);r.referenceDescription='参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。';r.disclaimer='旧说明不再重复';r.interpretationNotes=['保留使用限制'];r.totals.find(v=>v.code==='RV').referenceNote='新增的模拟参照仍需验证';const before=JSON.stringify(r);
  T.showReport({id:'reference-copy',version:'2.11',createdAt:'2026-10-14T00:00:00Z',report:r});const html=node('main').innerHTML;assert.doesNotMatch(html,/模拟参照|模拟作答|实测人群常模|旧说明不再重复/);assert.match(html,/参照中心/);assert.match(html,/参照区间/);assert.match(html,/保留使用限制/);assert.equal(JSON.stringify(r),before);
  assert.match(T.metric({name:'兼容指标',referenceNote:'保留无关参考说明'}),/保留无关参考说明/);
+});
+
+test('V2.12 page branding and report display version do not replace stored schema versions',async()=>{
+ const {T,node}=await harness(),r=calculateReport(T.state.answers,T.state.seconds);r.answerVersion='2.9';r.scoringVersion='2.11';r.displayVersion='2.12';const before=JSON.stringify(r);
+ T.showReport({version:'2.9',createdAt:'2026-10-14T00:00:00Z',report:r});assert.match(node('main').innerHTML,/报告 V2\.12/);assert.doesNotMatch(node('main').innerHTML,/答卷 V|计分 V/);assert.equal(JSON.stringify(r),before);
+ const index=fs.readFileSync(new URL('../public/index.html',import.meta.url),'utf8');assert.match(index,/<title>职业与心理健康测评<\/title>/);assert.doesNotMatch(index,/职业适应测评|report-6/);for(const file of ['style.css','app.js'])assert.ok(index.includes(file+'?v=2.12'));
+});
+
+test('login and registration have explicit accessible switches while keeping password validation',async()=>{
+ const {T,node}=await harness();for(const register of [false,true]){T.setRegistration(register);T.auth();const html=node('main').innerHTML;assert.match(html,/首次使用请注册/);assert.match(html,/role="group" aria-label="登录或注册"/);assert.ok(html.includes('data-mode="login" aria-pressed="'+!register+'"'));assert.ok(html.includes('data-mode="register" aria-pressed="'+register+'"'));assert.match(html,/type="email"[^>]*required/);if(register){assert.match(html,/minlength="6"/);assert.match(html,/autocomplete="new-password"/);}else{assert.doesNotMatch(html,/minlength="6"/);assert.match(html,/autocomplete="current-password"/);}}
 });

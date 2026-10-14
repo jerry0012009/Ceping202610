@@ -76,34 +76,71 @@ export function selectReportFeatures(report){
  }
  return selected.filter(Boolean);
 }
+// Overview uses direct, readable conclusions. Detailed boundaries remain in
+// the report's usage notes instead of taking over each personal conclusion.
+const OVERVIEW_MEANINGS={
+ ST:{
+  较高:'明显倾向持续投入当前职业和任务，愿意延续同类工作并保持项目衔接',
+  稍高:'较倾向延续当前职业和任务，长期投入意愿相对积极，也会权衡具体工作条件',
+  平均:'既考虑延续现有工作，也为其他选择保留空间，持续投入更取决于具体工作条件',
+  稍低:'对新任务或其他机会保留较多空间，继续投入意愿较受发展机会和工作条件影响',
+  较低:'更愿为职业或工作变化保留选择，可先了解其发展意愿和当前工作安排'
+ },
+ PF:{
+  较高:'工作偏好明显接近岗位组合重视的责任落实、协作与有序推进，部分工作特点较突出',
+  稍高:'工作方式较接近当前岗位组合要求，在责任落实、协作或计划安排上有较契合的特点',
+  平均:'工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异',
+  稍低:'部分工作偏好与当前岗位组合要求存在差异，可具体了解需要明确安排或支持的环节',
+  较低:'工作侧重点与当前岗位组合要求差异较多，可围绕任务分工和支持条件进一步沟通'
+ },
+ MH:{
+  较高:'较集中地反映担忧、低落或紧张等困扰，宜了解近期压力对日常状态的影响',
+  稍高:'主观困扰相对较多，休息恢复、情绪调整或注意可能较费力，可了解近期负担',
+  平均:'情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节',
+  稍低:'较少提及相关困扰，主观负担相对较轻，仍可留意具体情境和近期状态变化',
+  较低:'本次很少提及这些困扰，问卷中较少呈现相关体验，可结合近期生活状态了解'
+ }
+};
 function qualityText(report,totals){
  const dims=report.dimensions||[],rv=totals.get('RV'),rv1=dims.find(v=>v.code==='RV1'),rv2=dims.find(v=>v.code==='RV2'),rv3=dims.find(v=>v.code==='RV3'),mh=totals.get('MH');
- if(!valid(rv2)||!valid(rv3))return {limited:true,text:'回答一致性或作答认真程度信息不完整，当前解释把握有限，宜先补充核对。'};
- if(low(rv2.label)&&low(rv3.label))return {limited:true,text:'前后回答协调性与作答节奏均需核对，当前解释把握有限；宜先了解题意理解和答题过程。'};
- if(low(rv2.label))return {limited:true,text:'相近内容的回答存在差异，当前解释把握有限；宜先澄清题意与具体情境，不据此认定不诚实。'};
- if(low(rv3.label))return {limited:true,text:'作答节奏出现需核对的线索，可能涉及分心、题意理解或计时问题，当前解释把握有限。'};
- if(!valid(rv)||!valid(rv1))return {limited:true,text:'作答质量综合信息不完整，当前解释把握有限，应补充核对后再使用结果。'};
- if(valid(mh)&&low(mh.label)&&high(rv1.label))return {limited:low(rv.label),text:(low(rv.label)?'当前解释把握有限；':'')+'本次较少呈现困扰，同时自我描述偏理想化，需结合近期实际体验了解；这不证明存在隐瞒。'};
- if(high(rv1.label))return {limited:low(rv.label),text:(low(rv.label)?'当前解释把握有限；':'')+'自我描述较理想化，宜多了解具体事例；这不等于不诚实，作答质量高也不保证内容真实。'};
- if(low(rv.label))return {limited:true,text:'整体有较多影响解释的作答线索，宜先核对答题过程；不据此判断人品或工作态度。'};
- return {limited:false,text:'本次回答协调性与作答节奏未见突出疑点，可作沟通线索，但不能视为真实性保证。'};
+ if(!valid(rv2)||!valid(rv3))return '部分作答质量信息缺失，当前结论把握有限，需补充核对答题过程。';
+ if(low(rv2.label)&&low(rv3.label))return '回答一致性和作答节奏均需核对，当前结论把握有限，应先了解题意理解和实际答题过程。';
+ if(low(rv2.label))return '相近内容的回答有差异，可能影响前后偏好的判断，建议核对题意及对应情境。';
+ if(low(rv3.label))return '作答节奏有需核对的线索，可能影响结果把握，建议了解是否分心、未理解题意或存在计时问题。';
+ if(!valid(rv)||!valid(rv1))return '作答质量综合信息不完整，需补充核对后再使用当前结论。';
+ if(valid(mh)&&low(mh.label)&&high(rv1.label))return '本次困扰较少被呈现，同时自我描述较理想化，建议结合近期实际体验进一步了解。';
+ if(high(rv1.label))return '自我描述较理想化，可能较少呈现自身不足，建议结合具体事例了解这些特点。';
+ return '';
+}
+function directMeaning(text,compact=false){
+ // Remove generic disclaimers only from the overview's selected trait clause;
+ // the full directional templates and detailed report explanations stay intact.
+ const direct=text.split(/，(?:不等于|不代表|不证明|但不是|但不保证|但不是真实性证明)/)[0];
+ return compact?direct.split('，')[0]:direct;
 }
 export function createReportSummary(report){
  const totals=new Map((report.totals||[]).map(row=>[row.code,row]));
- const dims=report.dimensions||[];
  const cards=['ST','PF','MH'].map(code=>({code,interpretation:valid(totals.get(code))?TOTAL_EXPLANATIONS[code][totals.get(code).label]:'本指标暂无法完整重算，需补充或核对原始作答后再作解释。'}));
- let features=selectReportFeatures(report);
- const missing=cards.some(card=>!valid(totals.get(card.code)));
- const mixed=domains.some((codes,i)=>totals.get(['ST','PF','MH'][i])?.label==='平均'&&dims.some(row=>codes.includes(row.code)&&valid(row)&&high(row.label))&&dims.some(row=>codes.includes(row.code)&&valid(row)&&low(row.label)));
- const opposite=features.some(feature=>{const total=totals.get(['ST','PF','MH'][feature.domain]);return valid(total)&&(high(total.label)&&feature.direction==='low'||low(total.label)&&feature.direction==='high');});
- const intro=missing?'部分综合指标暂缺完整结果，以下仅解读可用分项。':mixed?'综合分包含不同方向的分项，不能只用“平均”概括。':opposite?'综合分与个别分项方向不同，宜分开理解。':'分项帮助说明本次工作方式与主观体验的具体特点。';
- const quality=qualityText(report,totals);
- const closing='建议结合近期具体事例、工作条件与支持需求理解，不作诊断或岗位资格判断。';
- const featureText=()=>features.length?features.map(v=>`${v.name}${v.label}，${v.wording}`).join('；')+'。':dims.some(row=>valid(row)&&finite(row.mean))?'可用分项未呈现明显高低差异，仍可结合具体任务了解工作偏好与近期状态。':'分项数据不足，需补充或核对原始作答后再解读特点。';
- const assemble=()=>quality.limited?[quality.text,intro,featureText(),closing]:[intro,featureText(),quality.text,closing];
- let overview=assemble().join('');
- // Never clip a sentence or shrink type to fit: prefer two complete features.
- if(overview.length>260&&features.length>2){features=features.slice(0,2);overview=assemble().join('');}
- if(overview.length<180&&!missing&&features.length)overview+='高低各有具体含义，不用于简单的优劣排序；沟通时可先从最影响当前任务的事项入手。';
- return {cards,overview};
+ const features=selectReportFeatures(report),quality=qualityText(report,totals);
+ const build=(compactFeature=false,compactTotal=false)=>['ST','PF','MH'].map((code,domain)=>{
+  const total=totals.get(code),name=total?.name||{ST:'职业稳定性',PF:'职业性格',MH:'心理困扰倾向'}[code];
+  const feature=features.find(row=>row.domain===domain);
+  let paragraph;
+  if(valid(total)){
+   let meaning=OVERVIEW_MEANINGS[code][total.label];
+   if(compactTotal)meaning=meaning.split('，')[0];
+   paragraph=(domain===0?'该被试':'')+name+total.label+'，'+meaning+'。';
+  }else paragraph=(domain===0?'该被试':'')+name+'暂无法完整重算，以下仅说明可用分项。';
+  if(feature){
+   // “But” describes a specific personality contrast, not a scoring conflict.
+   const contrast=domain===1&&valid(total)&&(low(total.label)&&feature.direction==='high'||high(total.label)&&feature.direction==='low');
+   paragraph+=(contrast?'但':'其中')+feature.name+feature.label+'，'+directMeaning(feature.wording,compactFeature)+'。';
+  }
+  return paragraph;
+ });
+ let paragraphs=build();
+ if(quality)paragraphs[2]+=quality;
+ if(paragraphs.join('').length>280){paragraphs=build(true);if(quality)paragraphs[2]+=quality;}
+ if(paragraphs.join('').length>280){paragraphs=build(true,true);if(quality)paragraphs[2]+=quality;}
+ return {cards,overview:paragraphs.join('\n\n')};
 }

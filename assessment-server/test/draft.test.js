@@ -1,3 +1,4 @@
+import {acceptCurrentNotice} from './consent-helpers.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -18,6 +19,7 @@ test('draft ownership, ordered immutable pages, explicit persistence, resume, co
  try{
  await start();assert.equal((await call('/api/draft')).status,401);
  const a=await signup('draft-a@example.test'),b=await signup('draft-b@example.test');
+ await acceptCurrentNotice(origin,a);
  const ownerA=(await call('/api/me',{cookie:a})).json.user.id;
  const before=instance.db.prepare('SELECT COUNT(*) AS n FROM drafts').get().n;
  assert.equal((await call('/api/draft',{method:'PUT',cookie:b,expectedOwner:ownerA,body:payload(1)})).status,401);
@@ -56,6 +58,7 @@ test('draft ownership, ordered immutable pages, explicit persistence, resume, co
  assert.equal((await call('/api/assessments',{cookie:b})).json.assessments.length,0);
  for(const row of saved.json.report.dimensions)if(row.example){assert.deepEqual(row.example.answer,full.answers[row.example.id]);assert.deepEqual(Object.keys(row.example).sort(),['id','number','stem','answer','answerText'].sort());}
  assert.ok(!/"(?:trace|records|weights|contribution|coeff|scoreText)":/.test(saved.text),'report examples omit scoring internals');
+ await acceptCurrentNotice(origin,b);
  assert.equal((await call('/api/draft',{method:'PUT',cookie:b,body:payload(1)})).status,200);
  const bDraft=(await call('/api/draft',{cookie:b})).json.draft;
  assert.equal((await call('/api/draft',{method:'DELETE',cookie:b,expectedOwner:ownerA})).status,401);

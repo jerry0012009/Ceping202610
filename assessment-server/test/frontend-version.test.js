@@ -24,6 +24,7 @@ async function harness({draft=null,current=latest}={}){
   document:{getElementById:node,body:{classList:{toggle(){}}},visibilityState:'visible',hasFocus:()=>true,addEventListener(type,fn){listeners[type]=fn;},querySelector:()=>({disabled:false,textContent:'',isConnected:false})},
   window:{scrollTo(){},addEventListener(){}},
   fetch:async(url,options={})=>{
+   if(url==='/api/consent')return ok({notice:{version:'notice-test',text:'授权管理员查看'},consent:{id:'test',version:'notice-test'},required:false});
    requests.push({url,method:options.method||'GET',headers:options.headers,body:options.body?JSON.parse(options.body):undefined});
    if(url==='/api/auth/sign-in/email'){signedIn=true;return ok({});}
    if(url==='/api/me')return signedIn?ok({user:{id:owner}}):error(401,'Session expired');
@@ -58,7 +59,7 @@ async function harness({draft=null,current=latest}={}){
   },
  };
  let source=fs.readFileSync(new URL('../public/app.js',import.meta.url),'utf8');
- source=source.replace(/\}\)\(\);\s*$/,`globalThis.T={start,resume,history,next,fail,question,showAnswerDetails,mutate,awaitSaved,loadQuestionnaire,useQuestionnaire,questionPage,draftPayload,setUser(value){user=value},get state(){return state},get data(){return data},get pages(){return pages},get heldState(){return heldState},get savedDraft(){return savedDraft},get view(){return view}};})();`);
+ source=source.replace(/\}\)\(\);\s*$/,`requestConsent=async notice=>confirm(notice.text);globalThis.T={start,resume,history,next,fail,question,showAnswerDetails,mutate,awaitSaved,loadQuestionnaire,useQuestionnaire,questionPage,draftPayload,setUser(value){user=value},get state(){return state},get data(){return data},get pages(){return pages},get heldState(){return heldState},get savedDraft(){return savedDraft},get view(){return view}};})();`);
  vm.runInNewContext(source,context);await tick();context.T.setUser({id:owner});requests.length=0;
  return {T:context.T,node,requests,confirmations,decisions,get draft(){return draft;},setCurrent(value){current=value;},setQuestionnaireFailure(value){questionnaireFailure=value;},setQuestionnaireOverride(value){questionnaireOverride=value;},setDeleteFailure(value){deleteFailure=value;},setSaveFailure(value){saveFailure=value;},setOwner(value){owner=value;context.T.setUser({id:owner});},async login(value=owner){owner=value;await listeners.submit({preventDefault(){},target:{id:'authForm',querySelector:()=>({disabled:false,isConnected:false}),reset(){}}});await tick();}};
 }
@@ -83,7 +84,7 @@ test('a saved 2.9 draft loads its archived bank, preserves locked pages, and sub
  h.T.state.answers.Q7='L';await h.T.next();
  const writeRequests=writes(h);assert.deepEqual(writeRequests.map(r=>r.url),['/api/draft','/api/assessments']);
  for(const request of writeRequests){assert.equal(request.body.version,'2.9');assert.equal(request.headers['X-Assessment-Owner'],'owner-a');assert.equal(Object.keys(request.body.answers).length,7);assert.equal(request.body.answers.Q7,'L');}
- assert.equal(h.T.view,'report');assert.match(h.node('main').innerHTML,/V2.9/);
+ assert.equal(h.T.view,'report');assert.match(h.node('main').innerHTML,/测评结果/);assert.doesNotMatch(h.node('main').innerHTML,/答卷 V|计分 V/);
 });
 
 test('an in-memory legacy draft reloads its own bank rather than accepting cached latest data',async()=>{

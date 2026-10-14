@@ -1,3 +1,4 @@
+import {acceptCurrentNotice} from './consent-helpers.js';
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import os from 'node:os';import path from 'node:path';import {randomBytes,randomUUID} from 'node:crypto';
 import {requireVersion} from '../version-registry.js';import {calculateReport} from '../scoring.js';
 const old=requireVersion('2.9'),current=requireVersion('2.11');
@@ -11,6 +12,7 @@ test('real SQLite API pins old drafts, starts 2.11, isolates users and rescales 
  try{const call=async(route,{method='GET',body,cookie,owner}={})=>{const r=await fetch(base+route,{method,headers:{origin,connection:'close',...(cookie?{cookie}:{}),...(owner?{'X-Assessment-Owner':owner}:{}),...(body?{'content-type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{})});const text=await r.text();let json;try{json=JSON.parse(text);}catch{}return {status:r.status,json,text,cookie:r.headers.getSetCookie().map(v=>v.split(';')[0]).join('; ')};};
  const sign=async email=>{const r=await call('/api/auth/sign-up/email',{method:'POST',body:{name:'Version Test',email,password:'version-test-pass-123'}});assert.equal(r.status,200,r.text);return {cookie:r.cookie,id:r.json.user.id};};
  const owner=await sign('version-owner@example.test'),other=await sign('version-other@example.test');
+ await acceptCurrentNotice(base,owner.cookie,origin);
  const request=(path,options={})=>call(path,{cookie:owner.cookie,owner:owner.id,...options});
  const latest=await request('/api/questionnaire');assert.equal(latest.status,200);assert.equal(latest.json.version,'2.11');assert.deepEqual(latest.json.questions.find(q=>q.id==='QB246').options.map(o=>o.key),['A','D']);
  const archived=await request('/api/questionnaire?version=2.9');assert.equal(archived.json.version,'2.9');assert.equal(archived.json.questions.find(q=>q.id==='QB246').options.length,4);assert.equal((await request('/api/questionnaire?version=future')).status,422);
@@ -24,12 +26,14 @@ test('real SQLite API pins old drafts, starts 2.11, isolates users and rescales 
  for(let position=2;position<=old.pages.length;position++)assert.equal((await request('/api/draft',{method:'PUT',body:payload(old,oldFixture,position)})).status,200);
  const oldBody=full(old,oldFixture),oldSaved=await request('/api/assessments',{method:'POST',body:oldBody});assert.equal(oldSaved.status,201,oldSaved.text);assert.equal(oldSaved.json.report.version,'2.11');assert.equal(oldSaved.json.report.referenceRevision,current.presentation.referenceRevision);assert.deepEqual(oldSaved.json.report,calculateReport(oldFixture.answers,oldFixture.seconds,'2.11','2.9'));assert.equal((await request('/api/draft')).json.draft,null);
  const retry=await request('/api/assessments',{method:'POST',body:oldBody});assert.equal(retry.status,200);assert.deepEqual(retry.json,oldSaved.json);
+ await acceptCurrentNotice(base,owner.cookie,origin);
  // New form validation rejects removed option keys and omitted version, then saves current-version pages.
  const body=full(current,newFixture);assert.equal((await request('/api/assessments',{method:'POST',body:{...body,version:undefined}})).status,400);assert.equal((await request('/api/assessments',{method:'POST',body:{...body,answers:{...body.answers,QB246:'B'}}})).status,400);
  assert.equal((await request('/api/draft',{method:'PUT',body:payload(current,newFixture,1)})).status,200);assert.equal((await request('/api/draft',{method:'PUT',body:payload(old,oldFixture,2)})).status,409);
  for(let position=2;position<=current.pages.length;position++)assert.equal((await request('/api/draft',{method:'PUT',body:payload(current,newFixture,position)})).status,200);
  const saved=await request('/api/assessments',{method:'POST',body});assert.equal(saved.status,201,saved.text);assert.deepEqual(saved.json.report,calculateReport(newFixture.answers,newFixture.seconds,'2.11'));assert.equal(saved.json.report.referenceRevision,current.presentation.referenceRevision);assert.equal(saved.json.report.workValuePreferences.scoringFingerprint,current.fingerprint);assert.doesNotMatch(saved.text,/internalEvidence|representativeAnswers/);
  assert.equal((await request('/api/assessments/'+saved.json.id,{cookie:other.cookie,owner:other.id})).status,404);assert.equal((await request('/api/admin/assessments/'+saved.json.id,{cookie:other.cookie,owner:other.id})).status,403);assert.deepEqual((await request('/api/assessments/'+oldSaved.json.id)).json,oldSaved.json);assert.equal((await request('/api/assessments')).json.assessments.length,2);
+ await acceptCurrentNotice(base,owner.cookie,origin);
  // Pre-release 2.10 drafts retain the original 319-option bank and retired answers.
  const priorBank=await request('/api/questionnaire?version=2.10');assert.equal(priorBank.json.questions.reduce((sum,q)=>sum+q.options.length,0),319);assert.equal(latest.json.questions.reduce((sum,q)=>sum+q.options.length,0),309);
  for(let position=1;position<=prior.pages.length;position++)assert.equal((await request('/api/draft',{method:'PUT',body:payload(prior,priorFixture,position)})).status,200);

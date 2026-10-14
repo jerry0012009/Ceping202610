@@ -38,9 +38,9 @@ test('font assets and print CSS are same-origin and A4, with all report content 
  assert.match(fs.readFileSync(new URL('../public/fonts/LICENSE-Noto.txt',import.meta.url),'utf8'),/SIL OPEN FONT LICENSE/);
  const app=fs.readFileSync(new URL('../public/app.js',import.meta.url),'utf8');assert.doesNotMatch(app,/window\.print|AssessmentPrint/);assert.match(app,/async function downloadPDF\(/);
 });
-test('report-5 client only loads screen assets and downloads server PDFs',()=>{
+test('V2.12 client only loads screen assets and downloads server PDFs',()=>{
  const html=fs.readFileSync(new URL('../public/index.html',import.meta.url),'utf8');
- for(const file of ['style.css','app.js'])assert.ok(html.includes(`./${file}?v=2.11-report-5`),file);
+ for(const file of ['style.css','app.js'])assert.ok(html.includes(`./${file}?v=2.12`),file);
  assert.doesNotMatch(html,/report-print|AssessmentPrint|打印窗口/);
  const app=fs.readFileSync(new URL('../public/app.js',import.meta.url),'utf8');assert.doesNotMatch(app,/window\.print|AssessmentPrint|另存为 PDF|打印 \/ 导出 PDF/);
  assert.equal((app.match(/data-action="downloadPDF">导出PDF/g)||[]).length,2);

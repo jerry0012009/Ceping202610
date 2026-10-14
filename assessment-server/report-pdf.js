@@ -1,7 +1,8 @@
 import {spawn} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
 
-export const PDF_REVISION='2.11-report-5';
+import {releaseVersion} from './release-version.js';
+export const PDF_REVISION=releaseVersion;
 const renderer=fileURLToPath(new URL('./report-pdf/render_report.py',import.meta.url));
 const failure=()=>Object.assign(new Error('PDF 暂时无法生成，请稍后重试或联系管理员。'),{status:503});
 let active=0;
@@ -37,7 +38,7 @@ export function pdfDisposition(saved){
  const safe=value=>String(value??'').toWellFormed().replace(/[\u0000-\u001f\u007f-\u009f\u202a-\u202e\u2066-\u2069\\/:*?"<>|]/g,'').trim();
  const name=Array.from(safe(saved.owner?.name)).slice(0,50).join('');
  const date=/^\d{4}-\d{2}-\d{2}/.exec(saved.createdAt||'')?.[0]||'report';
- const filename=`渡仁_测评结果报告${name?'_'+name:''}_${date}.pdf`;
+ const filename=`渡仁_职业与心理健康测评${name?'_'+name:''}_${date}_V${releaseVersion}.pdf`;
  const encoded=encodeURIComponent(filename).replace(/[!'()*]/g,c=>'%'+c.charCodeAt(0).toString(16).toUpperCase());
  return `attachment; filename="assessment-report-${date}.pdf"; filename*=UTF-8''${encoded}`;
 }

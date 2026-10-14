@@ -1,5 +1,5 @@
 {
-  "release": "2.11",
+  "release": "2.12",
   "scope": {
     "questions": 97,
     "activeOptions": 309,
@@ -14,7 +14,7 @@
   "approvedReferenceContractSha256": "985f6bbb34547a59ef8153e72b19fe84d22cc3ae84d89704a9fcfce586e8570f",
   "validation": {
     "portableTests": {
-      "passed": 146,
+      "passed": 157,
       "failed": 0
     },
     "serverPdfHTTP": {
@@ -26,7 +26,7 @@
     "downloadInterfaceVM": {
       "status": "passed",
       "cases": 15,
-      "realBrowserClick": "passed separately for final report-5 in browserPageReview"
+      "realBrowserClick": "passed separately for final V2.12 in browserPageReview"
     },
     "pdfGenerationTests": {
       "status": "passed",
@@ -50,7 +50,8 @@
       "scoresComparedByCode": "unchanged",
       "overview": "Three conclusion cards and deterministic per-report summary; no overview triangle and no repeated total-score values",
       "fontCodepointsPerWeight": 44810,
-      "fontGlyphsPerWeight": 44301
+      "fontGlyphsPerWeight": 44301,
+      "scopeNote": "Final V2.12 synthetic sample and browser-downloaded PDF verified at ten pages; existing historical and numeric regression coverage preserved."
     },
     "dockerBuild": {
       "status": "not_run",
@@ -64,7 +65,7 @@
     },
     "browserPageReview": {
       "status": "passed",
-      "revision": "2.11-report-5",
+      "revision": "2.12",
       "route": "/ceping202610/",
       "viewportWidthsPx": [
         1188,
@@ -72,11 +73,20 @@
       ],
       "horizontalOverflow": false,
       "realDownloadClick": "passed",
+      "downloadedPdfPages": 10,
       "printDialogOpened": false,
       "webAndPdfContentMatch": [
-        "three total scores",
-        "bands",
-        "deterministic overall summary"
+        "three conclusion cards",
+        "three direct overview paragraphs",
+        "eight family field groups"
+      ],
+      "authenticationAndConsent": [
+        "login/register tabs",
+        "default-unchecked consent",
+        "gate before answering",
+        "cancel",
+        "save",
+        "refresh/resume"
       ]
     },
     "summaryInterpretation": {
@@ -85,9 +95,13 @@
       "dimensionDirectionTemplates": 48,
       "syntheticProfiles": 40,
       "rules": "Independent five-band total explanations; standardized per-dimension prominence and cross-checks with response quality; no score, weight or reference changes."
+    },
+    "consentRegression": {
+      "status": "passed",
+      "scope": "Explicit versioned acceptance, source/account validation, lifecycle and gate bypass protections."
     }
   },
-  "originalAnswers": "No database migrations or bulk record rewrites. Historical answer/timing rows remain immutable; current reports derive from original answers on read.",
+  "originalAnswers": "Existing answers, timing, scores and historical snapshots are not rewritten. Startup adds idempotent consent audit, active-assessment consent and assessment-link tables; no historical consent is fabricated.",
   "excluded": [
     "Installed dependencies",
     "All real databases and account/session data",
@@ -98,10 +112,10 @@
     "Python bytecode and caches"
   ],
   "manifestScope": "Every publishable portable source file except this manifest; the publication checkpoint independently hashes the manifest and repository root README.",
-  "reportPresentationRevision": "2.11-report-5",
+  "reportPresentationRevision": "2.12",
   "printExport": {
     "method": "Authenticated server-generated PDF attachment download",
-    "revision": "2.11-report-5",
+    "revision": "2.12",
     "renderer": "Python 3 + ReportLab",
     "standardSyntheticPages": 10,
     "radars": 3,
@@ -118,9 +132,10 @@
       "GET /api/assessments/:id/pdf",
       "GET /api/admin/assessments/:id/pdf"
     ],
-    "overview": "Three conclusion cards and deterministic per-report summary"
+    "overview": "Three direct paragraphs: conclusions, meaning and prominent dimensions; response-quality warning only when concrete issues are detected.",
+    "title": "职业与心理健康测评"
   },
-  "reportRendererRevision": "2.11-report-5",
+  "reportRendererRevision": "2.12",
   "runtime": {
     "node": ">=24.15.0 <25",
     "python": "Python 3 executable as python3",
@@ -155,13 +170,13 @@
     },
     {
       "path": "Dockerfile",
-      "bytes": 780,
-      "sha256": "c25fcfff888d27f5e879114535816aae43eaa6123d1485d55f9e4b74c90ff7ae"
+      "bytes": 810,
+      "sha256": "086ca3c0f3abc01d05b251019d797452c10efd3776d6b7a080f58842da85cde0"
     },
     {
       "path": "README.md",
-      "bytes": 28472,
-      "sha256": "f2bede8e3f07435763b92a2f3a0504640586e24aae14905aff1705a9c02446b9"
+      "bytes": 31453,
+      "sha256": "5e96e31fc75ce8ccb5fe87fdd9d81b38399abe4853dde0367c07819c5d9423fe"
     },
     {
       "path": "account-id.js",
@@ -179,6 +194,11 @@
       "sha256": "123d5eaa39e9f788f8973a951c88d9c045eeca2e935557f0e26daaa3fd6e3cb6"
     },
     {
+      "path": "consent.js",
+      "bytes": 3902,
+      "sha256": "37186c6107ab5a91a3800f15f7c19696487abf7302f02364400639ba664046ff"
+    },
+    {
       "path": "data/.gitkeep",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -191,12 +211,12 @@
     {
       "path": "package-lock.json",
       "bytes": 44012,
-      "sha256": "92a0a6425b3c0becf6fdf8a995aa6e7e2804e060bb67c1c431a1e48456535ddb"
+      "sha256": "d119179c1dc3b74875d0aafa89082388b73523a22c3d7bb5439ce23bec5ff687"
     },
     {
       "path": "package.json",
-      "bytes": 592,
-      "sha256": "afe8b59f39fecb4eb13f8b948b427299816aacb74841d06e13a498e2e46c99ba"
+      "bytes": 614,
+      "sha256": "1f92c2a9448f140b5054ec06b0c6f3f400849a87d5b5821f74897ff2cc5ba0a8"
     },
     {
       "path": "pf-role-model.js",
@@ -300,8 +320,8 @@
     },
     {
       "path": "private/report-presentation.json",
-      "bytes": 20281,
-      "sha256": "8decc26c3917075467535a669c0a7bd9d0105c8f20f7548a62f30cfcb587fbfc"
+      "bytes": 19909,
+      "sha256": "e9d91fe4018a07212c2b3997621ce6df9062ddf61a23169e5c80c1401fe74aa8"
     },
     {
       "path": "private/retired-options.json",
@@ -340,8 +360,8 @@
     },
     {
       "path": "public/app.js",
-      "bytes": 40672,
-      "sha256": "673974640cd69eb50a7ce2a6351d4ededbdbe08e05d628a1bdeebf1e6087e19b"
+      "bytes": 43469,
+      "sha256": "457bf9020597ecd6d87e73deac00efb9e956baf99f51a71107fd4c96c1092d78"
     },
     {
       "path": "public/fonts/LICENSE-Noto.txt",
@@ -360,8 +380,8 @@
     },
     {
       "path": "public/index.html",
-      "bytes": 910,
-      "sha256": "ee74c6d9f88d939247a822ec6583111b66802f86a5a7194fe483227ebeda72be"
+      "bytes": 926,
+      "sha256": "00914c1c897595518da204a3879d318124a17ae61e864580f3f16d73620be448"
     },
     {
       "path": "public/report-print.css",
@@ -375,13 +395,18 @@
     },
     {
       "path": "public/style.css",
-      "bytes": 19640,
-      "sha256": "d5f1c842708383c29093fb197125ac57f3a94618b7273056bd7ebe3b2387bec8"
+      "bytes": 20881,
+      "sha256": "04d3f3dcc7fc46ce33eeff9e3807ab51e4df2444f2afc1a0ba1b227d7d1b1560"
+    },
+    {
+      "path": "release-version.js",
+      "bytes": 159,
+      "sha256": "0c5c6416947df12c8c28e49c2b7085dd33bc6b61659c6f3c12d5ba77839154da"
     },
     {
       "path": "report-pdf.js",
-      "bytes": 2512,
-      "sha256": "2e37e99fa33177773bd8b988e0bec0add07316acf468141feaafc296f220e36a"
+      "bytes": 2592,
+      "sha256": "cda62eac6d2066778e10a4486ced7b2cb8a2c67526e9caf45c13794a41cb1df8"
     },
     {
       "path": "report-pdf/fonts/DurenReportCJK-Bold.ttf",
@@ -400,18 +425,18 @@
     },
     {
       "path": "report-pdf/render_report.py",
-      "bytes": 17953,
-      "sha256": "d7c648df0a7bc1fc7186e75fae577511a49179d6b2d54622af2a5d53884c74a6"
+      "bytes": 17592,
+      "sha256": "a4d0ef863beca22310c7c32b13166c49b96f46bc8e77dc759dbd0b32748dc53a"
     },
     {
       "path": "report-presentation.js",
-      "bytes": 5795,
-      "sha256": "7aa4157e49db0cf4b899413410c585ad1f8fefe06cdae8f8860617bee8cca835"
+      "bytes": 5893,
+      "sha256": "dc3f5c94efddbab4bfbf9b10e1ac996729b8a7fae0dec1fb48203517ed7a8029"
     },
     {
       "path": "report-summary.js",
-      "bytes": 11363,
-      "sha256": "3ba653ee6731b842a59473c280351094e04d2274436d5b1f247648dcf1207c58"
+      "bytes": 12488,
+      "sha256": "15ff7df139d1f56359065c696e79db9af4069c23ae3ed0f4a06d784cf9dd960d"
     },
     {
       "path": "scoring.js",
@@ -425,8 +450,8 @@
     },
     {
       "path": "server.js",
-      "bytes": 15920,
-      "sha256": "bbfdc7d55a1453ec25159812e38614f4d7a75d25a55ba9ba94a7406e53acf217"
+      "bytes": 17287,
+      "sha256": "42684a5bfcfd2163d62f516e00d5fd0a867a848c37f692a812db6eae1c6cd931"
     },
     {
       "path": "start.sh",
@@ -440,8 +465,8 @@
     },
     {
       "path": "test/admin.test.js",
-      "bytes": 16639,
-      "sha256": "2b42be6066bb9b98874e9c1bf9322508ad7ddbf15d6950bbb5ad0bab5861848a"
+      "bytes": 16742,
+      "sha256": "df4e3a9466d5867a7eb452d110d8da0bd3a4b32331a7236aa63d4a8b47654e47"
     },
     {
       "path": "test/answer-details.test.js",
@@ -450,13 +475,28 @@
     },
     {
       "path": "test/app.test.js",
-      "bytes": 6069,
-      "sha256": "614ed375f00cb84d6b88ad870fb4b804b6c6c963a8ad299480c084bf5742d6e2"
+      "bytes": 6165,
+      "sha256": "cda42b9a8170693c15a05a1990a40058322be56563c8bf16f4322512f0eacc03"
+    },
+    {
+      "path": "test/consent-api.test.js",
+      "bytes": 12254,
+      "sha256": "35d8707b45a979ebbf6cae7cdec2b840c34ab12211137373099916c920cc67be"
+    },
+    {
+      "path": "test/consent-helpers.js",
+      "bytes": 913,
+      "sha256": "8470f47508d1406b09db45f9805d34e493182896144aeee60e65d73b5cd0426f"
+    },
+    {
+      "path": "test/consent-ui.test.js",
+      "bytes": 5788,
+      "sha256": "7653cf63e7197ad51cf3f3be39d6c191fa666cebc0cd3599742a677cff508e71"
     },
     {
       "path": "test/draft.test.js",
-      "bytes": 8460,
-      "sha256": "2ed096c9e397480d69554e5b8b102f5429c0f047832a26498670826c4520e871"
+      "bytes": 8594,
+      "sha256": "2c8cfeeb35d17e03a7c4de8b98f69f377e28171969c37b13d33c0b336fbb458b"
     },
     {
       "path": "test/employment-answers.test.js",
@@ -480,8 +520,8 @@
     },
     {
       "path": "test/fixtures/synthetic-assumed-v2.11-40.json",
-      "bytes": 1637269,
-      "sha256": "fd90b83e11126bd315049bd55d77e2408ab9875306ebad866db44d7cfa3bb509"
+      "bytes": 1625147,
+      "sha256": "5da09574cac51bb78ea69ea15d810ed5b45572f0e1496c0523ebd752cb511384"
     },
     {
       "path": "test/fixtures/synthetic-v2.11-reanswer-assumptions.json",
@@ -490,13 +530,13 @@
     },
     {
       "path": "test/frontend-version.test.js",
-      "bytes": 20993,
-      "sha256": "9d6e49396968c6062c007da06973782e29141bf458619605757d372e55769544"
+      "bytes": 21275,
+      "sha256": "18eb3f8a3fafd5dd617720916660c95eab0a2028e84da74ebfa98b3316ace6dd"
     },
     {
       "path": "test/frontend.test.js",
-      "bytes": 31907,
-      "sha256": "510822fefe51eb77a44e17c9accd922c63322b06c6a14aa27167db104ed6404d"
+      "bytes": 33994,
+      "sha256": "64831992c32b166ab7c5312336167195b40ac96218077378012af0ea16a992b8"
     },
     {
       "path": "test/legacy-helpers.js",
@@ -524,19 +564,24 @@
       "sha256": "23ab9b445999405dd3de9706a6c6eb64ba27139e0e78ccf1139b566405ade634"
     },
     {
+      "path": "test/release-version.test.js",
+      "bytes": 1436,
+      "sha256": "af596a59754f0268197c6f79cd573a8966d3a20a32f8f7eaf6a707281aac927e"
+    },
+    {
       "path": "test/report-copy.test.js",
       "bytes": 4931,
       "sha256": "23fcc304e8180faa13d33d68e296c11ff5cfee73e4d7e0c141fb6473cba7dec1"
     },
     {
       "path": "test/report-pdf-api.test.js",
-      "bytes": 11039,
-      "sha256": "00a0d5826e6ae48040df4edf17a115b8f9d96d76476194254f5cb754b54990b7"
+      "bytes": 11903,
+      "sha256": "13a2284ae6275592a1e9598a8a6c6a361b8431c9b06397d33fcce6b49e7ea46b"
     },
     {
       "path": "test/report-pdf-render.test.js",
-      "bytes": 5775,
-      "sha256": "38c7d453f33bf17e6866fecc357afd55a9f5b9093e5daaf00d4dfe7c2b5b1ee6"
+      "bytes": 6297,
+      "sha256": "8332921d88b4f4c99e25d72277f9b60efbec320af00dc567a7f2f04309b09008"
     },
     {
       "path": "test/report-presentation.test.js",
@@ -545,13 +590,13 @@
     },
     {
       "path": "test/report-print.test.js",
-      "bytes": 9150,
-      "sha256": "088277a260d8e9d70997c95417a16bd43851ffba6280f974b3b408344438b98e"
+      "bytes": 9138,
+      "sha256": "e16b34f76818ccd4d6ae5f221ec883e7c717bed146f031a514ff46c5208ebc44"
     },
     {
       "path": "test/report-summary.test.js",
-      "bytes": 10129,
-      "sha256": "b03b2dfe39b396c0c8053af2d79720dbcb12a1836fdafa24ad1e04a2b4df5674"
+      "bytes": 12009,
+      "sha256": "166c53b17a0cc94a921ca3c331d3037fce64da57b326573795119f0815f6db1c"
     },
     {
       "path": "test/stored-report.test.js",
@@ -560,8 +605,8 @@
     },
     {
       "path": "test/version-api.test.js",
-      "bytes": 7711,
-      "sha256": "9b1fdd1842bbbb06e87cff59d7785c8e9da3d9d37ee8b8faf47e287f58ba49e2"
+      "bytes": 7931,
+      "sha256": "765f5fb9a1c0f865725988e3d0f3c1f476afcf932753bb2662e1dd8808545fcd"
     },
     {
       "path": "test/version-registry.test.js",
@@ -583,5 +628,20 @@
       "bytes": 2938,
       "sha256": "0cabc35cf87b5856cfda240dc6f22042c02e1b31b2c3cd72ff381dc3870637e8"
     }
-  ]
+  ],
+  "packageVersion": "2.12.0",
+  "questionnaireVersion": "2.11",
+  "scoringVersion": "2.11",
+  "consent": {
+    "noticeVersion": "notice-v2.12-1",
+    "explicitOptInRequired": true,
+    "defaultChecked": false,
+    "sections": [
+      "工作经历与家庭信息",
+      "工作中的选择",
+      "日常反应与体验"
+    ],
+    "enforcement": "Client dialog and authenticated backend gate before new draft saves or new assessment submissions. Historical report reads/exports and existing idempotent submission retries remain available.",
+    "storage": "Versioned notice snapshot and acceptance time; preserve existing answer records and data volume."
+  }
 }

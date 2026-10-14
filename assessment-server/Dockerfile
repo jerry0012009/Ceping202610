@@ -3,7 +3,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends python3 python3
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev && npm cache clean --force
-COPY --chown=node:node server.js version-registry.js scoring.js report-presentation.js pf-role-model.js answer-details.js stored-report.js work-value-model.js employment-answers.js account-id.js report-pdf.js report-summary.js ./
+COPY --chown=node:node server.js version-registry.js scoring.js report-presentation.js pf-role-model.js answer-details.js stored-report.js work-value-model.js employment-answers.js account-id.js report-pdf.js report-summary.js release-version.js consent.js ./
 COPY --chown=node:node report-pdf ./report-pdf
 COPY --chown=node:node private ./private
 COPY --chown=node:node public ./public

@@ -1,4 +1,5 @@
 import express from 'express';
+import {CONSENT_NOTICE,createConsentStore} from './consent.js';
 import {answerDetails} from './answer-details.js';
 import {createStoredReport,readStoredReport} from './stored-report.js';
 import {presentReport} from './report-presentation.js';
@@ -38,6 +39,7 @@ export async function createApplication(env=process.env){
  db.exec(`CREATE TABLE IF NOT EXISTS assessments (id TEXT PRIMARY KEY, user_id TEXT NOT NULL REFERENCES user(id), submission_id TEXT NOT NULL, version TEXT NOT NULL, fingerprint TEXT NOT NULL, created_at TEXT NOT NULL, request_hash TEXT NOT NULL, answers_json TEXT NOT NULL, seconds_json TEXT NOT NULL, report_json TEXT NOT NULL, UNIQUE(user_id,submission_id)); CREATE INDEX IF NOT EXISTS assessments_owner_date ON assessments(user_id,created_at DESC);`);
  db.exec('CREATE TABLE IF NOT EXISTS drafts (user_id TEXT PRIMARY KEY REFERENCES user(id), version TEXT NOT NULL, position INTEGER NOT NULL, answers_json TEXT NOT NULL, seconds_json TEXT NOT NULL, updated_at TEXT NOT NULL)');
  db.exec('CREATE TABLE IF NOT EXISTS admin_audit (id TEXT PRIMARY KEY, admin_id TEXT NOT NULL, action TEXT NOT NULL, report_id TEXT, created_at TEXT NOT NULL)');
+ const consents=createConsentStore(db);
  const app=express();app.disable('x-powered-by');
  // Accept proxy addresses only from loopback. The deployment proxy must overwrite forwarding headers.
  app.set('trust proxy',env.TRUST_PROXY==='loopback'?'loopback':false);
@@ -50,19 +52,35 @@ export async function createApplication(env=process.env){
  app.use('/api',express.json({limit:'64kb',strict:true}));
  app.use('/api',async(req,res,next)=>{try{const session=await auth.api.getSession({headers:fromNodeHeaders(req.headers)});if(!session)return res.status(401).json({error:'请先登录'});req.user=session.user;next();}catch{res.status(401).json({error:'会话无效，请重新登录'});}});
  app.use('/api',(req,res,next)=>{
-  const guarded=(req.path==='/draft'&&['PUT','DELETE'].includes(req.method))||(req.path==='/assessments'&&req.method==='POST');
+  const guarded=(req.path==='/draft'&&['PUT','DELETE'].includes(req.method))||(req.path==='/assessments'&&req.method==='POST')||(req.path==='/consent'&&req.method==='POST');
   if(!guarded)return next();const owner=req.get('X-Assessment-Owner');
   if(!owner)return res.status(409).json({error:'页面已更新，请先保留未保存内容，再刷新后继续。'});
   if(owner!==req.user.id)return res.status(401).json({error:'登录账户已切换，请使用原账户重新登录后继续。'});
   next();
  });
  app.get('/api/me',(req,res)=>res.json({user:{id:req.user.id,name:req.user.name,email:req.user.email,isAdmin:!!adminUserId&&req.user.id===adminUserId}}));
+ app.get('/api/consent',(req,res)=>res.json(consents.status(req.user.id)));
+ app.post('/api/consent',(req,res)=>{
+  const body=req.body;
+  if(!body||typeof body!=='object'||Array.isArray(body)||Object.keys(body).some(key=>!['version','accepted'].includes(key))||body.accepted!==true||typeof body.version!=='string')return res.status(400).json({error:'请阅读完整指导语，并明确勾选同意。'});
+  if(body.version!==CONSENT_NOTICE.version)return res.status(409).json({error:'指导语已更新，请重新阅读并同意。',code:'CONSENT_VERSION_CHANGED'});
+  const result=consents.accept(req.user.id);res.status(result.created?201:200).json({consent:result.consent,required:false});
+ });
+ const requireConsent=(req,res)=>{
+  const consent=consents.current(req.user.id);
+  if(!consent)res.status(403).json({error:'请先阅读并同意测评指导语，再开始或继续作答。',code:'CONSENT_REQUIRED'});
+  return consent;
+ };
  app.get('/api/questionnaire',(req,res)=>{try{res.json(requireVersion(req.query.version||undefined).questionnaire);}catch(error){res.status(422).json({error:error.message});}});
  const canonical=v=>v&&typeof v==='object'?(Array.isArray(v)?v.map(canonical):Object.fromEntries(Object.keys(v).sort().map(k=>[k,canonical(v[k])]))):v;
  const equal=(a,b)=>JSON.stringify(canonical(a))===JSON.stringify(canonical(b));
  app.get('/api/draft',(req,res)=>{const row=db.prepare('SELECT * FROM drafts WHERE user_id=?').get(req.user.id);res.json({draft:row?{version:row.version,position:row.position,answers:JSON.parse(row.answers_json),seconds:JSON.parse(row.seconds_json),updatedAt:row.updated_at}:null});});
- app.delete('/api/draft',(req,res)=>{db.prepare('DELETE FROM drafts WHERE user_id=?').run(req.user.id);res.json({ok:true});});
+ app.delete('/api/draft',(req,res)=>{
+  db.exec('BEGIN IMMEDIATE');try{db.prepare('DELETE FROM drafts WHERE user_id=?').run(req.user.id);consents.reset(req.user.id);db.exec('COMMIT');}catch(error){db.exec('ROLLBACK');throw error;}
+  res.json({ok:true});
+ });
  app.put('/api/draft',(req,res)=>{
+  if(!requireConsent(req,res))return;
   const b=req.body;
   let bank;try{bank=requireVersion(b?.version);}catch(e){return res.status(400).json({error:e.message});}
   const {pages,questionnaire}=bank;
@@ -130,13 +148,14 @@ export async function createApplication(env=process.env){
   const hash=createHash('sha256').update(JSON.stringify(canonical(b))).digest('hex');
   const existing=db.prepare('SELECT * FROM assessments WHERE user_id=? AND submission_id=?').get(req.user.id,b.submissionId);
   if(existing){if(existing.request_hash!==hash)return res.status(409).json({error:'相同提交标识对应不同答案，请重新提交'});return res.json(serialize(existing));}
+  const consent=requireConsent(req,res);if(!consent)return;
   const {pages,fingerprint}=requireVersion(b.version);
   const id=randomUUID(),createdAt=new Date().toISOString(),report=createStoredReport(b.answers,b.seconds,undefined,b.version);
   const draft=db.prepare('SELECT * FROM drafts WHERE user_id=?').get(req.user.id);
   if(draft&&draft.version!==b.version)return res.status(409).json({error:'提交版本与草稿版本不一致'});
   if(draft&&(!equal(JSON.parse(draft.answers_json),b.answers)||!equal(JSON.parse(draft.seconds_json),b.seconds)||draft.position!==pages.length))return res.status(409).json({error:'请先按顺序完成并保存所有页面'});
   db.exec('BEGIN IMMEDIATE');
-  try{db.prepare('INSERT INTO assessments VALUES (?,?,?,?,?,?,?,?,?,?)').run(id,req.user.id,b.submissionId,b.version,fingerprint,createdAt,hash,JSON.stringify(b.answers),JSON.stringify(b.seconds),JSON.stringify(report));db.prepare('DELETE FROM drafts WHERE user_id=?').run(req.user.id);db.exec('COMMIT');}catch(error){db.exec('ROLLBACK');throw error;}
+  try{db.prepare('INSERT INTO assessments VALUES (?,?,?,?,?,?,?,?,?,?)').run(id,req.user.id,b.submissionId,b.version,fingerprint,createdAt,hash,JSON.stringify(b.answers),JSON.stringify(b.seconds),JSON.stringify(report));db.prepare('DELETE FROM drafts WHERE user_id=?').run(req.user.id);consents.consume(req.user.id,id,consent.id);db.exec('COMMIT');}catch(error){db.exec('ROLLBACK');throw error;}
   res.status(201).json({id,version:b.version,createdAt,report:presentReport(report)});
  });
  app.use('/api',(req,res)=>res.status(404).json({error:'接口不存在'}));

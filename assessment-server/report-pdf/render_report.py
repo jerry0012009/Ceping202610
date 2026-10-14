@@ -1,4 +1,4 @@
-"""Server-only vector/text PDF renderer, template 2.11-report-5.
+"""Server-only vector/text PDF renderer, release V2.12.
 Reads one authorized presentation JSON from stdin, writes PDF bytes to stdout.
 No browser, network, shell, external font loading or report files on disk.
 """
@@ -24,7 +24,7 @@ def unicode_cmap(fontname,subset):
  return result
 ttfonts.makeToUnicodeCMap=unicode_cmap
 BASE=Path(__file__).resolve().parent
-S=json.load(sys.stdin);R=S['report'];D={v['code']:v for v in R['dimensions']}
+S=json.load(sys.stdin);R=S['report'];REPORT_VERSION=R.get('displayVersion','2.12');D={v['code']:v for v in R['dimensions']}
 for weight,name in [('Regular','CN'),('Bold','CNBold')]:
  pdfmetrics.registerFont(TTFont(name,str(BASE/'fonts'/('DurenReportCJK-'+weight+'.ttf'))))
 pdfmetrics.registerFontFamily('CN',normal='CN',bold='CNBold')
@@ -38,9 +38,7 @@ class NumberedCanvas(canvas.Canvas):
   for state in self.saved_states:
    self.__dict__.update(state)
    line(H-42)
-   av=R.get('answerVersion',S.get('version',R.get('version','—')));sv=R.get('scoringVersion',R.get('version','—'))
-   versions='V'+sv if av==sv else '答卷 V'+av+' · 计分 V'+sv
-   text(M,H-31,'测评结果报告 · '+versions,8,MUTED)
+   text(M,H-31,'测评结果报告 · V'+REPORT_VERSION,8,MUTED)
    right(W-M,H-31,f'{self._pageNumber:02d} / {total:02d}',8,MUTED)
    canvas.Canvas.showPage(self)
   canvas.Canvas.save(self)
@@ -48,7 +46,7 @@ W,H=595.2756,841.8898; M=43; CW=W-2*M
 NAVY=HexColor('#28465F'); BLUE=HexColor('#627F97'); INK=HexColor('#172A39'); MUTED=HexColor('#657887'); RULE=HexColor('#D9E1E6'); PALE=HexColor('#EDF2F6'); WHITE=HexColor('#FFFFFF')
 OUT=io.BytesIO()
 c=NumberedCanvas(OUT,pagesize=(W,H),pageCompression=1)
-c.setTitle('渡仁 建筑行业生产管理岗 测评结果报告');c.setAuthor('渡仁');c.setSubject('测评结果报告 · 2.11-report-5')
+c.setTitle('渡仁 职业与心理健康测评 测评结果报告');c.setAuthor('渡仁');c.setSubject('测评结果报告 · V'+REPORT_VERSION)
 PAGE=0; LOG=[]; TITLE=''; SUB=''; BOTTOM=H-53
 def finite(v):return isinstance(v,(int,float)) and math.isfinite(v)
 def nf(v):return str(Decimal.from_float(float(v)).quantize(Decimal('0.1'),rounding=ROUND_HALF_UP)) if finite(v) else '—'
@@ -87,7 +85,7 @@ def page(title,sub='',continued=False):
  if not continued:TITLE,SUB=title,sub
  if PAGE:c.showPage()
  PAGE+=1
- text(M,27,'渡仁心理',15,NAVY,True);right(W-M,31,'建筑行业生产管理岗',8.5,MUTED)
+ text(M,27,'渡仁心理',15,NAVY,True);right(W-M,31,'职业与心理健康测评',8.5,MUTED)
  line(52)
  if title:
   text(M,72,title,21,INK,True)
@@ -145,12 +143,12 @@ def pair_rows(rows,start,gap=25,sz=10.2,lead=15.4):
    y=max(bottoms)+18
  return y
 
-def table(headers,rows,y,widths,fs=9.5,leading=14):
+def table(headers,rows,y,widths,fs=9.5,leading=14,padding=8):
  style=ParagraphStyle('table',fontName='CN',fontSize=fs,leading=leading,textColor=INK,wordWrap='CJK')
  head=ParagraphStyle('head',parent=style,fontName='CNBold',textColor=WHITE)
  data=[[Paragraph(escape(str(s)),head) for s in headers]]+[[Paragraph(escape(str(s)),style) for s in r] for r in rows]
  t=Table(data,colWidths=widths,hAlign='LEFT',repeatRows=1,splitByRow=1,splitInRow=1)
- t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),NAVY),('ROWBACKGROUNDS',(0,1),(-1,-1),[WHITE,PALE]),('GRID',(0,0),(-1,-1),.45,RULE),('VALIGN',(0,0),(-1,-1),'MIDDLE'),('LEFTPADDING',(0,0),(-1,-1),10),('RIGHTPADDING',(0,0),(-1,-1),10),('TOPPADDING',(0,0),(-1,-1),8),('BOTTOMPADDING',(0,0),(-1,-1),8)]))
+ t.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),NAVY),('ROWBACKGROUNDS',(0,1),(-1,-1),[WHITE,PALE]),('GRID',(0,0),(-1,-1),.45,RULE),('VALIGN',(0,0),(-1,-1),'MIDDLE'),('LEFTPADDING',(0,0),(-1,-1),10),('RIGHTPADDING',(0,0),(-1,-1),10),('TOPPADDING',(0,0),(-1,-1),padding),('BOTTOMPADDING',(0,0),(-1,-1),padding)]))
  while True:
   _,hh=t.wrap(CW,100000)
   if y+hh<=BOTTOM:t.drawOn(c,M,H-y-hh);return y+hh
@@ -238,10 +236,8 @@ def family_rows():
 
 # Four-domain report; stable score IDs and unchanged server projection values.
 y=page('测评结果报告')
-text(M,y+3,'建筑行业生产管理岗',14,INK,True);y+=33
-av=R.get('answerVersion',S.get('version',R.get('version','—')));sv=R.get('scoringVersion',R.get('version','—'))
+text(M,y+3,'职业与心理健康测评',14,INK,True);y+=33
 text(M,y,f"作答完成 {R.get('answered','—')} / {R.get('total','—')}",10.5,MUTED)
-text(M+168,y,f'答卷 V{av} · 计分 V{sv}',10.5,MUTED)
 right(W-M,y,str(S.get('createdAt','未记录'))[:10].replace('-','.'),10.5,MUTED);y+=22
 owner=S.get('owner') or {}
 if owner:
@@ -267,9 +263,11 @@ for v in overview:
  y+=height+13
 
 y=heading('本次总体概述',y+1)
-y=para(M,y,escape(summary.get('overview') or '本次综合概述暂不可用，请结合分项与作答质量核对。'),width=CW-10.6,size=10.6,lead=17)+13
+for paragraph_text in (summary.get('overview') or '本次综合概述暂不可用，请结合分项与作答质量核对。').split('\n\n'):
+ y=para(M,y,escape(paragraph_text),width=CW-10.6,size=10.6,lead=17)+6
+y+=7
 # Only essential interpretation boundaries are repeated on the overview page.
-for note in ['高分方向不一：心理困扰倾向高分表示困扰更多。职业性格是岗位导向组合分，不是能力值或匹配概率。',R.get('rescoringNotice'),R.get('pfReinterpretationNotice')]:
+for note in [R.get('rescoringNotice'),R.get('pfReinterpretationNotice')]:
  if note:y=para(M,y,escape(note),size=9.3,lead=14,color=MUTED)+6
 
 y=page('职业稳定性','职业承诺、留任倾向与三项工作价值偏好。')
@@ -306,7 +304,7 @@ y=page('信息记录与报告使用说明')
 y=heading('工作经历',y)
 y=table(['信息项目','原始作答'],employment_rows(),y,[180,CW-180],9.5,14)+25
 y=heading('家庭与支持信息',y,'仅作信息记录，不计分')
-y=table(['信息项目','原始作答'],family_rows(),y,[CW*.52,CW*.48],9.2,13)+24
+y=table(['信息项目','原始作答'],family_rows(),y,[CW*.52,CW*.48],9.2,13,padding=5)+24
 notes=R.get('interpretationNotes',[])
 notes_height=25+sum(paragraph(escape(note),CW,9.3,14,MUTED).wrap(CW,100000)[1]+6 for note in notes)
 if notes_height<=BOTTOM-111:y=ensure(y,notes_height)

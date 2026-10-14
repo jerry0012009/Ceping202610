@@ -1,3 +1,4 @@
+import {acceptCurrentNotice} from './consent-helpers.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -57,6 +58,7 @@ test('PDF API enforces owner/admin access and renders trusted stored reports wit
   const owner=await signup('合成报告用户','pdf-owner@example.test');
   const admin=await signup('Synthetic PDF Admin','pdf-admin@example.test');
   const other=await signup('Synthetic PDF Other','pdf-other@example.test');
+  await acceptCurrentNotice(base,owner.cookie,env.APP_ORIGIN);
   const saved=await call('/api/assessments',{...owner,method:'POST',body:{version:'2.11',answers:fixture.answers,seconds:fixture.seconds,submissionId:randomUUID()}});
   assert.equal(saved.status,201,saved.body.toString());
   const id=saved.json.id,ownerRoute=`/api/assessments/${id}/pdf`,adminRoute=`/api/admin/assessments/${id}/pdf`;
@@ -127,11 +129,23 @@ test('PDF API enforces owner/admin access and renders trusted stored reports wit
   });
 
   await t.test('historical answer version is retained while current interpretation is exported read-only',async()=>{
+   await acceptCurrentNotice(base,owner.cookie,env.APP_ORIGIN);
    const legacy=await call('/api/assessments',{...owner,method:'POST',body:{version:'2.9',answers:legacyFixture.answers,seconds:legacyFixture.seconds,submissionId:randomUUID()}});
    assert.equal(legacy.status,201,legacy.body.toString());
+   assert.equal(legacy.json.version,'2.9','the original answer version stays in the API record');
+   assert.equal(legacy.json.report.answerVersion,'2.9');
+   assert.equal(legacy.json.report.scoringVersion,'2.11');
+   assert.equal(legacy.json.report.displayVersion,'2.12');
    const legacyId=legacy.json.id,before=record(legacyId);
+   const historical=await call(`/api/assessments/${legacyId}`,owner);
+   assert.equal(historical.status,200);
+   assert.equal(historical.json.report.answerVersion,'2.9');
+   assert.equal(historical.json.report.scoringVersion,'2.11');
    const response=await call(`/api/assessments/${legacyId}/pdf`,owner);assertPdf(response);
-   if(hasPdfText){const text=pdfText(response);assert.match(text,/2\.9/);assert.match(text,/2\.11/);assert.match(text,/合成报告用户/);}
+   if(hasPdfText){
+    const text=pdfText(response);assert.match(text,/V\s*2\.12/);assert.match(text,/合成报告用户/);
+    assert.doesNotMatch(text,/V\s*2\.(?:9|10|11)\b|答卷\s*V|计分\s*V|answerVersion|scoringVersion/,'PDF displays only the product release, not internal technical versions');
+   }
    assert.deepEqual(record(legacyId),before);
   });
 
@@ -150,5 +164,5 @@ test('PDF filename strips unsafe account-name characters and encodes RFC 5987 pu
  assert.doesNotMatch(encoded,/[!'()*]/);
  const decoded=decodeURIComponent(encoded);assert.match(decoded,/合成用户/);
  assert.doesNotMatch(decoded,/[\x00-\x1f\x7f\\/:*?"<>|\u202e]/);
- assert.match(decoded,/2026-10-14\.pdf$/);
+ assert.match(decoded,/2026-10-14_V2\.12\.pdf$/);
 });

@@ -1,3 +1,4 @@
+import {releaseVersion,displayVersion} from './release-version.js';
 import {createReportSummary} from './report-summary.js';
 import {resolveEmploymentAnswers} from './employment-answers.js';
 import {resolveWorkValuePreferences} from './work-value-model.js';
@@ -34,7 +35,7 @@ export function presentReport(snapshot,context={}){
   if(value.unavailableReason){copy.score=null;copy.raw=null;copy.label='无法重算';}
   return copy;
  };
- const displayed={...report,employmentAnswers:resolveEmploymentAnswers(snapshot,context),workValuePreferences:values,workValueNotice:values?'三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。':'',workValueDerivationNotice:values?.source==='archived-answers'?'工作价值观三项根据本次原始作答补充展示，原始记录保留。':'',workValueUnavailable:values?'':'本记录缺少可兼容的完整作答，暂无法展示工作价值观分项。',reportRevision:presentation.revision,referenceRevision:presentation.referenceRevision,referenceDescription:presentation.referenceDescription,disclaimer:presentation.referenceDescription||report.disclaimer,storedPFModelId:report.storedPFModelId||snapshot.pfModelId||'legacy-general-v'+entry.version,viewPFModelId:report.pfModelId||'legacy-general-v'+entry.version,interpretationNotes:(presentation.notes||[]).filter(note=>report.pfModelId===pfModelId||!/^职业性格(?:匹配度|总分)为建筑工地/.test(note)),referenceLabel:presentation.referenceLabel||'模拟参照',totals:(report.totals||[]).map(row),dimensions:viewDimensions.map(row)};
+ const displayed={...report,releaseVersion,displayVersion,employmentAnswers:resolveEmploymentAnswers(snapshot,context),workValuePreferences:values,workValueNotice:values?'三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。':'',workValueDerivationNotice:values?.source==='archived-answers'?'工作价值观三项根据本次原始作答补充展示，原始记录保留。':'',workValueUnavailable:values?'':'本记录缺少可兼容的完整作答，暂无法展示工作价值观分项。',reportRevision:presentation.revision,referenceRevision:presentation.referenceRevision,referenceDescription:presentation.referenceDescription,disclaimer:presentation.referenceDescription||report.disclaimer,storedPFModelId:report.storedPFModelId||snapshot.pfModelId||'legacy-general-v'+entry.version,viewPFModelId:report.pfModelId||'legacy-general-v'+entry.version,interpretationNotes:(presentation.notes||[]).filter(note=>report.pfModelId===pfModelId||!/^职业性格(?:匹配度|总分)为建筑工地/.test(note)),referenceLabel:presentation.referenceLabel||'模拟参照',totals:(report.totals||[]).map(row),dimensions:viewDimensions.map(row)};
  displayed.reportSummary=createReportSummary(displayed);
  return displayed;
 }

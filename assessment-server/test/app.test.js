@@ -1,3 +1,4 @@
+import {acceptCurrentNotice} from './consent-helpers.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -23,6 +24,7 @@ test('HTTP auth, isolation, validation, idempotence, restart and static secrecy'
  await start();assert.equal((await call('/api/me')).status,401);assert.equal((await call('/api/questionnaire')).status,401);
  const a=await signup('a@example.com'),b=await signup('b@example.com');assert.equal((await call('/api/me',{cookie:a})).status,200);
  const q=await call('/api/questionnaire',{cookie:a});assert.equal(q.json.questions.length,data.questions.length);assert.ok(!('scores'in q.json.questions[0]));assert.ok(!('coeff'in q.json));
+ await acceptCurrentNotice(origin,a);
  const body={version:'2.9',answers:fixtures[0].answers,seconds:fixtures[0].seconds,submissionId:randomUUID()};
  assert.equal((await call('/api/assessments',{method:'POST',body,cookie:a,customOrigin:'https://evil.example'})).status,403);
  for(const altered of [{...body,version:'missing'},{...body,score:100},{...body,answers:{...body.answers,QB001:'fake'}},{...body,seconds:{...body.seconds,QB001:-1}},{...body,answers:{...body.answers,unknown:'A'}}])assert.equal((await call('/api/assessments',{method:'POST',body:altered,cookie:a})).status,400);
