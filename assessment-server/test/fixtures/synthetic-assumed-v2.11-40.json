@@ -862,9 +862,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -1016,7 +1016,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -1043,8 +1043,8 @@
           ],
           "overview": "该被试职业稳定性稍高，较倾向延续当前职业和任务，长期投入意愿相对积极，也会权衡具体工作条件。其中学习成长偏好较低，相对更看重其他工作条件。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中责任心较高，重视要求落实、记录复核与收尾交接。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -1803,9 +1803,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -1957,7 +1957,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -1984,8 +1984,8 @@
           ],
           "overview": "该被试职业稳定性稍高，较倾向延续当前职业和任务，长期投入意愿相对积极，也会权衡具体工作条件。其中职业承诺较高，较愿持续积累当前职业经验。\n\n职业性格稍高，工作方式较接近当前岗位组合要求，在责任落实、协作或计划安排上有较契合的特点。但灵活应变稍低，偏好熟悉可靠的办法，变更时可给出清晰过渡安排。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。其中注意力不集中稍低，较少提及集中困难。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -2744,9 +2744,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -2898,7 +2898,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -2925,8 +2925,8 @@
           ],
           "overview": "该被试职业稳定性平均，既考虑延续现有工作，也为其他选择保留空间，持续投入更取决于具体工作条件。其中稳定保障偏好稍低，相对更看重稳定保障以外的工作条件。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中主动进取较高，较愿主动设目标、改进并推动任务。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。自我描述较理想化，可能较少呈现自身不足，建议结合具体事例了解这些特点。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -3758,9 +3758,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -3912,7 +3912,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -3939,8 +3939,8 @@
           ],
           "overview": "该被试职业稳定性稍高，较倾向延续当前职业和任务，长期投入意愿相对积极，也会权衡具体工作条件。其中学习成长偏好较低，相对更看重其他工作条件。\n\n职业性格稍高，工作方式较接近当前岗位组合要求，在责任落实、协作或计划安排上有较契合的特点。其中责任心较高，重视要求落实、记录复核与收尾交接。\n\n心理困扰倾向较低，本次很少提及这些困扰，问卷中较少呈现相关体验，可结合近期生活状态了解。其中疲劳感较低，较少反映疲倦困扰。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -4736,9 +4736,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -4891,7 +4891,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -4918,8 +4918,8 @@
           ],
           "overview": "该被试职业稳定性较低，更愿为职业或工作变化保留选择，可先了解其发展意愿和当前工作安排。其中留任倾向较低，更愿尝试新任务或单位，可沟通交接安排。\n\n职业性格稍低，部分工作偏好与当前岗位组合要求存在差异，可具体了解需要明确安排或支持的环节。但灵活应变较高，较愿换角度探索不同做法。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。其中焦虑与担忧较低，较少报告担忧，不表示不会出现焦虑体验。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -5697,9 +5697,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -5852,7 +5852,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -5879,8 +5879,8 @@
           ],
           "overview": "该被试职业稳定性稍高，较倾向延续当前职业和任务，长期投入意愿相对积极，也会权衡具体工作条件。其中稳定保障偏好稍低，相对更看重稳定保障以外的工作条件。\n\n职业性格稍高，工作方式较接近当前岗位组合要求，在责任落实、协作或计划安排上有较契合的特点。其中主动进取较高，较愿主动设目标、改进并推动任务。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。其中焦虑与担忧稍低，较少报告担忧，不表示不会出现焦虑体验。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -6639,9 +6639,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -6794,7 +6794,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -6821,8 +6821,8 @@
           ],
           "overview": "该被试职业稳定性平均，既考虑延续现有工作，也为其他选择保留空间，持续投入更取决于具体工作条件。其中稳定保障偏好较低，相对更看重稳定保障以外的工作条件。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中主动进取较高，较愿主动设目标、改进并推动任务。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。自我描述较理想化，可能较少呈现自身不足，建议结合具体事例了解这些特点。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -7618,9 +7618,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -7773,7 +7773,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -7800,8 +7800,8 @@
           ],
           "overview": "该被试职业稳定性较低，更愿为职业或工作变化保留选择，可先了解其发展意愿和当前工作安排。其中留任倾向较低，更愿尝试新任务或单位，可沟通交接安排。\n\n职业性格稍低，部分工作偏好与当前岗位组合要求存在差异，可具体了解需要明确安排或支持的环节。但灵活应变较高，较愿换角度探索不同做法。\n\n心理困扰倾向较低，本次很少提及这些困扰，问卷中较少呈现相关体验，可结合近期生活状态了解。其中疲劳感较低，较少反映疲倦困扰。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -8633,9 +8633,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -8786,7 +8786,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -8813,8 +8813,8 @@
           ],
           "overview": "该被试职业稳定性稍高，较倾向延续当前职业和任务，长期投入意愿相对积极，也会权衡具体工作条件。其中报酬回报偏好较低，不把报酬提升放在首位。\n\n职业性格稍低，部分工作偏好与当前岗位组合要求存在差异，可具体了解需要明确安排或支持的环节。但规则意识较高，较重视规则核验及责任留痕。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。其中情绪调节困难稍低，较少报告情绪调节困难。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -9592,9 +9592,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -9745,7 +9745,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -9772,8 +9772,8 @@
           ],
           "overview": "该被试职业稳定性稍高，较倾向延续当前职业和任务，长期投入意愿相对积极，也会权衡具体工作条件。其中报酬回报偏好较低，不把报酬提升放在首位。\n\n职业性格稍高，工作方式较接近当前岗位组合要求，在责任落实、协作或计划安排上有较契合的特点。其中规则意识较高，较重视规则核验及责任留痕。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。其中注意力不集中稍低，较少提及集中困难。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -10532,9 +10532,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -10685,7 +10685,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -10712,8 +10712,8 @@
           ],
           "overview": "该被试职业稳定性平均，既考虑延续现有工作，也为其他选择保留空间，持续投入更取决于具体工作条件。其中稳定保障偏好稍低，相对更看重稳定保障以外的工作条件。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中主动进取较高，较愿主动设目标、改进并推动任务。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。自我描述较理想化，可能较少呈现自身不足，建议结合具体事例了解这些特点。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -11545,9 +11545,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -11698,7 +11698,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -11725,8 +11725,8 @@
           ],
           "overview": "该被试职业稳定性稍高，较倾向延续当前职业和任务，长期投入意愿相对积极，也会权衡具体工作条件。其中报酬回报偏好较低，不把报酬提升放在首位。\n\n职业性格稍低，部分工作偏好与当前岗位组合要求存在差异，可具体了解需要明确安排或支持的环节。但规则意识较高，较重视规则核验及责任留痕。\n\n心理困扰倾向较低，本次很少提及这些困扰，问卷中较少呈现相关体验，可结合近期生活状态了解。其中疲劳感较低，较少反映疲倦困扰。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -12522,9 +12522,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -12676,7 +12676,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -12703,8 +12703,8 @@
           ],
           "overview": "该被试职业稳定性稍高，较倾向延续当前职业和任务，长期投入意愿相对积极，也会权衡具体工作条件。其中报酬回报偏好较低，不把报酬提升放在首位。\n\n职业性格稍低，部分工作偏好与当前岗位组合要求存在差异，可具体了解需要明确安排或支持的环节。但计划与统筹较高，倾向预排步骤、资源与交接节点。\n\n心理困扰倾向较高，较集中地反映担忧、低落或紧张等困扰，宜了解近期压力对日常状态的影响。其中焦虑与担忧较高，较多担忧或反复预想不利情况。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -13554,9 +13554,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -13708,7 +13708,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -13735,8 +13735,8 @@
           ],
           "overview": "该被试职业稳定性稍高，较倾向延续当前职业和任务，长期投入意愿相对积极，也会权衡具体工作条件。其中职业承诺稍高，较愿持续积累当前职业经验。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中团队合作稍低，偏向独立推进或直接表达，可明确协作接口。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。其中注意力不集中稍高，较多反映注意分散或集中困难。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -14495,9 +14495,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -14649,7 +14649,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -14676,8 +14676,8 @@
           ],
           "overview": "该被试职业稳定性平均，既考虑延续现有工作，也为其他选择保留空间，持续投入更取决于具体工作条件。其中稳定保障偏好稍低，相对更看重稳定保障以外的工作条件。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中主动进取稍高，较愿主动设目标、改进并推动任务。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。自我描述较理想化，可能较少呈现自身不足，建议结合具体事例了解这些特点。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -15473,9 +15473,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -15627,7 +15627,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -15654,8 +15654,8 @@
           ],
           "overview": "该被试职业稳定性稍高，较倾向延续当前职业和任务，长期投入意愿相对积极，也会权衡具体工作条件。其中报酬回报偏好较低，不把报酬提升放在首位。\n\n职业性格稍高，工作方式较接近当前岗位组合要求，在责任落实、协作或计划安排上有较契合的特点。其中计划与统筹较高，倾向预排步骤、资源与交接节点。\n\n心理困扰倾向较低，本次很少提及这些困扰，问卷中较少呈现相关体验，可结合近期生活状态了解。其中情绪调节困难较低，较少报告情绪调节困难。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -16469,9 +16469,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -16623,7 +16623,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -16650,8 +16650,8 @@
           ],
           "overview": "该被试职业稳定性较低，更愿为职业或工作变化保留选择，可先了解其发展意愿和当前工作安排。其中稳定保障偏好较高，较看重稳定保障和可预期的安排。\n\n职业性格较低，工作侧重点与当前岗位组合要求差异较多，可围绕任务分工和支持条件进一步沟通。其中主动进取较低，对额外目标投入较少，可明确任务意义与阶段目标。\n\n心理困扰倾向稍低，较少提及相关困扰，主观负担相对较轻，仍可留意具体情境和近期状态变化。其中紧张与压力感稍低，较少报告紧张压力。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -17447,9 +17447,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -17601,7 +17601,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -17628,8 +17628,8 @@
           ],
           "overview": "该被试职业稳定性平均，既考虑延续现有工作，也为其他选择保留空间，持续投入更取决于具体工作条件。其中报酬回报偏好较低，不把报酬提升放在首位。\n\n职业性格较高，工作偏好明显接近岗位组合重视的责任落实、协作与有序推进，部分工作特点较突出。其中规则意识较高，较重视规则核验及责任留痕。\n\n心理困扰倾向稍低，较少提及相关困扰，主观负担相对较轻，仍可留意具体情境和近期状态变化。其中注意力不集中稍低，较少提及集中困难。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -18388,9 +18388,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -18542,7 +18542,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -18569,8 +18569,8 @@
           ],
           "overview": "该被试职业稳定性平均，既考虑延续现有工作，也为其他选择保留空间，持续投入更取决于具体工作条件。其中学习成长偏好较高，较看重学习和发展机会。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中规则意识较低，更着眼眼前进度，涉及责任时可补齐检查与确认。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。自我描述较理想化，可能较少呈现自身不足，建议结合具体事例了解这些特点。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -19366,9 +19366,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -19520,7 +19520,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -19547,8 +19547,8 @@
           ],
           "overview": "该被试职业稳定性较低，更愿为职业或工作变化保留选择，可先了解其发展意愿和当前工作安排。其中稳定保障偏好较高，较看重稳定保障和可预期的安排。\n\n职业性格稍低，部分工作偏好与当前岗位组合要求存在差异，可具体了解需要明确安排或支持的环节。其中主动进取较低，对额外目标投入较少，可明确任务意义与阶段目标。\n\n心理困扰倾向较低，本次很少提及这些困扰，问卷中较少呈现相关体验，可结合近期生活状态了解。其中疲劳感较低，较少反映疲倦困扰。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -20362,9 +20362,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -20516,7 +20516,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -20543,8 +20543,8 @@
           ],
           "overview": "该被试职业稳定性平均，既考虑延续现有工作，也为其他选择保留空间，持续投入更取决于具体工作条件。其中学习成长偏好稍低，相对更看重其他工作条件。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中团队合作较高，愿意听取意见并协调任务分歧。\n\n心理困扰倾向较高，较集中地反映担忧、低落或紧张等困扰，宜了解近期压力对日常状态的影响。其中疲劳感较高，较多反映疲倦或休息恢复方面的困扰。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -21340,9 +21340,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -21494,7 +21494,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -21521,8 +21521,8 @@
           ],
           "overview": "该被试职业稳定性稍高，较倾向延续当前职业和任务，长期投入意愿相对积极，也会权衡具体工作条件。其中职业承诺稍高，较愿持续积累当前职业经验。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中规则意识较低，更着眼眼前进度，涉及责任时可补齐检查与确认。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。其中注意力不集中稍高，较多反映注意分散或集中困难。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -22281,9 +22281,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -22435,7 +22435,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -22462,8 +22462,8 @@
           ],
           "overview": "该被试职业稳定性平均，既考虑延续现有工作，也为其他选择保留空间，持续投入更取决于具体工作条件。其中稳定保障偏好稍低，相对更看重稳定保障以外的工作条件。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中主动进取稍高，较愿主动设目标、改进并推动任务。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。自我描述较理想化，可能较少呈现自身不足，建议结合具体事例了解这些特点。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -23259,9 +23259,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -23413,7 +23413,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -23440,8 +23440,8 @@
           ],
           "overview": "该被试职业稳定性平均，既考虑延续现有工作，也为其他选择保留空间，持续投入更取决于具体工作条件。其中学习成长偏好稍低，相对更看重其他工作条件。\n\n职业性格较高，工作偏好明显接近岗位组合重视的责任落实、协作与有序推进，部分工作特点较突出。其中团队合作较高，愿意听取意见并协调任务分歧。\n\n心理困扰倾向较低，本次很少提及这些困扰，问卷中较少呈现相关体验，可结合近期生活状态了解。其中情绪调节困难较低，较少报告情绪调节困难。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -24273,9 +24273,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -24427,7 +24427,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -24454,8 +24454,8 @@
           ],
           "overview": "该被试职业稳定性稍高，较倾向延续当前职业和任务，长期投入意愿相对积极，也会权衡具体工作条件。其中报酬回报偏好较低，不把报酬提升放在首位。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中责任心较高，重视要求落实、记录复核与收尾交接。\n\n心理困扰倾向较高，较集中地反映担忧、低落或紧张等困扰，宜了解近期压力对日常状态的影响。其中焦虑与担忧较高，较多担忧或反复预想不利情况。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -25233,9 +25233,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -25387,7 +25387,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -25414,8 +25414,8 @@
           ],
           "overview": "该被试职业稳定性稍高，较倾向延续当前职业和任务，长期投入意愿相对积极，也会权衡具体工作条件。其中报酬回报偏好较低，不把报酬提升放在首位。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中问题处理较高，倾向先厘清原因并比较解决办法。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。其中注意力不集中较高，较多反映注意分散或集中困难。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -26174,9 +26174,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -26328,7 +26328,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -26355,8 +26355,8 @@
           ],
           "overview": "该被试职业稳定性平均，既考虑延续现有工作，也为其他选择保留空间，持续投入更取决于具体工作条件。其中稳定保障偏好稍低，相对更看重稳定保障以外的工作条件。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中主动进取较高，较愿主动设目标、改进并推动任务。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。自我描述较理想化，可能较少呈现自身不足，建议结合具体事例了解这些特点。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -27188,9 +27188,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -27342,7 +27342,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -27369,8 +27369,8 @@
           ],
           "overview": "该被试职业稳定性稍高，较倾向延续当前职业和任务，长期投入意愿相对积极，也会权衡具体工作条件。其中报酬回报偏好较低，不把报酬提升放在首位。\n\n职业性格稍高，工作方式较接近当前岗位组合要求，在责任落实、协作或计划安排上有较契合的特点。其中责任心较高，重视要求落实、记录复核与收尾交接。\n\n心理困扰倾向较低，本次很少提及这些困扰，问卷中较少呈现相关体验，可结合近期生活状态了解。其中情绪调节困难较低，较少报告情绪调节困难。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -28184,9 +28184,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -28338,7 +28338,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -28365,8 +28365,8 @@
           ],
           "overview": "该被试职业稳定性平均，既考虑延续现有工作，也为其他选择保留空间，持续投入更取决于具体工作条件。其中稳定保障偏好较高，较看重稳定保障和可预期的安排。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中主动进取较低，对额外目标投入较少，可明确任务意义与阶段目标。\n\n心理困扰倾向较高，较集中地反映担忧、低落或紧张等困扰，宜了解近期压力对日常状态的影响。其中抑郁倾向较高，较多反映低落或消极体验。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -29216,9 +29216,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -29370,7 +29370,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -29397,8 +29397,8 @@
           ],
           "overview": "该被试职业稳定性平均，既考虑延续现有工作，也为其他选择保留空间，持续投入更取决于具体工作条件。其中留任倾向稍高，较愿延续熟悉单位与任务。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中主动沟通较低，沟通更谨慎，可约定主动反馈节点。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。其中注意力不集中较高，较多反映注意分散或集中困难。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -30157,9 +30157,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -30311,7 +30311,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -30338,8 +30338,8 @@
           ],
           "overview": "该被试职业稳定性平均，既考虑延续现有工作，也为其他选择保留空间，持续投入更取决于具体工作条件。其中学习成长偏好较高，较看重学习和发展机会。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中责任心较低，较少优先关注记录和收尾，可用清单明确要求。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。自我描述较理想化，可能较少呈现自身不足，建议结合具体事例了解这些特点。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -31189,9 +31189,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -31343,7 +31343,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -31370,8 +31370,8 @@
           ],
           "overview": "该被试职业稳定性平均，既考虑延续现有工作，也为其他选择保留空间，持续投入更取决于具体工作条件。其中学习成长偏好较低，相对更看重其他工作条件。\n\n职业性格稍高，工作方式较接近当前岗位组合要求，在责任落实、协作或计划安排上有较契合的特点。其中责任心较高，重视要求落实、记录复核与收尾交接。\n\n心理困扰倾向较低，本次很少提及这些困扰，问卷中较少呈现相关体验，可结合近期生活状态了解。其中情绪调节困难较低，较少报告情绪调节困难。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -32149,9 +32149,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -32303,7 +32303,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -32330,8 +32330,8 @@
           ],
           "overview": "该被试职业稳定性稍低，对新任务或其他机会保留较多空间，继续投入意愿较受发展机会和工作条件影响。其中留任倾向稍低，更愿尝试新任务或单位，可沟通交接安排。\n\n职业性格较低，工作侧重点与当前岗位组合要求差异较多，可围绕任务分工和支持条件进一步沟通。但主动进取较高，较愿主动设目标、改进并推动任务。\n\n心理困扰倾向较高，较集中地反映担忧、低落或紧张等困扰，宜了解近期压力对日常状态的影响。其中情绪调节困难较高，情绪恢复和调整相对费力。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -33145,9 +33145,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -33299,7 +33299,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -33326,8 +33326,8 @@
           ],
           "overview": "该被试职业稳定性稍高，较倾向延续当前职业和任务，长期投入意愿相对积极，也会权衡具体工作条件。其中职业承诺较高，较愿持续积累当前职业经验。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中团队合作较低，偏向独立推进或直接表达，可明确协作接口。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。其中注意力不集中稍高，较多反映注意分散或集中困难。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -34086,9 +34086,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -34240,7 +34240,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -34267,8 +34267,8 @@
           ],
           "overview": "该被试职业稳定性稍高，较倾向延续当前职业和任务，长期投入意愿相对积极，也会权衡具体工作条件。其中稳定保障偏好稍低，相对更看重稳定保障以外的工作条件。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中团队合作较高，愿意听取意见并协调任务分歧。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。自我描述较理想化，可能较少呈现自身不足，建议结合具体事例了解这些特点。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -35046,9 +35046,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -35200,7 +35200,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -35227,8 +35227,8 @@
           ],
           "overview": "该被试职业稳定性稍低，对新任务或其他机会保留较多空间，继续投入意愿较受发展机会和工作条件影响。其中留任倾向稍低，更愿尝试新任务或单位，可沟通交接安排。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中主动进取较高，较愿主动设目标、改进并推动任务。\n\n心理困扰倾向较低，本次很少提及这些困扰，问卷中较少呈现相关体验，可结合近期生活状态了解。其中情绪调节困难较低，较少报告情绪调节困难。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -36060,9 +36060,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -36214,7 +36214,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -36241,8 +36241,8 @@
           ],
           "overview": "该被试职业稳定性较低，更愿为职业或工作变化保留选择，可先了解其发展意愿和当前工作安排。其中职业承诺较低，为其他职业方向保留选择。\n\n职业性格稍低，部分工作偏好与当前岗位组合要求存在差异，可具体了解需要明确安排或支持的环节。但灵活应变较高，较愿换角度探索不同做法。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。其中情绪调节困难稍高，情绪恢复和调整相对费力。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -37038,9 +37038,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -37192,7 +37192,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -37219,8 +37219,8 @@
           ],
           "overview": "该被试职业稳定性稍高，较倾向延续当前职业和任务，长期投入意愿相对积极，也会权衡具体工作条件。其中留任倾向稍高，较愿延续熟悉单位与任务。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中规则意识稍低，更着眼眼前进度，涉及责任时可补齐检查与确认。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -37979,9 +37979,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -38133,7 +38133,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -38160,8 +38160,8 @@
           ],
           "overview": "该被试职业稳定性平均，既考虑延续现有工作，也为其他选择保留空间，持续投入更取决于具体工作条件。其中稳定保障偏好稍低，相对更看重稳定保障以外的工作条件。\n\n职业性格稍高，工作方式较接近当前岗位组合要求，在责任落实、协作或计划安排上有较契合的特点。其中规则意识较高，较重视规则核验及责任留痕。\n\n心理困扰倾向平均，情绪、精力或注意方面有一定主观负担，可从分项了解近期影响更大的环节。自我描述较理想化，可能较少呈现自身不足，建议结合具体事例了解这些特点。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     },
     {
@@ -38993,9 +38993,9 @@
             "name": "回答一致性",
             "raw": 100,
             "score": 100,
-            "mean": 36.75,
-            "lower": 29.25,
-            "upper": 44.25,
+            "mean": 72,
+            "lower": 53.2,
+            "upper": 90.8,
             "label": "较高",
             "coverage": {
               "answered": 4,
@@ -39147,7 +39147,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.12",
+        "reportRevision": "2.13",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -39174,8 +39174,8 @@
           ],
           "overview": "该被试职业稳定性较低，更愿为职业或工作变化保留选择，可先了解其发展意愿和当前工作安排。其中职业承诺较低，为其他职业方向保留选择。\n\n职业性格平均，工作方式与当前岗位要求有部分契合，具体强项和需要支持的环节仍有分项差异。其中灵活应变较高，较愿换角度探索不同做法。\n\n心理困扰倾向较低，本次很少提及这些困扰，问卷中较少呈现相关体验，可结合近期生活状态了解。其中疲劳感较低，较少反映疲倦困扰。"
         },
-        "releaseVersion": "2.12",
-        "displayVersion": "2.12"
+        "releaseVersion": "2.13",
+        "displayVersion": "2.13"
       }
     }
   ],

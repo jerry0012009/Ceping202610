@@ -1,5 +1,5 @@
 {
-  "revision": "2.12",
+  "revision": "2.13",
   "metrics": {
     "ST1": {
       "name": "职业承诺",
@@ -294,9 +294,9 @@
       "upper": 81.3
     },
     "RV2": {
-      "mean": 36.75,
-      "lower": 29.25,
-      "upper": 44.25
+      "mean": 72,
+      "lower": 53.2,
+      "upper": 90.8
     },
     "RV3": {
       "mean": 100,

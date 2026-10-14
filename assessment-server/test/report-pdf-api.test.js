@@ -135,7 +135,7 @@ test('PDF API enforces owner/admin access and renders trusted stored reports wit
    assert.equal(legacy.json.version,'2.9','the original answer version stays in the API record');
    assert.equal(legacy.json.report.answerVersion,'2.9');
    assert.equal(legacy.json.report.scoringVersion,'2.11');
-   assert.equal(legacy.json.report.displayVersion,'2.12');
+   assert.equal(legacy.json.report.displayVersion,'2.13');
    const legacyId=legacy.json.id,before=record(legacyId);
    const historical=await call(`/api/assessments/${legacyId}`,owner);
    assert.equal(historical.status,200);
@@ -143,7 +143,7 @@ test('PDF API enforces owner/admin access and renders trusted stored reports wit
    assert.equal(historical.json.report.scoringVersion,'2.11');
    const response=await call(`/api/assessments/${legacyId}/pdf`,owner);assertPdf(response);
    if(hasPdfText){
-    const text=pdfText(response);assert.match(text,/V\s*2\.12/);assert.match(text,/合成报告用户/);
+    const text=pdfText(response);assert.match(text,/V\s*2\.13/);assert.match(text,/合成报告用户/);
     assert.doesNotMatch(text,/V\s*2\.(?:9|10|11)\b|答卷\s*V|计分\s*V|answerVersion|scoringVersion/,'PDF displays only the product release, not internal technical versions');
    }
    assert.deepEqual(record(legacyId),before);
@@ -164,5 +164,5 @@ test('PDF filename strips unsafe account-name characters and encodes RFC 5987 pu
  assert.doesNotMatch(encoded,/[!'()*]/);
  const decoded=decodeURIComponent(encoded);assert.match(decoded,/合成用户/);
  assert.doesNotMatch(decoded,/[\x00-\x1f\x7f\\/:*?"<>|\u202e]/);
- assert.match(decoded,/2026-10-14_V2\.12\.pdf$/);
+ assert.match(decoded,/2026-10-14_V2\.13\.pdf$/);
 });

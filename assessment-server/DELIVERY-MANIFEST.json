@@ -1,5 +1,5 @@
 {
-  "release": "2.12",
+  "release": "2.13",
   "scope": {
     "questions": 97,
     "activeOptions": 309,
@@ -14,7 +14,7 @@
   "approvedReferenceContractSha256": "985f6bbb34547a59ef8153e72b19fe84d22cc3ae84d89704a9fcfce586e8570f",
   "validation": {
     "portableTests": {
-      "passed": 157,
+      "passed": 159,
       "failed": 0
     },
     "serverPdfHTTP": {
@@ -99,6 +99,18 @@
     "consentRegression": {
       "status": "passed",
       "scope": "Explicit versioned acceptance, source/account validation, lifecycle and gate bypass protections."
+    },
+    "releaseHttpPdf": {
+      "status": "passed",
+      "revision": "2.13",
+      "downloadedPdfPages": 10,
+      "RV2Reference": {
+        "mean": 72,
+        "lower": 53.2,
+        "upper": 90.8
+      },
+      "scoresUnchanged": true,
+      "otherReferencesUnchanged": true
     }
   },
   "originalAnswers": "Existing answers, timing, scores and historical snapshots are not rewritten. Startup adds idempotent consent audit, active-assessment consent and assessment-link tables; no historical consent is fabricated.",
@@ -112,10 +124,10 @@
     "Python bytecode and caches"
   ],
   "manifestScope": "Every publishable portable source file except this manifest; the publication checkpoint independently hashes the manifest and repository root README.",
-  "reportPresentationRevision": "2.12",
+  "reportPresentationRevision": "2.13",
   "printExport": {
     "method": "Authenticated server-generated PDF attachment download",
-    "revision": "2.12",
+    "revision": "2.13",
     "renderer": "Python 3 + ReportLab",
     "standardSyntheticPages": 10,
     "radars": 3,
@@ -135,7 +147,7 @@
     "overview": "Three direct paragraphs: conclusions, meaning and prominent dimensions; response-quality warning only when concrete issues are detected.",
     "title": "职业与心理健康测评"
   },
-  "reportRendererRevision": "2.12",
+  "reportRendererRevision": "2.13",
   "runtime": {
     "node": ">=24.15.0 <25",
     "python": "Python 3 executable as python3",
@@ -175,8 +187,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 31453,
-      "sha256": "5e96e31fc75ce8ccb5fe87fdd9d81b38399abe4853dde0367c07819c5d9423fe"
+      "bytes": 31459,
+      "sha256": "9b9df6945ce13d82309da2a211c8d57b9a3cc71abb78eba539982b38264b6aa3"
     },
     {
       "path": "account-id.js",
@@ -211,12 +223,12 @@
     {
       "path": "package-lock.json",
       "bytes": 44012,
-      "sha256": "d119179c1dc3b74875d0aafa89082388b73523a22c3d7bb5439ce23bec5ff687"
+      "sha256": "ef10115bc4792922185181b60564baa6592c1ad392a7d1d48408f49546d40eee"
     },
     {
       "path": "package.json",
       "bytes": 614,
-      "sha256": "1f92c2a9448f140b5054ec06b0c6f3f400849a87d5b5821f74897ff2cc5ba0a8"
+      "sha256": "439bfacec673f906044267bfce1f182fe2d5ee0a75ec17d952598621dc00727a"
     },
     {
       "path": "pf-role-model.js",
@@ -320,8 +332,8 @@
     },
     {
       "path": "private/report-presentation.json",
-      "bytes": 19909,
-      "sha256": "e9d91fe4018a07212c2b3997621ce6df9062ddf61a23169e5c80c1401fe74aa8"
+      "bytes": 19904,
+      "sha256": "9ad93d4cf131119968f7c8e45d42ec2344d420ebddb88087ae8e36bb16319ff7"
     },
     {
       "path": "private/retired-options.json",
@@ -381,7 +393,7 @@
     {
       "path": "public/index.html",
       "bytes": 926,
-      "sha256": "00914c1c897595518da204a3879d318124a17ae61e864580f3f16d73620be448"
+      "sha256": "d62182be4b947c472219ae83e683d17deadef53cc9dff4a11714011b43e1f4f6"
     },
     {
       "path": "public/report-print.css",
@@ -401,7 +413,7 @@
     {
       "path": "release-version.js",
       "bytes": 159,
-      "sha256": "0c5c6416947df12c8c28e49c2b7085dd33bc6b61659c6f3c12d5ba77839154da"
+      "sha256": "d5e79ce684ae2a154745aff33ae7fe82bede9bfbd59c2be0433bd45db8e76288"
     },
     {
       "path": "report-pdf.js",
@@ -426,7 +438,7 @@
     {
       "path": "report-pdf/render_report.py",
       "bytes": 17592,
-      "sha256": "a4d0ef863beca22310c7c32b13166c49b96f46bc8e77dc759dbd0b32748dc53a"
+      "sha256": "5d665b133150317905425ad6cb6f347487ca912363b45d96f42bfd5c81ee0aad"
     },
     {
       "path": "report-presentation.js",
@@ -520,8 +532,8 @@
     },
     {
       "path": "test/fixtures/synthetic-assumed-v2.11-40.json",
-      "bytes": 1625147,
-      "sha256": "5da09574cac51bb78ea69ea15d810ed5b45572f0e1496c0523ebd752cb511384"
+      "bytes": 1624947,
+      "sha256": "117a54f602628c8da3487caa89e905e3e86f99c16b9bbbebaca026a5a72c069d"
     },
     {
       "path": "test/fixtures/synthetic-v2.11-reanswer-assumptions.json",
@@ -536,7 +548,7 @@
     {
       "path": "test/frontend.test.js",
       "bytes": 33994,
-      "sha256": "64831992c32b166ab7c5312336167195b40ac96218077378012af0ea16a992b8"
+      "sha256": "a2a4d10e1af57445c35c273b510643eb7f98395699ff4e8f33db72270935dc42"
     },
     {
       "path": "test/legacy-helpers.js",
@@ -566,7 +578,7 @@
     {
       "path": "test/release-version.test.js",
       "bytes": 1436,
-      "sha256": "af596a59754f0268197c6f79cd573a8966d3a20a32f8f7eaf6a707281aac927e"
+      "sha256": "f6d79e110dcd2535977e51ea4457d43d61b045de1ebb5f34e91d0eb7737f587b"
     },
     {
       "path": "test/report-copy.test.js",
@@ -576,12 +588,12 @@
     {
       "path": "test/report-pdf-api.test.js",
       "bytes": 11903,
-      "sha256": "13a2284ae6275592a1e9598a8a6c6a361b8431c9b06397d33fcce6b49e7ea46b"
+      "sha256": "ad60c76c9f808f517290bd42b0ca002a9bea00996be45eaed1d4393000e24b8b"
     },
     {
       "path": "test/report-pdf-render.test.js",
       "bytes": 6297,
-      "sha256": "8332921d88b4f4c99e25d72277f9b60efbec320af00dc567a7f2f04309b09008"
+      "sha256": "96283305ab84940356039fc0de6f5557225bd92d671b54f9f024644d1f353e51"
     },
     {
       "path": "test/report-presentation.test.js",
@@ -591,12 +603,17 @@
     {
       "path": "test/report-print.test.js",
       "bytes": 9138,
-      "sha256": "e16b34f76818ccd4d6ae5f221ec883e7c717bed146f031a514ff46c5208ebc44"
+      "sha256": "f440f3b5f23dc6e5e8462b6908eeaa57064d36afb962e38180abd7039878d905"
     },
     {
       "path": "test/report-summary.test.js",
       "bytes": 12009,
       "sha256": "166c53b17a0cc94a921ca3c331d3037fce64da57b326573795119f0815f6db1c"
+    },
+    {
+      "path": "test/rv2-reference.test.js",
+      "bytes": 2283,
+      "sha256": "ed19674b7a253230835d976e9a59d917d3de4141a25949a995c7e405dfa8afc8"
     },
     {
       "path": "test/stored-report.test.js",
@@ -610,8 +627,8 @@
     },
     {
       "path": "test/version-registry.test.js",
-      "bytes": 12632,
-      "sha256": "9cad0ac245968b1715c674f04794f21842d8341933debe7bd1c6738ddf4d5e91"
+      "bytes": 12685,
+      "sha256": "5b5a54eae75e30396645c7105164e305edf1228aad9feadb6f5f76a89b38b3a4"
     },
     {
       "path": "test/work-value.test.js",
@@ -629,7 +646,7 @@
       "sha256": "0cabc35cf87b5856cfda240dc6f22042c02e1b31b2c3cd72ff381dc3870637e8"
     }
   ],
-  "packageVersion": "2.12.0",
+  "packageVersion": "2.13.0",
   "questionnaireVersion": "2.11",
   "scoringVersion": "2.11",
   "consent": {

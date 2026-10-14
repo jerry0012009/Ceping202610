@@ -1,4 +1,4 @@
-"""Server-only vector/text PDF renderer, release V2.12.
+"""Server-only vector/text PDF renderer, release V2.13.
 Reads one authorized presentation JSON from stdin, writes PDF bytes to stdout.
 No browser, network, shell, external font loading or report files on disk.
 """
@@ -24,7 +24,7 @@ def unicode_cmap(fontname,subset):
  return result
 ttfonts.makeToUnicodeCMap=unicode_cmap
 BASE=Path(__file__).resolve().parent
-S=json.load(sys.stdin);R=S['report'];REPORT_VERSION=R.get('displayVersion','2.12');D={v['code']:v for v in R['dimensions']}
+S=json.load(sys.stdin);R=S['report'];REPORT_VERSION=R.get('displayVersion','2.13');D={v['code']:v for v in R['dimensions']}
 for weight,name in [('Regular','CN'),('Bold','CNBold')]:
  pdfmetrics.registerFont(TTFont(name,str(BASE/'fonts'/('DurenReportCJK-'+weight+'.ttf'))))
 pdfmetrics.registerFontFamily('CN',normal='CN',bold='CNBold')
