@@ -802,9 +802,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -1016,7 +1016,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -1727,9 +1727,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -1941,7 +1941,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -2652,9 +2652,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -2866,7 +2866,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -3650,9 +3650,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -3864,7 +3864,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -4612,9 +4612,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -4827,7 +4827,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -5557,9 +5557,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -5772,7 +5772,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -6483,9 +6483,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -6698,7 +6698,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -7446,9 +7446,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -7661,7 +7661,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -8445,9 +8445,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -8658,7 +8658,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -9388,9 +9388,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -9601,7 +9601,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -10312,9 +10312,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -10525,7 +10525,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -11309,9 +11309,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -11522,7 +11522,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -12270,9 +12270,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -12484,7 +12484,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -13286,9 +13286,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -13500,7 +13500,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -14211,9 +14211,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -14425,7 +14425,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -15173,9 +15173,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -15387,7 +15387,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -16153,9 +16153,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -16367,7 +16367,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -17115,9 +17115,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -17329,7 +17329,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -18040,9 +18040,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -18254,7 +18254,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -19002,9 +19002,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -19216,7 +19216,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -19982,9 +19982,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -20196,7 +20196,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -20944,9 +20944,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -21158,7 +21158,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -21869,9 +21869,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -22083,7 +22083,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -22831,9 +22831,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -23045,7 +23045,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -23829,9 +23829,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -24043,7 +24043,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -24773,9 +24773,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -24987,7 +24987,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -25698,9 +25698,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -25912,7 +25912,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -26696,9 +26696,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -26910,7 +26910,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -27676,9 +27676,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -27890,7 +27890,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -28692,9 +28692,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -28906,7 +28906,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -29617,9 +29617,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -29831,7 +29831,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -30633,9 +30633,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -30847,7 +30847,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -31577,9 +31577,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -31791,7 +31791,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -32557,9 +32557,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -32771,7 +32771,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -33482,9 +33482,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -33696,7 +33696,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -34426,9 +34426,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -34640,7 +34640,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -35424,9 +35424,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -35638,7 +35638,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -36386,9 +36386,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -36600,7 +36600,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -37311,9 +37311,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -37525,7 +37525,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",
@@ -38309,9 +38309,9 @@
               "answered": 3,
               "total": 3
             },
-            "definition": "关注入睡困难、睡眠不稳、睡眠过多或早醒等体验，借此了解休息恢复方面的负担；本项未直接评估体力或全部疲劳来源。",
-            "highMeaning": "睡眠方面的困扰较突出，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
-            "lowMeaning": "较少反映上述睡眠困扰；白天是否疲劳、体力是否充足，仍需结合实际作息与工作感受了解。"
+            "definition": "关注睡眠、精力及疲倦体验，了解休息恢复方面的负担，不作完整疲劳或体力评估。",
+            "highMeaning": "较多报告睡眠或疲倦、精力不足等困扰，宜了解是否影响白天清醒度、连续工作感受和外派作息适应，以及休息安排是否需要调整。",
+            "lowMeaning": "较少反映上述睡眠或疲倦困扰；是否存在其他疲劳来源、体力是否充足，仍需结合实际作息与工作感受了解。"
           },
           {
             "code": "MH4",
@@ -38523,7 +38523,7 @@
         "workValueNotice": "三项为独立得分，不是百分比，不相加为100；高低仅表示相对侧重，不代表优劣或留任保证。",
         "workValueDerivationNotice": "",
         "workValueUnavailable": "",
-        "reportRevision": "2.11-report-1",
+        "reportRevision": "2.11-report-2",
         "referenceRevision": "2.11-report-reference-endpoint-options-guarded-v1",
         "referenceDescription": "参考区间基于模拟作答，并结合题目含义作暂定调整，非实测人群常模。",
         "storedPFModelId": "construction-site-management-v2.11-v1",

@@ -14,16 +14,34 @@
   "approvedReferenceContractSha256": "985f6bbb34547a59ef8153e72b19fe84d22cc3ae84d89704a9fcfce586e8570f",
   "validation": {
     "portableTests": {
-      "passed": 97,
+      "passed": 102,
       "failed": 0
     },
     "hostedTests": {
-      "passed": 94,
+      "passed": 99,
       "failed": 0
     },
     "hostedBuild": "passed",
     "hostedESMValidation": "passed",
-    "portableProductionSyntax": "passed"
+    "portableProductionSyntax": "passed",
+    "browserPrintLayout": {
+      "status": "passed",
+      "baselinePages": 10,
+      "metrics": 28,
+      "vectorRadars": 3,
+      "scope": "Current approved MH3 copy, baseline and all maximum-length known family fields, lossless long text, absent score dots, metrics, radars, five bands, loaded fonts, page bounds, footer clearance and orphan checks.",
+      "longTextPages": 19,
+      "unavailableHistoricalScorePages": 12
+    },
+    "browserSavedPDF": {
+      "status": "unverified",
+      "reason": "The QA browser has printing disabled by its managed policy; native PDF saving was not executed."
+    },
+    "independentRenderer": {
+      "engine": "WeasyPrint 70",
+      "status": "partial",
+      "detail": "9 of 10 individual pages rendered with embedded Unicode fonts; radar-page grid hit a renderer-specific assertion. This is not browser PDF verification."
+    }
   },
   "originalAnswers": "No database migrations or bulk record rewrites. Historical answer/timing rows remain immutable; current reports derive from original answers on read.",
   "excluded": [
@@ -62,8 +80,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 21532,
-      "sha256": "594201603b21a4746645a509bfddfced9c48f8efe2614b77133fdf7f1efe7285"
+      "bytes": 23491,
+      "sha256": "148306cfe7d6b8d7114a95a89ea19d48df7083411800d76e4cc37672ff9998f4"
     },
     {
       "path": "account-id.js",
@@ -202,8 +220,8 @@
     },
     {
       "path": "private/report-presentation.json",
-      "bytes": 20449,
-      "sha256": "5a7a566547ecf09499eddcb78d85e3c4b9b753049704ca437a9445a3154f0c21"
+      "bytes": 20440,
+      "sha256": "dbdabdf16f0db73b05d02f7a35174e963ef6785f3db01c572383359f2293922b"
     },
     {
       "path": "private/retired-options.json",
@@ -242,13 +260,38 @@
     },
     {
       "path": "public/app.js",
-      "bytes": 35929,
-      "sha256": "f02e42d2691cbe65854b7c848b2f8a1fa36b7387c91b1b7de325cdf036d49774"
+      "bytes": 36836,
+      "sha256": "4cc943fe729f51ea004f5898f256b3e108f9bbac16e1b69d2f6fb869e9b78f70"
+    },
+    {
+      "path": "public/fonts/LICENSE-Noto.txt",
+      "bytes": 14712,
+      "sha256": "849f4ea9c214fa4ac3593b770c699f387534b11ce671264c1b10d85bdcb5997b"
+    },
+    {
+      "path": "public/fonts/NotoSansCJKsc-Bold.woff2",
+      "bytes": 161052,
+      "sha256": "032de73e86754a833669843368b332e71408fd50f4ca9463d10421eabc1c848a"
+    },
+    {
+      "path": "public/fonts/NotoSansCJKsc-Regular.woff2",
+      "bytes": 6496744,
+      "sha256": "db9b9b1b8bebbca8911604dfb5e0e6d4c1b3b953faa1fc1589fd3b6207083173"
     },
     {
       "path": "public/index.html",
-      "bytes": 876,
-      "sha256": "0b9e740e2ee97a003729152f2cb530b38c464c15f2de72053b33e6e9f6c42aef"
+      "bytes": 970,
+      "sha256": "8db7ce92237ae2784e29c7c604a3a75b081fe8a09ce48fb58a0219a25138902c"
+    },
+    {
+      "path": "public/report-print.css",
+      "bytes": 6975,
+      "sha256": "35e36911840426bf8fcb263d291c13ce24b0017674940b2fee723224be3497ae"
+    },
+    {
+      "path": "public/report-print.js",
+      "bytes": 17644,
+      "sha256": "fa8f2ab8812eb0bb5404c9602ccdac677a448f561370062d120419cb90cca9a6"
     },
     {
       "path": "public/style.css",
@@ -264,6 +307,11 @@
       "path": "scoring.js",
       "bytes": 7054,
       "sha256": "8527c4327fb2b8679f9123e842ee1b32923fa3bf7d634043f8cfcd0be4d131a1"
+    },
+    {
+      "path": "scripts/build-report-fonts.py",
+      "bytes": 1677,
+      "sha256": "18bedd560e9e912a4502ad0a417f423ec8063a6a1d96ee58059c3c68d25b3fcc"
     },
     {
       "path": "server.js",
@@ -322,8 +370,8 @@
     },
     {
       "path": "test/fixtures/synthetic-assumed-v2.11-40.json",
-      "bytes": 1589242,
-      "sha256": "852cb466bd64ac98295269b9374920908ac8ed21a48a2bcb871bafe852e03cf1"
+      "bytes": 1588882,
+      "sha256": "ef80de0132c9308d0645547b306582d4069f253b24b98ebe28a83c3e264a36fe"
     },
     {
       "path": "test/fixtures/synthetic-v2.11-reanswer-assumptions.json",
@@ -371,6 +419,11 @@
       "sha256": "12775da757f0a81014d2da165bd3407dabae38956fb8b4da2d28fcbb6c13b7e2"
     },
     {
+      "path": "test/report-print.test.js",
+      "bytes": 5479,
+      "sha256": "28a4e83d58055a820049819d7b52d6fa152b0166ffb9ecdf43d3ce3406913ba5"
+    },
+    {
       "path": "test/stored-report.test.js",
       "bytes": 1219,
       "sha256": "ffce9d3ce38a23dbfb4b25f2bbd56c5cfdcfc2bf7b3eb4391f2b081cd7dd39f0"
@@ -400,5 +453,13 @@
       "bytes": 2938,
       "sha256": "0cabc35cf87b5856cfda240dc6f22042c02e1b31b2c3cd72ff381dc3870637e8"
     }
-  ]
+  ],
+  "reportPresentationRevision": "2.11-report-2",
+  "printExport": {
+    "method": "Browser-native A4 print / Save as PDF",
+    "baselinePages": 10,
+    "longText": "Lossless continuation pages",
+    "storage": "No server-side PDF storage or external PDF service",
+    "fontLoading": "Starts only when opening a report; questionnaire and page-save flow do not load report fonts."
+  }
 }
