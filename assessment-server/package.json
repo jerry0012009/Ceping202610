@@ -1,6 +1,6 @@
 {
   "name": "assessment-server",
-  "version": "2.14.0",
+  "version": "2.14.1",
   "description": "V2.14 职业与心理健康测评（报告发布版本独立于原答卷/评分版本）",
   "scripts": {
     "start": "node --env-file-if-exists=.env server.js",

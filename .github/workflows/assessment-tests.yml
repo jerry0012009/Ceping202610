@@ -1,0 +1,28 @@
+name: Assessment tests
+on:
+  push:
+    branches: [main, fix/wechat-pdf-download]
+  pull_request:
+    paths: ['assessment-server/**', '.github/workflows/assessment-tests.yml']
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: assessment-server
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.19.0'
+          cache: npm
+          cache-dependency-path: assessment-server/package-lock.json
+      - name: Install PDF dependencies
+        run: sudo apt-get update && sudo apt-get install -y python3-reportlab poppler-utils
+      - name: Verify Python renderer dependency
+        run: python3 -c 'import reportlab' || python3 -m pip install reportlab
+      - run: npm ci
+      - run: npm test

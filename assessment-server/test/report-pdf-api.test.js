@@ -8,6 +8,7 @@ import {randomBytes,randomUUID} from 'node:crypto';
 import {spawnSync} from 'node:child_process';
 import {createApplication} from '../server.js';
 import {pdfDisposition,PDF_REVISION} from '../report-pdf.js';
+import {createPdfLinks,PDF_LINK_TTL} from '../pdf-links.js';
 
 // These fixtures contain only synthetic answers and accounts.
 const fixture=JSON.parse(fs.readFileSync(new URL('./fixtures/synthetic-assumed-v2.11-40.json',import.meta.url))).rows[0];
@@ -45,8 +46,8 @@ test('PDF API enforces owner/admin access and renders trusted stored reports wit
  let instance,server,base;
  const start=async()=>{instance=await createApplication(env);server=instance.app.listen(0,'127.0.0.1');await new Promise(resolve=>server.once('listening',resolve));base='http://127.0.0.1:'+server.address().port;};
  const stop=async()=>{if(server?.listening)await new Promise(resolve=>server.close(resolve));instance?.db.close();};
- const call=async(route,{cookie,owner,method='GET',body}={})=>{
-  const response=await fetch(base+route,{method,headers:{origin:env.APP_ORIGIN,connection:'close',...(cookie?{cookie}:{}),...(owner?{'X-Assessment-Owner':owner}:{}),...(body?{'content-type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{})});
+ const call=async(route,{cookie,owner,method='GET',body,requestOrigin=env.APP_ORIGIN}={})=>{
+  const response=await fetch(base+route,{method,headers:{...(requestOrigin?{origin:requestOrigin}:{}),connection:'close',...(cookie?{cookie}:{}),...(owner?{'X-Assessment-Owner':owner}:{}),...(body?{'content-type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{})});
   const bytes=Buffer.from(await response.arrayBuffer());let json;try{json=JSON.parse(bytes.toString('utf8'));}catch{}
   return {status:response.status,headers:response.headers,body:bytes,json,cookie:response.headers.getSetCookie().map(value=>value.split(';')[0]).join('; ')};
  };
@@ -149,9 +150,118 @@ test('PDF API enforces owner/admin access and renders trusted stored reports wit
    assert.deepEqual(record(legacyId),before);
   });
 
+
+  const ownerLinkRoute=ownerRoute+'-link',adminLinkRoute=adminRoute+'-link';
+  const linkPost=(token,options={})=>call('/api/report-download',{method:'POST',body:{token},...options});
+  const dataState=()=>Object.fromEntries(['assessments','drafts','assessment_quota','consent_records','active_consents','assessment_consents'].map(table=>[table,instance.db.prepare('SELECT * FROM '+table+' ORDER BY rowid').all().map(row=>({...row}))]));
+  let ownerLink,adminLink;
+
+  await t.test('issuing PDF links requires the original signed-in owner or bound administrator and same origin',async()=>{
+   const before=dataState(),beforeAudit=audit();
+   for(const route of [ownerLinkRoute,adminLinkRoute])assert.equal((await call(route,{method:'POST'})).status,401);
+   assert.equal((await call(ownerLinkRoute,{...other,method:'POST'})).status,404);
+   assert.equal((await call(ownerLinkRoute,{...admin,method:'POST'})).status,404);
+   assert.equal((await call(adminLinkRoute,{...owner,method:'POST'})).status,403);
+   assert.equal((await call(adminLinkRoute,{...other,method:'POST'})).status,403);
+   for(const [route,account]of [[ownerLinkRoute,owner],[adminLinkRoute,admin]]){
+    assert.equal((await call(route,{cookie:account.cookie,method:'POST'})).status,401,'issuance requires the account-switch guard');
+    assert.equal((await call(route,{...account,owner:other.owner,method:'POST'})).status,401);
+    for(const requestOrigin of ['https://untrusted.example.test',null]){
+     assert.equal((await call(route,{...account,method:'POST',requestOrigin})).status,403);
+    }
+   }
+   assert.equal((await call('/api/assessments/'+randomUUID()+'/pdf-link',{...owner,method:'POST'})).status,404);
+   assert.equal((await call('/api/admin/assessments/'+randomUUID()+'/pdf-link',{...admin,method:'POST'})).status,404);
+   assert.deepEqual(dataState(),before);
+   assert.deepEqual(audit(),beforeAudit,'rejected issuance is not audited as successful access');
+  });
+
+  await t.test('owner link downloads work without login cookies and repeat without changing reports, consent, or quota',async()=>{
+   const before=dataState(),beforeAudit=audit(),startedAt=Date.now();
+   // A no-op rewrite must fail, even if a final snapshot would hide the write.
+   for(const table of ['assessments','drafts','assessment_quota'])for(const operation of ['INSERT','UPDATE','DELETE'])instance.db.exec('CREATE TEMP TRIGGER pdf_link_read_only_'+table+'_'+operation+' BEFORE '+operation+' ON '+table+" BEGIN SELECT RAISE(ABORT, 'PDF links must be read-only'); END");
+   try{
+    const issued=await call(ownerLinkRoute,{...owner,method:'POST'});assert.equal(issued.status,200,issued.body.toString());
+    ownerLink=issued.json;
+    assert.equal(typeof ownerLink.token,'string');
+    assert.ok(ownerLink.expiresAt>=startedAt+PDF_LINK_TTL&&ownerLink.expiresAt<=Date.now()+PDF_LINK_TTL);
+    assert.match(issued.headers.get('cache-control'),/no-store/);
+    const claim=createPdfLinks(env.AUTH_SECRET).verify(ownerLink.token);assert.ok(claim);
+    assert.equal(claim.reportId,id);assert.equal(claim.ownerId,owner.owner);assert.equal(claim.issuerId,owner.owner);assert.equal(claim.admin,false);
+    assert.deepEqual(Object.keys(issued.json).sort(),['expiresAt','token'],'link response contains only the grant and expiry');
+    const direct=await call(ownerRoute,owner);assertPdf(direct);
+    for(let attempt=0;attempt<2;attempt++){
+     const response=await linkPost(ownerLink.token);assertPdf(response);
+     assert.equal(response.headers.get('referrer-policy'),'no-referrer');
+     assert.equal(response.headers.get('content-disposition'),direct.headers.get('content-disposition'));
+     if(hasPdfText)assert.equal(pdfText(response),pdfText(direct),'the link uses the unchanged trusted PDF rendering path');
+    }
+    assert.deepEqual(dataState(),before);
+    assert.deepEqual(audit(),beforeAudit,'ordinary owner links do not create administrator audit events');
+   }finally{
+    for(const table of ['assessments','drafts','assessment_quota'])for(const operation of ['INSERT','UPDATE','DELETE'])instance.db.exec('DROP TRIGGER pdf_link_read_only_'+table+'_'+operation);
+   }
+  });
+
+  await t.test('admin link issuance and cookie-free PDF download are separately audited with identifiers only',async()=>{
+   const before=dataState(),beforeAudit=audit(),priorIds=new Set(beforeAudit.map(row=>row.id));
+   const issued=await call(adminLinkRoute,{...admin,method:'POST'});assert.equal(issued.status,200,issued.body.toString());
+   adminLink=issued.json;
+   const claim=createPdfLinks(env.AUTH_SECRET).verify(adminLink.token);assert.ok(claim);
+   assert.equal(claim.reportId,id);assert.equal(claim.ownerId,owner.owner);assert.equal(claim.issuerId,admin.owner);assert.equal(claim.admin,true);
+   const issuance=audit().filter(row=>!priorIds.has(row.id));assert.equal(issuance.length,1);
+   assert.equal(issuance[0].action,'issue-pdf-link');
+   const downloaded=await linkPost(adminLink.token);assertPdf(downloaded);
+   assert.equal(downloaded.headers.get('referrer-policy'),'no-referrer');
+   if(hasPdfText){const text=pdfText(downloaded);assert.match(text,/合成报告用户/);assert.doesNotMatch(text,/Synthetic PDF Admin|pdf-admin@example\.test/);}
+   const events=audit().filter(row=>!priorIds.has(row.id));assert.equal(events.length,2);
+   assert.deepEqual(events.map(row=>row.action).sort(),['export-pdf','issue-pdf-link']);
+   for(const event of events){
+    assert.deepEqual(Object.keys(event),['id','admin_id','action','report_id','created_at']);
+    assert.equal(event.admin_id,admin.owner);assert.equal(event.report_id,id);
+   }
+   assert.doesNotMatch(JSON.stringify(events),/answers|seconds|score|pdf-owner@example|合成报告用户/);
+   assert.deepEqual(dataState(),before);
+  });
+
+  await t.test('invalid, expired, deleted, and wrong-owner grants fail closed; POST requires same origin',async()=>{
+   const before=dataState(),beforeAudit=audit();
+   for(const requestOrigin of ['https://untrusted.example.test',null])assert.equal((await linkPost(ownerLink.token,{requestOrigin})).status,403);
+   for(const route of ['/api/me','/api/assessments','/api/admin/assessments',ownerRoute,'/api/report-download']){
+    assert.equal((await call(route+'?token='+encodeURIComponent(ownerLink.token))).status,401,'a PDF capability cannot act as a login session or a GET download');
+   }
+   const expired=createPdfLinks(env.AUTH_SECRET,()=>Date.now()-PDF_LINK_TTL-1000).issue({reportId:id,ownerId:owner.owner,issuerId:owner.owner,admin:false}).token;
+   const missing=createPdfLinks(env.AUTH_SECRET).issue({reportId:randomUUID(),ownerId:owner.owner,issuerId:owner.owner,admin:false}).token;
+   const wrongOwner=createPdfLinks(env.AUTH_SECRET).issue({reportId:id,ownerId:other.owner,issuerId:other.owner,admin:false}).token;
+   const tampered=(ownerLink.token[0]==='A'?'B':'A')+ownerLink.token.slice(1);
+   const assertGone=response=>{
+    assert.equal(response.status,410,response.body.toString());
+    assert.ok(response.json?.error);
+    assert.doesNotMatch(response.headers.get('content-type')||'',/application\/pdf/);
+    assert.equal(response.headers.get('content-disposition'),null);
+    assert.match(response.headers.get('cache-control'),/no-store/);
+    assert.equal(response.headers.get('referrer-policy'),'no-referrer');
+   };
+   for(const token of [undefined,null,'',{},[],tampered,expired,missing,wrongOwner])assertGone(await linkPost(token));
+   // Exercise deletion of a real granted record, then restore the synthetic fixture.
+   instance.db.exec('SAVEPOINT deleted_pdf_link');
+   try{
+    instance.db.prepare('DELETE FROM assessment_consents WHERE assessment_id=?').run(id);
+    instance.db.prepare('DELETE FROM assessments WHERE id=?').run(id);
+    assertGone(await linkPost(ownerLink.token));
+   }finally{instance.db.exec('ROLLBACK TO deleted_pdf_link; RELEASE deleted_pdf_link;');}
+   assert.deepEqual(dataState(),before);
+   assert.deepEqual(audit(),beforeAudit,'failed downloads cannot be audited as completed exports');
+  });
+
   env.ADMIN_USER_ID='';await stop();await start();
   await t.test('revoking the immutable admin binding immediately revokes PDF access',async()=>{
+   const beforeAudit=audit();
    assert.equal((await call(adminRoute,admin)).status,403);
+   assert.equal((await linkPost(adminLink.token)).status,410,'revoked administrator cannot use a previously issued grant');
+   assert.equal((await call(adminLinkRoute,{...admin,method:'POST'})).status,403);
+   assert.deepEqual(audit(),beforeAudit);
+   assertPdf(await linkPost(ownerLink.token));
    assert.deepEqual(record(id),original);
   });
  }finally{await stop();fs.rmSync(dir,{recursive:true,force:true});}

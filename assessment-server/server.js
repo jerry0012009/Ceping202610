@@ -1,4 +1,5 @@
 import express from 'express';
+import {createPdfLinks} from './pdf-links.js';
 import {createQuotaStore,quotaError} from './quota.js';
 import {CONSENT_NOTICE,createConsentStore} from './consent.js';
 import {answerDetails} from './answer-details.js';
@@ -30,6 +31,7 @@ export async function createApplication(env=process.env){
  const dir=path.resolve(root,env.DATA_DIR||'data');fs.mkdirSync(dir,{recursive:true,mode:0o700});
  if(process.platform!=='win32'&&(fs.statSync(dir).mode&0o077)){if(dir===path.join(root,'data'))fs.chmodSync(dir,0o700);else throw new Error('DATA_DIR 必须是当前服务独占的0700私有目录');}
  const db=new DatabaseSync(path.join(dir,'assessment.sqlite'));db.exec('PRAGMA journal_mode=WAL; PRAGMA foreign_keys=ON; PRAGMA busy_timeout=5000;');
+ const pdfLinks=createPdfLinks(secret);
  const auth=betterAuth({appName:'个人测评',baseURL:origin,secret,database:db,trustedOrigins:[origin],
  emailAndPassword:{enabled:true,minPasswordLength:6,maxPasswordLength:128,requireEmailVerification:false},
  session:{expiresIn:60*60*24*7,updateAge:60*60*24,cookieCache:{enabled:false}},
@@ -52,6 +54,16 @@ export async function createApplication(env=process.env){
  // Better Auth must receive the unconsumed request body, before express.json().
  app.all('/api/auth/*splat',toNodeHandler(auth));
  app.use('/api',express.json({limit:'64kb',strict:true}));
+ // The capability is accepted only by this PDF-only endpoint, never as a login session.
+ app.post('/api/report-download',async(req,res)=>{
+  res.set({'Referrer-Policy':'no-referrer','X-Robots-Tag':'noindex, nofollow, noarchive'});
+  const grant=pdfLinks.verify(req.body?.token);
+  if(!grant)return res.status(410).json({error:'下载链接无效或已过期，请返回报告页重新获取。'});
+  if(grant.admin&&grant.issuerId!==adminUserId)return res.status(410).json({error:'下载权限已失效，请返回报告页重新获取。'});
+  const row=db.prepare('SELECT a.*,u.name AS ownerName,u.email AS ownerEmail FROM assessments a JOIN user u ON u.id=a.user_id WHERE a.id=? AND a.user_id=?').get(grant.reportId,grant.ownerId);
+  if(!row)return res.status(410).json({error:'下载链接已失效。'});
+  await sendPdf(req,res,row,{name:row.ownerName,email:row.ownerEmail},grant.admin?()=>audit(grant.issuerId,'export-pdf',row.id):undefined,false);
+ });
  app.use('/api',async(req,res,next)=>{try{const session=await auth.api.getSession({headers:fromNodeHeaders(req.headers)});if(!session)return res.status(401).json({error:'请先登录'});req.user=session.user;next();}catch{res.status(401).json({error:'会话无效，请重新登录'});}});
  app.use('/api',(req,res,next)=>{
   const guarded=(req.path==='/draft'&&['PUT','DELETE'].includes(req.method))||(req.path==='/assessments'&&req.method==='POST')||(req.path==='/consent'&&req.method==='POST');
@@ -105,9 +117,9 @@ export async function createApplication(env=process.env){
  const serialize=row=>({id:row.id,version:row.version,createdAt:row.created_at,report:readStoredReport(row)});
  app.get('/api/assessments/:id',(req,res)=>{const row=db.prepare('SELECT * FROM assessments WHERE id=? AND user_id=?').get(req.params.id,req.user.id);if(!row)return res.status(404).json({error:'记录不存在'});res.json(serialize(row));});
  // Export only the same server-recalculated presentation used by history views.
- const sendPdf=async(req,res,row,owner,onSuccess)=>{
+ const sendPdf=async(req,res,row,owner,onSuccess,checkOwner=true)=>{
   if(!row)return res.status(404).json({error:'记录不存在'});
-  if(req.get('X-Assessment-Owner')&&req.get('X-Assessment-Owner')!==req.user.id)return res.status(401).json({error:'登录账户已切换，请重新登录后继续。'});
+  if(checkOwner&&req.get('X-Assessment-Owner')&&req.get('X-Assessment-Owner')!==req.user.id)return res.status(401).json({error:'登录账户已切换，请重新登录后继续。'});
   const saved={...serialize(row),owner};
   const controller=new AbortController();
   const closed=()=>{if(!res.writableEnded)controller.abort();};
@@ -119,6 +131,15 @@ export async function createApplication(env=process.env){
    res.set({'Content-Type':'application/pdf','Content-Disposition':pdfDisposition(saved),'Cache-Control':'no-store','X-Report-Export-Version':PDF_REVISION}).send(pdf);
   }finally{res.removeListener('close',closed);}
  };
+ const issuePdfLink=(req,res,row,admin=false)=>{
+  if(req.get('X-Assessment-Owner')!==req.user.id)return res.status(401).json({error:'登录账户已切换，请重新登录后继续。'});
+  if(!row)return res.status(404).json({error:'记录不存在'});
+  res.set('Referrer-Policy','no-referrer');
+  res.json(pdfLinks.issue({reportId:row.id,ownerId:row.user_id,issuerId:req.user.id,admin}));
+ };
+ app.post('/api/assessments/:id/pdf-link',(req,res)=>{
+  issuePdfLink(req,res,db.prepare('SELECT id,user_id FROM assessments WHERE id=? AND user_id=?').get(req.params.id,req.user.id));
+ });
  app.get('/api/assessments/:id/pdf',async(req,res)=>{
   const row=db.prepare('SELECT * FROM assessments WHERE id=? AND user_id=?').get(req.params.id,req.user.id);
   await sendPdf(req,res,row,{name:req.user.name,email:req.user.email});
@@ -134,6 +155,11 @@ export async function createApplication(env=process.env){
   const row=db.prepare('SELECT a.*,u.id AS ownerId,u.name AS ownerName,u.email AS ownerEmail FROM assessments a JOIN user u ON u.id=a.user_id WHERE a.id=?').get(req.params.id);
   if(!row)return res.status(404).json({error:'记录不存在'});
   audit(req.user.id,'view',row.id);res.json({...serialize(row),owner:{id:row.ownerId,name:row.ownerName,email:row.ownerEmail}});
+ });
+ app.post('/api/admin/assessments/:id/pdf-link',(req,res)=>{
+  const row=db.prepare('SELECT id,user_id FROM assessments WHERE id=?').get(req.params.id);
+  if(req.get('X-Assessment-Owner')===req.user.id&&row)audit(req.user.id,'issue-pdf-link',row.id);
+  issuePdfLink(req,res,row,true);
  });
  app.get('/api/admin/assessments/:id/pdf',async(req,res)=>{
   const row=db.prepare('SELECT a.*,u.name AS ownerName,u.email AS ownerEmail FROM assessments a JOIN user u ON u.id=a.user_id WHERE a.id=?').get(req.params.id);
@@ -173,6 +199,7 @@ export async function createApplication(env=process.env){
 
  });
  app.use('/api',(req,res)=>res.status(404).json({error:'接口不存在'}));
+ app.get('/report-download.html',(req,res,next)=>{res.set({'Cache-Control':'no-store','Referrer-Policy':'no-referrer','X-Robots-Tag':'noindex, nofollow, noarchive'});next();});
  // Never serve the project root, private/, data/, tests, or node_modules.
  app.use(express.static(path.join(root,'public'),{dotfiles:'deny',index:'index.html',fallthrough:true}));
  app.use((req,res)=>res.status(404).send('Not found'));

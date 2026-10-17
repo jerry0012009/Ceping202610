@@ -45,3 +45,6 @@
 
 /* The account quota stays visible on narrow screens without changing report styling. */
 .account-summary{display:flex;flex-direction:column;gap:4px}.quota-status{white-space:nowrap;font-variant-numeric:tabular-nums;font-size:11px}
+
+/* Keep download recovery visible and selectable in embedded/mobile browsers. */
+.pdf-fallback{padding:18px 20px;margin:0 0 22px;border:1px solid #efddc4;border-radius:10px;background:#fff7ed;overflow-wrap:anywhere}.pdf-fallback[hidden]{display:none}.pdf-fallback h2{font-size:16px;margin:0 0 10px}.pdf-fallback p{font-size:13px;line-height:1.8;margin:10px 0}.pdf-fallback .field{margin:14px 0 0}.pdf-fallback textarea{min-width:0;resize:vertical;user-select:text;-webkit-user-select:text;font-size:16px;overflow-wrap:anywhere}.pdf-fallback .btn{white-space:normal;max-width:100%}@media(max-width:560px){.pdf-fallback{padding:16px}.pdf-fallback .btn{width:100%}}@media print{.pdf-fallback{display:none!important}}
